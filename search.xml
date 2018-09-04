@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F09%2F01%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Jos’s blog! This is my first post.]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+      <tags>
+        <tag>hi</tag>
+      </tags>
+  </entry>
+</search>
