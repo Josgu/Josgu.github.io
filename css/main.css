@@ -1738,6 +1738,8 @@ pre .javascript .function {
   max-width: 96px;
   height: auto;
   border: 2px solid #333;
+  border-radius: 60%;
+  transition: 2.5s all;
 }
 .site-author-name {
   margin: 5px 0 0;
@@ -1819,7 +1821,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #54affc;
+  background: #ff1bb6;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2735,8 +2737,8 @@ embed {
   color: #4c618f;
 }
 .site-author-name {
-  margin: 48px 0 0;
-  color: #090909;
+  margin: 0px 0 0;
+  color: #87daff;
   font-family: 'Comic Sans MS', sans-serif;
 }
 .links-of-blogroll {

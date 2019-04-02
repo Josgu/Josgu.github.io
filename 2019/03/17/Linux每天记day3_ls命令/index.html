@@ -68,22 +68,26 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/site.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/site.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/site.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/site.png?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/site.png">
+
+
+  <meta name="msapplication-config" content="/images/site.png" />
 
 
 
-
-
-  <meta name="keywords" content="Linux文件目录管理,ls," />
+  <meta name="keywords" content="Linux文件和目录管理,ls," />
 
 
 
@@ -95,7 +99,7 @@
 
 
 <meta name="description" content="lsls (list) 列出目录内容以及目录详细信息 语法： ls [OPTIONS]  [FILE] 选项：选项较多，背记常用选项 -a 显示当前目录所有文件 -l 显示当前目录文件的详细信息 -t 以时间顺序排序 -h 以人性化方式显示 -n 用数字的 UID,GID 代替名称 -R 递归列出所有目录的文件 -d 以文件名显示当前目录 -S 以文件大小排序 操作：">
-<meta name="keywords" content="Linux文件目录管理,ls">
+<meta name="keywords" content="Linux文件和目录管理,ls">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux每天记day3:ls命令">
 <meta property="og:url" content="http://blog.josgu.com/2019/03/17/Linux每天记day3_ls命令/index.html">
@@ -103,7 +107,7 @@
 <meta property="og:description" content="lsls (list) 列出目录内容以及目录详细信息 语法： ls [OPTIONS]  [FILE] 选项：选项较多，背记常用选项 -a 显示当前目录所有文件 -l 显示当前目录文件的详细信息 -t 以时间顺序排序 -h 以人性化方式显示 -n 用数字的 UID,GID 代替名称 -R 递归列出所有目录的文件 -d 以文件名显示当前目录 -S 以文件大小排序 操作：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190317222633743.png">
-<meta property="og:updated_time" content="2019-04-02T07:50:18.730Z">
+<meta property="og:updated_time" content="2019-04-02T10:48:51.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux每天记day3:ls命令">
 <meta name="twitter:description" content="lsls (list) 列出目录内容以及目录详细信息 语法： ls [OPTIONS]  [FILE] 选项：选项较多，背记常用选项 -a 显示当前目录所有文件 -l 显示当前目录文件的详细信息 -t 以时间顺序排序 -h 以人性化方式显示 -n 用数字的 UID,GID 代替名称 -R 递归列出所有目录的文件 -d 以文件名显示当前目录 -S 以文件大小排序 操作：">
@@ -218,16 +222,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-top">
-          <a href="/top/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
-            
-            top
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
@@ -244,16 +238,6 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -329,7 +313,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jos">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -465,7 +449,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux文件目录管理/" rel="tag"># Linux文件目录管理</a>
+            <a href="/tags/Linux文件和目录管理/" rel="tag"># Linux文件和目录管理</a>
           
             <a href="/tags/ls/" rel="tag"># ls</a>
           
@@ -560,6 +544,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="Jos" />
+            
               <p class="site-author-name" itemprop="name">Jos</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
@@ -593,7 +581,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -640,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ls"><span class="nav-number">1.</span> <span class="nav-text">ls</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ls"><span class="nav-text">ls</span></a></li></ol></div>
             
 
           </div>

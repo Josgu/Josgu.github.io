@@ -68,18 +68,22 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/site.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/site.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/site.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/site.png?v=5.1.4" color="#222">
 
 
+  <link rel="manifest" href="/images/site.png">
+
+
+  <meta name="msapplication-config" content="/images/site.png" />
 
 
 
@@ -212,16 +216,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-top">
-          <a href="/top/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
-            
-            top
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
@@ -238,16 +232,6 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -318,12 +302,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/17/Linux每天记day3_ls命令/">
+    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/25/数据结构与算法_递归/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jos">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -337,7 +321,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/17/Linux每天记day3_ls命令/" itemprop="url">Linux每天记day3:ls命令</a></h1>
+                <a class="post-title-link" href="/2019/03/25/数据结构与算法_递归/" itemprop="url">数据结构与算法:递归</a></h1>
         
 
         <div class="post-meta">
@@ -349,8 +333,176 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T22:27:00+08:00">
-                2019-03-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T11:06:00+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  197
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>简单理解：对函数自身反复调用<br>当问题是重复的子问题，递归可以很好的实现<br>简例：斐波那契数列的迭代实现<br>F(0)=0，F(1)=1<br>斐波那契数列F(n)=F(n-1)+F(n-2) (n&gt;1)<br>遍历：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">	int fib[<span class="number">40</span>];</span><br><span class="line">	fib[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	fib[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	for(int i=<span class="number">2</span>; i &lt; <span class="number">40</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		a[i] = a[i<span class="number">-1</span>] + a[i<span class="number">-2</span>];</span><br><span class="line">		printf(<span class="string">"%d<span class="subst">\n</span>"</span> , a[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	return <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>递归：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Fib</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>( n &lt; <span class="number">2</span>)</span><br><span class="line">		<span class="keyword">return</span> i == <span class="number">0</span> ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> Fib(i<span class="number">-1</span>) + Fib(i<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>简例：汉诺塔问题<br>三个柱子，A、B、C</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">int</span> n , <span class="keyword">char</span> A, <span class="keyword">char</span> B , <span class="keyword">char</span> C)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>（n == <span class="number">1</span>)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c-----&gt;%c"</span> , A , B);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		move (n<span class="number">-1</span>,A , B , C);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c-----&gt;%c"</span> , A , C);</span><br><span class="line">		move (n<span class="number">-1</span>, B, A, C);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/24/Linux每天记day10_nl命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jos's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/24/Linux每天记day10_nl命令/" itemprop="url">Linux每天记day10:nl命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-24T21:10:00+08:00">
+                2019-03-24
               </time>
             
 
@@ -405,7 +557,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  119
+                  331
                 </span>
               
 
@@ -433,19 +585,30 @@
         
           
             <hr>
-<h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p>ls (list) 列出目录内容以及目录详细信息</p>
-<p>语法：</p>
-<pre><code>ls [OPTIONS]  [FILE]
-</code></pre><p>选项：<br>选项较多，背记常用选项</p>
-<pre><code>-a 显示当前目录所有文件
--l 显示当前目录文件的详细信息
--t 以时间顺序排序
--h 以人性化方式显示
--n 用数字的 UID,GID 代替名称
--R 递归列出所有目录的文件
--d 以文件名显示当前目录
--S 以文件大小排序
-</code></pre><p>操作：<br><img src="https://img-blog.csdnimg.cn/20190317222633743.png" alt="在这里插入图片描述"></p>
+<h4 id="nl"><a href="#nl" class="headerlink" title="nl"></a>nl</h4><p>nl (Number of Lines) 将指定的文件添加行号标注后写到标准输出。如果不指定文件或指定文件为”-“ ，程序将从标准输入读取数据。<br>语法:</p>
+<pre><code>nl [OPTION]... [FILE]...
+</code></pre><p>选项:</p>
+<pre><code>-b, --body-numbering=样式    使用指定样式编号文件的正文行目   
+-d, --section-delimiter=CC    使用指定的CC 分割逻辑页数    
+-f, --footer-numbering=样式    使用指定样式编号文件的页脚行目    
+-h, --header-numbering=样式    使用指定样式编号文件的页眉行目
+-i, --page-increment=数值    设置每一行遍历后的自动递增值
+-l, --join-blank-lines=数值    设置数值为多少的若干空行被视作一行
+-n, --number-format= 格式    根据指定格式插入行号
+-p, 在逻辑页数切换时不将行号值复位
+-s, --number-separator=字符串    可能的话在行号后添加字符串   
+-v, --starting-line-number=数字    每个逻辑页上的第一行的行号
+-w, --number-width= 数字    为行号使用指定的栏数
+      a    对所有行编号 
+      t    对非空行编号
+      n    不编行号
+      pBRE    只对符合正则表达式BRE 的行编号
+
+    FORMAT 是下列之一: 
+      ln    左对齐，空格不用0 填充
+      rn    右对齐，空格不用0 填充
+      rz    右对齐，空格用0 填充
+</code></pre><p>操作:<br><img src="https://img-blog.csdnimg.cn/20190324211009479.png" alt="在这里插入图片描述"></p>
 
           
         
@@ -494,12 +657,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/17/LeetCode每天刷day3_Longest Substring Without Repeating Characters/">
+    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/24/LeetCode每天刷day10_Longest Common Prefix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jos">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -513,7 +676,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/17/LeetCode每天刷day3_Longest Substring Without Repeating Characters/" itemprop="url">LeetCode每天刷day3:Longest Substring Without Repeating Characters</a></h1>
+                <a class="post-title-link" href="/2019/03/24/LeetCode每天刷day10_Longest Common Prefix/" itemprop="url">LeetCode每天刷day10:Longest Common Prefix</a></h1>
         
 
         <div class="post-meta">
@@ -525,8 +688,151 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T09:00:00+08:00">
-                2019-03-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-24T20:25:00+08:00">
+                2019-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  78
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p><a href="https://leetcode-cn.com/problems/longest-common-prefix" target="_blank" rel="noopener">题目链接:Longest Common Prefix</a><br>C++</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">string</span> longestCommonPrefix(vector&lt;<span class="keyword">string</span>&gt;&amp; strs) &#123;</span><br><span class="line">        <span class="keyword">int</span> lens = strs.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">if</span>(lens==<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">string</span> ans=strs[<span class="number">0</span>];</span><br><span class="line">        <span class="built_in">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;lens;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> j=<span class="number">0</span>,len=<span class="built_in">min</span>(ans.<span class="built_in">size</span>(),strs[i].<span class="built_in">size</span>());</span><br><span class="line">            <span class="built_in">while</span>(j&lt;len &amp;&amp; ans[j]==strs[i][j])</span><br><span class="line">                j++;</span><br><span class="line">            ans.erase(ans.<span class="built_in">begin</span>()+j,ans.<span class="built_in">end</span>());</span><br><span class="line">            <span class="built_in">if</span>(ans==<span class="string">""</span>)</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/24/LeetCode每天刷day10;Roman to Integer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jos's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/24/LeetCode每天刷day10;Roman to Integer/" itemprop="url">LeetCode每天刷day10:Roman to Integer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-24T20:11:00+08:00">
+                2019-03-24
               </time>
             
 
@@ -581,7 +887,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  146
+                  96
                 </span>
               
 
@@ -609,10 +915,8 @@
         
           
             <hr>
-<p><a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters" target="_blank" rel="noopener">题目链接：Longest Substring Without Repeating Characters</a></p>
-<p>C++：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lenS = s.size();</span><br><span class="line">        <span class="keyword">if</span> (lenS &lt;= <span class="number">1</span>) </span><br><span class="line">            <span class="keyword">return</span> lenS;</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="keyword">char</span>&gt; <span class="built_in">set</span>;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (r &lt; lenS) &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="built_in">set</span>.count(s[r])) &#123;</span><br><span class="line">                <span class="built_in">set</span>.erase(s[l]);</span><br><span class="line">                l++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">set</span>.insert(s[r]);</span><br><span class="line">            ans = max(ans, <span class="keyword">int</span>(<span class="built_in">set</span>.size()));</span><br><span class="line">            r++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>运用了尺取思想，动态扩大尺子的长度，如果没有重复元素就让尺子的右边右移，如果有重复元素，则将尺子的左边右移，用ans中记录set出现的最大size即为最大的非重复连续子串。</p>
+<p>   <a href="https://leetcode-cn.com/problems/roman-to-integer" target="_blank" rel="noopener">题目链接:Roman to Integer</a></p>
+<p>C++:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; m&#123;&#123;<span class="string">'I'</span>, <span class="number">1</span>&#125;, &#123;<span class="string">'V'</span>, <span class="number">5</span>&#125;, &#123;<span class="string">'X'</span>, <span class="number">10</span>&#125;, &#123;<span class="string">'L'</span>, <span class="number">50</span>&#125;, </span><br><span class="line">        						   &#123;<span class="string">'C'</span>, <span class="number">100</span>&#125;, &#123;<span class="string">'D'</span>, <span class="number">500</span>&#125;, &#123;<span class="string">'M'</span>, <span class="number">1000</span>&#125;&#125;;</span><br><span class="line">        <span class="keyword">int</span> lens = s.size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lens; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> val = m[s[i]];</span><br><span class="line">            <span class="keyword">if</span> (i == lens - <span class="number">1</span> || m[s[i+<span class="number">1</span>]] &lt;= m[s[i]]) </span><br><span class="line">                res += val;</span><br><span class="line">            <span class="keyword">else</span> res -= val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -661,12 +965,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/16/LeetCode每天刷day2_Add Two Numbers/">
+    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/23/Linux每天记day9_tail命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jos">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -680,7 +984,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/16/LeetCode每天刷day2_Add Two Numbers/" itemprop="url">LeetCode每天刷day2:Add Two Numbers</a></h1>
+                <a class="post-title-link" href="/2019/03/23/Linux每天记day9_tail命令/" itemprop="url">Linux每天记day9:tail命令</a></h1>
         
 
         <div class="post-meta">
@@ -692,8 +996,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T11:28:00+08:00">
-                2019-03-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-23T23:27:00+08:00">
+                2019-03-23
               </time>
             
 
@@ -715,8 +1019,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/LInux指令/" itemprop="url" rel="index">
+                    <span itemprop="name">LInux指令</span>
                   </a>
                 </span>
 
@@ -748,7 +1052,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  119
+                  169
                 </span>
               
 
@@ -776,1283 +1080,16 @@
         
           
             <hr>
-<p><a href="https://leetcode-cn.com/problems/add-two-numbers/" target="_blank" rel="noopener">题目链接：Add Two Numbers</a></p>
-<p>C++语言：</p>
-<figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        ListNode* resultHead = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode *result = resultHead;</span><br><span class="line">        <span class="keyword">int</span> sumTwo = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>; <span class="comment">//进位</span></span><br><span class="line">        <span class="keyword">while</span>(l1 || l2 || carry)&#123;</span><br><span class="line">            sumTwo = (l1 ? l1-&gt;val : <span class="number">0</span>) + (l2 ? l2-&gt;val : <span class="number">0</span>) + carry;</span><br><span class="line">            <span class="keyword">if</span>(sumTwo &gt;= <span class="number">10</span>)&#123;</span><br><span class="line">                sumTwo %= <span class="number">10</span>;</span><br><span class="line">                carry = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                carry = <span class="number">0</span>;</span><br><span class="line">            result-&gt;next = <span class="keyword">new</span> ListNode(sumTwo);</span><br><span class="line">            result = result-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(l1)</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(l2)</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resultHead-&gt;next; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/16/Linux每天记day2_cd命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jos's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/16/Linux每天记day2_cd命令/" itemprop="url">Linux每天记day2:cd命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T08:36:00+08:00">
-                2019-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux指令/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux指令</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  49
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h3 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h3><p>cd(change directory),改变shell工作目录</p>
-<p>语法：</p>
-<pre><code>cd [OPTIONS]  [FILE]
-</code></pre><p>选项：</p>
-<pre><code>-P 切换到真正的物理目录，而不是软连接目录
--L 强制遵循符号链接(懵逼)
-</code></pre><p>操作：<br><img src="https://img-blog.csdnimg.cn/20190316083803400.png" alt="在这里插入图片描述"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/15/LeetCode每天刷day1_Two Sum/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jos's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/15/LeetCode每天刷day1_Two Sum/" itemprop="url">LeetCode每天刷day1:Two Sum</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T22:58:00+08:00">
-                2019-03-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  182
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/two-sum/" target="_blank" rel="noopener">题目链接：Two Sum</a></p>
-<p>C++语言:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//暴力求解，时间复杂度O(n*n)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum;</span><br><span class="line">        <span class="keyword">int</span> lenNums = nums.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; lenNums; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j&lt;lenNums; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>((nums[i] + nums[j]) == target)&#123;</span><br><span class="line">                    twoSum.push_back(i);</span><br><span class="line">                    twoSum.push_back(j);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> twoSum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//利用hash查找，时间复杂度降到O(n);</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">int</span> lenNums = nums.size();</span><br><span class="line">        <span class="keyword">int</span> tmp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; lenNums; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(m.count(nums[i]) &gt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                twoSum.push_back(m[nums[i]]);</span><br><span class="line">                twoSum.push_back(i);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            tmp = target - nums[i];</span><br><span class="line">            m.insert(pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;(tmp, i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> twoSum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/15/Linux每天记day1_pwd命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jos's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/15/Linux每天记day1_pwd命令/" itemprop="url">Linux每天记day1:pwd命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T16:07:00+08:00">
-                2019-03-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux指令/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux指令</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  75
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><p><strong>pwd (print work directory)打印当前工作目录，以绝对路径方式显示当前用户的工作目录</strong></p>
-<p><strong>语法：</strong></p>
-<pre><code>pwd [OPTION]
-</code></pre><p><strong>选项：</strong></p>
-<pre><code>-L           --logical  //当前目录为连接路径时，显示链接的路径
--P       --physical //显示实际的物理路径，而不是链接路径
-</code></pre><p><strong>操作：</strong><br><img src="https://img-blog.csdnimg.cn/20190315160306470.png" alt="在这里插入图片描述"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/14/数据结构与算法_二叉树存储与遍历/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jos's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/14/数据结构与算法_二叉树存储与遍历/" itemprop="url">数据结构与算法:二叉树存储与遍历</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-14T19:43:00+08:00">
-                2019-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  767
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>每个结点最多有两个子树的树，左右子树是有顺序的。<br>就算某个结点仅有一棵子树，也需要分左右子树。<br>二叉树的第i层最多有2^(i-1)个结点</p>
-<p>特殊的二叉树：</p>
-<ul>
-<li>斜树</li>
-<li>满二叉树</li>
-<li>完全二叉树</li>
-</ul>
-<p><strong>二叉树的存储结构</strong></p>
-<p>二叉树的顺序存储结构：对斜树存储很不友好<br>二叉树的链式存储结构：使用二叉链表，用两个指针分别指向左右子树。</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">typedef</span> <span class="keyword">struct </span><span class="keyword">BiTNode</span></span><br><span class="line"><span class="keyword">&#123;</span></span><br><span class="line"><span class="keyword">	</span>TElemType <span class="meta">data</span><span class="comment">;</span></span><br><span class="line">	<span class="keyword">struct </span><span class="keyword">BiTNode </span>*lchild, *rchild<span class="comment">;</span></span><br><span class="line">&#125;<span class="keyword">BiTNode, </span>*<span class="keyword">BiTree;</span></span><br></pre></td></tr></table></figure>
-<p><strong>二叉树的遍历</strong><br>按照某种次序依次访问二叉树中所有的结点，使每一个结点都被访问一次</p>
-<ol>
-<li>前序遍历：二叉树如果为空，则空操作返回，否则先访问根结点，然后<strong>前序遍历</strong>左子树，再<strong>前序遍历</strong>右子树。<strong>根</strong>左右</li>
-<li>中序遍历：二叉树如果为空，则空操作返回，否则<strong>从根结点开始</strong>，然后<strong>中序遍历</strong>左子树，然后访问根结点，再<strong>中序遍历</strong>右子树 ，左<strong>根</strong>右</li>
-<li>后续遍历：二叉树如果为空，则空操作返回，否则从左到右先叶子后结点方式遍历左右子树，然后访问根结点，左右<strong>根</strong></li>
-<li>层序遍历：一层层从做到右遍历</li>
-</ol>
-<p><del>以前序遍历输出层数。</del> </p>
-<p>~~#include&lt;stdio.h&gt;</p>
-<p>#include&lt;stdlib.h&gt;<br>typedef char ElemType;<br>typedef struct BiTNode<br>{<br>    ElemType data;<br>    struct BiTNode <em>lchild, </em>rchild;<br>}BiTNode, <em>BiTree;<br>void CreateBiTree(BiTree </em>T){<br>    char c;<br>    scanf(“%c”, &amp;c);<br>    if(‘#’ == c){<br>        <em>T = NULL;<br>    }<br>    else<br>    {
-        </em>T = (BiTNode <em>)malloc(sizeof(BiTNode));<br>        (</em>T)-&gt;data = c;<br>        CreateBiTree(&amp;(<em>T)-&gt;lchild);<br>        CreateBiTree(&amp;(</em>T)-&gt;rchild);<br>    }<br>}<br>void visit(char c,int level){<br>    printf(“%c 位于第 %d 层\n”, c, level);<br>}<br>void PreOrderTraverse(BiTree T, int level){<br>    if(T){<br>        visit(T-&gt;data,level);<br>        PreOrderTraverse(T-&gt;lchild, level + 1);<br>        PreOrderTraverse(T-&gt;rchild, level + 1);<br>    }<br>}<br>int main(){<br>    int level = 1;<br>    BiTree T = NULL;<br>    CreateBiTree(&amp;T);<br>    PreOrderTraverse(T, level);<br>    return 0;<br>}~~ </p>
-<p>前序遍历算法:</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void PreOrderTraverse(BiTree T)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(T == NULL)</span><br><span class="line">		return ;</span><br><span class="line">	<span class="function"><span class="title">printf</span>("%c", T-&gt;</span><span class="keyword">data</span>);			<span class="comment">//根</span></span><br><span class="line">	P<span class="function"><span class="title">reOrderTraverse</span>(T-&gt;</span>lchild);    <span class="comment">//左</span></span><br><span class="line">	P<span class="function"><span class="title">reOrderTraverse</span>(T-&gt;</span>rchild);    <span class="comment">//右</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>中序遍历算法:</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void InOrderTraverse(BiTree T)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(T == NULL)</span><br><span class="line">		return ;</span><br><span class="line">	I<span class="function"><span class="title">nOrderTraverse</span>(T-&gt;</span>lchild);  	<span class="comment">//左</span></span><br><span class="line">	<span class="function"><span class="title">printf</span>("%c", T-&gt;</span><span class="keyword">data</span>);			<span class="comment">//根</span></span><br><span class="line">	I<span class="function"><span class="title">nOrderTraverse</span>(T-&gt;</span>rchild);		<span class="comment">//右</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>后序遍历算法:</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void PostOrderTraverse(BiTree T)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(T == NULL)</span><br><span class="line">		return ;</span><br><span class="line">	P<span class="function"><span class="title">ostOrderTraverse</span>(T-&gt;</span>lchild);	<span class="comment">//左</span></span><br><span class="line">	P<span class="function"><span class="title">ostOrderTraverse</span>(T-&gt;</span>rchild);	<span class="comment">//右</span></span><br><span class="line">	<span class="function"><span class="title">printf</span>("%c", T-&gt;</span><span class="keyword">data</span>);			<span class="comment">//根</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>二叉树遍历常考:</p>
-<ul>
-<li>已知前序遍历序列和中序遍历序列,求这颗二叉树后序遍历序列? </li>
-<li>已知后序遍历序列和中序遍历序列,求这颗二叉树前序遍历序列?<br>方法:</li>
-</ul>
-<p>1.首先通过前序遍历序列(后序遍历序列)判断根部的结点位置<br>2.再通过中序遍历和根结点位置判断左右子树的结点,在根结点左边的为左子树结点,右边为右子树结点<br>3.最后通过前序遍历序列(后序遍历序列)判断左子树和右子树中的层级关系,通过中序遍历序列判断兄弟之间的关系</p>
-<p>得出树后再通过树反推一遍树的前序和中序(后序和中序)验证.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/14/数据结构与算法_树的存储/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jos's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/14/数据结构与算法_树的存储/" itemprop="url">数据结构与算法:树的存储</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-14T16:16:00+08:00">
-                2019-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  453
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>Tree是n（n &gt;= 0）个结点的有限集。当n = 0时为空树，在任意一颗非空树中存在以下性质：</p>
-<ul>
-<li>有且仅有一个特定的名字为根的结点</li>
-<li>当n&gt;1 时，其余结点可以分为m（m&gt;0）个互不相交的有限集 T1,T2….Tm，其中每一个集合本身又是一颗树，并且称为根的子树（SubTree）。<br><strong>度</strong>：结点拥有子树的数量称为结点的度（Degree），树的度取树内各结点度的最大值<br>度为0称为 叶结点<br>结点的层次：根为第一层，深度为最大的层数</li>
-</ul>
-<h3 id="树的存储结构"><a href="#树的存储结构" class="headerlink" title="树的存储结构"></a>树的存储结构</h3><p><strong>双亲表示法</strong><br>以双亲为索引每一个结点中除了包含自身数据，还有双亲结点的索引</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> tree_size = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">PTNode</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> data; <span class="comment">//数据结点</span></span><br><span class="line">	<span class="keyword">int</span> parent;<span class="comment">//双亲位置</span></span><br><span class="line">&#125;PTNode;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	PTNode nodes[tree_size];</span><br><span class="line">	<span class="keyword">int</span> r;	<span class="comment">//根的位置</span></span><br><span class="line">	<span class="keyword">int</span> n;<span class="comment">//结点的数目</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>找某结点的parent，可以通过parent指针进行查找，时间复杂度为O(1)<br>但是找某结点的children，需要遍历整个树才行，所以我们可以在PTNode结构体里面增加左child和右child，也能够找到节点的children。<br>再但是如果需要了解sibling之间的关系，还可以在PTNode结构体中添加左sibling 和右sibling<br>…等等</p>
-<p><strong>孩子表示法</strong><br>采用邻接表进行存储，以每一个结点为链表头，将孩子结点依次尾插到链表头</p>
-<p><strong>双亲孩子表示法</strong><br>在链表头进行存储一下双亲即可</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> treesize = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">CTNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> child; <span class="comment">//孩子结点的下标</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">CTNode</span> *<span class="title">next</span>;</span> <span class="comment">//指向下一个孩子的指针</span></span><br><span class="line">&#125; *ChildPtr;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="keyword">int</span> parent;</span><br><span class="line">    ChildPtr firstchild;</span><br><span class="line">&#125; CTBox;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    CTBox nodes[treesize];</span><br><span class="line">    <span class="keyword">int</span> r;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/14/数据结构与算法_字符串字符匹配/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jos's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/14/数据结构与算法_字符串字符匹配/" itemprop="url">数据结构与算法:字符串字符匹配</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-14T14:47:00+08:00">
-                2019-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.4k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>字符串的存储结构和线性表相同，分为顺序存储和链式存储<br>字符串比较比较字符串中每一个字符的ASCII码的值</p>
-<h2 id="字符串匹配问题："><a href="#字符串匹配问题：" class="headerlink" title="字符串匹配问题："></a>字符串匹配问题：</h2><h3 id="方法一：BF算法（Brute-Force）"><a href="#方法一：BF算法（Brute-Force）" class="headerlink" title="方法一：BF算法（Brute Force）"></a>方法一：BF算法（Brute Force）</h3><p>暴力求解<br>算法描述：两个字符串母串str1和子串str2，长度分别为len1和len2，首先将str1[0]和str2[0]比较，若相等，则进行下一位比较，直到子串str2匹配完，则结束，若不相等，则子串后移以为继续相同操作</p>
-<p>时间复杂度为O(len1*len2)</p>
-<h3 id="方法二-KMP算法"><a href="#方法二-KMP算法" class="headerlink" title="方法二: KMP算法"></a>方法二: KMP算法</h3><p>KMP算法最需要关注的点是子串，而不是母串</p>
-<p>下面几个思考将一步步优化BF算法，得出KMP算法。<br><strong>思考一</strong><br>如下图示：子串是不重复的，那么我们匹配到下标为2这个元素的时候，子串失配了，按照BF算法我们会用子串的a元素和母串的b元素进行匹配。但是这样是错误的回溯，所以我们希望下一次匹配是如下图所示，这样可以避免错误回溯<br><img src="https://img-blog.csdnimg.cn/20190314092314622.png" alt="在这里插入图片描述"></p>
-<p><strong>思考二</strong><br>如下图所示，如果子串含有重复的元素，按照思考一中的方案是不可行的，所以我们要保证所有具有可行性的方案能够检验匹配<br>下图第二次匹配应该从下标2进行匹配<br><img src="https://img-blog.csdnimg.cn/20190314092556591.png" alt="在这里插入图片描述"><br>所以我们只需要对子串进行操作，记录子串应该在哪跳过一些错误的回溯<br>KMP算法中通过next数组对此进行了一个记录。</p>
-<p><strong>next数组是当子串失配时，next数组对应的元素可以指导子串的哪一个元素进行下一轮的匹配</strong></p>
-<p><strong>思考三</strong><br>如何推出next数组：<br>将思考一二中的例子自行推断<br><img src="https://img-blog.csdnimg.cn/20190314092654353.png" alt="在这里插入图片描述"><br>如图将子串对应的next数组填入，填入原则遵循：<br><strong>next数组是当子串失配时，next数组对应的元素可以指导子串的哪一个元素进行下一轮的匹配</strong><br>所以上图下标为2时失配，next数组指向0则如下图示，从子串下标为0处开始匹配：<br><strong>其中-1位特判，当是第一个字符就不匹配则第一个字符与母串下一个字符进行匹配</strong><br><img src="https://img-blog.csdnimg.cn/2019031409273963.png" alt="在这里插入图片描述"></p>
-<p>将思考二的next数组填入：<br><img src="https://img-blog.csdnimg.cn/20190314093116626.png" alt="在这里插入图片描述"><br><strong>next数组是当子串失配时，next数组对应的元素可以指导子串的哪一个元素进行下一轮的匹配</strong><br>（重要内容说三遍！！）<br>所以上图下标为4时失配，next数组指向2则如下图示，从子串下标为2处开始匹配：<br><img src="https://img-blog.csdnimg.cn/20190314093247913.png" alt="在这里插入图片描述"><br>而next数组的到原理其实是子串当前位之前的串的前缀和后缀最大相同的值：</p>
-<p>如思考二例子中：<br><img src="https://img-blog.csdnimg.cn/20190314093949608.png" alt="在这里插入图片描述"><br>下标为4的字符之前的串为abab，前缀和后缀最大相同的为ab，长度为2，对应next为2<br>下标为3的字符之前的串为aba，  前缀和后缀最大相同的为a  ，长度为1，对应next为1<br>依次可得对应的next数组</p>
-<p><strong>思考四</strong><br>如何编码求得next数组？<br>由思考三可知：求next数组即为求前缀和后缀最大相同的值<br>我们令i表示前缀，j表示后缀，子串为str2</p>
-<p><img src="https://img-blog.csdnimg.cn/20190314093949608.png" alt="在这里插入图片描述"><br><strong>分步解决：</strong><br>1、当出现前缀和后缀相同的情况，即是例子中i = 0，j = 2这种情况，得出next[3] = 1<br>那么这种情况即为：</p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if(str2<span class="string">[i]</span> == str2<span class="string">[j]</span> ) //前缀等于后缀</span><br><span class="line">&#123;</span><br><span class="line">	i++;</span><br><span class="line">	j++;</span><br><span class="line">	next<span class="string">[j]</span> = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当i = 1 ， j = 3 时，任然如此，可以得到next[4] = 2<br>2、在情况一中，我们并没有考虑当 前缀和后缀不相等的情况，所以当不相等时</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(str2[i] == str2[j] ) <span class="comment">//前缀等于后缀</span></span><br><span class="line">&#123;</span><br><span class="line">	i++;</span><br><span class="line">	j++;</span><br><span class="line">	<span class="keyword">next</span>[j] = i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	i = <span class="keyword">next</span>[i] <span class="comment">//见解析a</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>解析a</strong>：<br>前缀和后缀的匹配也变成了子串和母串的匹配问题，但是此时的局部的next数组已经相对来说已经完成，我们将后缀串比作母串，前缀串比作子串，则我们需要将 i 回溯到next数组指向的位置，进行跳跃匹配并防止思考二中出现的问题</p>
-<p>最后补全初始情况，以及i，j，next[0]的初始值，匹配的范围得出代码：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//len为字符串str2长度</span></span><br><span class="line"><span class="keyword">void</span> get_next(<span class="keyword">char</span> *str2, <span class="keyword">int</span> *<span class="keyword">next</span>, <span class="keyword">int</span> len)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">next</span>[<span class="number">0</span>] = -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> i = -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(j &lt; len - <span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(-<span class="number">1</span> == i  || str2[i] == str2[j]) <span class="comment">//前缀等于后缀</span></span><br><span class="line">		&#123;</span><br><span class="line">			i++;</span><br><span class="line">			j++;</span><br><span class="line">			<span class="keyword">next</span>[j] = i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			i = <span class="keyword">next</span>[i]; <span class="comment">//见解析a</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>KMP算法实现：</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Index_KMP</span><span class="params">(<span class="keyword">char</span> *str1, <span class="keyword">char</span> *str2)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> next[<span class="number">255</span>];</span><br><span class="line">	<span class="keyword">int</span> len1 = <span class="built_in">strlen</span>(str1);</span><br><span class="line">	<span class="keyword">int</span> len2 = <span class="built_in">strlen</span>(str2);</span><br><span class="line">	get_next(str2, next, len2);</span><br><span class="line">	<span class="keyword">while</span>(i &lt; len1 &amp;&amp; j &lt; len2)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="number">-1</span> == j || str1[i] == str2[j])&#123;</span><br><span class="line">			i++;</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			j = next[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(j == len2)</span><br><span class="line">		<span class="keyword">return</span> i - j;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;<span class="comment">//没有找到	</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>KMP算法基本完成！</p>
-<h3 id="KMP算法优化"><a href="#KMP算法优化" class="headerlink" title="KMP算法优化"></a>KMP算法优化</h3><p><img src="https://img-blog.csdnimg.cn/20190314142146602.png" alt="在这里插入图片描述"><br>当出现此种特例，按照原先的KMP算法思想，母串中的b将与子串的每一个元素进行匹配，所以我们需要更改get_next函数将元素相同的情况统一起来，使next数组进行有效指导。<br>更改代码如下：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> get_next(<span class="keyword">char</span> *str2, <span class="keyword">int</span> *<span class="keyword">next</span>, <span class="keyword">int</span> len)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">next</span>[<span class="number">0</span>] = -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> i = -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(j &lt; len - <span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(-<span class="number">1</span> == i  || str2[i] == str2[j]) <span class="comment">//前缀等于后缀</span></span><br><span class="line">		&#123;</span><br><span class="line">			i++;</span><br><span class="line">			j++;</span><br><span class="line">			<span class="comment">//更改next[j] = i;</span></span><br><span class="line">			<span class="keyword">if</span>(str2[i] != str2[j])</span><br><span class="line">				<span class="keyword">next</span>[j] = i;</span><br><span class="line">			<span class="keyword">else</span><span class="comment">//如果相同</span></span><br><span class="line">				<span class="keyword">next</span>[j] = <span class="keyword">next</span>[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			i = <span class="keyword">next</span>[i];<span class="comment">//见解析a</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/12/数据结构与算法_栈与队列/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jos's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/12/数据结构与算法_栈与队列/" itemprop="url">数据结构与算法:栈与队列</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-12T10:23:00+08:00">
-                2019-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  766
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>Stack 是一个<strong>后进先出</strong>的线性表，它要求<strong>只在表尾</strong>进行删除和插入操作。<br>简单理解：具有特殊限制的线性表，限制要求如上。<br>出栈：pop();<br>入栈：push();<br>清空栈：clear();</p>
-<p>题目：利用栈的特点，将二进制装换为十进制数<br>例如二进制数：100110<br>将二进制数按位入栈<br>| |<br>|-|<br>| 0|<br>|1|<br>|1|<br>|0|<br>|0|<br>|1|<br>然后通过出栈操作进行计算转换</p>
-<p>题目：利用栈的特点，将二进制转换为八进制<br>利用两个栈，一个栈存二进制数，另一个栈用做记录转换为八进制的数，按顺序弹出，得到转换的八进制。</p>
-<p>栈的应用：<br><strong>利用栈计算后缀表达式</strong><br>如中缀表达式：1+(2-5)<em>6<br>如后缀表达式为：1 2 5 - 6 </em> +<br>声明栈A<br>将后缀表达式 数字依次入栈A，如果出现符号，则取出栈顶两个元素进行操作，再将结果入栈，直到后缀表达式遍历完成，弹出栈中的结果便是答案</p>
-<table>
-<thead>
-<tr>
-<th>出现符号”-“</th>
-<th></th>
-<th>出现符号”*”</th>
-<th></th>
-<th>出现符号”+”</th>
-<th>遍历完成</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td>5</td>
-<td></td>
-<td>6</td>
-</tr>
-<tr>
-<td>2</td>
-<td>-3</td>
-<td>-3</td>
-<td>-18</td>
-<td>-18</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>-17</td>
-</tr>
-</tbody>
-</table>
-<p>———&gt;从左向右看，每一列为一个栈的状态<br><strong>利用栈将中缀表达式转换为后缀表达式</strong><br>1+（2-3）*4 + 10/5<br>从左到右遍历中缀表达式的每一个数字和符号，数字直接输出，如果是符号，需要判断其与栈顶书号的优先级，如果是右括号或者优先级低于栈顶符号，则栈顶元素依次出栈输出，直到遇到左括号，或者栈为空，再将判断的符号入栈。</p>
-<p>将上面两点结合，就可以完成中缀表达式计算器<br>实现原理：<br>声明两个栈A,B，栈A进行计算后缀表达式，栈B进行中缀表达式的转换，中缀表达式转换过程中，将输出的数字和符号依次入栈A进行计算，如此可以得到结果。</p>
-<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>queue是<strong>只允许在一端进行插入操作</strong>，在<strong>另一端进行删除操作</strong>的线性表，具有先进先出的特性。<br>简单理解：食堂排队打饭</p>
-<p>和栈相反，队列一般用链表来实现，栈一般用顺序表来实现。</p>
-<p>队列如果用顺序存储：<br>每一次取队头，后面的每一个元素都需要向前移动，会增加耗时<br>如果增加一个灵活指针当队头，随着出队列，入队列操作增多，会有大部分空闲区域，同时可能会倒是数据溢出。<br>为解决上面的问题，可以通过<strong>循环队列</strong>解决<br>通过灵活改变头指针和尾指针 ，头指针和尾指针分别在出队和入队操作进行+1移位，同时用取模操作让，头尾指针不断循环，当头尾指针相等，便是队列已满或者队列已空</p>
+<h4 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h4><p>tail (tail) 用来显示档案的结尾(默认为10行)至标准输出中。若指定了多于一个文件，程序会在每段输出的开始添加相应文件名作为头。如果不指定文件或文件为”-“ ，则从标准输入读取数据。</p>
+<p>语法:\</p>
+<pre><code>tail [OPTION]... [FILE]...
+</code></pre><p>选项:</p>
+<pre><code>-c, --bytes=K        输出最后K字节；另外，使用-c +K 从每个文件的第K 字节输出
+-f,即时输出文件变化后追加的数据。 
+-n,输出最后K行；另外，使用-n +K 从每个文件的第K行输出 
+-s, 与-f合用,表示在每次反复的间隔休眠N秒
+</code></pre><p>操作:</p>
+<p><img src="https://img-blog.csdnimg.cn/20190323232713639.png" alt="在这里插入图片描述"></p>
 
           
         
@@ -2092,7 +1129,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2129,6 +1166,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="Jos" />
+            
               <p class="site-author-name" itemprop="name">Jos</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
@@ -2162,7 +1203,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -68,18 +68,22 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/site.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/site.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/site.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/site.png?v=5.1.4" color="#222">
 
 
+  <link rel="manifest" href="/images/site.png">
+
+
+  <meta name="msapplication-config" content="/images/site.png" />
 
 
 
@@ -212,16 +216,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-top">
-          <a href="/top/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
-            
-            top
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
@@ -238,16 +232,6 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -318,12 +302,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/28/LeetCode每天刷day12_Valid Parentheses/">
+    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/30/Linux每天记day13_chmod命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jos">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -337,7 +321,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/28/LeetCode每天刷day12_Valid Parentheses/" itemprop="url">LeetCode每天刷day14:Valid Parentheses</a></h1>
+                <a class="post-title-link" href="/2019/03/30/Linux每天记day13_chmod命令/" itemprop="url">Linux每天记day16:chmod命令</a></h1>
         
 
         <div class="post-meta">
@@ -349,845 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-28T16:43:00+08:00">
-                2019-03-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  92
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/valid-parentheses" target="_blank" rel="noopener">题目链接:Valid Parentheses</a><br>C++:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line">        <span class="keyword">int</span> lens = s.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lens; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == <span class="string">')'</span> || s[i] == <span class="string">']'</span> || s[i] == <span class="string">'&#125;'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(st.size() == <span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(st.top() == <span class="string">'('</span> &amp;&amp; s[i] != <span class="string">')'</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(st.top() == <span class="string">'['</span> &amp;&amp; s[i] != <span class="string">']'</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(st.top() == <span class="string">'&#123;'</span> &amp;&amp; s[i] != <span class="string">'&#125;'</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                st.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                st.push(s[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> st.size() == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/28/LeetCode每天刷day12_Remove Nth Node From End of List/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jos's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/28/LeetCode每天刷day12_Remove Nth Node From End of List/" itemprop="url">LeetCode每天刷day14:Remove Nth Node From End of List</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-28T09:50:00+08:00">
-                2019-03-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  119
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list" target="_blank" rel="noopener">题目链接:Remove Nth Node From End of List</a><br>C++:<br>自己的思路是这样写的，但是编码的太丑了，挂上别人简洁的代码<br><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * <span class="type">Definition</span> <span class="keyword">for</span> singly-linked <span class="built_in">list</span>.</span><br><span class="line"> * <span class="keyword">struct</span> <span class="type">ListNode</span> &#123;</span><br><span class="line"> *     <span class="built_in">int</span> <span class="keyword">val</span>;</span><br><span class="line"> *     <span class="type">ListNode</span> *next;</span><br><span class="line"> *     <span class="type">ListNode</span>(<span class="built_in">int</span> x) : <span class="keyword">val</span>(x), next(<span class="type">NULL</span>) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line"><span class="keyword">class</span> <span class="type">Solution</span> &#123;</span><br><span class="line">public:</span><br><span class="line">    <span class="type">ListNode</span>* removeNthFromEnd(<span class="type">ListNode</span>* head, <span class="built_in">int</span> n) &#123;</span><br><span class="line">        <span class="type">ListNode</span> *p = head, *q = head;</span><br><span class="line">            <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">                q=q-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!q)</span><br><span class="line">            &#123;</span><br><span class="line">                return head-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(q-&gt;next)&#123;</span><br><span class="line">                p = p-&gt;next;</span><br><span class="line">                q = q-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            p-&gt;next = p-&gt;next-&gt;next;</span><br><span class="line">            return head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/27/Linux每天记day11_head命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jos's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/27/Linux每天记day11_head命令/" itemprop="url">Linux每天记day13:head命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-27T22:19:00+08:00">
-                2019-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LInux指令/" itemprop="url" rel="index">
-                    <span itemprop="name">LInux指令</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  203
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h4 id="head"><a href="#head" class="headerlink" title="head"></a>head</h4><p>head (head) 用来显示档案的开头至标准输出中。如果指定了多于一个文件，在每一段输出前会给出文件名作为文件头。如果不指定文件，或者文件为”-“，则从标准输入读取数据。<br>语法:</p>
-<pre><code>head [OPTION]... [FILE]...
-</code></pre><p>选项:</p>
-<pre><code>-c,  --bytes=[-]K    显示每个文件的前K 字节内容；如果附加&quot;-&quot;参数，则除了每个文件的最后K字节数据外 显示剩余全部内容
--n, --lines=[-]K    显示每个文件的前K 行内容；如果附加&quot;-&quot;参数，则除了每个文件的最后K行外 显示剩余全部内容
--q, --quiet, --silent    不显示包含给定文件名的文件头
--v, --verbose        总是显示包含给定文件名的文件头
-</code></pre><p>操作:<br><img src="https://img-blog.csdnimg.cn/20190327221909295.png" alt="在这里插入图片描述"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/27/LeetCode每天刷day12_4Sum/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jos's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/27/LeetCode每天刷day12_4Sum/" itemprop="url">LeetCode每天刷day13:4Sum</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-27T21:36:00+08:00">
-                2019-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  188
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/4sum" target="_blank" rel="noopener">题目链接:4Sum</a><br>C++:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; fourSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">int</span> len = nums.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">2</span>; i++)&#123;</span><br><span class="line">             <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; nums[i] == nums[i<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">int</span> temp = target - nums[i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; len - <span class="number">1</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(j != i + <span class="number">1</span> &amp;&amp; nums[j] == nums[j<span class="number">-1</span>])</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">int</span> temp2 = temp - nums[j];</span><br><span class="line">                <span class="keyword">int</span> st = j + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">int</span> en = len <span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">while</span>(st &lt; en)&#123;</span><br><span class="line">                    <span class="comment">//cout&lt;&lt;nums[i]&lt;&lt;nums[j]&lt;&lt;nums[st]&lt;&lt;nums[en]&lt;&lt;endl;</span></span><br><span class="line">                    <span class="keyword">if</span>(nums[st] + nums[en] == temp2)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp = &#123;nums[i], nums[j], nums[st], nums[en]&#125;;</span><br><span class="line">                        ans.push_back(tmp);</span><br><span class="line">                        st++;</span><br><span class="line">                        <span class="keyword">while</span>(st &lt; len - <span class="number">1</span> &amp;&amp; nums[st] == nums[st<span class="number">-1</span>])</span><br><span class="line">                            st++;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(nums[st] + nums[en] &lt; temp2)</span><br><span class="line">                        st++;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        en--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/27/数据结构与算法_二叉树的建立与线索二叉树/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jos's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/27/数据结构与算法_二叉树的建立与线索二叉树/" itemprop="url">数据结构与算法:二叉树的建立与线索二叉树</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-27T09:27:00+08:00">
-                2019-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  732
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h4 id="二叉树的建立"><a href="#二叉树的建立" class="headerlink" title="二叉树的建立"></a>二叉树的建立</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*按前序输入二叉树结点中的值(一个字符)*/</span></span><br><span class="line"><span class="comment">/*#表示空结点,构造二叉链表表示二叉树T*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> ElemType;</span><br><span class="line"><span class="comment">//结点数据结构</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">&#125;BiTNode, *BiTree;</span><br><span class="line"><span class="comment">//生成二叉树</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateBiTree</span><span class="params">(BiTree *T)</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%c"</span>, &amp;c);</span><br><span class="line">    <span class="keyword">if</span>(<span class="string">'#'</span> == c)&#123;</span><br><span class="line">        *T = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *T = (BiTNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BiTNode));</span><br><span class="line">        (*T)-&gt;data = c;							<span class="comment">//根</span></span><br><span class="line">        CreateBiTree(&amp;(*T)-&gt;lchild);			<span class="comment">//左</span></span><br><span class="line">        CreateBiTree(&amp;(*T)-&gt;rchild);			<span class="comment">//右</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出当前层的数据</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">visit</span><span class="params">(<span class="keyword">char</span> c,<span class="keyword">int</span> level)</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c 位于第 %d 层\n"</span>, c, level);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//前序遍历输出树</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreOrderTraverse</span><span class="params">(BiTree T, <span class="keyword">int</span> level)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T)&#123;</span><br><span class="line">        visit(T-&gt;data,level);</span><br><span class="line">        PreOrderTraverse(T-&gt;lchild, level + <span class="number">1</span>);</span><br><span class="line">        PreOrderTraverse(T-&gt;rchild, level + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> level = <span class="number">1</span>;</span><br><span class="line">    BiTree T = <span class="literal">NULL</span>;</span><br><span class="line">    CreateBiTree(&amp;T);</span><br><span class="line">    PreOrderTraverse(T, level);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过中序遍历(后序遍历)的字符串可同理操作;</p>
-<p>####　线索二叉树<br>为什么需要线索二叉树？<br>1.由于在二叉链表中，我们只知道每一个结点的左右孩子结点的地址，而不知道结点的前驱和后继是谁，所以需要知道前驱和后继就必须遍历一遍<br>2.一颗二叉树中，每个结点都有两个指针域，共2n个指针域, 在n个结点的二叉树中有n-1条分支线数, 也就是说其实有n+1个空指针域.造成了相当大的内存浪费.<br>线索二叉树的原理：<br>将存储结构为二叉链表的二叉树的叶子结点的空指针域进行利用，将其作为线索指向前驱后继</p>
-<p>简单理解:<br>线索二叉树其实就是双向链表,对二叉树以某种次序遍历使其变成线索二叉树</p>
-<p>如何知道某一节点的lchild(rchild)是指向孩子结点还是指向前驱(后继)呢?</p>
-<p>在结点的结构中,添加两个标记变量LTag 和 RTag进行标记,指向孩子结点时候为0,指向前驱后继为1.</p>
-<p>线索二叉树结构实现:</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">typedef <span class="built_in">char</span> ElemType;</span><br><span class="line">typedef <span class="class"><span class="keyword">enum</span> &#123;</span>Link, Thread&#125; PointerTag;</span><br><span class="line"></span><br><span class="line">typedef <span class="class"><span class="keyword">struct</span> <span class="title">BiThrNode</span></span></span><br><span class="line">&#123;</span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BiThrNode</span></span> *lchild, *rchild;</span><br><span class="line">    PointerTag LTag;</span><br><span class="line">    PointerTag RTag;</span><br><span class="line">&#125;BiThrNode, *BiThrTree;</span><br><span class="line"></span><br><span class="line">BiThrTree pre;<span class="comment">//始终指向刚刚被访问过的结点</span></span><br><span class="line"><span class="comment">//中序线索化</span></span><br><span class="line">void InThreading(BiThrTree p)&#123;</span><br><span class="line">    <span class="keyword">if</span>(p)</span><br><span class="line">    &#123;</span><br><span class="line">        InThreading(p-&gt;lchild);<span class="comment">//递归线索化左子树</span></span><br><span class="line">        <span class="keyword">if</span>(!p-&gt;lchild)&#123;</span><br><span class="line">            p-&gt;LTag = Thread;</span><br><span class="line">            p-&gt;lchild = pre;<span class="comment">//左孩子指针指向前驱</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!pre-&gt;rchild)&#123;</span><br><span class="line">            pre-&gt;RTag = Thread;</span><br><span class="line">            pre-&gt;rchild = p;<span class="comment">//前驱右孩子指针指向后继(当前结点p)</span></span><br><span class="line">        &#125;</span><br><span class="line">        pre = p;<span class="comment">//保持pre指向p的前驱</span></span><br><span class="line">        InThreading(p-&gt;rchild);<span class="comment">//递归线索化右子树</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>中序线索化遍历</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void InOrderTraverse_Thr(BiThrTree T)&#123;</span><br><span class="line">    BiThrTree p;</span><br><span class="line">    <span class="function"><span class="title">p</span> = T -&gt;</span>lchild;</span><br><span class="line">    <span class="keyword">while</span>(p != T)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="title">while</span>(p-&gt;</span>LTag == Link)</span><br><span class="line">            <span class="function"><span class="title">p</span> = p-&gt;</span>lchild;</span><br><span class="line">        <span class="function"><span class="title">printf</span>("%c", p-&gt;</span><span class="keyword">data</span>);</span><br><span class="line">        <span class="function"><span class="title">while</span>(p-&gt;</span>RT<span class="function"><span class="title">ag</span> == Thread &amp;&amp; p-&gt;</span>rchild != T)&#123;</span><br><span class="line">            <span class="function"><span class="title">p</span> = p-&gt;</span>rchild;</span><br><span class="line">            <span class="function"><span class="title">printf</span>("%c",p-&gt;</span><span class="keyword">data</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="title">p</span> = p-&gt;</span>rchild;</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/26/Linux每天记day11_less命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jos's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/26/Linux每天记day11_less命令/" itemprop="url">Linux每天记day12:less命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-26T19:57:00+08:00">
-                2019-03-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-30T22:17:00+08:00">
+                2019-03-30
               </time>
             
 
@@ -1242,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  344
+                  106
                 </span>
               
 
@@ -1270,38 +417,16 @@
         
           
             <hr>
-<h4 id="less"><a href="#less" class="headerlink" title="less"></a>less</h4><p>less(less)  命令可以对文件或其它输出进行分页显示，与moe命令相似，但是比more命令要强大许多。</p>
-<p>语法:</p>
-<pre><code>less [options] &lt;file&gt;...
+<h4 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h4><p>chmod(Change mode) 用来将每个文件的模式更改为指定值。<br>语法:</p>
+<pre><code>chmod [OPTION]... MODE[,MODE]... FILE...
+ or:  chmod [OPTION]... OCTAL-MODE FILE...
+ or:  chmod [OPTION]... --reference=RFILE FILE...
 </code></pre><p>选项:</p>
-<pre><code>-b &lt;缓冲区大小&gt; 设置缓冲区的大小
--e 当文件显示结束后，自动离开
--f 强迫打开特殊文件，例如外围设备代号、目录和二进制文件
--g 只标志最后搜索的关键词
--i 忽略搜索时的大小写
--m 显示类似more命令的百分比
--N 显示每行的行号
--o &lt;文件名&gt; 将less 输出的内容在指定文件中保存起来
--Q 不使用警告音
--s 显示连续空行为一行
--S 行过长时间将超出部分舍弃
--x &lt;数字&gt; 将&quot;tab&quot;键显示为规定的数字空格
-查看操作:
-/字符串：向下搜索&quot;字符串&quot;的功能
-?字符串：向上搜索&quot;字符串&quot;的功能
-n：重复前一个搜索（与 / 或 ? 有关）
-N：反向重复前一个搜索（与 / 或 ? 有关）
-b 向后翻一页
-d 向后翻半页
-h 显示帮助界面
-Q 退出less 命令
-u 向前滚动半页
-y 向前滚动一行
-空格键 滚动一页
-回车键 滚动一行
-[pagedown]： 向下翻动一页
-[pageup]： 向上翻动一页
-</code></pre><p>操作:<br><img src="https://img-blog.csdnimg.cn/20190326195657485.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190326195645530.png" alt="在这里插入图片描述"></p>
+<pre><code>-c, --changes          类似 --verbose，但只在有更改时才显示结果
+-f, --silent, --quiet  去除大部份的错误信息
+-v, --verbose          为处理的所有文件显示诊断信息
+-R, --recursive        以递归方式更改所有的文件及子目录
+</code></pre><p>操作:<br><img src="https://img-blog.csdnimg.cn/2019033022170818.png" alt="在这里插入图片描述"></p>
 
           
         
@@ -1350,12 +475,12 @@ y 向前滚动一行
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/26/LeetCode每天刷day12_Letter Combinations of a Phone Number/">
+    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/30/LeetCode每天刷day13_Generate Parentheses/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jos">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1369,7 +494,7 @@ y 向前滚动一行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/26/LeetCode每天刷day12_Letter Combinations of a Phone Number/" itemprop="url">LeetCode每天刷day12:Letter Combinations of a Phone Number</a></h1>
+                <a class="post-title-link" href="/2019/03/30/LeetCode每天刷day13_Generate Parentheses/" itemprop="url">LeetCode每天刷day16:Generate Parentheses</a></h1>
         
 
         <div class="post-meta">
@@ -1381,8 +506,8 @@ y 向前滚动一行
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-26T12:50:00+08:00">
-                2019-03-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-30T21:48:00+08:00">
+                2019-03-30
               </time>
             
 
@@ -1437,7 +562,7 @@ y 向前滚动一行
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  148
+                  79
                 </span>
               
 
@@ -1465,8 +590,8 @@ y 向前滚动一行
         
           
             <hr>
-<p><a href="https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/" target="_blank" rel="noopener">题目链接:Letter Combinations of a Phone Number</a><br>C++:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; letterCombinations(<span class="built_in">string</span> digits) &#123;</span><br><span class="line">       <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="built_in">string</span>&gt; table&#123;</span><br><span class="line">            &#123;<span class="string">'2'</span>, <span class="string">"abc"</span>&#125;,&#123;<span class="string">'3'</span>,<span class="string">"def"</span>&#125;, &#123;<span class="string">'4'</span>,<span class="string">"ghi"</span>&#125;,</span><br><span class="line">            &#123;<span class="string">'5'</span>,<span class="string">"jkl"</span>&#125;,&#123;<span class="string">'6'</span>,<span class="string">"mno"</span>&#125;, &#123;<span class="string">'7'</span>,<span class="string">"pqrs"</span>&#125;,</span><br><span class="line">            &#123;<span class="string">'8'</span>,<span class="string">"tuv"</span>&#125;,&#123;<span class="string">'9'</span>,<span class="string">"wxyz"</span>&#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line">        <span class="keyword">if</span>(digits == <span class="string">""</span>)</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        fun(res, <span class="string">""</span>, digits, table, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp;res, <span class="built_in">string</span> str, <span class="built_in">string</span> &amp;digits, <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="built_in">string</span>&gt; &amp;m, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(str.size() == digits.size())&#123;</span><br><span class="line">            res.push_back(str);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">string</span> tmp = m[digits[k]];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> w : tmp)&#123;</span><br><span class="line">            str += w;</span><br><span class="line">            fun(res, str, digits, m, k+<span class="number">1</span>);</span><br><span class="line">            str.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>排列组合,利用递归求解</p>
+<p><a href="https://leetcode-cn.com/problems/generate-parentheses" target="_blank" rel="noopener">题目链接:Generate Parentheses</a></p>
+<p>C++:<br>递归<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line">vector&lt;<span class="keyword">string</span>&gt; res;   </span><br><span class="line">public:</span><br><span class="line">    <span class="keyword">void</span> <span class="keyword">generate</span>(<span class="keyword">string</span> str, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(left &lt;= <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;right;i++) </span><br><span class="line">                str<span class="variable">.push_back</span>(')');</span><br><span class="line">            res<span class="variable">.push_back</span>(str);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(left &lt; right) </span><br><span class="line">                <span class="keyword">generate</span>(str+')', left, right-<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">generate</span>(str+'(', left-<span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;<span class="keyword">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="keyword">generate</span>(<span class="string">""</span>, n, n);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1515,12 +640,12 @@ y 向前滚动一行
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/25/Linux每天记day11_more命令/">
+    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/29/Linux每天记day12_find命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jos">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1534,7 +659,7 @@ y 向前滚动一行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/25/Linux每天记day11_more命令/" itemprop="url">Linux每天记day11:more命令</a></h1>
+                <a class="post-title-link" href="/2019/03/29/Linux每天记day12_find命令/" itemprop="url">Linux每天记day15:find命令</a></h1>
         
 
         <div class="post-meta">
@@ -1546,8 +671,8 @@ y 向前滚动一行
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T21:59:00+08:00">
-                2019-03-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-29T23:17:00+08:00">
+                2019-03-29
               </time>
             
 
@@ -1569,8 +694,8 @@ y 向前滚动一行
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LInux指令/" itemprop="url" rel="index">
-                    <span itemprop="name">LInux指令</span>
+                  <a href="/categories/Linux指令/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux指令</span>
                   </a>
                 </span>
 
@@ -1602,7 +727,7 @@ y 向前滚动一行
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  328
+                  405
                 </span>
               
 
@@ -1630,19 +755,26 @@ y 向前滚动一行
         
           
             <hr>
-<h4 id="more"><a href="#more" class="headerlink" title="more"></a>more</h4><p>more (more) 该命令一次显示一屏文本，满屏后停下来，并且在屏幕的底部出现一个提示信息，给出至今己显示的该文件的百分比,方便逐页阅读(file perusal filter for crt viewing) 。more名单中内置了若干快捷键，按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示，而且还有搜寻字串的功能（与 vi 相似），使用中按h可以查看说明文件 。<br>语法:</p>
-<pre><code>more [options] &lt;file&gt;...
+<h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p> find(find) 命令用来在指定目录下查找文件。任何位于参数之前的字符串都将被视为欲查找的目录名。如果使用该命令时，不设置任何参数，则find命令将在当前目录下查找子目录与文件。并且将查找到的子目录和文件全部进行显示。<br>语法:</p>
+<pre><code>find [-H] [-L] [-P] [-Olevel] [-D debugopts] [path...] [expression]
 </code></pre><p>选项:</p>
-<pre><code>-num 一次显示的行数 
--d 提示使用者，在画面下方显示 [Press space to continue, &apos;q&apos; to quit.] 如果按错键，则会显示 [Press &apos;h&apos; for instructions.] 而不是 &apos;哔&apos; 声 
--l 取消遇见特殊字元 ^L（送纸字元）时会暂停的功能 忽略Ctrl+l（换页）字符 
--f 计算行数时，以实际上的行数，而非自动换行过后的行数（有些单行字数太长的会被扩展为两行或两行以上） 
--p 清屏显示
--s  当遇到有连续两行以上的空白行，就代换为一行的空白行 
-+/ 在每个档案显示前搜寻该字串（pattern），然后从该字串之后开始显示 
-+num 从第 num 行开始显示 
-</code></pre><p>操作:<br><img src="https://img-blog.csdnimg.cn/20190325215801460.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190325215815255.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190325215828443.png" alt="在这里插入图片描述"></p>
-
+<pre><code>&apos;-H&apos;表示只跟随命令行中指定的符号连接，
+&apos;-L&apos;表示跟随所有的符号连接，
+&apos;-P&apos;是默认的选项，表示不跟随符号连接。
+-D debugoptions. 打印诊断信息
+-Olevel  Enables  query  optimisation.   允许查询优化
+-mount, -xdev : 只检查和指定目录在同一个文件系统下的文件，避免列出其它文件系统中的文件
+-amin n : 在过去 n 分钟内被读取过
+-anewer file : 比文件 file 更晚被读取过的文件
+-atime n : 在过去n天内被读取过的文件
+-cmin n : 在过去 n 分钟内被修改过
+-cnewer file :比文件 file 更新的文件
+-ctime n : 在过去n天内被修改过的文件
+-empty : 空的文件-gid n or -group name : gid 是 n 或是 group 名称是 name
+-ipath p, -path p : 路径名称符合 p 的文件，ipath 会忽略大小写
+-name name, -iname name : 文件名称符合 name 的文件。iname 会忽略大小写
+-size n : 文件大小 是 n 单位，b 代表 512 位元组的区块，c 表示字元数，k 表示 kilo bytes，w 是二个位元组。-type c : 文件类型是 c 的文件。
+</code></pre>
           
         
       
@@ -1690,12 +822,12 @@ y 向前滚动一行
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/25/LeetCode每天刷day11_3Sum Closest/">
+    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/29/LeetCode每天刷day13_Merge Two Sorted Lists/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jos">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1709,7 +841,7 @@ y 向前滚动一行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/25/LeetCode每天刷day11_3Sum Closest/" itemprop="url">LeetCode每天刷day11:3Sum Closest</a></h1>
+                <a class="post-title-link" href="/2019/03/29/LeetCode每天刷day13_Merge Two Sorted Lists/" itemprop="url">LeetCode每天刷day15:Merge Two Sorted Lists</a></h1>
         
 
         <div class="post-meta">
@@ -1721,8 +853,8 @@ y 向前滚动一行
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T17:03:00+08:00">
-                2019-03-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-29T09:56:00+08:00">
+                2019-03-29
               </time>
             
 
@@ -1777,7 +909,7 @@ y 向前滚动一行
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  194
+                  151
                 </span>
               
 
@@ -1805,8 +937,7 @@ y 向前滚动一行
         
           
             <hr>
-<p><a href="https://leetcode-cn.com/problems/3sum-closest/" target="_blank" rel="noopener">题目链接:3Sum Closest</a><br>C++:<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">int</span> threeSumClosest(vector&lt;<span class="built_in">int</span>&gt;&amp; nums, <span class="built_in">int</span> <span class="keyword">target</span>) &#123;</span><br><span class="line">        <span class="built_in">int</span> len = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(len &lt; <span class="number">3</span>) </span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(len == <span class="number">3</span>) </span><br><span class="line">            <span class="keyword">return</span> nums[<span class="number">0</span>] + nums[<span class="number">1</span>] + nums[<span class="number">2</span>];</span><br><span class="line">        sort(nums.begin(), nums.<span class="keyword">end</span>());</span><br><span class="line">        <span class="built_in">int</span> sum3 = <span class="number">0</span>, min3 = nums[<span class="number">0</span>] + nums[<span class="number">1</span>] + nums[<span class="number">2</span>];</span><br><span class="line">        for(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i <span class="comment">!= 0 &amp;&amp; nums[i] == nums[i-1])</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="built_in">int</span> j = i + <span class="number">1</span>;</span><br><span class="line">            <span class="built_in">int</span> k = len - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(j &lt; k)&#123;</span><br><span class="line">                //cout&lt;&lt;i&lt;&lt;<span class="string">" "</span>&lt;&lt;j&lt;&lt;<span class="string">" "</span>&lt;&lt;k&lt;&lt;endl;</span><br><span class="line">                sum3 = nums[i] + nums[j] + nums[k];</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">abs</span>(<span class="keyword">target</span> - sum3) &lt; <span class="built_in">abs</span>(<span class="keyword">target</span> - min3))&#123;</span><br><span class="line">                    min3 = sum3;</span><br><span class="line">                    <span class="keyword">while</span>(j &lt; k -<span class="number">1</span> &amp;&amp; nums[j] == nums[j+<span class="number">1</span>])</span><br><span class="line">                        j++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">target</span> &gt; sum3)</span><br><span class="line">                    j++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">target</span> &lt; sum3)</span><br><span class="line">                    k--;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">target</span>;</span><br><span class="line">                <span class="keyword">while</span>(k &gt; j + <span class="number">1</span> &amp;&amp; nums[k] == nums[k-<span class="number">1</span>])</span><br><span class="line">                    k--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>任然运用的是双指针，其中蕴含着分而治之的思想．</p>
+<p><a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/" target="_blank" rel="noopener">题目链接:Merge Two Sorted Lists</a><br>C++:<br>链表归并操作<br><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        ListNode* res = new ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode* head = res;</span><br><span class="line">        <span class="keyword">while</span>(l1!=NULL || l2!=NULL)&#123;</span><br><span class="line">            <span class="keyword">if</span>(l1&amp;&amp;l2)&#123;</span><br><span class="line">                <span class="function"><span class="title">if</span>(l1-&gt;</span><span class="function"><span class="title">val</span> &lt; l2-&gt;</span>val)&#123;</span><br><span class="line">                    <span class="function"><span class="title">head</span>-&gt;</span>next = l1;</span><br><span class="line">                    <span class="function"><span class="title">l1</span> = l1-&gt;</span>next;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="function"><span class="title">head</span>-&gt;</span>next = l2;</span><br><span class="line">                    <span class="function"><span class="title">l2</span> = l2-&gt;</span>next;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="function"><span class="title">head</span> = head-&gt;</span>next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(l1!=NULL &amp;&amp; l2==NULL)&#123;</span><br><span class="line">                <span class="function"><span class="title">head</span>-&gt;</span>next = l1;</span><br><span class="line">                <span class="function"><span class="title">head</span> = head-&gt;</span>next;</span><br><span class="line">                <span class="function"><span class="title">l1</span> = l1-&gt;</span>next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(l1==NULL &amp;&amp; l2!=NULL)&#123;</span><br><span class="line">                <span class="function"><span class="title">head</span>-&gt;</span>next = l2;</span><br><span class="line">                <span class="function"><span class="title">head</span> = head-&gt;</span>next;</span><br><span class="line">                <span class="function"><span class="title">l2</span> = l2-&gt;</span>next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="title">return</span> res-&gt;</span>next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1855,12 +986,12 @@ y 向前滚动一行
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/25/LeetCode每天刷day11_3Sum/">
+    <link itemprop="mainEntityOfPage" href="http://blog.josgu.com/2019/03/28/Linux每天记day12_which命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jos">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1874,7 +1005,7 @@ y 向前滚动一行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/25/LeetCode每天刷day11_3Sum/" itemprop="url">LeetCode每天刷day11:3Sum</a></h1>
+                <a class="post-title-link" href="/2019/03/28/Linux每天记day12_which命令/" itemprop="url">Linux每天记day15:which命令</a></h1>
         
 
         <div class="post-meta">
@@ -1886,8 +1017,8 @@ y 向前滚动一行
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T12:18:00+08:00">
-                2019-03-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-28T20:01:00+08:00">
+                2019-03-28
               </time>
             
 
@@ -1909,8 +1040,8 @@ y 向前滚动一行
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/Linux指令/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux指令</span>
                   </a>
                 </span>
 
@@ -1942,7 +1073,7 @@ y 向前滚动一行
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  142
+                  157
                 </span>
               
 
@@ -1970,9 +1101,15 @@ y 向前滚动一行
         
           
             <hr>
-<p><a href="https://leetcode-cn.com/problems/3sum/" target="_blank" rel="noopener">题目链接:3Sum</a></p>
-<p>C++</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; threeSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        sort(nums.begin(),nums.end());</span><br><span class="line">        <span class="keyword">int</span> len = nums.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; nums[i] == nums[i<span class="number">-1</span>]) </span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">int</span> j = (i+<span class="number">1</span> &lt; len) ? i+<span class="number">1</span> : len<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">int</span> k = len<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(j &lt; k)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[j] + nums[k] == -(nums[i]))&#123;</span><br><span class="line">                    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp = &#123;nums[i],nums[j],nums[k]&#125;;</span><br><span class="line">                    ans.push_back(tmp);</span><br><span class="line">                    j++;</span><br><span class="line">                    <span class="keyword">while</span>(j &lt; len<span class="number">-1</span> &amp;&amp; nums[j] == nums[j<span class="number">-1</span>]) </span><br><span class="line">                        j++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(nums[j] + nums[k] &lt; -(nums[i]))&#123;</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    k--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="which"><a href="#which" class="headerlink" title="which"></a>which</h4><p>which (which) 命令的作用是在PATH变量指定的路径中搜索某个系统命令的位置并且返回第一个搜索结果。也就是说使用which命令就可以看到某个系统命令是否存在以及执行的到底是哪一个位置的命令<br>语法:</p>
+<pre><code>which [-a] filename ...
+</code></pre><p>选项:</p>
+<pre><code>-n 　指定文件名长度，指定的长度必须大于或等于所有文件中最长的文件名。
+-p 　与-n参数相同，但此处的包括了文件的路径。
+-w 　指定输出时栏位的宽度。
+-V 　显示版本信息
+</code></pre><p>操作:</p>
+<p><img src="https://img-blog.csdnimg.cn/20190328200129828.png" alt="在这里插入图片描述"></p>
 
           
         
@@ -2012,7 +1149,7 @@ y 向前滚动一行
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2049,6 +1186,10 @@ y 向前滚动一行
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="Jos" />
+            
               <p class="site-author-name" itemprop="name">Jos</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
@@ -2082,7 +1223,7 @@ y 向前滚动一行
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

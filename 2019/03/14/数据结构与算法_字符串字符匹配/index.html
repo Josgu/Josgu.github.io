@@ -68,18 +68,22 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/site.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/site.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/site.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/site.png?v=5.1.4" color="#222">
 
 
+  <link rel="manifest" href="/images/site.png">
+
+
+  <meta name="msapplication-config" content="/images/site.png" />
 
 
 
@@ -226,16 +230,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-top">
-          <a href="/top/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
-            
-            top
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
@@ -252,16 +246,6 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -337,7 +321,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jos">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -578,6 +562,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="Jos" />
+            
               <p class="site-author-name" itemprop="name">Jos</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
@@ -611,7 +599,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -658,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">1.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串匹配问题："><span class="nav-number">2.</span> <span class="nav-text">字符串匹配问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一：BF算法（Brute-Force）"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：BF算法（Brute Force）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二-KMP算法"><span class="nav-number">2.2.</span> <span class="nav-text">方法二: KMP算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KMP算法优化"><span class="nav-number">2.3.</span> <span class="nav-text">KMP算法优化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串匹配问题："><span class="nav-text">字符串匹配问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一：BF算法（Brute-Force）"><span class="nav-text">方法一：BF算法（Brute Force）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二-KMP算法"><span class="nav-text">方法二: KMP算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KMP算法优化"><span class="nav-text">KMP算法优化</span></a></li></ol></li></ol></div>
             
 
           </div>
