@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[今天盘活个人博客]]></title>
+    <url>%2F2019%2F04%2F02%2F%E4%BB%8A%E5%A4%A9%E7%9B%98%E6%B4%BB%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[今天将csdn上的博客全部搬到这里啦~ 以后两边都更新,请大家多多指教哈哈!]]></content>
+      <categories>
+        <category>简记</category>
+      </categories>
+      <tags>
+        <tag>Hi</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux每天记day7:touch命令]]></title>
     <url>%2F2019%2F04%2F02%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day7_touch%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[touchtouch命令将每个文件的访问时间和修改时间改为当前时间,不存在的文件参数创建为空，除非有-c或-h选项 语法: touch [OPTION]... FILE... 选项: -a, 只更改访问时间 -c, 不创建任何文件 -d, --date=字符串 使用指定字符串表示时间而非当前时间 -h,会影响符号链接本身，而非符号链接所指示的目的地(当系统支持更改符号链接的所有者时，此选项才有用) -m,只更改修改时间 -r, 使用指定文件的时间属性而非当前时间 -t 使用[[CC]YY]MMDDhhmm[.ss] 格式的时间而非当前时间 --time=WORD 使用WORD 指定的时间：access、atime、use 都等于-a选项的效果，而modify、mtime 等于-m 选项的效果 操作:]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[二叉树的存储与遍历]]></title>
-    <url>%2F2019%2F04%2F02%2F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%82%A8%E5%AD%98%E4%B8%8E%E9%81%8D%E5%8E%86%2F</url>
-    <content type="text"><![CDATA[###二叉树的两种储存：顺序储存 链式储存 ###四种遍历：层次遍历 前序遍历 中序遍历 后序遍历 ####1.储存 - 顺序储存： 首先用零元素将二叉树填充为完全二叉树，再将填充后的二叉树节点按层次顺序的次序储存到数组中存储后即为： 由于顺序储存效率低，所以一般不这样进行二叉树的储存。 - 链式储存： 二叉链表的结点结构为12345678template&lt;class T&gt;struct BTNode&#123; T data; BTNode *left *right ;//指向左右孩子的指针 BTNode(const T&amp; item=T(),lptr=NULL,BTNode* rptr=NULL)： data(item),left(lptr),right(rplt)&#123;&#125;&#125;; 建立二叉链表结点的函数123456789101112template&lt;class T&gt;BTNode &lt;T&gt; * GetBTNode(const T&amp; item,BTNode&lt;T&gt; *lp=NULL,BTNode&lt;T&gt; *rp=NULL)&#123; BTNode &lt;T&gt; *p; p=new BTNode&lt;T&gt; (item,lp,rp); if(p==NULL) &#123; cout&lt;&lt;"Memory allocation failure!"&lt;&lt;endl; exit(1); &#125; return (p);&#125; 图一应用举例： 1234567BTNode&lt;char&gt; *nullp = NULL;BTNode&lt;char&gt; *fp = GetBTNode('F');BTNode&lt;char&gt; *dp = GetBTNode('D', fp);BTNode&lt;char&gt; *bp = GetBTNode('B', nullp, dp);//若直接用NULL，非法，由于无法确定NULL类型BTNode&lt;char&gt; *ep = GetBTNode('E');//合法，左右孩子取，默认值BTNode&lt;char&gt; *cp = GetBTNode('C', nullp, ep);BTNode&lt;char&gt; *ap = GetBTNode('A', bp, cp); ####2.遍历 - 层次遍历：层次遍历顾名思义就是将结点一层一层的进行遍历，如例图中就为ABCDE 非递归层次遍历运用了队列，简单讲一下队列有着先进先出的原则，层次遍历可以出队之后访问，入队之前访问 出队之后访问： 1234567891011121314151617template&lt;class T&gt;void Level(const BTNode&lt;T&gt;* t)&#123; if(t==NUll) return ; queue&lt;const BTNode&lt;T&gt;*&gt; Q; Q.Push(t)//入栈函数,在queue.h内 while(!Q.Empty()) &#123; t=Q.Pop();//出栈函数，移除第一个数据并赋给t指针 cout&lt;&lt;t-&gt;data; if(t-&gt;left) Q.Push(t-&gt;left); if(t-&gt;right) Q.Push(t-&gt;right) &#125;&#125; 出队之前访问 1234567891011121314151617181920212223template&lt;class T&gt;void Level(const BTNode&lt;T&gt;* t)&#123; if(t==NUll) return ; queue&lt;const BTNode&lt;T&gt;*&gt; Q; cout&lt;&lt;t-&gt;data; Q.Push(t) while(!Q.Empty()) &#123; t=Q.Pop(); if(t-&gt;left) &#123; cout&lt;&lt;t-&gt;left-&gt;data; Q.Push(t-&gt;left); &#125; if(t-&gt;right) &#123; cout&lt;&lt;t-&gt;right-&gt;data; Q.Push(t-&gt;right); &#125; &#125;&#125; - 前序遍历 前序遍历也称之为深度优先遍历，算法的递归描述为 1.访问根节点 2.前序遍历左子树 3.前序遍历右子树 例图中前序遍历即为ABDFCE，运用了用户栈，用户栈有着先进后出的原则，在前序遍历中栈实质是为了寄存右子树的根指针，将左指针所指的左子树遍历后，再遍历右子树。代码如下： 1234567891011121314151617template &lt;class T&gt;void SimPreorder(const BTNode &lt;T&gt;* t)&#123; if(!t) return ; stack&lt;const BTNode&lt;T&gt;*&gt; S;//用户栈 while(t||!S.Empty()) if(t) &#123; cout&lt;&lt;t-&gt;data; if(t-&gt;right) S.push(t-&gt;right);//入栈 t=t-&gt;left; &#125; else t=S.Pop();//清除栈的最后进入的一位&#125; 关于前序遍历，有些算法和它还是很相近的，比如二分快速排序，集合幂集求解。后期会补上相关博客 - 中序遍历中序遍历中，也用到栈，其意义是寄存根节点，以便于左子树遍历完成后取出根指针，访问根指针并取出右子树进行遍历，算法的递归描述：1.中序遍历左子树2.访问根节点3.中序遍历右子树代码如下： 123456789101112131415161718192021template&lt;class T&gt;void Siminorder(const BTNode&lt;T&gt;* t)&#123; if(!t) return ; stack&lt;const BTNode&lt;T&gt;*&gt; S; while (t||!S.Empty()) &#123; if(t) &#123; S.Push(t); t=t-&gt;left' &#125; else &#123; t=S.Pop(); cout&lt;&lt;t-&gt;data; t-t-&gt;right; &#125; &#125;&#125; - 后序遍历后序遍历非递归算法任然是栈来实现，但是不同的是后序遍历用了两个栈，一个栈是为了寄存根节点，一个栈是为了记录相应的结点指针入栈的次数，后序遍历结点会进栈两次，第一次遍历左子树，第二次为了遍历右子树 递归算法描述：1.后序遍历左子树2.后序遍历右子树3.访问根节点 代码实现： 1234567891011121314151617181920212223242526272829303132template&lt;class T&gt;void SimPostorder(const BTNode&lt;T&gt;* t)&#123; if (!t) return ; int tag; Stack&lt;const BTNode&lt;T&gt;*&gt; S; Stack&lt;int&gt; tagS; const BTNode &lt;T&gt;*temp; while (t || !S.Empty()) &#123; if (t) &#123; S.Push(t); tagS.Push(1); t = t-&gt;left; &#125; else &#123; temp = S.Pop(); tag = tagS.Pop(); if (tag == 1) &#123; S.Push(temp); tagS.Push(2); t = temp-&gt;right; &#125; else cout &lt;&lt; temp-&gt;data; &#125; &#125;&#125; 记录的还是有些粗略，后期会再进行详解 注： 片段代码或者语言如有错误望谅解并请指出。]]></content>
-      <categories>
-        <category>记录</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>二叉树的顺序存储</tag>
-        <tag>二叉树的链式存储</tag>
-        <tag>层次遍历</tag>
-        <tag>前序遍历</tag>
-        <tag>中序遍历</tag>
-        <tag>后序遍历</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[Linux每天记day17:chgrp命令]]></title>
@@ -168,7 +162,6 @@
     <content type="text"><![CDATA[二叉树的建立12345678910111213141516171819202122232425262728293031323334353637383940414243444546/*按前序输入二叉树结点中的值(一个字符)*//*#表示空结点,构造二叉链表表示二叉树T*/#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;typedef char ElemType;//结点数据结构typedef struct BiTNode&#123; ElemType data; struct BiTNode *lchild, *rchild;&#125;BiTNode, *BiTree;//生成二叉树void CreateBiTree(BiTree *T)&#123; char c; scanf("%c", &amp;c); if('#' == c)&#123; *T = NULL; &#125; else &#123; *T = (BiTNode *)malloc(sizeof(BiTNode)); (*T)-&gt;data = c; //根 CreateBiTree(&amp;(*T)-&gt;lchild); //左 CreateBiTree(&amp;(*T)-&gt;rchild); //右 &#125;&#125;//输出当前层的数据void visit(char c,int level)&#123; printf("%c 位于第 %d 层\n", c, level);&#125;//前序遍历输出树void PreOrderTraverse(BiTree T, int level)&#123; if(T)&#123; visit(T-&gt;data,level); PreOrderTraverse(T-&gt;lchild, level + 1); PreOrderTraverse(T-&gt;rchild, level + 1); &#125;&#125;int main()&#123; int level = 1; BiTree T = NULL; CreateBiTree(&amp;T); PreOrderTraverse(T, level); return 0;&#125; 通过中序遍历(后序遍历)的字符串可同理操作; #### 线索二叉树为什么需要线索二叉树？1.由于在二叉链表中，我们只知道每一个结点的左右孩子结点的地址，而不知道结点的前驱和后继是谁，所以需要知道前驱和后继就必须遍历一遍2.一颗二叉树中，每个结点都有两个指针域，共2n个指针域, 在n个结点的二叉树中有n-1条分支线数, 也就是说其实有n+1个空指针域.造成了相当大的内存浪费.线索二叉树的原理：将存储结构为二叉链表的二叉树的叶子结点的空指针域进行利用，将其作为线索指向前驱后继 简单理解:线索二叉树其实就是双向链表,对二叉树以某种次序遍历使其变成线索二叉树 如何知道某一节点的lchild(rchild)是指向孩子结点还是指向前驱(后继)呢? 在结点的结构中,添加两个标记变量LTag 和 RTag进行标记,指向孩子结点时候为0,指向前驱后继为1. 线索二叉树结构实现: 1234567891011121314151617181920212223242526272829typedef char ElemType;typedef enum &#123;Link, Thread&#125; PointerTag;typedef struct BiThrNode&#123; ElemType data; struct BiThrNode *lchild, *rchild; PointerTag LTag; PointerTag RTag;&#125;BiThrNode, *BiThrTree;BiThrTree pre;//始终指向刚刚被访问过的结点//中序线索化void InThreading(BiThrTree p)&#123; if(p) &#123; InThreading(p-&gt;lchild);//递归线索化左子树 if(!p-&gt;lchild)&#123; p-&gt;LTag = Thread; p-&gt;lchild = pre;//左孩子指针指向前驱 &#125; if(!pre-&gt;rchild)&#123; pre-&gt;RTag = Thread; pre-&gt;rchild = p;//前驱右孩子指针指向后继(当前结点p) &#125; pre = p;//保持pre指向p的前驱 InThreading(p-&gt;rchild);//递归线索化右子树 &#125;&#125; 中序线索化遍历 12345678910111213141516void InOrderTraverse_Thr(BiThrTree T)&#123; BiThrTree p; p = T -&gt;lchild; while(p != T) &#123; while(p-&gt;LTag == Link) p = p-&gt;lchild; printf("%c", p-&gt;data); while(p-&gt;RTag == Thread &amp;&amp; p-&gt;rchild != T)&#123; p = p-&gt;rchild; printf("%c",p-&gt;data); &#125; p = p-&gt;rchild; &#125; return;&#125;]]></content>
       <categories>
         <category>数据结构</category>
-        <category>记录</category>
       </categories>
       <tags>
         <tag>二叉树</tag>
@@ -239,7 +232,6 @@
     <content type="text"><![CDATA[递归简单理解：对函数自身反复调用当问题是重复的子问题，递归可以很好的实现简例：斐波那契数列的迭代实现F(0)=0，F(1)=1斐波那契数列F(n)=F(n-1)+F(n-2) (n&gt;1)遍历：123456789101112#include&lt;stdio.h&gt;int main()&#123; int fib[40]; fib[0] = 0; fib[1] = 1; for(int i=2; i &lt; 40; i++) &#123; a[i] = a[i-1] + a[i-2]; printf("%d\n" , a[i]); &#125; return 0&#125; 递归： 12345int Fib(int n)&#123; if( n &lt; 2) return i == 0 ? 0 : 1; return Fib(i-1) + Fib(i-2);&#125; 简例：汉诺塔问题三个柱子，A、B、C 12345678910void move(int n , char A, char B , char C)&#123; if（n == 1)&#123; printf("%c-----&gt;%c" , A , B); &#125; else&#123; move (n-1,A , B , C); printf("%c-----&gt;%c" , A , C); move (n-1, B, A, C); &#125;&#125;]]></content>
       <categories>
         <category>数据结构</category>
-        <category>记录</category>
       </categories>
       <tags>
         <tag>递归</tag>
@@ -324,17 +316,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[LeetCode每天刷day8:Container With Most Water]]></title>
-    <url>%2F2019%2F03%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day8_Container%20With%20Most%20Water%2F</url>
-    <content type="text"><![CDATA[题目链接:Container With Most Water C++双索引12345678910111213141516171819202122class Solution &#123;public: int maxArea(vector&lt;int&gt;&amp; height) &#123; int i = 0; int j = height.size()-1; int maxArea = -1; while(i!=j)&#123; if(height[i] &gt; height[j]) &#123; if(maxArea &lt; height[j]*(j - i)) maxArea = height[j]*(j - i); j--; &#125; else&#123; if(maxArea &lt; height[i]*(j - i)) maxArea = height[i]*(j - i); i++; &#125; &#125; return maxArea; &#125;&#125;;]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[LeetCode每天刷day8:Palindrome Number]]></title>
     <url>%2F2019%2F03%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day8_Palindrome%20Number%2F</url>
     <content type="text"><![CDATA[题目链接:Palindrome NumberC++: 12345678910111213141516171819202122232425262728293031323334353637class Solution &#123;public: bool isPalindrome(int x) &#123; if(x &lt; 0 || (x%10==0 &amp;&amp; x!=0)) return false; if(x&gt;=0 &amp;&amp; x &lt; 10) return true; long m = 0 ,n = x; while(n)&#123; m = m * 10 + n % 10; n /= 10; &#125; if(m == x) return true; else return false; &#125;&#125;;//不解leetcode上为什么下面跑的没有上面快?class Solution &#123;public: bool isPalindrome(int x) &#123; if(x &lt; 0 || (x % 10 ==0 &amp;&amp; x != 0)) return false; if(x&gt;=0 &amp;&amp; x &lt; 10) return true; int m = 0; while(x &gt; m)&#123; m = m * 10 + x % 10; x /= 10; &#125; if (m == x || m / 10 == x) return true; else return false; &#125;&#125;;]]></content>
@@ -343,6 +324,17 @@
       </categories>
       <tags>
         <tag>回文数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day8:Container With Most Water]]></title>
+    <url>%2F2019%2F03%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day8_Container%20With%20Most%20Water%2F</url>
+    <content type="text"><![CDATA[题目链接:Container With Most Water C++双索引12345678910111213141516171819202122class Solution &#123;public: int maxArea(vector&lt;int&gt;&amp; height) &#123; int i = 0; int j = height.size()-1; int maxArea = -1; while(i!=j)&#123; if(height[i] &gt; height[j]) &#123; if(maxArea &lt; height[j]*(j - i)) maxArea = height[j]*(j - i); j--; &#125; else&#123; if(maxArea &lt; height[i]*(j - i)) maxArea = height[i]*(j - i); i++; &#125; &#125; return maxArea; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -403,6 +395,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[LeetCode每天刷day6:ZigZag Conversion]]></title>
+    <url>%2F2019%2F03%2F20%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day6_ZigZag%20Conversion%2F</url>
+    <content type="text"><![CDATA[题目链接：ZigZag Conversion C++： 1234567891011121314151617181920212223242526272829303132class Solution &#123;public: string convert(string s, int numRows) &#123; vector&lt;string&gt; row(numRows); int lens = s.size(); int r = 0; bool flag = true; if(numRows == 1) return s; for(int i = 0; i &lt; lens; i++)&#123; row[r].push_back(s[i]); if(flag)&#123; r++; &#125; else r--; if(r == numRows)&#123; flag = false; r-=2; &#125; if(r == 0)&#123; flag = true; &#125; &#125; string ret; for(string str : row) &#123; ret += str; &#125; return ret; &#125;&#125;; 进行模拟]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux每天记day5:rmdir命令]]></title>
     <url>%2F2019%2F03%2F19%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day5_rmdir%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[rmdirrmdir (Remove Directory): 用来删除空目录，删除某目录时也必须具有对父目录的写权限。 语法： rmdir [OPTIONS] [DIRECTORY] 选项： --ignore-fail-on-non-empty 忽略仅由目录非空产生的所有错误 -p, 删除指定目录及其上级文件夹， -v, 输出处理的目录详情 操作：]]></content>
@@ -415,11 +418,196 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[LeetCode每天刷day5:Longest Palindromic Substring]]></title>
+    <url>%2F2019%2F03%2F19%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day5_Longest%20Palindromic%20Substring%2F</url>
+    <content type="text"><![CDATA[题目链接：Longest Palindromic Substring C++ 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465#include &lt;iostream&gt;#include &lt;cstring&gt;using namespace std;//暴力，时间复杂度O(n*n*n)string longestPalindrome1(string s) &#123; int lens = s.size(); int maxlen = 0; int start = 0; for(int i = 0; i &lt; lens; i++)&#123; for(int j = i + 1; j &lt; lens; j++)&#123; int temp1 = i; int temp2 = j; while(temp1 &lt; temp2 &amp;&amp; s[temp1] == s[temp2]) &#123; temp1++; temp2--; &#125; if(temp1 &gt;= temp2 &amp;&amp; j - i + 1 &gt; maxlen)&#123; maxlen = j - i + 1; start = i; &#125; &#125; &#125; return s.substr(start, maxlen);&#125;//动态规划，时间复杂度O(n*n)string longestPalindrome2(string s) &#123; int lens = s.size(); bool dp[1000][1000]; memset(dp, 0, sizeof(dp)); int maxlen = 0; int start = 0; for(int i = 0; i &lt; lens; i++)&#123; for(int j = 0; j &lt;= i ; j++)&#123; if(i - j &lt; 2)&#123; if(s[i] == s[j]) dp[j][i] = true; else dp[j][i] = false; &#125; else&#123; if(s[i] == s[j] &amp;&amp; dp[j+1][i-1]) dp[j][i] = true; else dp[j][i] = false; &#125; if(dp[j][i] &amp;&amp; maxlen &lt; i - j + 1) &#123; maxlen = i - j + 1; start = j; &#125; &#125; &#125; return s.substr(start, maxlen);&#125;int main()&#123; string str1; cin&gt;&gt;str1; cout&lt;&lt;longestPalindrome1(str1)&lt;&lt;endl; cout&lt;&lt;longestPalindrome2(str1)&lt;&lt;endl; return 0;&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day4:mkdir命令]]></title>
+    <url>%2F2019%2F03%2F18%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day4_mkdir%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[mkdir (Make Directory ): 若指定目录不存在则创建目录。在创建目录时，要求创建目录的用户具有写权限，并应保证新建的目录没有重名。 语法： mkdir [OPTIONS] [FILE] 选项： -m,设置权限模式(类似chmod)，而不是rwxrwxrwx 减umask -p, 需要时创建目标目录的上层目录，但即使这些目录已存在也不当作错误处理 -v, 每次创建新目录都显示信息 操作：]]></content>
+      <categories>
+        <category>LInux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文件目录管理</tag>
+        <tag>mkdir</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day4:Median of Two Sorted Arrays]]></title>
+    <url>%2F2019%2F03%2F18%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day4_Median%20of%20Two%20Sorted%20Arrays%2F</url>
+    <content type="text"><![CDATA[题目链接：Median of Two Sorted Arrays C++：123456789101112131415161718192021222324252627282930313233343536373839404142434445class Solution &#123;public: double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) &#123; int len1 = nums1.size(); int len2 = nums2.size(); vector&lt;int&gt; array = merge(nums1, nums2, len1, len2); return ((array[(len1+len2-1)/2]+array[(len1+len2)/2]))/2.0; &#125; vector&lt;int&gt; merge(vector&lt;int&gt; A, vector&lt;int&gt; B, int m, int n)//合并 &#123; vector&lt;int&gt; ret; int i = 0; int j = 0; while(i &lt; m &amp;&amp; j &lt; n) &#123; if(A[i] &lt;= B[j]) &#123; ret.push_back(A[i]); i ++; &#125; else &#123; ret.push_back(B[j]); j ++; &#125; &#125; if(i == m) &#123; while(j &lt; n) &#123; ret.push_back(B[j]); j ++; &#125; &#125; if(j == n) &#123; while(i &lt; m) &#123; ret.push_back(A[i]); i ++; &#125; &#125; return ret; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>分治</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day3:ls命令]]></title>
+    <url>%2F2019%2F03%2F17%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day3_ls%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[lsls (list) 列出目录内容以及目录详细信息 语法： ls [OPTIONS] [FILE] 选项：选项较多，背记常用选项 -a 显示当前目录所有文件 -l 显示当前目录文件的详细信息 -t 以时间顺序排序 -h 以人性化方式显示 -n 用数字的 UID,GID 代替名称 -R 递归列出所有目录的文件 -d 以文件名显示当前目录 -S 以文件大小排序 操作：]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文件目录管理</tag>
+        <tag>ls</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day3:Longest Substring Without Repeating Characters]]></title>
+    <url>%2F2019%2F03%2F17%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day3_Longest%20Substring%20Without%20Repeating%20Characters%2F</url>
+    <content type="text"><![CDATA[题目链接：Longest Substring Without Repeating Characters C++： 123456789101112131415161718192021class Solution &#123;public: int lengthOfLongestSubstring(string s) &#123; int lenS = s.size(); if (lenS &lt;= 1) return lenS; unordered_set&lt;char&gt; set; int ans = 0; int l = 0, r = 0; while (r &lt; lenS) &#123; while (set.count(s[r])) &#123; set.erase(s[l]); l++; &#125; set.insert(s[r]); ans = max(ans, int(set.size())); r++; &#125; return ans; &#125;&#125;; 运用了尺取思想，动态扩大尺子的长度，如果没有重复元素就让尺子的右边右移，如果有重复元素，则将尺子的左边右移，用ans中记录set出现的最大size即为最大的非重复连续子串。]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>哈希</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day2:Add Two Numbers]]></title>
+    <url>%2F2019%2F03%2F16%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day2_Add%20Two%20Numbers%2F</url>
+    <content type="text"><![CDATA[题目链接：Add Two Numbers C++语言： 123456789101112131415161718192021222324252627282930313233/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) &#123; ListNode* resultHead = new ListNode(0); ListNode *result = resultHead; int sumTwo = 0; int carry = 0; //进位 while(l1 || l2 || carry)&#123; sumTwo = (l1 ? l1-&gt;val : 0) + (l2 ? l2-&gt;val : 0) + carry; if(sumTwo &gt;= 10)&#123; sumTwo %= 10; carry = 1; &#125; else carry = 0; result-&gt;next = new ListNode(sumTwo); result = result-&gt;next; if(l1) l1 = l1-&gt;next; if(l2) l2 = l2-&gt;next; &#125; return resultHead-&gt;next; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day2:cd命令]]></title>
+    <url>%2F2019%2F03%2F16%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day2_cd%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[cdcd(change directory),改变shell工作目录 语法： cd [OPTIONS] [FILE] 选项： -P 切换到真正的物理目录，而不是软连接目录 -L 强制遵循符号链接(懵逼) 操作：]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文件和目录管理</tag>
+        <tag>cd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day1:Two Sum]]></title>
+    <url>%2F2019%2F03%2F15%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day1_Two%20Sum%2F</url>
+    <content type="text"><![CDATA[题目链接：Two Sum C++语言:1234567891011121314151617181920212223242526272829303132333435363738//暴力求解，时间复杂度O(n*n)class Solution &#123;public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123; vector&lt;int&gt; twoSum; int lenNums = nums.size(); for(int i = 0;i &lt; lenNums; i++)&#123; for(int j = i + 1; j&lt;lenNums; j++)&#123; if((nums[i] + nums[j]) == target)&#123; twoSum.push_back(i); twoSum.push_back(j); &#125; &#125; &#125; return twoSum; &#125;&#125;;//利用hash查找，时间复杂度降到O(n);class Solution &#123;public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123; vector&lt;int&gt; twoSum; map&lt;int,int&gt; m; int lenNums = nums.size(); int tmp; for(int i = 0;i &lt; lenNums; i++)&#123; if(m.count(nums[i]) &gt; 0) &#123; twoSum.push_back(m[nums[i]]); twoSum.push_back(i); break; &#125; tmp = target - nums[i]; m.insert(pair&lt;int, int&gt;(tmp, i)); &#125; return twoSum; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>哈希</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day1:pwd命令]]></title>
+    <url>%2F2019%2F03%2F15%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day1_pwd%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[pwdpwd (print work directory)打印当前工作目录，以绝对路径方式显示当前用户的工作目录 语法： pwd [OPTION] 选项： -L --logical //当前目录为连接路径时，显示链接的路径 -P --physical //显示实际的物理路径，而不是链接路径 操作：]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文件目录管理</tag>
+        <tag>pwd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构与算法:二叉树存储与遍历]]></title>
+    <url>%2F2019%2F03%2F14%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95_%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%98%E5%82%A8%E4%B8%8E%E9%81%8D%E5%8E%86%2F</url>
+    <content type="text"><![CDATA[二叉树每个结点最多有两个子树的树，左右子树是有顺序的。就算某个结点仅有一棵子树，也需要分左右子树。二叉树的第i层最多有2^(i-1)个结点 特殊的二叉树： 斜树 满二叉树 完全二叉树 二叉树的存储结构 二叉树的顺序存储结构：对斜树存储很不友好二叉树的链式存储结构：使用二叉链表，用两个指针分别指向左右子树。 12345typedef struct BiTNode&#123; TElemType data; struct BiTNode *lchild, *rchild;&#125;BiTNode, *BiTree; 二叉树的遍历按照某种次序依次访问二叉树中所有的结点，使每一个结点都被访问一次 前序遍历：二叉树如果为空，则空操作返回，否则先访问根结点，然后前序遍历左子树，再前序遍历右子树。根左右 中序遍历：二叉树如果为空，则空操作返回，否则从根结点开始，然后中序遍历左子树，然后访问根结点，再中序遍历右子树 ，左根右 后续遍历：二叉树如果为空，则空操作返回，否则从左到右先叶子后结点方式遍历左右子树，然后访问根结点，左右根 层序遍历：一层层从做到右遍历 以前序遍历输出层数。 ~~#include&lt;stdio.h&gt; #include&lt;stdlib.h&gt;typedef char ElemType;typedef struct BiTNode{ ElemType data; struct BiTNode lchild, rchild;}BiTNode, BiTree;void CreateBiTree(BiTree T){ char c; scanf(“%c”, &amp;c); if(‘#’ == c){ T = NULL; } else { T = (BiTNode )malloc(sizeof(BiTNode)); (T)-&gt;data = c; CreateBiTree(&amp;(T)-&gt;lchild); CreateBiTree(&amp;(T)-&gt;rchild); }}void visit(char c,int level){ printf(“%c 位于第 %d 层\n”, c, level);}void PreOrderTraverse(BiTree T, int level){ if(T){ visit(T-&gt;data,level); PreOrderTraverse(T-&gt;lchild, level + 1); PreOrderTraverse(T-&gt;rchild, level + 1); }}int main(){ int level = 1; BiTree T = NULL; CreateBiTree(&amp;T); PreOrderTraverse(T, level); return 0;}~~ 前序遍历算法: 12345678void PreOrderTraverse(BiTree T)&#123; if(T == NULL) return ; printf("%c", T-&gt;data); //根 PreOrderTraverse(T-&gt;lchild); //左 PreOrderTraverse(T-&gt;rchild); //右&#125; 中序遍历算法: 12345678void InOrderTraverse(BiTree T)&#123; if(T == NULL) return ; InOrderTraverse(T-&gt;lchild); //左 printf("%c", T-&gt;data); //根 InOrderTraverse(T-&gt;rchild); //右&#125; 后序遍历算法: 12345678void PostOrderTraverse(BiTree T)&#123; if(T == NULL) return ; PostOrderTraverse(T-&gt;lchild); //左 PostOrderTraverse(T-&gt;rchild); //右 printf("%c", T-&gt;data); //根) 二叉树遍历常考: 已知前序遍历序列和中序遍历序列,求这颗二叉树后序遍历序列? 已知后序遍历序列和中序遍历序列,求这颗二叉树前序遍历序列?方法: 1.首先通过前序遍历序列(后序遍历序列)判断根部的结点位置2.再通过中序遍历和根结点位置判断左右子树的结点,在根结点左边的为左子树结点,右边为右子树结点3.最后通过前序遍历序列(后序遍历序列)判断左子树和右子树中的层级关系,通过中序遍历序列判断兄弟之间的关系 得出树后再通过树反推一遍树的前序和中序(后序和中序)验证.]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构与算法:树的存储]]></title>
+    <url>%2F2019%2F03%2F14%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95_%E6%A0%91%E7%9A%84%E5%AD%98%E5%82%A8%2F</url>
+    <content type="text"><![CDATA[树Tree是n（n &gt;= 0）个结点的有限集。当n = 0时为空树，在任意一颗非空树中存在以下性质： 有且仅有一个特定的名字为根的结点 当n&gt;1 时，其余结点可以分为m（m&gt;0）个互不相交的有限集 T1,T2….Tm，其中每一个集合本身又是一颗树，并且称为根的子树（SubTree）。度：结点拥有子树的数量称为结点的度（Degree），树的度取树内各结点度的最大值度为0称为 叶结点结点的层次：根为第一层，深度为最大的层数 树的存储结构双亲表示法以双亲为索引每一个结点中除了包含自身数据，还有双亲结点的索引 12345678910int tree_size = 100;typedef struct PTNode&#123; int data; //数据结点 int parent;//双亲位置&#125;PTNode;typedef struct&#123; PTNode nodes[tree_size]; int r; //根的位置 int n;//结点的数目&#125; 找某结点的parent，可以通过parent指针进行查找，时间复杂度为O(1)但是找某结点的children，需要遍历整个树才行，所以我们可以在PTNode结构体里面增加左child和右child，也能够找到节点的children。再但是如果需要了解sibling之间的关系，还可以在PTNode结构体中添加左sibling 和右sibling…等等 孩子表示法采用邻接表进行存储，以每一个结点为链表头，将孩子结点依次尾插到链表头 双亲孩子表示法在链表头进行存储一下双亲即可 1234567891011121314151617181920int treesize = 100;typedef struct CTNode&#123; int child; //孩子结点的下标 struct CTNode *next; //指向下一个孩子的指针&#125; *ChildPtr;typedef struct&#123; int data; int parent; ChildPtr firstchild;&#125; CTBox;typedef struct&#123; CTBox nodes[treesize]; int r; int n;&#125;]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>树的存储</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构与算法:字符串字符匹配]]></title>
+    <url>%2F2019%2F03%2F14%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95_%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E7%AC%A6%E5%8C%B9%E9%85%8D%2F</url>
+    <content type="text"><![CDATA[字符串字符串的存储结构和线性表相同，分为顺序存储和链式存储字符串比较比较字符串中每一个字符的ASCII码的值 字符串匹配问题：方法一：BF算法（Brute Force）暴力求解算法描述：两个字符串母串str1和子串str2，长度分别为len1和len2，首先将str1[0]和str2[0]比较，若相等，则进行下一位比较，直到子串str2匹配完，则结束，若不相等，则子串后移以为继续相同操作 时间复杂度为O(len1*len2) 方法二: KMP算法KMP算法最需要关注的点是子串，而不是母串 下面几个思考将一步步优化BF算法，得出KMP算法。思考一如下图示：子串是不重复的，那么我们匹配到下标为2这个元素的时候，子串失配了，按照BF算法我们会用子串的a元素和母串的b元素进行匹配。但是这样是错误的回溯，所以我们希望下一次匹配是如下图所示，这样可以避免错误回溯 思考二如下图所示，如果子串含有重复的元素，按照思考一中的方案是不可行的，所以我们要保证所有具有可行性的方案能够检验匹配下图第二次匹配应该从下标2进行匹配所以我们只需要对子串进行操作，记录子串应该在哪跳过一些错误的回溯KMP算法中通过next数组对此进行了一个记录。 next数组是当子串失配时，next数组对应的元素可以指导子串的哪一个元素进行下一轮的匹配 思考三如何推出next数组：将思考一二中的例子自行推断如图将子串对应的next数组填入，填入原则遵循：next数组是当子串失配时，next数组对应的元素可以指导子串的哪一个元素进行下一轮的匹配所以上图下标为2时失配，next数组指向0则如下图示，从子串下标为0处开始匹配：其中-1位特判，当是第一个字符就不匹配则第一个字符与母串下一个字符进行匹配 将思考二的next数组填入：next数组是当子串失配时，next数组对应的元素可以指导子串的哪一个元素进行下一轮的匹配（重要内容说三遍！！）所以上图下标为4时失配，next数组指向2则如下图示，从子串下标为2处开始匹配：而next数组的到原理其实是子串当前位之前的串的前缀和后缀最大相同的值： 如思考二例子中：下标为4的字符之前的串为abab，前缀和后缀最大相同的为ab，长度为2，对应next为2下标为3的字符之前的串为aba， 前缀和后缀最大相同的为a ，长度为1，对应next为1依次可得对应的next数组 思考四如何编码求得next数组？由思考三可知：求next数组即为求前缀和后缀最大相同的值我们令i表示前缀，j表示后缀，子串为str2 分步解决：1、当出现前缀和后缀相同的情况，即是例子中i = 0，j = 2这种情况，得出next[3] = 1那么这种情况即为： 123456if(str2[i] == str2[j] ) //前缀等于后缀&#123; i++; j++; next[j] = i;&#125; 当i = 1 ， j = 3 时，任然如此，可以得到next[4] = 22、在情况一中，我们并没有考虑当 前缀和后缀不相等的情况，所以当不相等时 12345678910if(str2[i] == str2[j] ) //前缀等于后缀&#123; i++; j++; next[j] = i;&#125;else&#123; i = next[i] //见解析a&#125; 解析a：前缀和后缀的匹配也变成了子串和母串的匹配问题，但是此时的局部的next数组已经相对来说已经完成，我们将后缀串比作母串，前缀串比作子串，则我们需要将 i 回溯到next数组指向的位置，进行跳跃匹配并防止思考二中出现的问题 最后补全初始情况，以及i，j，next[0]的初始值，匹配的范围得出代码： 12345678910111213141516171819//len为字符串str2长度void get_next(char *str2, int *next, int len)&#123; next[0] = -1; int i = -1; int j = 0; while(j &lt; len - 1)&#123; if(-1 == i || str2[i] == str2[j]) //前缀等于后缀 &#123; i++; j++; next[j] = i; &#125; else &#123; i = next[i]; //见解析a &#125; &#125;&#125; KMP算法实现： 123456789101112131415161718192021int Index_KMP(char *str1, char *str2)&#123; int i = 0; int j = 0; int next[255]; int len1 = strlen(str1); int len2 = strlen(str2); get_next(str2, next, len2); while(i &lt; len1 &amp;&amp; j &lt; len2)&#123; if(-1 == j || str1[i] == str2[j])&#123; i++; j++; &#125; else&#123; j = next[j]; &#125; &#125; if(j == len2) return i - j; else return -1;//没有找到 &#125; KMP算法基本完成！ KMP算法优化当出现此种特例，按照原先的KMP算法思想，母串中的b将与子串的每一个元素进行匹配，所以我们需要更改get_next函数将元素相同的情况统一起来，使next数组进行有效指导。更改代码如下： 12345678910111213141516171819202122void get_next(char *str2, int *next, int len)&#123; next[0] = -1; int i = -1; int j = 0; while(j &lt; len - 1)&#123; if(-1 == i || str2[i] == str2[j]) //前缀等于后缀 &#123; i++; j++; //更改next[j] = i; if(str2[i] != str2[j]) next[j] = i; else//如果相同 next[j] = next[i]; &#125; else &#123; i = next[i];//见解析a &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>字符串匹配</tag>
+        <tag>KMP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构与算法:栈与队列]]></title>
+    <url>%2F2019%2F03%2F12%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95_%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%2F</url>
+    <content type="text"><![CDATA[栈Stack 是一个后进先出的线性表，它要求只在表尾进行删除和插入操作。简单理解：具有特殊限制的线性表，限制要求如上。出栈：pop();入栈：push();清空栈：clear(); 题目：利用栈的特点，将二进制装换为十进制数例如二进制数：100110将二进制数按位入栈| ||-|| 0||1||1||0||0||1|然后通过出栈操作进行计算转换 题目：利用栈的特点，将二进制转换为八进制利用两个栈，一个栈存二进制数，另一个栈用做记录转换为八进制的数，按顺序弹出，得到转换的八进制。 栈的应用：利用栈计算后缀表达式如中缀表达式：1+(2-5)6如后缀表达式为：1 2 5 - 6 +声明栈A将后缀表达式 数字依次入栈A，如果出现符号，则取出栈顶两个元素进行操作，再将结果入栈，直到后缀表达式遍历完成，弹出栈中的结果便是答案 出现符号”-“ 出现符号”*” 出现符号”+” 遍历完成 5 6 2 -3 -3 -18 -18 1 1 1 1 1 -17 ———&gt;从左向右看，每一列为一个栈的状态利用栈将中缀表达式转换为后缀表达式1+（2-3）*4 + 10/5从左到右遍历中缀表达式的每一个数字和符号，数字直接输出，如果是符号，需要判断其与栈顶书号的优先级，如果是右括号或者优先级低于栈顶符号，则栈顶元素依次出栈输出，直到遇到左括号，或者栈为空，再将判断的符号入栈。 将上面两点结合，就可以完成中缀表达式计算器实现原理：声明两个栈A,B，栈A进行计算后缀表达式，栈B进行中缀表达式的转换，中缀表达式转换过程中，将输出的数字和符号依次入栈A进行计算，如此可以得到结果。 队列queue是只允许在一端进行插入操作，在另一端进行删除操作的线性表，具有先进先出的特性。简单理解：食堂排队打饭 和栈相反，队列一般用链表来实现，栈一般用顺序表来实现。 队列如果用顺序存储：每一次取队头，后面的每一个元素都需要向前移动，会增加耗时如果增加一个灵活指针当队头，随着出队列，入队列操作增多，会有大部分空闲区域，同时可能会倒是数据溢出。为解决上面的问题，可以通过循环队列解决通过灵活改变头指针和尾指针 ，头指针和尾指针分别在出队和入队操作进行+1移位，同时用取模操作让，头尾指针不断循环，当头尾指针相等，便是队列已满或者队列已空]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>栈</tag>
+        <tag>队列</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构与算法:线性表]]></title>
+    <url>%2F2019%2F03%2F11%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95_%E7%BA%BF%E6%80%A7%E8%A1%A8%2F</url>
+    <content type="text"><![CDATA[修改于:2019/3/19, 添加线性表顺序存储结构代码，已调试可运行。 线性表由零个或者多个数据元素组成的有限序列，每个元素最多只有一个前驱和后继。 List的抽象数据类型定义： ADT 线性表(List) Data 数据 Operation 操作123456789InitList(*L)//初始化ListEmpty(L)//判断是否为空表//增删改查ClearList(*L)//将线性表清空GetElem(L,i,*e)//将线性表i位置元素返回给eListCreate(*L)//生成线性表LocateElem(L, e)//返回线性表中e元素的位数，不存存在返回falseListInsert(*L, i, e)//将数据e插入到下标i处ListDelete(*L, i, *e)//将线性表中i处元素删除，并返回到*e 线性表的顺序存储结构需要封装三个属性： 存储空间的起始位置 最大存储容量 线性表当前长度 查找算法时间复杂度为O(1)增删改的算发时间复杂度为O(n) 优点:无须为表中元素之间的逻辑关系增加额外的存储空间，可以快速的存取表中任一位置的元素。缺点:插入和删除操作需要移动大量元素，当线性表长度变化较大时，难以确定存储空间的容量，并且容易造成空间碎片。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;#define MAXSIZE 20 //定义空间初始化#define OK 1#define ERROR 0#define TRUE 1#define FALSE 0typedef int ElemType;typedef int Status;typedef struct&#123; ElemType *data;//用数组存储数据元素，最大值为MAXSIZE int length;//线性表当前长度&#125;SqList;//初始化线性表Status InitSqList(SqList *L)&#123; L-&gt;data = (ElemType*) malloc(MAXSIZE*sizeof(ElemType)); if(L-&gt;data == NULL) &#123; printf("初始化失败"); return ERROR; &#125; L-&gt;length = 0; return OK;&#125;Status ListCreate(SqList *L)&#123; int i,n; printf("请输入线性表的长度(长度小于20): \n"); scanf("%d",&amp;n); L-&gt;length = n; printf("请输入即将创建的线性表中的元素：\n"); for (i = 0; i &lt;n; i++) &#123; scanf("%d", &amp;L-&gt;data[i]); &#125; return OK;&#125;//判断线性表是否为空Status ListEmpty(SqList L)&#123; if(L.data == NULL) return ERROR; if(0 == L.length) return TRUE; else return FALSE;&#125;//将线性表清空Status ClearList(SqList *L)&#123; if(0 == L-&gt;length) &#123; printf("顺序表为空"); return ERROR; &#125; int cnt; for(cnt = 0; cnt &lt; L-&gt;length; cnt++) L-&gt;data[cnt] = 0; L-&gt;length = 0; return OK;&#125;//将线性表L中的第i个位置的元素返回给eStatus GetElem(SqList L, int i, ElemType *e)&#123; if(0 == L.length || i &lt; 0 || i &gt; L.length) &#123; printf("顺序表为空，或者i输入错误"); return ERROR; &#125; *e = L.data[i-1]; return OK;&#125;Status LocateElem(SqList L, ElemType e)&#123; if(0 == L.length) &#123; printf("顺序表为空"); return ERROR; &#125; int cnt; for(cnt = 0; cnt &lt; L.length; cnt++) &#123; if(L.data[cnt] == e) return cnt; &#125; return FALSE;&#125;Status PrintList(SqList *L)&#123; if(0 == L-&gt;length) &#123; printf("顺序表为空"); return ERROR; &#125; int i; for(i = 0; i &lt; L-&gt;length; i++)&#123; i &lt; L-&gt;length - 1 ? printf("%d ", L-&gt;data[i]) : printf("%d\n", L-&gt;data[i]); &#125; return OK;&#125;Status ListInsert(SqList *L, int i, ElemType e)&#123; if(0 == L-&gt;length || i &lt; 0 || i &gt;= L-&gt;length) &#123; printf("顺序表为空，或者i输入错误"); return ERROR; &#125; if(L-&gt;length == MAXSIZE) &#123; printf("顺序表已经满了"); return ERROR; &#125; if(i &lt; L-&gt;length) &#123; int k; for( k = L-&gt;length-1; k &gt;= i-1; k--) &#123; L-&gt;data[k+1] = L-&gt;data[k]; &#125; &#125; L-&gt;data[i-1] = e; L-&gt;length++; return OK;&#125;Status ListDelete(SqList *L, int i, ElemType *e)&#123; if(0 == L-&gt;length || i &lt; 0 || i &gt;= L-&gt;length) &#123; printf("顺序表为空，或者i输入错误"); return ERROR; &#125; if(L-&gt;length == 0) &#123; printf("顺序表已经空了"); return ERROR; &#125; *e = L-&gt;data[i-1]; if(i &lt; L-&gt;length) &#123; int k; for(k = i-1; k &lt; L-&gt;length; k++) &#123; L-&gt;data[k] = L-&gt;data[k+1]; &#125; &#125; L-&gt;length--; return OK;&#125;Status ListLength(SqList L)&#123; return L.length;&#125; 线性表的链式存储结构单链表：第一个节点存储位置叫做头结点，最后一个结点指针为空头指针存在于头结点，链表必须存在头指针，在每一个节点中，存储数据和指向下一个节点的指针C语言描述：12345typedef struct Node&#123; ElemType data; struct Node *Next;&#125; Node;typedef struct Node *LinkList//定义LinkList 建立单链表：1、头插法建立无头节点单链表2、尾插法建立单链表 单链表的整表删除：从头结点开始逐个删除 查找链表第i个数据：需要声明指向头结点的指针p，通过移动p到i位置，得到链表数据所以时间复杂度为O(n)增删改只需要通过指针的修改也是O(n)但是相对于顺序结构存储，增删改操作越是频繁，单链表结构更具有优势，查找操作越多，顺序表更具有优势。 题目：快速找到未知长度单链表的中间节点 普通方法：遍历单链表确定长度L，再遍历找到L/2处节点的位置 O(3L/2)优化：快慢指针(标尺思想)设置两个指针，慢指针步长为1，快指针步长为2 ，当快指针到达链表尾部，慢指针就到达中间节点O(L/2) 判断单链表是否有环方法一：通过两个指针p，q，q以步长为1遍历到链表尾，q每移动一个位，更新q移动的距离Q，p遍历到q指针的位置，并得到p指针移动的距离P，如果P!=Q，那么单链表有环。 方法二：通过快慢指针，q每次走一步，p每次走两步，p每走一步都进行判断，如果p==q了，那么就意味着有环。 静态链表利用数组代替指针建立游标，存放下一节点数据的位置通常数据数组的第一个和最后一个元素不存放数据，未使用的数据数组称之为备用链表。数据数组已存放数据的最后一个元素的游标为0游标第一个元素存放备用链表的第一个节点下标游标最后一个元素存放第一个有数值元素的下标，相当于单链表的头结点。 其思想极为巧妙 循环链表将单链表的尾部节点的由空指针指向头结点，循环链表和单链表的主要区别是空表的判断，单链表判断头指针下一元素是不是等于null，循环链表则是判断是不是等于头指针。 问题: 用循环链表模拟约瑟夫问题。 双向链表将单链表节点再增加一个前驱节点，就形成了双向链表。C语言描述：12345typedef struct DualNode&#123; ElemType data; struct DualNode *prior; struct DualNode *next;&#125; 双向链表即时牺牲空间换取时间。]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>线性表</tag>
+        <tag>线性表的存储</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构与算法:时间复杂度和空间复杂度]]></title>
+    <url>%2F2019%2F03%2F11%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95_%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%92%8C%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%2F</url>
+    <content type="text"><![CDATA[时间复杂度和空间复杂度简单分析算法效率的度量方法：1、事后统计法：主要是通过设计好的测试程序和数据，利用计算机计时器对不同算法编制的程序进行测试比较。2、事前分析估算方法：在编写程序前，根据统计方法对算法进行估算。 高级语言程序在计算机上运行时间取决因素： 1、算法的方案2、编译器产生的代码的质量3、问题输入的规模3、机器指令的的速度 1、3为当前需要优化的点 例子：计算1~n的和算法一：1234int sum = 0,n = 100;//执行了1次for(int i = 1; i &lt;= n; i++)&#123; //执行了n+1次 sum += i; //执行了n次&#125; 算法二：12int sum = 0,n = 100;//执行了1次sum = (1 + n) * n / 2;//执行了1次 上面两个算法就是1和n的区别不是2n + 2 和 2的区别，研究算法复杂度侧重是研究算法随着输入规模增大扩大增长量的一个抽象，而不是定位要执行多少次，有一种极限的思想。 辅助理解：算法A需要执行3n+3次操作，算法B需要执行4n+1次操作，算法A和B哪一个更快|n|算法A|算法A（抽象为3n）|算法B|算法B（抽象为4n）||–|–|–|–|–||1| 6|3| 5 |4||2| 9|6| 9 |8||10| 33|30| 41 |40||100| 303|300| 401 |400||1000| 3003|3000| 4001 |4000| 由图可以看出 当n=1时 算法B比算法A更好当n&gt;=2时 算法A开始比算法B要好同时我们也发现：抽象的规律和原本算法一致，所以可以忽略常数如果算法C执行3n^ 2+3n+3次,算法D执行3n+3次，算法E执行3n^ 2次，通过极限抽象可以得出算法C为3n^ 2,算法D为3n，算法E为3n^ 2 时间复杂度简单理解：执行次数=时间一般用大O记法进行记录时间复杂度 分析算法时间复杂度方法： - 可以忽略所以加法常数用常数1来表示 - 然后保留最高项 - 如果最高项存在且不为1，则去除这个项相乘的常数例如：上面算法CDE 已经完成前两步，所以我们可以得出算法CDE分别为：O(n^ 2)，O(n)，O(n^2)。 常用时间复杂度耗时：常数阶&lt;线性阶&lt;平方阶&lt;对数阶&lt;nlogn阶&lt;立方阶&lt;指数阶； 最坏情况与平均情况平均运行时间是期望的运行时间，最坏运行时间是一种保证 空间复杂度简单理解：就是关于n的语句所占的存储空间 一般来说，时间和空间是可以相互转换的。]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>时间空间复杂度</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构与算法:数据结构的存储方式与常用结构]]></title>
+    <url>%2F2019%2F03%2F11%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F%E4%B8%8E%E5%B8%B8%E7%94%A8%E7%BB%93%E6%9E%84%2F</url>
+    <content type="text"><![CDATA[修改于 2019/3/18 绪论一般来说，数据结构分为：1、逻辑结构2、物理结构 逻辑结构有四种： 集合结构 线性结构 树形结构 图形结构 物理结构实际上就是如何将数据元素储存到计算机的存储器中(如：硬盘、软盘等)，而数据存储结构的形式有两种：顺序存储和链式存储1、顺序存储：数据元素存放的地址是连续的，其数据间的逻辑关系和物理关系是一致的。(例如：c语言中的数组)2、链式存储：数据元素存放是在任意的存储单元，可以连续也不可以连续，取而代之的就是需要指针存放下一元素的地址 数据类型：是指一组性质相同的值的集合以及定义在次集合上的一些操作的总称 抽象数据类型(ADT)是指一个数学模型及定义在该模型上的一组操作。其意义可以将我们实际生活中的大问题分解为多个规模小并且容易处理的问题，然后建立一个计算机能处理的数据模型。]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构常用存储方式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[HDU1323]]></title>
     <url>%2F2018%2F09%2F06%2FHDU1232%2F</url>
     <content type="text"><![CDATA[畅通工程Time Limit: 4000/2000 MS (Java/Others)Memory Limit: 65536/32768 K (Java/Others) Problem Description：某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通过道路可达即可）。问最少还需要建设多少条道路？ Input：测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是城镇数目N ( &lt; 1000 )和道路数目M；随后的M行对应M条道路，每行给出一对正整数，分别是该条道路直接连通的两个城镇的编号。为简单起见，城镇从1到N编号。注意:两个城市之间可以有多条道路相通,也就是说 3 3 1 2 1 2 2 1 这种输入也是合法的当N为0时，输入结束，该用例不被处理。 Output：对每个测试用例，在1行里输出最少还需要建设的道路数目。 Sample Input4 2 1 3 4 3 3 3 1 2 1 3 2 3 5 2 1 2 3 5 999 0 0 Sample Output1 0 2 998]]></content>
       <categories>
-        <category>ACM</category>
+        <category>编程题</category>
       </categories>
       <tags>
         <tag>HDU</tag>
@@ -431,21 +619,21 @@
     <url>%2F2018%2F09%2F06%2F%E5%B9%B6%E6%9F%A5%E9%9B%86%2F</url>
     <content type="text"><![CDATA[并查集并查集（Union-find Sets）是一种非常巧妙而且实用的数据结构，主要用于处理一些不想交的集合合并问题。具体包含了两个函数：Union()用来合并和Find()用来查找 以及一个整型数组用来记录每个点的前导点是什么。 代码实现int pre[1050]//记录第i个节点的父亲节点 int Find(int root)//查找根节点 { int son,temp; son=root; while(root != pre[root]){//寻找父亲节点 root = pre[root]; } while(son != root){//路径压缩 temp=pre[son]; pre[son]=root; son=temp; } return son; } void Union(int root1,int root2){//判断是否连通，不连通就合并 int x,y; x=Find(root1); y=Find(root2); if(x!=y)//如果不连通，就把它们所在的连通分支合并 pre[x] = y; } 算法详解pre[]数组最开始初始化为为pre[i]=i，即表明这pre[i]的父亲节点是i，Union()函数则是将两个节点进行联通，其中Union中用到了Find()函数是找自己的父亲节点判断是否联通，如果不连通就进行pre[x]=y操作，表示为将x节点的父亲节点设置为y。其中Find()函数通过递归判断本节点的上一节点的父亲节点是不是本身，直到找到一个节点的父亲节点是本身的节点作为父亲节点。 在Find()函数中有一个路径压缩算法，是由于Union()函数只是为了连接，所以谁作为父亲节点是随机的，因此最后的树状结构可能很复杂，查找的效率就很低，那么就需要进行路径压缩，让所有的父子节点关系都变成两级结构。 经典例题传送门： HDU 1232畅通工程]]></content>
       <categories>
-        <category>ACM</category>
+        <category>记录</category>
       </categories>
       <tags>
         <tag>并查集</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
+    <title><![CDATA[Hello Everyone]]></title>
     <url>%2F2018%2F09%2F01%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Jos’s blog! This is my first post.]]></content>
       <categories>
-        <category>Test</category>
+        <category>简记</category>
       </categories>
       <tags>
-        <tag>hi</tag>
+        <tag>Hi</tag>
       </tags>
   </entry>
   <entry>
@@ -488,7 +676,6 @@
     <content type="text"><![CDATA[题目题目的关键所在就是如何判断双引号是左双引号还是右双引号，我们易知引号是成对存在的，所以我们用一个标记变量就可以的判断了。其次便是输入问题，我们知道scanf输入遇到空格便会停下，所以我们会用到getchar函数代码如下： 123456789101112131415#include&lt;stdio.h&gt; int main() &#123; int s,n = 1; while((s = getchar()) != EOF) &#123; if(s == '"') &#123; printf("%s", n ? "``" : "''"); n = !n; &#125; else printf("%c", s); &#125; return 0; &#125;]]></content>
       <categories>
         <category>编程题</category>
-        <category>ACM</category>
       </categories>
       <tags>
         <tag>字符串</tag>
@@ -567,6 +754,22 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[二叉树的存储与遍历]]></title>
+    <url>%2F2017%2F10%2F18%2F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%82%A8%E5%AD%98%E4%B8%8E%E9%81%8D%E5%8E%86%2F</url>
+    <content type="text"><![CDATA[###二叉树的两种储存：顺序储存 链式储存 ###四种遍历：层次遍历 前序遍历 中序遍历 后序遍历 ####1.储存 - 顺序储存： 首先用零元素将二叉树填充为完全二叉树，再将填充后的二叉树节点按层次顺序的次序储存到数组中存储后即为： 由于顺序储存效率低，所以一般不这样进行二叉树的储存。 - 链式储存： 二叉链表的结点结构为12345678template&lt;class T&gt;struct BTNode&#123; T data; BTNode *left *right ;//指向左右孩子的指针 BTNode(const T&amp; item=T(),lptr=NULL,BTNode* rptr=NULL)： data(item),left(lptr),right(rplt)&#123;&#125;&#125;; 建立二叉链表结点的函数123456789101112template&lt;class T&gt;BTNode &lt;T&gt; * GetBTNode(const T&amp; item,BTNode&lt;T&gt; *lp=NULL,BTNode&lt;T&gt; *rp=NULL)&#123; BTNode &lt;T&gt; *p; p=new BTNode&lt;T&gt; (item,lp,rp); if(p==NULL) &#123; cout&lt;&lt;"Memory allocation failure!"&lt;&lt;endl; exit(1); &#125; return (p);&#125; 图一应用举例： 1234567BTNode&lt;char&gt; *nullp = NULL;BTNode&lt;char&gt; *fp = GetBTNode('F');BTNode&lt;char&gt; *dp = GetBTNode('D', fp);BTNode&lt;char&gt; *bp = GetBTNode('B', nullp, dp);//若直接用NULL，非法，由于无法确定NULL类型BTNode&lt;char&gt; *ep = GetBTNode('E');//合法，左右孩子取，默认值BTNode&lt;char&gt; *cp = GetBTNode('C', nullp, ep);BTNode&lt;char&gt; *ap = GetBTNode('A', bp, cp); ####2.遍历 - 层次遍历：层次遍历顾名思义就是将结点一层一层的进行遍历，如例图中就为ABCDE 非递归层次遍历运用了队列，简单讲一下队列有着先进先出的原则，层次遍历可以出队之后访问，入队之前访问 出队之后访问： 1234567891011121314151617template&lt;class T&gt;void Level(const BTNode&lt;T&gt;* t)&#123; if(t==NUll) return ; queue&lt;const BTNode&lt;T&gt;*&gt; Q; Q.Push(t)//入栈函数,在queue.h内 while(!Q.Empty()) &#123; t=Q.Pop();//出栈函数，移除第一个数据并赋给t指针 cout&lt;&lt;t-&gt;data; if(t-&gt;left) Q.Push(t-&gt;left); if(t-&gt;right) Q.Push(t-&gt;right) &#125;&#125; 出队之前访问 1234567891011121314151617181920212223template&lt;class T&gt;void Level(const BTNode&lt;T&gt;* t)&#123; if(t==NUll) return ; queue&lt;const BTNode&lt;T&gt;*&gt; Q; cout&lt;&lt;t-&gt;data; Q.Push(t) while(!Q.Empty()) &#123; t=Q.Pop(); if(t-&gt;left) &#123; cout&lt;&lt;t-&gt;left-&gt;data; Q.Push(t-&gt;left); &#125; if(t-&gt;right) &#123; cout&lt;&lt;t-&gt;right-&gt;data; Q.Push(t-&gt;right); &#125; &#125;&#125; - 前序遍历 前序遍历也称之为深度优先遍历，算法的递归描述为 1.访问根节点 2.前序遍历左子树 3.前序遍历右子树 例图中前序遍历即为ABDFCE，运用了用户栈，用户栈有着先进后出的原则，在前序遍历中栈实质是为了寄存右子树的根指针，将左指针所指的左子树遍历后，再遍历右子树。代码如下： 1234567891011121314151617template &lt;class T&gt;void SimPreorder(const BTNode &lt;T&gt;* t)&#123; if(!t) return ; stack&lt;const BTNode&lt;T&gt;*&gt; S;//用户栈 while(t||!S.Empty()) if(t) &#123; cout&lt;&lt;t-&gt;data; if(t-&gt;right) S.push(t-&gt;right);//入栈 t=t-&gt;left; &#125; else t=S.Pop();//清除栈的最后进入的一位&#125; 关于前序遍历，有些算法和它还是很相近的，比如二分快速排序，集合幂集求解。后期会补上相关博客 - 中序遍历中序遍历中，也用到栈，其意义是寄存根节点，以便于左子树遍历完成后取出根指针，访问根指针并取出右子树进行遍历，算法的递归描述：1.中序遍历左子树2.访问根节点3.中序遍历右子树代码如下： 123456789101112131415161718192021template&lt;class T&gt;void Siminorder(const BTNode&lt;T&gt;* t)&#123; if(!t) return ; stack&lt;const BTNode&lt;T&gt;*&gt; S; while (t||!S.Empty()) &#123; if(t) &#123; S.Push(t); t=t-&gt;left' &#125; else &#123; t=S.Pop(); cout&lt;&lt;t-&gt;data; t-t-&gt;right; &#125; &#125;&#125; - 后序遍历后序遍历非递归算法任然是栈来实现，但是不同的是后序遍历用了两个栈，一个栈是为了寄存根节点，一个栈是为了记录相应的结点指针入栈的次数，后序遍历结点会进栈两次，第一次遍历左子树，第二次为了遍历右子树 递归算法描述：1.后序遍历左子树2.后序遍历右子树3.访问根节点 代码实现： 1234567891011121314151617181920212223242526272829303132template&lt;class T&gt;void SimPostorder(const BTNode&lt;T&gt;* t)&#123; if (!t) return ; int tag; Stack&lt;const BTNode&lt;T&gt;*&gt; S; Stack&lt;int&gt; tagS; const BTNode &lt;T&gt;*temp; while (t || !S.Empty()) &#123; if (t) &#123; S.Push(t); tagS.Push(1); t = t-&gt;left; &#125; else &#123; temp = S.Pop(); tag = tagS.Pop(); if (tag == 1) &#123; S.Push(temp); tagS.Push(2); t = temp-&gt;right; &#125; else cout &lt;&lt; temp-&gt;data; &#125; &#125;&#125; 记录的还是有些粗略，后期会再进行详解 注： 片段代码或者语言如有错误望谅解并请指出。]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>二叉树的顺序存储</tag>
+        <tag>二叉树的链式存储</tag>
+        <tag>层次遍历</tag>
+        <tag>前序遍历</tag>
+        <tag>中序遍历</tag>
+        <tag>后序遍历</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[在ubuntu17.04下安装最新版QQ教程]]></title>
     <url>%2F2017%2F10%2F15%2F%E5%9C%A8ubuntu17.04%E4%B8%8B%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ%E6%95%99%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[博客更新：2018年7月25日好久没有登陆csdn，今天发现这篇文章帮助了这么多人，百度云链接更新了同时给大家分享一个更为简单的安装wine QQ 的教程 ，也是几个月前摸索出来的，非常简单！见文章链接 Ubuntu18.04超级简单的安装wine QQ教程Ubuntu18.04安装WPS(亲测~)使用的方式是通过wine这一强大的工具,wine是什么就自行百度啦，我也是近期接触linux 具体教程：1.安装wine首先ctrl+alt+T打开终端进行如下三条指令 123sudo add-apt-repository ppa:wine/wine-buildssudo apt-get updatesudo apt-get install winehq-devel 2.下载安装包百度云链接：https://pan.baidu.com/s/1dE2sZNr 密码: evgf(大家看看文头的新方法嘻嘻) 3.解压安装下载完成之后，进入到下载目录，将其解压到我们的用户主home目录下（图片文件右键提取）,解压出来的是3个隐藏目录和说明文件其实这个时候就已经安装好了，这个时候只用按下super键（Win键）搜索qq，就会出现wineqq，然后可能会弹出更新安装，（我出现了）点安装就ok。最后就会弹出qq登录界面就可以登录啦完美解决～ 当然还有卸载qq的方法啦卸载qq的方法：1234567rm -rf ~/.winerm -rf ~/.local/share/applications/wine-QQ.desktoprm -rf ~/.local/share/icons/hicolor/256x256/apps/QQ.pngrm -rf ~/.fonts/simsun.ttc]]></content>
@@ -616,7 +819,7 @@
     <url>%2F2017%2F09%2F28%2F%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92--%E6%95%B0%E5%A1%94%2F</url>
     <content type="text"><![CDATA[数塔是动态规划的一道经典题认识数塔前，先认识一下动态规划，动态规划不是一种特定的算法，而是一种具有较强的技巧性的手段，或者说是思想，但所有动态规划的题离不开两个核心：1.状态2.状态转移方程当我们抓住这两个核心，我们的问题就能解决一大半！—————————————————————————————————————题目：图片上便是一个数塔，现在要解决的问题是，从数塔顶层到底层，沿途将权重（即数值）相加和最大是多少？ 分析：首先再回想一遍动态规划的两个核心。状态分析：我们会发现，当在每个节点都会做一个选择，（例如：在1时，是选择左还是选择右）而选择了左或者右的时候又继续会有选择，我们此时马上就会想到递归（见a）状态转移方程分析：题目要求最大的走法，所以我们可以初步得出一个方程雏形a[选择后的结果]=b[节点]+max(a[左],a[右])现在就需要一点点技巧性了，如何将方程雏形改成真正的状态转移方程此处我们给出一个二维数组的处理办法，如图所示： 即可得出状态转移方程：a[i,j]=b[i,j]+max(a[i+1,j],a[i+1,j+1])理解了题目的状态，得出状态转移方程后，便要考虑计算的问题了 - a -递归计算！！注意边界处理，递归没有什么要讲的，直入代码1234567int dp(int i,int j)&#123; if(i&lt;=n) return b[i,j]+max(dp(i+1,j),dp(i+1,j+1)) if(i&gt;n) return 0;&#125; 例子代码：1234567891011121314151617181920212223242526272829#include&lt;cstdio&gt;#include&lt;algorithm&gt;using namespace std;int a[105][105],m;int dp(int i,int j)&#123; if(i&lt;=m) return a[i][j]+(max(dp(i+1,j),dp(i+1,j+1))); if(i&gt;m) return 0;&#125;int main()&#123; int t; scanf("%d",&amp;t); while(t--) &#123; scanf("%d",&amp;m); for(int i=1;i&lt;=m;i++) &#123; for(int j=1;j&lt;=i;j++) &#123; scanf("%d",&amp;a[i][j]); &#125; &#125; printf("%d",dp(1,1)); &#125; return 0;&#125; 递归算法保证子结构为最优解，所以上一结构也是最优，所以可以得出最大数值路径，但是会产生大量的重复计算，如图片2中会将（3，2）（4，2）（4，3）重复计算两次，如果数塔层数过大，那么效率是很低的，所以孕育而生了递推计算（见b） 记忆化搜索（见c） - b递推计算！！边界处理，递推采用的是一种逆向思维，从数塔最后一层进行处理，比递归计算处理更加的简洁，在大多数情况下（每个决策时间一样），递推法的时间复杂度是：状态总数×每个状态的决策个数×决策时间。 123456789for(int i=1;i&lt;m;i++) b[m][i]=a[m][i];for(int i=m-1;i&gt;=1;i--)&#123; for(int j=1;j&lt;=i;j++) &#123; b[i][j]=a[i][j]+max(b[i+1][j],b[i+1][j+1]); &#125;&#125; 例子代码：123456789101112131415161718192021222324252627282930313233#include&lt;cstdio&gt;#include&lt;algorithm&gt;using namespace std;int a[105][105];int b[105][105];int m;int main()&#123; int t; scanf("%d",&amp;t); while(t--) &#123; scanf("%d",&amp;m); for(int i=1;i&lt;=m;i++) &#123; for(int j=1;j&lt;=i;j++) &#123; scanf("%d",&amp;a[i][j]); &#125; &#125; for(int i=1;i&lt;=m;i++) b[m][i]=a[m][i]; for(int i=m-1;i&gt;=1;i--) &#123; for(int j=1;j&lt;=i;j++) &#123; b[i][j]=a[i][j]+max(b[i+1][j],b[i+1][j+1]); &#125; &#125; printf("%d",b[1][1]); &#125; return 0;&#125; - c记忆化搜索记忆化搜索是递归的优化版本，利用另一个数组将处理过的数组记录，达到优化目的记录处理：利用memset(b,－1,sizeof(b))将b[ ][ ]数组都初始化为-1，当数组进行过处理直接返回当前数值即可 123456789int dp(int i,int j)&#123; if(b[i][j]&gt;=0) return b[i][j]; if(i&lt;=m) b[i][j]=a[i][j]+max(dp(i+1,j),dp(i+1,j+1)); if(i&gt;m) return 0;&#125; 例子代码和递归没多大差别，就是要注意每次进行需要将数组b[][]进行初始化为-1为下一次计算做准备递归与记忆化搜索的区别 见下图： 图示已将优化体现的很明显了~ 注：1.片段代码或者语言如有错误望谅解并请指出。2.图摘自算法竞赛入门经典第二版，侵权请联系博主删除。]]></content>
       <categories>
-        <category>ACM</category>
+        <category>记录</category>
       </categories>
       <tags>
         <tag>动态规划</tag>
@@ -627,7 +830,7 @@
     <url>%2F2017%2F09%2F27%2F%E6%9C%80%E5%A4%A7%E5%AD%90%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97%E4%B9%8B%E5%92%8C%2F</url>
     <content type="text"><![CDATA[问题简介：求最大连续序列之和。例如：{-1，5，6，-10，15，-9，8}，最大连续子序列和为{5，6，-10，15}，和为16。代码： 123456789101112131415161718192021222324252627#include&lt;cstdio&gt;#include&lt;algorithm&gt;using namespace std;const int maxn=1000;int a[maxn]; //存入序列int b[maxn]; //存储状态 int main() &#123; int m; scanf("%d",&amp;m); for(int i=0;i&lt;m;i++) &#123; scanf("%d",&amp;a[i]); &#125; //录入样例&#123;-1，5，6，-10，15，-9，8&#125; b[0] = a[0]; int ans = b[0]; for(int i = 1;i&lt;m ; i++) &#123; b[i]=max(a[i],b[i-1]+a[i]); //讲解见a if(ans&lt;b[i]) ans=b[i]; //ans储存最大序列之和 &#125; printf("max %d\n" , ans); for(int i = 0;i&lt;m;i++) //展现状态b[i]每个位置状态 printf("b[%d]=%d\n",i,b[i]); return 0; &#125; a状态转移方程 b[i]=max(a[i],b[i-1]+a[i]) b[i]每个状态为当前序号之前的最大子序列之和，max（）函数将进行选择：1.删除前一状态 a[i] 例如：b[1]=max(a[1],a[1]+b[0]);2.保留前一个状态 b[i-1]+a[i] 例如：b[2]=max(a[2],a[2]+b[1]); 最后用ans将最大的那个状态保存即求出了最大子序列之和]]></content>
       <categories>
-        <category>ACM</category>
+        <category>记录</category>
       </categories>
       <tags>
         <tag>动态规划</tag>
