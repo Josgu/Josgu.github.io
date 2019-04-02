@@ -1,6 +1,420 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux每天记day7:touch命令]]></title>
+    <url>%2F2019%2F04%2F02%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day7_touch%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[touchtouch命令将每个文件的访问时间和修改时间改为当前时间,不存在的文件参数创建为空，除非有-c或-h选项 语法: touch [OPTION]... FILE... 选项: -a, 只更改访问时间 -c, 不创建任何文件 -d, --date=字符串 使用指定字符串表示时间而非当前时间 -h,会影响符号链接本身，而非符号链接所指示的目的地(当系统支持更改符号链接的所有者时，此选项才有用) -m,只更改修改时间 -r, 使用指定文件的时间属性而非当前时间 -t 使用[[CC]YY]MMDDhhmm[.ss] 格式的时间而非当前时间 --time=WORD 使用WORD 指定的时间：access、atime、use 都等于-a选项的效果，而modify、mtime 等于-m 选项的效果 操作:]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[二叉树的存储与遍历]]></title>
+    <url>%2F2019%2F04%2F02%2F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%82%A8%E5%AD%98%E4%B8%8E%E9%81%8D%E5%8E%86%2F</url>
+    <content type="text"><![CDATA[###二叉树的两种储存：顺序储存 链式储存 ###四种遍历：层次遍历 前序遍历 中序遍历 后序遍历 ####1.储存 - 顺序储存： 首先用零元素将二叉树填充为完全二叉树，再将填充后的二叉树节点按层次顺序的次序储存到数组中存储后即为： 由于顺序储存效率低，所以一般不这样进行二叉树的储存。 - 链式储存： 二叉链表的结点结构为12345678template&lt;class T&gt;struct BTNode&#123; T data; BTNode *left *right ;//指向左右孩子的指针 BTNode(const T&amp; item=T(),lptr=NULL,BTNode* rptr=NULL)： data(item),left(lptr),right(rplt)&#123;&#125;&#125;; 建立二叉链表结点的函数123456789101112template&lt;class T&gt;BTNode &lt;T&gt; * GetBTNode(const T&amp; item,BTNode&lt;T&gt; *lp=NULL,BTNode&lt;T&gt; *rp=NULL)&#123; BTNode &lt;T&gt; *p; p=new BTNode&lt;T&gt; (item,lp,rp); if(p==NULL) &#123; cout&lt;&lt;"Memory allocation failure!"&lt;&lt;endl; exit(1); &#125; return (p);&#125; 图一应用举例： 1234567BTNode&lt;char&gt; *nullp = NULL;BTNode&lt;char&gt; *fp = GetBTNode('F');BTNode&lt;char&gt; *dp = GetBTNode('D', fp);BTNode&lt;char&gt; *bp = GetBTNode('B', nullp, dp);//若直接用NULL，非法，由于无法确定NULL类型BTNode&lt;char&gt; *ep = GetBTNode('E');//合法，左右孩子取，默认值BTNode&lt;char&gt; *cp = GetBTNode('C', nullp, ep);BTNode&lt;char&gt; *ap = GetBTNode('A', bp, cp); ####2.遍历 - 层次遍历：层次遍历顾名思义就是将结点一层一层的进行遍历，如例图中就为ABCDE 非递归层次遍历运用了队列，简单讲一下队列有着先进先出的原则，层次遍历可以出队之后访问，入队之前访问 出队之后访问： 1234567891011121314151617template&lt;class T&gt;void Level(const BTNode&lt;T&gt;* t)&#123; if(t==NUll) return ; queue&lt;const BTNode&lt;T&gt;*&gt; Q; Q.Push(t)//入栈函数,在queue.h内 while(!Q.Empty()) &#123; t=Q.Pop();//出栈函数，移除第一个数据并赋给t指针 cout&lt;&lt;t-&gt;data; if(t-&gt;left) Q.Push(t-&gt;left); if(t-&gt;right) Q.Push(t-&gt;right) &#125;&#125; 出队之前访问 1234567891011121314151617181920212223template&lt;class T&gt;void Level(const BTNode&lt;T&gt;* t)&#123; if(t==NUll) return ; queue&lt;const BTNode&lt;T&gt;*&gt; Q; cout&lt;&lt;t-&gt;data; Q.Push(t) while(!Q.Empty()) &#123; t=Q.Pop(); if(t-&gt;left) &#123; cout&lt;&lt;t-&gt;left-&gt;data; Q.Push(t-&gt;left); &#125; if(t-&gt;right) &#123; cout&lt;&lt;t-&gt;right-&gt;data; Q.Push(t-&gt;right); &#125; &#125;&#125; - 前序遍历 前序遍历也称之为深度优先遍历，算法的递归描述为 1.访问根节点 2.前序遍历左子树 3.前序遍历右子树 例图中前序遍历即为ABDFCE，运用了用户栈，用户栈有着先进后出的原则，在前序遍历中栈实质是为了寄存右子树的根指针，将左指针所指的左子树遍历后，再遍历右子树。代码如下： 1234567891011121314151617template &lt;class T&gt;void SimPreorder(const BTNode &lt;T&gt;* t)&#123; if(!t) return ; stack&lt;const BTNode&lt;T&gt;*&gt; S;//用户栈 while(t||!S.Empty()) if(t) &#123; cout&lt;&lt;t-&gt;data; if(t-&gt;right) S.push(t-&gt;right);//入栈 t=t-&gt;left; &#125; else t=S.Pop();//清除栈的最后进入的一位&#125; 关于前序遍历，有些算法和它还是很相近的，比如二分快速排序，集合幂集求解。后期会补上相关博客 - 中序遍历中序遍历中，也用到栈，其意义是寄存根节点，以便于左子树遍历完成后取出根指针，访问根指针并取出右子树进行遍历，算法的递归描述：1.中序遍历左子树2.访问根节点3.中序遍历右子树代码如下： 123456789101112131415161718192021template&lt;class T&gt;void Siminorder(const BTNode&lt;T&gt;* t)&#123; if(!t) return ; stack&lt;const BTNode&lt;T&gt;*&gt; S; while (t||!S.Empty()) &#123; if(t) &#123; S.Push(t); t=t-&gt;left' &#125; else &#123; t=S.Pop(); cout&lt;&lt;t-&gt;data; t-t-&gt;right; &#125; &#125;&#125; - 后序遍历后序遍历非递归算法任然是栈来实现，但是不同的是后序遍历用了两个栈，一个栈是为了寄存根节点，一个栈是为了记录相应的结点指针入栈的次数，后序遍历结点会进栈两次，第一次遍历左子树，第二次为了遍历右子树 递归算法描述：1.后序遍历左子树2.后序遍历右子树3.访问根节点 代码实现： 1234567891011121314151617181920212223242526272829303132template&lt;class T&gt;void SimPostorder(const BTNode&lt;T&gt;* t)&#123; if (!t) return ; int tag; Stack&lt;const BTNode&lt;T&gt;*&gt; S; Stack&lt;int&gt; tagS; const BTNode &lt;T&gt;*temp; while (t || !S.Empty()) &#123; if (t) &#123; S.Push(t); tagS.Push(1); t = t-&gt;left; &#125; else &#123; temp = S.Pop(); tag = tagS.Pop(); if (tag == 1) &#123; S.Push(temp); tagS.Push(2); t = temp-&gt;right; &#125; else cout &lt;&lt; temp-&gt;data; &#125; &#125;&#125; 记录的还是有些粗略，后期会再进行详解 注： 片段代码或者语言如有错误望谅解并请指出。]]></content>
+      <categories>
+        <category>记录</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>二叉树的顺序存储</tag>
+        <tag>二叉树的链式存储</tag>
+        <tag>层次遍历</tag>
+        <tag>前序遍历</tag>
+        <tag>中序遍历</tag>
+        <tag>后序遍历</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day17:chgrp命令]]></title>
+    <url>%2F2019%2F04%2F01%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day14_chgrp%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[chgrpchgrp(Change group) 用来将每个指定文件的所属组设置为指定值。如果使用 –reference，则将每个文件的所属组设置为与指定参考文件相同。语法: chgrp [OPTION]... GROUP FILE... or:chgrp [OPTION]... --reference=RFILE FILE... 选项:-c –changes 类似于 –verbose,但只在更改时才会显示结果-f 去除大部分的错误信息-R 递归处理所有文件及其子目录 操作:]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文件权限</tag>
+        <tag>chgrp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day17:Merge k Sorted Lists]]></title>
+    <url>%2F2019%2F04%2F01%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day14_Merge%20k%20Sorted%20Lists%2F</url>
+    <content type="text"><![CDATA[题目链接:Merge k Sorted ListsC++:1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123; ListNode* res = new ListNode(0); ListNode* head = res; while(l1!=NULL || l2!=NULL)&#123; if(l1&amp;&amp;l2)&#123; if(l1-&gt;val &lt; l2-&gt;val)&#123; head-&gt;next = l1; l1 = l1-&gt;next; &#125; else&#123; head-&gt;next = l2; l2 = l2-&gt;next; &#125; head = head-&gt;next; &#125; while(l1!=NULL &amp;&amp; l2==NULL)&#123; head-&gt;next = l1; head = head-&gt;next; l1 = l1-&gt;next; &#125; while(l1==NULL &amp;&amp; l2!=NULL)&#123; head-&gt;next = l2; head = head-&gt;next; l2 = l2-&gt;next; &#125; &#125; return res-&gt;next; &#125; ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) &#123; if(lists.empty())&#123; return NULL; &#125; if(lists.size() == 1)&#123; return lists[0]; &#125; else if(lists.size() == 2)&#123; return mergeTwoLists(lists[0], lists[1]); &#125; int mid = lists.size()/2; vector&lt;ListNode*&gt; l1,l2; for(int i = 0; i &lt; mid; i++) l1.push_back(lists[i]); for(int i = mid; i &lt; lists.size(); i++) l2.push_back(lists[i]); ListNode *L1 = mergeKLists(l1); ListNode *L2 = mergeKLists(l2); return mergeTwoLists(L1, L2); &#125;&#125;; 合并排序,分治思想运用]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day17:Swap Nodes in Pairs]]></title>
+    <url>%2F2019%2F04%2F01%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day14_Swap%20Nodes%20in%20Pairs%2F</url>
+    <content type="text"><![CDATA[题目链接:Swap Nodes in PairsC++:绕1234567891011121314151617181920212223242526/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* swapPairs(ListNode* head) &#123; ListNode *p, *q; ListNode *ret = new ListNode(0); ret-&gt;next = head; q = ret; while(head != nullptr &amp;&amp; head-&gt;next != nullptr)&#123; p = head-&gt;next; head-&gt;next = p-&gt;next; p-&gt;next = head; q-&gt;next = p; q = head; head = head-&gt;next; &#125; return ret-&gt;next; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day16:chmod命令]]></title>
+    <url>%2F2019%2F03%2F30%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day13_chmod%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[chmodchmod(Change mode) 用来将每个文件的模式更改为指定值。语法: chmod [OPTION]... MODE[,MODE]... FILE... or: chmod [OPTION]... OCTAL-MODE FILE... or: chmod [OPTION]... --reference=RFILE FILE... 选项: -c, --changes 类似 --verbose，但只在有更改时才显示结果 -f, --silent, --quiet 去除大部份的错误信息 -v, --verbose 为处理的所有文件显示诊断信息 -R, --recursive 以递归方式更改所有的文件及子目录 操作:]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文件权限</tag>
+        <tag>chmod</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day16:Generate Parentheses]]></title>
+    <url>%2F2019%2F03%2F30%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day13_Generate%20Parentheses%2F</url>
+    <content type="text"><![CDATA[题目链接:Generate Parentheses C++:递归1234567891011121314151617181920212223class Solution &#123;vector&lt;string&gt; res; public: void generate(string str, int left, int right) &#123; if(left &lt;= 0) &#123; for(int i=0;i&lt;right;i++) str.push_back(')'); res.push_back(str); &#125; else &#123; if(left &lt; right) generate(str+')', left, right-1); generate(str+'(', left-1, right); &#125; &#125; vector&lt;string&gt; generateParenthesis(int n) &#123; generate("", n, n); return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day15:find命令]]></title>
+    <url>%2F2019%2F03%2F29%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day12_find%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[find find(find) 命令用来在指定目录下查找文件。任何位于参数之前的字符串都将被视为欲查找的目录名。如果使用该命令时，不设置任何参数，则find命令将在当前目录下查找子目录与文件。并且将查找到的子目录和文件全部进行显示。语法: find [-H] [-L] [-P] [-Olevel] [-D debugopts] [path...] [expression] 选项: &apos;-H&apos;表示只跟随命令行中指定的符号连接， &apos;-L&apos;表示跟随所有的符号连接， &apos;-P&apos;是默认的选项，表示不跟随符号连接。 -D debugoptions. 打印诊断信息 -Olevel Enables query optimisation. 允许查询优化 -mount, -xdev : 只检查和指定目录在同一个文件系统下的文件，避免列出其它文件系统中的文件 -amin n : 在过去 n 分钟内被读取过 -anewer file : 比文件 file 更晚被读取过的文件 -atime n : 在过去n天内被读取过的文件 -cmin n : 在过去 n 分钟内被修改过 -cnewer file :比文件 file 更新的文件 -ctime n : 在过去n天内被修改过的文件 -empty : 空的文件-gid n or -group name : gid 是 n 或是 group 名称是 name -ipath p, -path p : 路径名称符合 p 的文件，ipath 会忽略大小写 -name name, -iname name : 文件名称符合 name 的文件。iname 会忽略大小写 -size n : 文件大小 是 n 单位，b 代表 512 位元组的区块，c 表示字元数，k 表示 kilo bytes，w 是二个位元组。-type c : 文件类型是 c 的文件。]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>find</tag>
+        <tag>Linux文件查找</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day15:Merge Two Sorted Lists]]></title>
+    <url>%2F2019%2F03%2F29%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day13_Merge%20Two%20Sorted%20Lists%2F</url>
+    <content type="text"><![CDATA[题目链接:Merge Two Sorted ListsC++:链表归并操作123456789101112131415161718192021222324252627282930313233343536373839/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123; ListNode* res = new ListNode(0); ListNode* head = res; while(l1!=NULL || l2!=NULL)&#123; if(l1&amp;&amp;l2)&#123; if(l1-&gt;val &lt; l2-&gt;val)&#123; head-&gt;next = l1; l1 = l1-&gt;next; &#125; else&#123; head-&gt;next = l2; l2 = l2-&gt;next; &#125; head = head-&gt;next; &#125; while(l1!=NULL &amp;&amp; l2==NULL)&#123; head-&gt;next = l1; head = head-&gt;next; l1 = l1-&gt;next; &#125; while(l1==NULL &amp;&amp; l2!=NULL)&#123; head-&gt;next = l2; head = head-&gt;next; l2 = l2-&gt;next; &#125; &#125; return res-&gt;next; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+        <tag>归并</tag>
+        <tag>分治</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day15:which命令]]></title>
+    <url>%2F2019%2F03%2F28%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day12_which%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[whichwhich (which) 命令的作用是在PATH变量指定的路径中搜索某个系统命令的位置并且返回第一个搜索结果。也就是说使用which命令就可以看到某个系统命令是否存在以及执行的到底是哪一个位置的命令语法: which [-a] filename ... 选项: -n 指定文件名长度，指定的长度必须大于或等于所有文件中最长的文件名。 -p 与-n参数相同，但此处的包括了文件的路径。 -w 指定输出时栏位的宽度。 -V 显示版本信息 操作:]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文件查找</tag>
+        <tag>which</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day14:Valid Parentheses]]></title>
+    <url>%2F2019%2F03%2F28%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day12_Valid%20Parentheses%2F</url>
+    <content type="text"><![CDATA[题目链接:Valid ParenthesesC++:123456789101112131415161718192021222324class Solution &#123;public: bool isValid(string s) &#123; stack&lt;char&gt; st; int lens = s.size(); for(int i = 0; i &lt; lens; i++)&#123; if(s[i] == ')' || s[i] == ']' || s[i] == '&#125;') &#123; if(st.size() == 0) return false; if(st.top() == '(' &amp;&amp; s[i] != ')') return false; if(st.top() == '[' &amp;&amp; s[i] != ']') return false; if(st.top() == '&#123;' &amp;&amp; s[i] != '&#125;') return false; st.pop(); &#125; else st.push(s[i]); &#125; return st.size() == 0; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day14:Remove Nth Node From End of List]]></title>
+    <url>%2F2019%2F03%2F28%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day12_Remove%20Nth%20Node%20From%20End%20of%20List%2F</url>
+    <content type="text"><![CDATA[题目链接:Remove Nth Node From End of ListC++:自己的思路是这样写的，但是编码的太丑了，挂上别人简洁的代码123456789101112131415161718192021222324252627/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* removeNthFromEnd(ListNode* head, int n) &#123; ListNode *p = head, *q = head; while(n--)&#123; q=q-&gt;next; &#125; if(!q) &#123; return head-&gt;next; &#125; while(q-&gt;next)&#123; p = p-&gt;next; q = q-&gt;next; &#125; p-&gt;next = p-&gt;next-&gt;next; return head; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day13:head命令]]></title>
+    <url>%2F2019%2F03%2F27%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day11_head%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[headhead (head) 用来显示档案的开头至标准输出中。如果指定了多于一个文件，在每一段输出前会给出文件名作为文件头。如果不指定文件，或者文件为”-“，则从标准输入读取数据。语法: head [OPTION]... [FILE]... 选项: -c, --bytes=[-]K 显示每个文件的前K 字节内容；如果附加&quot;-&quot;参数，则除了每个文件的最后K字节数据外 显示剩余全部内容 -n, --lines=[-]K 显示每个文件的前K 行内容；如果附加&quot;-&quot;参数，则除了每个文件的最后K行外 显示剩余全部内容 -q, --quiet, --silent 不显示包含给定文件名的文件头 -v, --verbose 总是显示包含给定文件名的文件头 操作:]]></content>
+      <categories>
+        <category>LInux指令</category>
+      </categories>
+      <tags>
+        <tag>LInux文本内容查看</tag>
+        <tag>head</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day13:4Sum]]></title>
+    <url>%2F2019%2F03%2F27%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day12_4Sum%2F</url>
+    <content type="text"><![CDATA[题目链接:4SumC++: 123456789101112131415161718192021222324252627282930313233343536class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; fourSum(vector&lt;int&gt;&amp; nums, int target) &#123; sort(nums.begin(), nums.end()); int len = nums.size(); vector&lt;vector&lt;int&gt;&gt; ans; for(int i = 0; i &lt; len - 2; i++)&#123; if(i != 0 &amp;&amp; nums[i] == nums[i-1]) continue; int temp = target - nums[i]; for(int j = i + 1; j &lt; len - 1; j++)&#123; if(j != i + 1 &amp;&amp; nums[j] == nums[j-1]) continue; int temp2 = temp - nums[j]; int st = j + 1; int en = len -1; while(st &lt; en)&#123; //cout&lt;&lt;nums[i]&lt;&lt;nums[j]&lt;&lt;nums[st]&lt;&lt;nums[en]&lt;&lt;endl; if(nums[st] + nums[en] == temp2) &#123; vector&lt;int&gt; tmp = &#123;nums[i], nums[j], nums[st], nums[en]&#125;; ans.push_back(tmp); st++; while(st &lt; len - 1 &amp;&amp; nums[st] == nums[st-1]) st++; &#125; else if(nums[st] + nums[en] &lt; temp2) st++; else en--; &#125; &#125; &#125; return ans; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构与算法:二叉树的建立与线索二叉树]]></title>
+    <url>%2F2019%2F03%2F27%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95_%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%BB%BA%E7%AB%8B%E4%B8%8E%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91%2F</url>
+    <content type="text"><![CDATA[二叉树的建立12345678910111213141516171819202122232425262728293031323334353637383940414243444546/*按前序输入二叉树结点中的值(一个字符)*//*#表示空结点,构造二叉链表表示二叉树T*/#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;typedef char ElemType;//结点数据结构typedef struct BiTNode&#123; ElemType data; struct BiTNode *lchild, *rchild;&#125;BiTNode, *BiTree;//生成二叉树void CreateBiTree(BiTree *T)&#123; char c; scanf("%c", &amp;c); if('#' == c)&#123; *T = NULL; &#125; else &#123; *T = (BiTNode *)malloc(sizeof(BiTNode)); (*T)-&gt;data = c; //根 CreateBiTree(&amp;(*T)-&gt;lchild); //左 CreateBiTree(&amp;(*T)-&gt;rchild); //右 &#125;&#125;//输出当前层的数据void visit(char c,int level)&#123; printf("%c 位于第 %d 层\n", c, level);&#125;//前序遍历输出树void PreOrderTraverse(BiTree T, int level)&#123; if(T)&#123; visit(T-&gt;data,level); PreOrderTraverse(T-&gt;lchild, level + 1); PreOrderTraverse(T-&gt;rchild, level + 1); &#125;&#125;int main()&#123; int level = 1; BiTree T = NULL; CreateBiTree(&amp;T); PreOrderTraverse(T, level); return 0;&#125; 通过中序遍历(后序遍历)的字符串可同理操作; #### 线索二叉树为什么需要线索二叉树？1.由于在二叉链表中，我们只知道每一个结点的左右孩子结点的地址，而不知道结点的前驱和后继是谁，所以需要知道前驱和后继就必须遍历一遍2.一颗二叉树中，每个结点都有两个指针域，共2n个指针域, 在n个结点的二叉树中有n-1条分支线数, 也就是说其实有n+1个空指针域.造成了相当大的内存浪费.线索二叉树的原理：将存储结构为二叉链表的二叉树的叶子结点的空指针域进行利用，将其作为线索指向前驱后继 简单理解:线索二叉树其实就是双向链表,对二叉树以某种次序遍历使其变成线索二叉树 如何知道某一节点的lchild(rchild)是指向孩子结点还是指向前驱(后继)呢? 在结点的结构中,添加两个标记变量LTag 和 RTag进行标记,指向孩子结点时候为0,指向前驱后继为1. 线索二叉树结构实现: 1234567891011121314151617181920212223242526272829typedef char ElemType;typedef enum &#123;Link, Thread&#125; PointerTag;typedef struct BiThrNode&#123; ElemType data; struct BiThrNode *lchild, *rchild; PointerTag LTag; PointerTag RTag;&#125;BiThrNode, *BiThrTree;BiThrTree pre;//始终指向刚刚被访问过的结点//中序线索化void InThreading(BiThrTree p)&#123; if(p) &#123; InThreading(p-&gt;lchild);//递归线索化左子树 if(!p-&gt;lchild)&#123; p-&gt;LTag = Thread; p-&gt;lchild = pre;//左孩子指针指向前驱 &#125; if(!pre-&gt;rchild)&#123; pre-&gt;RTag = Thread; pre-&gt;rchild = p;//前驱右孩子指针指向后继(当前结点p) &#125; pre = p;//保持pre指向p的前驱 InThreading(p-&gt;rchild);//递归线索化右子树 &#125;&#125; 中序线索化遍历 12345678910111213141516void InOrderTraverse_Thr(BiThrTree T)&#123; BiThrTree p; p = T -&gt;lchild; while(p != T) &#123; while(p-&gt;LTag == Link) p = p-&gt;lchild; printf("%c", p-&gt;data); while(p-&gt;RTag == Thread &amp;&amp; p-&gt;rchild != T)&#123; p = p-&gt;rchild; printf("%c",p-&gt;data); &#125; p = p-&gt;rchild; &#125; return;&#125;]]></content>
+      <categories>
+        <category>数据结构</category>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>二叉树</tag>
+        <tag>线索二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day12:less命令]]></title>
+    <url>%2F2019%2F03%2F26%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day11_less%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[lessless(less) 命令可以对文件或其它输出进行分页显示，与moe命令相似，但是比more命令要强大许多。 语法: less [options] &lt;file&gt;... 选项: -b &lt;缓冲区大小&gt; 设置缓冲区的大小 -e 当文件显示结束后，自动离开 -f 强迫打开特殊文件，例如外围设备代号、目录和二进制文件 -g 只标志最后搜索的关键词 -i 忽略搜索时的大小写 -m 显示类似more命令的百分比 -N 显示每行的行号 -o &lt;文件名&gt; 将less 输出的内容在指定文件中保存起来 -Q 不使用警告音 -s 显示连续空行为一行 -S 行过长时间将超出部分舍弃 -x &lt;数字&gt; 将&quot;tab&quot;键显示为规定的数字空格 查看操作: /字符串：向下搜索&quot;字符串&quot;的功能 ?字符串：向上搜索&quot;字符串&quot;的功能 n：重复前一个搜索（与 / 或 ? 有关） N：反向重复前一个搜索（与 / 或 ? 有关） b 向后翻一页 d 向后翻半页 h 显示帮助界面 Q 退出less 命令 u 向前滚动半页 y 向前滚动一行 空格键 滚动一页 回车键 滚动一行 [pagedown]： 向下翻动一页 [pageup]： 向上翻动一页 操作:]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文件查询</tag>
+        <tag>less</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day12:Letter Combinations of a Phone Number]]></title>
+    <url>%2F2019%2F03%2F26%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day12_Letter%20Combinations%20of%20a%20Phone%20Number%2F</url>
+    <content type="text"><![CDATA[题目链接:Letter Combinations of a Phone NumberC++:12345678910111213141516171819202122232425262728class Solution &#123;public: vector&lt;string&gt; letterCombinations(string digits) &#123; unordered_map&lt;char, string&gt; table&#123; &#123;'2', "abc"&#125;,&#123;'3',"def"&#125;, &#123;'4',"ghi"&#125;, &#123;'5',"jkl"&#125;,&#123;'6',"mno"&#125;, &#123;'7',"pqrs"&#125;, &#123;'8',"tuv"&#125;,&#123;'9',"wxyz"&#125; &#125;; vector&lt;string&gt; res; if(digits == "") return res; fun(res, "", digits, table, 0); return res; &#125; void fun(vector&lt;string&gt; &amp;res, string str, string &amp;digits, unordered_map&lt;char, string&gt; &amp;m, int k)&#123; if(str.size() == digits.size())&#123; res.push_back(str); return; &#125; string tmp = m[digits[k]]; for(char w : tmp)&#123; str += w; fun(res, str, digits, m, k+1); str.pop_back(); &#125; return ; &#125;&#125;; 排列组合,利用递归求解]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+        <tag>哈希</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day11:more命令]]></title>
+    <url>%2F2019%2F03%2F25%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day11_more%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[moremore (more) 该命令一次显示一屏文本，满屏后停下来，并且在屏幕的底部出现一个提示信息，给出至今己显示的该文件的百分比,方便逐页阅读(file perusal filter for crt viewing) 。more名单中内置了若干快捷键，按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示，而且还有搜寻字串的功能（与 vi 相似），使用中按h可以查看说明文件 。语法: more [options] &lt;file&gt;... 选项: -num 一次显示的行数 -d 提示使用者，在画面下方显示 [Press space to continue, &apos;q&apos; to quit.] 如果按错键，则会显示 [Press &apos;h&apos; for instructions.] 而不是 &apos;哔&apos; 声 -l 取消遇见特殊字元 ^L（送纸字元）时会暂停的功能 忽略Ctrl+l（换页）字符 -f 计算行数时，以实际上的行数，而非自动换行过后的行数（有些单行字数太长的会被扩展为两行或两行以上） -p 清屏显示 -s 当遇到有连续两行以上的空白行，就代换为一行的空白行 +/ 在每个档案显示前搜寻该字串（pattern），然后从该字串之后开始显示 +num 从第 num 行开始显示 操作:]]></content>
+      <categories>
+        <category>LInux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文本内容查看</tag>
+        <tag>more</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day11:3Sum Closest]]></title>
+    <url>%2F2019%2F03%2F25%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day11_3Sum%20Closest%2F</url>
+    <content type="text"><![CDATA[题目链接:3Sum ClosestC++:123456789101112131415161718192021222324252627282930313233343536class Solution &#123;public: int threeSumClosest(vector&lt;int&gt;&amp; nums, int target) &#123; int len = nums.size(); if(len &lt; 3) return 0; if(len == 3) return nums[0] + nums[1] + nums[2]; sort(nums.begin(), nums.end()); int sum3 = 0, min3 = nums[0] + nums[1] + nums[2]; for(int i = 0; i &lt; len - 1; i++)&#123; if(i != 0 &amp;&amp; nums[i] == nums[i-1]) continue; int j = i + 1; int k = len - 1; while(j &lt; k)&#123; //cout&lt;&lt;i&lt;&lt;" "&lt;&lt;j&lt;&lt;" "&lt;&lt;k&lt;&lt;endl; sum3 = nums[i] + nums[j] + nums[k]; if(abs(target - sum3) &lt; abs(target - min3))&#123; min3 = sum3; while(j &lt; k -1 &amp;&amp; nums[j] == nums[j+1]) j++; &#125; else if(target &gt; sum3) j++; else if(target &lt; sum3) k--; else return target; while(k &gt; j + 1 &amp;&amp; nums[k] == nums[k-1]) k--; &#125; &#125; return min3; &#125;&#125;; 任然运用的是双指针，其中蕴含着分而治之的思想．]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day11:3Sum]]></title>
+    <url>%2F2019%2F03%2F25%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day11_3Sum%2F</url>
+    <content type="text"><![CDATA[题目链接:3Sum C++ 123456789101112131415161718192021222324252627282930class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; threeSum(vector&lt;int&gt;&amp; nums) &#123; sort(nums.begin(),nums.end()); int len = nums.size(); vector&lt;vector&lt;int&gt;&gt; ans; for(int i = 0;i &lt; len;++i)&#123; if(i != 0 &amp;&amp; nums[i] == nums[i-1]) continue; int j = (i+1 &lt; len) ? i+1 : len-1; int k = len-1; while(j &lt; k)&#123; if(nums[j] + nums[k] == -(nums[i]))&#123; vector&lt;int&gt; tmp = &#123;nums[i],nums[j],nums[k]&#125;; ans.push_back(tmp); j++; while(j &lt; len-1 &amp;&amp; nums[j] == nums[j-1]) j++; &#125; else if(nums[j] + nums[k] &lt; -(nums[i]))&#123; j++; &#125; else&#123; k--; &#125; &#125; &#125; return ans; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构与算法:递归]]></title>
+    <url>%2F2019%2F03%2F25%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95_%E9%80%92%E5%BD%92%2F</url>
+    <content type="text"><![CDATA[递归简单理解：对函数自身反复调用当问题是重复的子问题，递归可以很好的实现简例：斐波那契数列的迭代实现F(0)=0，F(1)=1斐波那契数列F(n)=F(n-1)+F(n-2) (n&gt;1)遍历：123456789101112#include&lt;stdio.h&gt;int main()&#123; int fib[40]; fib[0] = 0; fib[1] = 1; for(int i=2; i &lt; 40; i++) &#123; a[i] = a[i-1] + a[i-2]; printf("%d\n" , a[i]); &#125; return 0&#125; 递归： 12345int Fib(int n)&#123; if( n &lt; 2) return i == 0 ? 0 : 1; return Fib(i-1) + Fib(i-2);&#125; 简例：汉诺塔问题三个柱子，A、B、C 12345678910void move(int n , char A, char B , char C)&#123; if（n == 1)&#123; printf("%c-----&gt;%c" , A , B); &#125; else&#123; move (n-1,A , B , C); printf("%c-----&gt;%c" , A , C); move (n-1, B, A, C); &#125;&#125;]]></content>
+      <categories>
+        <category>数据结构</category>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>递归</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day10:nl命令]]></title>
+    <url>%2F2019%2F03%2F24%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day10_nl%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[nlnl (Number of Lines) 将指定的文件添加行号标注后写到标准输出。如果不指定文件或指定文件为”-“ ，程序将从标准输入读取数据。语法: nl [OPTION]... [FILE]... 选项: -b, --body-numbering=样式 使用指定样式编号文件的正文行目 -d, --section-delimiter=CC 使用指定的CC 分割逻辑页数 -f, --footer-numbering=样式 使用指定样式编号文件的页脚行目 -h, --header-numbering=样式 使用指定样式编号文件的页眉行目 -i, --page-increment=数值 设置每一行遍历后的自动递增值 -l, --join-blank-lines=数值 设置数值为多少的若干空行被视作一行 -n, --number-format= 格式 根据指定格式插入行号 -p, 在逻辑页数切换时不将行号值复位 -s, --number-separator=字符串 可能的话在行号后添加字符串 -v, --starting-line-number=数字 每个逻辑页上的第一行的行号 -w, --number-width= 数字 为行号使用指定的栏数 a 对所有行编号 t 对非空行编号 n 不编行号 pBRE 只对符合正则表达式BRE 的行编号 FORMAT 是下列之一: ln 左对齐，空格不用0 填充 rn 右对齐，空格不用0 填充 rz 右对齐，空格用0 填充 操作:]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文本内容查看</tag>
+        <tag>nl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day10:Longest Common Prefix]]></title>
+    <url>%2F2019%2F03%2F24%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day10_Longest%20Common%20Prefix%2F</url>
+    <content type="text"><![CDATA[题目链接:Longest Common PrefixC++ 12345678910111213141516171819class Solution &#123;public: string longestCommonPrefix(vector&lt;string&gt;&amp; strs) &#123; int lens = strs.size(); if(lens==0) return ""; string ans=strs[0]; for(int i=1;i&lt;lens;i++) &#123; int j=0,len=min(ans.size(),strs[i].size()); while(j&lt;len &amp;&amp; ans[j]==strs[i][j]) j++; ans.erase(ans.begin()+j,ans.end()); if(ans=="") break; &#125; return ans; &#125;&#125;;]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day10:Roman to Integer]]></title>
+    <url>%2F2019%2F03%2F24%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day10%3BRoman%20to%20Integer%2F</url>
+    <content type="text"><![CDATA[题目链接:Roman to Integer C++:12345678910111213141516class Solution &#123;public: int romanToInt(string s) &#123; int res = 0; unordered_map&lt;char, int&gt; m&#123;&#123;'I', 1&#125;, &#123;'V', 5&#125;, &#123;'X', 10&#125;, &#123;'L', 50&#125;, &#123;'C', 100&#125;, &#123;'D', 500&#125;, &#123;'M', 1000&#125;&#125;; int lens = s.size(); for (int i = 0; i &lt; lens; i++) &#123; int val = m[s[i]]; if (i == lens - 1 || m[s[i+1]] &lt;= m[s[i]]) res += val; else res -= val; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+        <tag>哈希</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day9:tail命令]]></title>
+    <url>%2F2019%2F03%2F23%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day9_tail%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[tailtail (tail) 用来显示档案的结尾(默认为10行)至标准输出中。若指定了多于一个文件，程序会在每段输出的开始添加相应文件名作为头。如果不指定文件或文件为”-“ ，则从标准输入读取数据。 语法:\ tail [OPTION]... [FILE]... 选项: -c, --bytes=K 输出最后K字节；另外，使用-c +K 从每个文件的第K 字节输出 -f,即时输出文件变化后追加的数据。 -n,输出最后K行；另外，使用-n +K 从每个文件的第K行输出 -s, 与-f合用,表示在每次反复的间隔休眠N秒 操作:]]></content>
+      <categories>
+        <category>LInux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文本内容查看</tag>
+        <tag>tail</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day9:Integer to Roman]]></title>
+    <url>%2F2019%2F03%2F23%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day9_Integer%20to%20Roman%2F</url>
+    <content type="text"><![CDATA[题目链接:Integer to Roman C++12345678910111213141516class Solution &#123;public: string intToRoman(int num) &#123; int values[]=&#123;1000,900,500,400,100,90,50,40,10,9,5,4,1&#125;; string reps[]=&#123;"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"&#125;; string ret; for(int i=0; i&lt;13; i++)&#123; while(num&gt;=values[i])&#123; num -= values[i]; ret += reps[i]; &#125; &#125; return ret; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+        <tag>哈希</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day8:cat/tac命令]]></title>
+    <url>%2F2019%2F03%2F22%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day8_cat_tac%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[cat(tac反向操作)cat (concatenate)命令将[文件]或标准输入组合输出到标准输出，如果没有指定文件，或者文件为”-“，则从标准输入读取。语法: cat [OPTION]... [FILE]... 选项: -A, --show-all 等于-vET -b, --number-nonblank 对非空输出行编号 -e,等于-vE -E, --show-ends 在每行结束处显示&quot;$&quot; -n, --number 对所有行编号，包括空行 -s, --squeeze-blank 压缩多行空行为一空行 -t ,与-vT 等价 -T, --show-tabs 将跳格(TAB)字符显示为^I -v, --show-nonprinting 使用^ 和M- 引用，除了LFD和 TAB 之外 操作:]]></content>
+      <categories>
+        <category>LInux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文本内容查看</tag>
+        <tag>cat</tag>
+        <tag>tac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day8:rm命令]]></title>
+    <url>%2F2019%2F03%2F22%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day8_rm%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[rm语法: rm [OPTION]... [FILE]... 选项: -f, –force强制删除。忽略不存在的文件，不提示确认 -i,在删除前需要确认 -r, -R, --recursive 递归删除目录及其内容 -v, –verbose 详细显示进行的步骤 -d,删除空的目录 操作:]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文件目录管理</tag>
+        <tag>rm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day8:Container With Most Water]]></title>
+    <url>%2F2019%2F03%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day8_Container%20With%20Most%20Water%2F</url>
+    <content type="text"><![CDATA[题目链接:Container With Most Water C++双索引12345678910111213141516171819202122class Solution &#123;public: int maxArea(vector&lt;int&gt;&amp; height) &#123; int i = 0; int j = height.size()-1; int maxArea = -1; while(i!=j)&#123; if(height[i] &gt; height[j]) &#123; if(maxArea &lt; height[j]*(j - i)) maxArea = height[j]*(j - i); j--; &#125; else&#123; if(maxArea &lt; height[i]*(j - i)) maxArea = height[i]*(j - i); i++; &#125; &#125; return maxArea; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day8:Palindrome Number]]></title>
+    <url>%2F2019%2F03%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day8_Palindrome%20Number%2F</url>
+    <content type="text"><![CDATA[题目链接:Palindrome NumberC++: 12345678910111213141516171819202122232425262728293031323334353637class Solution &#123;public: bool isPalindrome(int x) &#123; if(x &lt; 0 || (x%10==0 &amp;&amp; x!=0)) return false; if(x&gt;=0 &amp;&amp; x &lt; 10) return true; long m = 0 ,n = x; while(n)&#123; m = m * 10 + n % 10; n /= 10; &#125; if(m == x) return true; else return false; &#125;&#125;;//不解leetcode上为什么下面跑的没有上面快?class Solution &#123;public: bool isPalindrome(int x) &#123; if(x &lt; 0 || (x % 10 ==0 &amp;&amp; x != 0)) return false; if(x&gt;=0 &amp;&amp; x &lt; 10) return true; int m = 0; while(x &gt; m)&#123; m = m * 10 + x % 10; x /= 10; &#125; if (m == x || m / 10 == x) return true; else return false; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>回文数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ubuntu18.04安装WPS]]></title>
+    <url>%2F2019%2F03%2F21%2FUbuntu18.04%E5%AE%89%E8%A3%85WPS%2F</url>
+    <content type="text"><![CDATA[大家都蛮喜欢折腾Ubuntu的,所以再回头给大家记一个安装WPS的教程先看效果 还是很不错哒!!步骤 下载两个安装包:安装包和字体 sudo dpkg -i 包名(按你下的包名来哈) 其实这个时候已经安装好了,找到WPS的图标点开会弹出一个系统错误,提示缺少系统字体.由于我已经安好了(捂脸)错误已经解决了,所以就没截图了 解决办法:链接: https://pan.baidu.com/s/18wWiTtTPL65_lXwoiAkCMQ 提取码: xcqm下载字体文件 然后在加载的目录启动终端 sudo unzip wps_symbol_fonts.zip -d /usr/share/fonts/wps-office 然后重启wps就可以啦 再补两张效果图:]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu wps</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day7:mv命令]]></title>
+    <url>%2F2019%2F03%2F21%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day7_mv%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[mvmv（Move file）将源文件重命名为目标文件，或将源文件移动至指定目录 语法: mv [OPTION]... [-T] SOURCE DEST or: mv [OPTION]... SOURCE... DIRECTORY or: mv [OPTION]... -t DIRECTORY SOURCE... 选项: -b,若移动文件会覆盖,会自动对覆盖文件进行备份 -f,覆盖前不询问 -i, 覆盖前询问 -n,不覆盖已存在文件 如果您指定了-i、-f、-n 中的多个，仅最后一个生效。 --strip-trailing-slashes 去掉每个源文件参数尾部的斜线 -S,替换常用的备份文件后缀 -t,将所有参数指定的源文件或目录 移动至 指定目录 -T,将目标文件视作普通文件处理 -u,只在源文件文件比目标文件新，或目标文件不存在时才进行移动 -v,详细显示进行的步骤 操作:]]></content>
+      <categories>
+        <category>LInux指令</category>
+      </categories>
+      <tags>
+        <tag>LInux文件目录管理</tag>
+        <tag>mv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day7:String to Integer (atoi)]]></title>
+    <url>%2F2019%2F03%2F21%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day7_String%20to%20Integer%20(atoi)%2F</url>
+    <content type="text"><![CDATA[题目链接:String to Integer (atoi)C++:12345678910111213141516171819202122232425262728class Solution &#123;public: int myAtoi(string str) &#123; long ret = 0; int plmi = 1; int lens = str.size(); long long i; for(i = 0; i &lt; lens;)&#123; i = str.find_first_not_of(' '); if(i != string::npos)&#123; if(str[i] == '+' || str[i] == '-') &#123; plmi = (str[i++] == '+') ? 1 : -1; &#125; while(str[i] &gt;= '0' &amp;&amp; str[i] &lt;= '9') &#123; ret = ret*10 + (str[i++] - '0'); if(plmi*ret &gt;= INT_MAX || plmi*ret &lt;= INT_MIN) return plmi*ret &gt;= INT_MAX ? INT_MAX : INT_MIN; &#125; return plmi*ret; &#125; else return 0; &#125; return 0; &#125;&#125;; string类中自带函数find_not_first_of()等查找函数若未找到相应元素返回string::npos]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day7:Reverse Integer]]></title>
+    <url>%2F2019%2F03%2F21%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day7_Reverse%20Integer%2F</url>
+    <content type="text"><![CDATA[题目链接:Reverse IntegerC++12345678910111213141516171819class Solution &#123;public: int reverse(int x) &#123; long long ret = 0; int carry = 10; while(x)&#123; ret = ret + x%10; x /= 10; if(x)&#123; ret *= carry; if(ret &gt; 2147483647 || ret &lt; -2147483648) &#123; return 0; &#125; &#125; &#125; return (int)ret; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数字反转</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day6:cp命令]]></title>
+    <url>%2F2019%2F03%2F20%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day6_cp%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[cpcp（Copy file）：将源文件复制至目标文件，或将多个源文件复制至目标目录。 语法: cp [OPTION]... [-T] SOURCE DEST or: cp [OPTION]... SOURCE... DIRECTORY or: cp [OPTION]... -t DIRECTORY SOURCE... 选项: -a, 用于复制整个目录，包括目录中的子目录等都递归的复制，而且还要保持文件的访问模式，所有者，时间戳等属性与原文件一样。 -f, 如果目标文件无法打开则将其移除并重试(当 -n 选项存在时则不需再选此项) -i, 覆盖前询问(使前面的 -n 选项失效),默认cp命令覆盖目标文件时是不会提示的 -l, 对源文件建立硬链接，而非复制文件 -n,不要覆盖已存在的文件(使前面的 -i 选项失效) -p 保持指定的属性(默认：模式,所有权,时间戳) -R, -r, 递归复制目录及其子目录内的所有内容 -s, 只创建符号链接而不复制文件 -t, 将所有参数指定的源文件/目录 复制至目标目录 -u, 使用这项参数后只会在源文件的更改时间较目标文件更新时或是名称相互对应的目标文件并不存在时，才复制文件； -v, 详细显示命令执行的操作。 操作:]]></content>
+      <categories>
+        <category>LInux指令</category>
+      </categories>
+      <tags>
+        <tag>LInux文件目录管理</tag>
+        <tag>cp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day5:rmdir命令]]></title>
+    <url>%2F2019%2F03%2F19%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day5_rmdir%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[rmdirrmdir (Remove Directory): 用来删除空目录，删除某目录时也必须具有对父目录的写权限。 语法： rmdir [OPTIONS] [DIRECTORY] 选项： --ignore-fail-on-non-empty 忽略仅由目录非空产生的所有错误 -p, 删除指定目录及其上级文件夹， -v, 输出处理的目录详情 操作：]]></content>
+      <categories>
+        <category>LInux指令</category>
+      </categories>
+      <tags>
+        <tag>LInux文件目录管理</tag>
+        <tag>rmdir</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[HDU1323]]></title>
     <url>%2F2018%2F09%2F06%2FHDU1232%2F</url>
     <content type="text"><![CDATA[畅通工程Time Limit: 4000/2000 MS (Java/Others)Memory Limit: 65536/32768 K (Java/Others) Problem Description：某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通过道路可达即可）。问最少还需要建设多少条道路？ Input：测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是城镇数目N ( &lt; 1000 )和道路数目M；随后的M行对应M条道路，每行给出一对正整数，分别是该条道路直接连通的两个城镇的编号。为简单起见，城镇从1到N编号。注意:两个城市之间可以有多条道路相通,也就是说 3 3 1 2 1 2 2 1 这种输入也是合法的当N为0时，输入结束，该用例不被处理。 Output：对每个测试用例，在1行里输出最少还需要建设的道路数目。 Sample Input4 2 1 3 4 3 3 3 1 2 1 3 2 3 5 2 1 2 3 5 999 0 0 Sample Output1 0 2 998]]></content>
@@ -32,6 +446,169 @@
       </categories>
       <tags>
         <tag>hi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ubuntu18.04超级简单的安装wine QQ教程]]></title>
+    <url>%2F2018%2F07%2F25%2Fubuntu18.04%E8%B6%85%E7%BA%A7%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%89%E8%A3%85wine%20QQ%E6%95%99%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[更新于2019年3月25日更新内容: - 解决W2KSP4_EN.EXE文件和InstMsiW.exe文件下载慢的问题 - 解决安装qq后第二次不知道怎么打开或者点击图标无效问题 解决方案见文末. 第一步打开 Ubuntu Software，搜索wine ##第二步下载wine和Winetricks，并打开Winetricks（如图）ps：有可能会跳出一些提示框，直接点ok ##第三步选择安装一个windows应用，并选择qq安装ps：会下载安装包以及一些插件，可能不能一次成功，再进行一次相同的操作即可 ##第四步安装QQ 完成ps：这个Winetricks是可以对QQ进行配置的，也可以安装一些其他windows上的软件，大家可以自己探索！本文为原创，转载请注明出处，谢谢！ 问题解决:解决W2KSP4_EN.EXE文件和InstMsiW.exe文件下载慢的问题说明:有些同学会出现上述两个文件以几k每秒下载,下的非常慢(下的很快可以忽略哈哈),所以我将我自己可运行的文件上传到了网盘大家可以自行下载,大家自行将文件放到相应文件夹即可.W2KSP4_EN.EXE文件 提取码: f2tv cp W2KSP4_EN.EXE ~/.cache/winetricks/win2ksp4/ //如果win2ksp4文件夹不存在,请自行添加 InstMsiW.exe 提取码: 41kq cp InstMsiW.exe ~/.cache/winetricks/msls31/ //如果msls31文件夹不存在,请自行添加 问题解决:解决安装qq后第二次不知道怎么打开或者点击图标无效问题说明:在Ubuntu中桌面快捷方式是一个以.desktop结尾的文件,有些同学打不开的原因主要还是自动生成的腾讯QQ.desktop文件有问题,我们自己修改一下就可以了~ 文件位置: ~/.local/share/applications/wine/Programs/腾讯软件/QQ/ 上面是我的腾讯QQ.desktop文件路径,可能有差异,但是肯定是在 ~/.local/share/applications/wine/中接下来便是修改腾讯QQ.desktop文件,大家可以用vim 或者 gedit(新手推荐)修改 [Desktop Entry] # 图标显示的名字 Name=QQ # 中文模式的名字 Name[zh_CN]=QQ # 英文模式的名字 Name[zh_EN]=QQ # 这是这个这个桌面文件运行的指令,其实大家在终端中运行下面这条指令,也是可以打开自己的qq的. Exec=wine ~/.wine/drive_c/Program\ Files\ \(x86\)//Tencent/QQ/Bin/QQ.exe/ # 桌面图标 Icon=QQ # 是否使用终端 Terminal=false X-MultipleArgs=false # 启动器类型 Type=Application # 采用的编码 Encoding=UTF-8 # 应用类型 Categories=Application;Utility;Network;InstantMessaging; # 启动通知 StartupNotify=false 将上面代码复制修改腾讯QQ.desktop文件(中文已经做了注释,可直接复制使用),然后大家再点击qq的图标就可以打开QQ了(大家也可以通过这个方式来创建或者修改其他桌面文件) 上述两个问题亲测有效,有问题评论交流~]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>wine qq</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[关于SLC]]></title>
+    <url>%2F2018%2F01%2F23%2F%E5%85%B3%E4%BA%8ESLC%2F</url>
+    <content type="text"><![CDATA[前言：在某文库上下载的文档，觉得讲的不错，做此分享。 作为C++标准不可缺少的一部分，STL应该是渗透在C++程序的角角落落里的。STL不是实验室里的宠儿，也不是程序员桌上的摆设，她的激动人心并非昙花一现。本教程旨在传播和普及STL的基础知识，若能借此机会为STL的推广做些力所能及的事情，到也是件让人愉快的事情。 ##1 初识STL：解答一些疑问 ###1.1 一个最关心的问题：什么是STL“什么是STL？”，假如你对STL还知之甚少，那么我想，你一定很想知道这个问题的答案，坦率地讲，要指望用短短数言将这个问题阐述清楚，也决非易事。因此，如果你在看完本节之后还是觉得似懂非懂，大可不必着急，在阅读了后续内容之后，相信你对STL的认识，将会愈加清晰、准确和完整。不过，上述这番话听起来是否有点像是在为自己糟糕的表达能力开脱罪责呢？:）不知道你是否有过这样的经历。在你准备着手完成数据结构老师所布置的家庭作业时，或者在你为你所负责的某个软件项目中添加一项新功能时，你发现需要用到一个链表(List)或者是映射表（Map）之类的东西，但是手头并没有现成的代码。于是在你开始正式考虑程序功能之前，手工实现List或者Map是不可避免的。于是……，最终你顺利完成了任务。或许此时，作为一个具有较高素养的程序员的你还不肯罢休（或者是一个喜欢偷懒的优等生:），因为你会想到，如果以后还遇到这样的情况怎么办？没有必要再做一遍同样的事情吧！ 如果说上述这种情形每天都在发生，或许有点夸张。但是，如果说整个软件领域里，数十年来确实都在为了一个目标而奋斗–可复用性（reusability），这看起来似乎并不夸张。从最早的面向过程的函数库，到面向对象的程序设计思想，到各种组件技术（如：COM、EJB），到设计模式（design pattern）等等。而STL也在做着类似的事情，同时在它背后蕴涵着一种新的程序设计思想–泛型化设计（generic programming）。 继续上面提到的那个例子，假如你把List或者map完好的保留了下来，正在暗自得意。且慢，如果下一回的List里放的不是浮点数而是整数呢？如果你所实现的Map在效率上总是令你不太满意并且有时还会出些bug呢？你该如何面对这些问题？使用STL是一个不错的选择，确实如此，STL可以漂亮地解决上面提到的这些问题，尽管你还可以寻求其他方法。 说了半天，到底STL是什么东西呢？STL（Standard Template Library），即标准模板库，是一个具有工业强度的，高效的C++程序库。它被容纳于C++标准程序库（C++ Standard Library）中，是ANSI/ISO C++标准中最新的也是极具革命性的一部分。该库包含了诸多在计算机科学领域里所常用的基本数据结构和基本算法。为广大C++程序员们提供了一个可扩展的应用框架，高度体现了软件的可复用性。这种现象有些类似于Microsoft Visual C++中的MFC（Microsoft Foundation Class Library），或者是Borland C++ Builder中的VCL(Visual Component Library)，对于此二者，大家一定不会陌生吧。 从逻辑层次来看，在STL中体现了泛型化程序设计的思想（generic programming），引入了诸多新的名词，比如像需求（requirements），概念（concept），模型（model），容器（container），算法（algorithmn），迭代子（iterator）等。与OOP（object-oriented programming）中的多态（polymorphism）一样，泛型也是一种软件的复用技术。 从实现层次看，整个STL是以一种类型参数化（type parameterized）的方式实现的，这种方式基于一个在早先C++标准中没有出现的语言特性–模板（template）。如果查阅任何一个版本的STL源代码，你就会发现，模板作为构成整个STL的基石是一件千真万确的事情。除此之外，还有许多C++的新特性为STL的实现提供了方便。 不知你对这里一下子冒出这么多术语做何感想，希望不会另你不愉快。假如你对它们之中的大多数不甚了解，敬请放心，在后续内容中将会对这些名词逐一论述。正如开头所提到的。 有趣的是，对于STL还有另外一种解释–STepanov &amp; Lee，前者是指Alexander Stepanov，STL的创始人；而后者是Meng Lee，她也是使STL得以推行的功臣，第一个STL成品就是他们合作完成的。这一提法源自1995年3月，Dr.Dobb’s Journal特约记者, 著名技术书籍作家Al Stevens对Alexander Stepanov的一篇专访。 ###1.2 追根溯源：STL的历史在结识新朋友的时候，大多数人总是忍不住想了解对方的过去。本节将带您简单回顾一下STL的过去。 被誉为STL之父的Alexander Stepanov，出生于苏联莫斯科，早在20世纪70年代后半期，他便已经开始考虑，在保证效率的前提下，将算法从诸多具体应用之中抽象出来的可能性，这便是后来泛型化思想的雏形。为了验证自己的思想，他和纽约州立大学教授Deepak Kapur，伦塞里尔技术学院教授David Musser共同开发了一种叫做Tecton的语言。尽管这次尝试最终没有取得实用性的成果，但却给了Stepanov很大的启示。 在随后的几年中，他又和David Musser等人先后用Schema语言（一种Lisp语言的变种）和Ada语言建立了一些大型程序库。这其间，Alexander Stepanov开始意识到，在当时的面向对象程序设计思想中所存在的一些问题，比如抽象数据类型概念所存在的缺陷。Stepanov希望通过对软件领域中各组成部分的分类，逐渐形成一种软件设计的概念性框架。 1987年左右，在贝尔实验室工作的Alexander Stepanov开始首次采用C++语言进行泛型软件库的研究。但遗憾的是，当时的C++语言还没有引入模板（template）的语法，现在我们可以清楚的看到，模板概念之于STL实现，是何等重要。是时使然，采用继承机制是别无选择的。尽管如此，Stepanov还是开发出了一个庞大的算法库。与此同时，在与Andrew Koenig（前ISO C++标准化委员会主席）和Bjarne Stroustrup（C++语言的创始人）等顶级大师们的共事过程中，Stepanov开始注意到C/C++语言在实现其泛型思想方面所具有的潜在优势。就拿C/C++中的指针而言，它的灵活与高效运用，使后来的STL在实现泛型化的同时更是保持了高效率。另外，在STL中占据极其重要地位的迭代子概念便是源自于C/C++中原生指针（ native pointer）的抽象。 1988年，Alexander Stepanov开始进入惠普的Palo Alto实验室工作，在随后的4年中，他从事的是有关磁盘驱动器方面的工作。直到1992年，由于参加并主持了实验室主任Bill Worley所建立的一个有关算法的研究项目，才使他重新回到了泛型化算法的研究工作上来。项目自建立之后，参与者从最初的8人逐渐减少，最后只剩下两个人–Stepanove本人和Meng Lee。经过长时间的努力，最终，信念与汗水所换来的是一个包含有大量数据结构和算法部件的庞大运行库。这便是现在的STL的雏形（同时也是STL的一个实现版本–HP STL）。 1993年，当时在贝尔实验室的Andrew Koenig看到了Stepanove的研究成果，很是兴奋。在他的鼓励与帮助下，Stepanove于是年9月的圣何塞为ANSI/ISO C++标准委员会做了一个相关演讲（题为”The Science of C++ Programming”），向委员们讲述了其观念。然后又于次年3月，在圣迭戈会议上，向委员会提交了一份建议书，以期使STL成为C++标准库的一部分。尽管这一建议十分庞大，以至于降低了被通过的可能性，但由于其所包含的新思想，投票结果以压倒多数的意见认为推迟对该建议的决定。 随后，在众人的帮助之下，包括Bjarne Stroustrup在内，Stepanove又对STL进行了改进。同时加入了一个封装内存模式信息的抽象模块，也就是现在STL中的allocator，它使STL的大部分实现都可以独立于具体的内存模式，从而独立于具体平台。在同年夏季的滑铁卢会议上，委员们以80%赞成，20%反对，最终通过了提案，决定将STL正式纳入C++标准化进程之中，随后STL便被放进了会议的工作文件中。自此，STL终于成为了C++家族中的重要一员。 此后，随着C++标准的不断改进，STL也在不断地作着相应的演化。直至1998年，ANSI/ISO C++标准正式定案，STL始终是C++标准中不可或缺的一大部件。 ###1.3 千丝万缕的联系在你了解了STL的过去之后，一些名词开始不断在你的大脑中浮现，STL、C++、C++标准函数库、泛型程序设计、面向对象程序设计……，这些概念意味着什么？他们之间的关系又是什么？如果你想了解某些细节，这里也许有你希望得到的答案。 ####1.3.1 STL和C++没有C++语言就没有STL，这么说毫不为过。一般而言，STL作为一个泛型化的数据结构和算法库，并不牵涉具体语言（当然，在C++里，它被称为STL）。也就是说，如果条件允许，用其他语言也可以实现之。这里所说的条件，主要是指类似于”模板”这样的语法机制。如果你没有略过前一节内容的话，应该可以看到，Alexander Stepanov在选择C++语言作为实现工具之前，早以采用过多种程序设计语言。但是，为什么最终还是C++幸运的承担了这个历史性任务呢？原因不仅在于前述那个条件，还在于C++在某些方面所表现出来的优越特性，比如：高效而灵活的指针。但是如果把C++作为一种OOP（Object-Oriented Programming，面向对象程序设计）语言来看待的话（事实上我们一般都是这么认为的，不是吗？），其功能强大的继承机制却没有给STL的实现帮上多大的忙。在STL的源代码里，并没有太多太复杂的继承关系。继承的思想，甚而面向对象的思想，还不足以实现类似STL这样的泛型库。C++只有在引入了”模板”之后，才直接导致了STL的诞生。这也正是为什么，用其他比C++更纯的面向对象语言无法实现泛型思想的一个重要原因。当然，事情总是在变化之中，像Java在这方面，就是一个很好的例子，jdk1.4中已经加入了泛型的特性。 此外，STL对于C++的发展，尤其是模板机制，也起到了促进作用。比如：模板函数的偏特化（template function partial specialization），它被用于在特定应用场合，为一般模板函数提供一系列特殊化版本。这一特性是继STL被ANSI/ISO C++标准委员会通过之后，在Bjarne和Stepanov共同商讨之下并由Bjarne向委员会提出建议的，最终该项建议被通过。这使得STL中的一些算法在处理特殊情形时可以选择非一般化的方式，从而保证了执行的效率。 ####1.3.2 STL和C++标准函数库STL是最新的C++标准函数库中的一个子集，这个庞大的子集占据了整个库的大约80%的分量。而作为在实现STL过程中扮演关键角色的模板则充斥了几乎整个C++标准函数库。在这里，我们有必要看一看C++标准函数库里包含了哪些内容，其中又有哪些是属于标准模板库（即STL）的。 C++标准函数库为C++程序员们提供了一个可扩展的基础性框架。我们从中可以获得极大的便利，同时也可以通过继承现有类，自己编制符合接口规范的容器、算法、迭代子等方式对之进行扩展。它大致包含了如下几个组件：C标准函数库，基本保持了与原有C语言程序库的良好兼容，尽管有些微变化。人们总会忍不住留恋过去的美好岁月，如果你曾经是一个C程序员，对这一点一定体会颇深。或许有一点会让你觉得奇怪，那就是在C++标准库中存在两套C的函数库，一套是带有.h扩展名的，比如stdio.h，而另一套则没有，比如cstdio。它们确实没有太大的不同。 语言支持（language support）部分，包含了一些标准类型的定义以及其他特性的定义，这些内容，被用于标准库的其他地方或是具体的应用程序中。诊断（diagnostics）部分，提供了用于程序诊断和报错的功能，包含了异常处理（exception handling），断言（assertions），错误代码（error number codes）三种方式。 通用工具（general utilities）部分，这部分内容为C++标准库的其他部分提供支持，当然你也可以在自己的程序中调用相应功能。比如：动态内存管理工具，日期/时间处理工具。记住，这里的内容也已经被泛化了（即采用了模板机制）。字符串（string）部分，用来代表和处理文本。它提供了足够丰富的功能。事实上，文本是一个string对象，它可以被看作是一个字符序列，字符类型可能是char，或者wchar_t等等。string可以被转换成char类型，这样便可以和以前所写的C/C++代码和平共处了。因为那时侯除了char，没有别的。 国际化（internationalization）部分，作为OOP特性之一的封装机制在这里扮演着消除文化和地域差异的角色，采用locale和facet可以为程序提供众多国际化支持，包括对各种字符集的支持，日期和时间的表示，数值和货币的处理等等。毕竟，在中国和在美国，人们表示日期的习惯是不同的。 容器（containers）部分，STL的一个重要组成部分，涵盖了许多数据结构，比如前面曾经提到的链表，还有：vector（类似于大小可动态增加的数组）、queue（队列）、stack（堆栈）……。string也可以看作是一个容器，适用于容器的方法同样也适用于string。现在你可以轻松的完成数据结构课程的家庭作业了。 算法（algorithms）部分，STL的一个重要组成部分，包含了大约70个通用算法，用于操控各种容器，同时也可以操控内建数组。比如：find用于在容器中查找等于某个特定值的元素，for_each用于将某个函数应用到容器中的各个元素上，sort用于对容器中的元素排序。所有这些操作都是在保证执行效率的前提下进行的，所以，如果在你使用了这些算法之后程序变得效率底下，首先一定不要怀疑这些算法本身，仔细检查一下程序的其他地方。 迭代器（iterators）部分，STL的一个重要组成部分，如果没有迭代器的撮合，容器和算法便无法结合的如此完美。事实上，每个容器都有自己的迭代器，只有容器自己才知道如何访问自己的元素。它有点像指针，算法通过迭代器来定位和操控容器中的元素。 数值（numerics）部分，包含了一些数学运算功能，提供了复数运算的支持。输入/输出（input/output）部分，就是经过模板化了的原有标准库中的iostream部分，它提供了对C++程序输入输出的基本支持。在功能上保持了与原有iostream的兼容，并且增加了异常处理的机制，并支持国际化（internationalization）。总体上，在C++标准函数库中，STL主要包含了容器、算法、迭代器。string也可以算做是STL的一部分。 ####1.3.3 STL和GP，GP和OOP正如前面所提到的，在STL的背后蕴含着泛型化程序设计（GP）的思想，在这种思想里，大部分基本算法被抽象，被泛化，独立于与之对应的数据结构，用于以相同或相近的方式处理各种不同情形。这一思想和面向对象的程序设计思想（OOP）不尽相同，因为，在OOP中更注重的是对数据的抽象，即所谓抽象数据类型（Abstract Data Type），而算法则通常被附属于数据类型之中。几乎所有的事情都可以被看作类或者对象（即类的实例），通常，我们所看到的算法被作为成员函数（member function）包含在类（class）中，类和类则构成了错综复杂的继承体系。 尽管在象C++这样的程序设计语言中，你还可以用全局函数来表示算法，但是在类似于Java这样的纯面向对象的语言中，全局函数已经被”勒令禁止”了。因此，用Java来模拟GP思想是颇为困难的。如果你对前述的STL历史还有印象的话，应该记得Alexander Stepanove也曾用基于OOP的语言尝试过实现GP思想，但是效果并不好，包括没有引入模板之前的C++语言。站在巨人的肩膀上，我们可以得出这样的结论，在OOP中所体现的思想与GP的思想确实是相异的。C++并不是一种纯面向对象的程序设计语言，它的绝妙之处，就在于既满足了OOP，又成全了GP。对于后者，模板立下了汗马功劳。另外，需要指出的是，尽管GP和OOP有诸多不同，但这种不同还不至于到”水火不容”的地步。并且，在实际运用的时候，两者的结合使用往往可以使问题的解决更为有效。作为GP思想实例的STL本身便是一个很好的范例，如果没有继承，不知道STL会是什么样子，似乎没有人做过这样的试验。 ###1.4 STL的不同实现版本相信你对STL的感性认识应该有所提高了，是该做一些实际的工作了，那么我们首先来了解一下STL的不同实现版本。ANSI/ISO C++文件中的STL是一个仅被描述在纸上的标准，对于诸多C++编译器而言，需要有各自实际的STL，它们或多或少的实现了标准中所描述的内容，这样才能够为我们所用。之所以有不同的实现版本，则存在诸多原因，有历史的原因，也有各自编译器生产厂商的原因。以下是几个常见的STL实现版本。 ####1.4.1 HP STLHP STL是所有其它STL实现版本的根源。它是STL之父Alexander Stepanov在惠普的Palo Alto实验室工作时，和Meng Lee共同完成的，是第一个STL的实现版本（参见1.2节）。这个STL是开放源码的，所以它允许任何人免费使用、复制、修改、发布和销售该软件和相关文档，前提是必须在所有相关文件中加入HP STL的版本信息和授权信息。现在已经很少直接使用这个版本的STL了。 ####1.4.2 P.J. Plauger STLP. J. Plauger STL属于个人作品，由P. J. Plauger本人实现，是HP STL的一个继承版本，因此在其所有头文件中都含有HP STL的相关声明，同时还有P. J. Plauger本人的版权声明。P. J. Plauger是标准C中stdio库的早期实现者，现在是C/C++ User’s Journal的主编，与Microsoft保持着良好的关系。P. J. Plauger STL便是被用于Microsoft的Visual C++中的。在Windows平台下的同类版本中，其性能不错，但是queue组件（队列，一种容器）的效率不理想，同时由于Visual C++对C++语言标准的支持不是很好（至少直到VC6.0为止，还是如此），因此一定程度上影响了P. J. Plauger STL的性能。此外，该版本的源代码可读性较差，你可以在VC的Include子目录下找到所有源文件（比如：C:\Program Files\Microsoft Visual Studio\VC98\Include）。因为不是开放源码的（open source），所以这些源代码是不能修改和销售的，目前P.J. Plauger STL由Dinkumware公司提供相关服务，详情请见http://www.dinkumware.com。据称Visual Studio.NET中的Visual C++.NET（即VC7.0），对C++标准的支持有所提高，并且多了以哈希表（hash table）为基础而实现的map容器，multimap容器和set容器。 ####1.4.3 Rouge Wave STLRouge Wave STL是由Rouge Wave公司实现的，也是HP STL的一个继承版本，除了HP STL的相关声明之外，还有Rouge Wave公司的版权声明。同时，它也不是开放源码的，因此无法修改和销售。该版本被Borland C++ Builder所采用，你可以在C++ Builder的Include子目录下找到所有头文件（比如：C:\Program Files\Borland\Cbuilder5\Include）。尽管Rouge Wave STL的性能不是很好，但由于C++ Builder对C++语言标准的支持还算不错，使其表现在一定程度上得以改善。此外，其源代码的可读性较好。可以从如下网站得到更详细的情况介绍：http://www.rougewave.com。遗憾的是该版本已有一段时间没有更新且不完全符合标准。因此在Borland C++ Builder 6.0中，它的地位被另一个STL的实现版本–STLport（见后）取代了。但是考虑到与以前版本的兼容，C++ Builder 6.0还是保留了Rouge Wave STL，只是如果你想查看它的源代码的话，需要在别的目录中才能找到（比如：C:\Program Files\Borland\Cbuilder6\Include\oldstl）。 ####1.4.4 STLportSTLport最初源于俄国人Boris Fomitchev的一个开发项目，主要用于将SGI STL的基本代码移植到其他诸如C++Builder或者是Visual C++这样的主流编译器上。因为SGI STL属于开放源码，所以STLport才有权这样做。目前STLport的最新版本是4.5。可以从如下网站得到更详细的情况介绍：http://www.stlport.org，可以免费下载其源代码。STLport已经被C/C++技术委员会接受成为工业标准，且在许多平台上都支持。根据测试STLport的效率比VC中的STL要快。比Rouge Wave STL更符合标准，也更容易移植。Borland C++ Builder已经在其6.0版中加入了对STLport的支持，它使用的STLport就是4.5版的，C++ Builder 6.0同时还提供了STLport的使用说明。你可以在C++ Builder的Include\Stlport子目录下找到所有头文件（比如：C:\Program Files\Borland\Cbuilder6\Include\Stlport）。 ####1.4.5 SGI STLSGI STL是由Silicon Graphics Computer System, Inc公司实现的，其设计者和编写者包括Alexander Stepanov和Matt Austern，同样它也是HP STL的一个继承版本。它属于开放源码，因此你可以修改和销售它。SGI STL被GCC（linux下的C++编译器）所采用，你可以在GCC的Include子目录下找到所有头文件（比如：C:\cygnus\cygwin-b20\include\g++\include）。由于GCC对C++语言标准的支持很好，SGI STL在linux平台上的性能相当出色。此外，其源代码的可读性也很好。可以从如下网站得到更详细的情况介绍：http://www.sgi.com，可以免费下载其源代码。目前的最新版本是3.3。 ##2 牛刀小试：且看一个简单例程 ###2.1 引子如果你是一个纯粹的实用主义者，也许一开始就可以从这里开始看起，因为此处提供了一个示例程序，它可以带给你有关使用STL的最直接的感受。是的，与其纸上谈兵，不如单刀直入，实际操作一番。但是，需要提醒的是，假如你在兴致昂然地细细品味本章内容的时候，能够同时结合前面章节作为佐餐，那将是再好不过的。你会发现，前面所提到的有关STL的那些优点，在此处得到了确切的应证。本章的后半部分，将为你演示在一些主流C++编译器上，运行上述示例程序的具体操作方法，和需要注意的事项。 ###2.2 例程实作非常遗憾，我不得不舍弃”Hello World”这个经典的范例，尽管它不只一次的被各种介绍计算机语言的教科书所引用，几乎成为了一个默认的“标准”。其原因在于它太过简单了，以至于不具备代表性，无法展现STL的巨大魅力。我选用了一个稍稍复杂一点的例子，它的大致功能是：从标准输入设备（一般是键盘）读入一些整型数据，然后对它们进行排序，最终将结果输出到标准输出设备（一般是显示器屏幕）。这是一种典型的处理方式，程序本身具备了一个系统所应该具有的几乎所有的基本特征：输入 + 处理 + 输出。你将会看到三个不同版本的程序。第一个是没有使用STL的普通C++程序，你将会看到完成这样看似简单的事情，需要花多大的力气，而且还未必没有一点问题（真是吃力不讨好）。第二个程序的主体部分使用了STL特性，此时在第一个程序中所遇到的问题就基本可以解决了。同时，你会发现采用了STL之后，程序变得简洁明快，清晰易读。第三个程序则将STL的功能发挥到了及至，你可以看到程序里几乎每一行代码都是和STL相关的。这样的机会并不总是随处可见的，它展现了STL中的几乎所有的基本组成部分，尽管这看起来似乎有点过分了。有几点是需要说明的：这个例程的目的，在于向你演示如何在C++程序中使用STL，同时希望通过实践，证明STL所带给你的确确实实的好处。程序中用到的一些STL基本组件，比如：vector（一种容器）、sort（一种排序算法），你只需要有一个大致的概念就可以了，这并不影响阅读代码和理解程序的含义。 很多人对GUI（图形用户界面）的运行方式很感兴趣，这也难怪，漂亮的界面总是会令人赏心悦目的。但是很可惜，在这里没有加入这些功能。这很容易解释，对于所提供的这个简单示例程序而言，加入GUI特性，是有点本末倒置的。这将会使程序的代码量骤然间急剧膨胀，而真正可以说明问题的核心部分确被淹没在诸多无关紧要的代码中间（你需要花去极大的精力来处理键盘或者鼠标的消息响应这些繁琐而又较为规范的事情）。即使你有像Borland C++ Builder这样的基于IDE（集成化开发环境）的工具，界面的处理变得较为简单了（框架代码是自动生成的）。请注意，我们这里所谈及的是属于C++标准的一部分（STL的第一个字母说明了这一点），它不涉及具体的某个开发工具，它是几乎在任何C++编译器上都能编译通过的代码。毕竟，在Microsoft Visual C++和Borland C++ Builder里，有关GUI的处理代码是不一样的。如果你想了解这些GUI的细节，这里恐怕没有你希望得到的答案，你可以寻找其它相关书籍。 ####2.2.1 第一版：史前时代–转木取火在STL还没有降生的”黑暗时代”，C++程序员要完成前面所提到的那些功能，需要做很多事情（不过这比起C程序来，似乎好一点），程序大致是如下这个样子的： 12345678910111213141516171819202122232425262728293031323334353637// name:example2_1.cpp// alias:Rubish#include &lt;stdlib.h&gt;#include &lt;iostream.h&gt;int compare(const void *arg1, const void *arg2);void main(void)&#123; const int max_size = 10; // 数组允许元素的最大个数 int num[max_size]; // 整型数组 // 从标准输入设备读入整数，同时累计输入个数， // 直到输入的是非整型数据为止 int n; for (n = 0; cin &gt;&gt; num[n]; n ++); // C标准库中的快速排序（quick-sort）函数 qsort(num, n, sizeof(int), compare); // 将排序结果输出到标准输出设备 for (int i = 0; i &lt; n; i ++) cout &lt;&lt; num[i] &lt;&lt; "\n";&#125;// 比较两个数的大小，// 如果*(int *)arg1比*(int *)arg2小，则返回-1// 如果*(int *)arg1比*(int *)arg2大，则返回1// 如果*(int *)arg1等于*(int *)arg2，则返回0int compare(const void *arg1, const void *arg2)&#123; return (*(int *)arg1 &lt; *(int *)arg2) ? -1 : (*(int *)arg1 &gt; *(int *)arg2) ? 1 : 0;&#125;``` 这是一个和STL没有丝毫关系的传统风格的C++程序。因为程序的注释已经很详尽了，所以不需要我再做更多的解释。总的说来，这个程序看起来并不十分复杂（本来就没有太多功能）。只是，那个compare函数，看起来有点费劲。指向它的函数指针被作为最后一个实参传入qsort函数，qsort是C程序库stdlib.h中的一个函数。以下是qsort的函数原型： void qsort(void base, size_t num, size_t width, int (__cdecl compare )(const void elem1, const void elem2 ) );1234567891011121314151617181920看起来有点令人作呕，尤其是最后一个参数。大概的意思是，第一个参数指明了要排序的数组（比如：程序中的num），第二个参数给出了数组的大小（qsort没有足够的智力预知你传给它的数组的实际大小），第三个参数给出了数组中每个元素以字节为单位的大小。最后那个长长的家伙，给出了排序时比较元素的方式（还是因为qsort的智商问题）。以下是某次运行的结果： 输入：0 9 2 1 5输出：0 1 2 5 9 有一个问题，这个程序并不像看起来那么健壮（Robust）。如果我们输入的数字个数超过max_size所规定的上限，就会出现数组越界问题。如果你在Visual C++的IDE环境下以控制台方式运行这个程序时，会弹出非法内存访问的错误对话框。这个问题很严重，严重到足以使你开始重新审视这个程序的代码。为了弥补程序中的这一缺陷。我们不得不考虑采用如下三种方案中的一种：采用大容量的静态数组分配。 限定输入的数据个数。 采用动态内存分配。 第一种方案比较简单，你所做的只是将max_size改大一点，比如：1000或者10000。但是，严格讲这并不能最终解决问题，隐患仍然存在。假如有人足够耐心，还是可以使你的这个经过纠正后的程序崩溃的。此外，分配一个大数组，通常是在浪费空间，因为大多数情况下，数组中的一部分空间并没有被利用。再来看看第二种方案，通过在第一个for循环中加入一个限定条件，可以使问题得到解决。比如：for (int n = 0; cin &gt;&gt; num[n] &amp;&amp; n &lt; max_size; n ++); 但是这个方案同样不甚理想，尽管不会使程序崩溃，但失去了灵活性，你无法输入更多的数。看来只有选择第三种方案了。是的，你可以利用指针，以及动态内存分配妥善的解决上述问题，并且使程序具有良好的灵活性。这需要用到new，delete操作符，或者古老的malloc()，realloc()和free()函数。但是为此，你将牺牲程序的简洁性，使程序代码陡增，代码的处理逻辑也不再像原先看起来那么清晰了。一个compare函数或许就已经令你不耐烦了，更何况要实现这些复杂的处理机制呢？很难保证你不会在处理这个问题的时候出错，很多程序的bug往往就是这样产生的。同时，你还应该感谢stdlib.h，它为你提供了qsort函数，否则，你还需要自己实现排序算法。如果你用的是冒泡法排序，那效率就不会很理想。……，问题真是越来越让人头疼了！关于第一个程序的讨论就到此为止，如果你对第三种方案感兴趣的话，可以尝试着自己编写一个程序，作为思考题。这里就不准备再浪费笔墨去实现这样一个让人不甚愉快的程序了。####2.2.2 第二版：工业时代--组件化大生产我们应该庆幸自己所生活的年代。工业时代，科技的发展所带来的巨大便利已经影响到了我们生活中的每个细节。如果你还在以原始人类的方式生活着，那我真该怀疑你是否属于某个生活在非洲或者南美丛林里的原始部落中的一员了，难道是玛雅文明又重现了？STL便是这个时代的产物，正如其他科技成果一样，C++程序员也应该努力使自己适应并充分利用这个"高科技成果"。让我们重新审视第一版的那个破烂不堪的程序。试着使用一下STL，看看效果如何。 // name:example2_2.cpp// alias:The first STL program #include #include #include using namespace std; void main(void){ vector num; // STL中的vector容器 int element; // 从标准输入设备读入整数， // 直到输入的是非整型数据为止 while (cin &gt;&gt; element) num.push_back(element); // STL中的排序算法 sort(num.begin(), num.end()); // 将排序结果输出到标准输出设备 for (int i = 0; i &lt; num.size(); i ++) cout &lt;&lt; num[i] &lt;&lt; &quot;\n&quot;; }123456789101112131415这个程序的主要部分改用了STL的部件，看起来要比第一个程序简洁一点，你已经找不到那个讨厌的compare函数了。它真的能很好的运行吗？你可以试试，因为程序的运行结果和前面的大致差不多，所以在此略去。我可以向你保证，这个程序是足够健壮的。不过，可能你还没有完全看明白程序的代码，所以我需要为你解释一下。毕竟，这个戏法变得太快了，较之第一个程序，一眨眼的功夫，那些老的C++程序员所熟悉的代码都不见了，取而代之的是一些新鲜玩意儿。程序的前三行是包含的头文件，它们提供了程序所要用到的所有C++特性（包括输入输出处理，STL中的容器和算法）。不必在意那个.h，并不是我的疏忽，程序保证可以编译通过，只要你的C++编译器支持标准C++规范的相关部分。你只需要把它们看作是一些普通的C++头文件就可以了。事实上，也正是如此，如果你对这个变化细节感兴趣的化，可以留意一下你身旁的佐餐。同样可以忽略第四行的存在。加入那个声明只是为了表明程序引用到了std这个标准名字空间（namespace），因为STL中的那些玩意儿全都包含在那里面。只有通过这行声明，编译器才能允许你使用那些有趣的特性。程序中用到了vector，它是STL中的一个标准容器，可以用来存放一些元素。你可以把vector理解为int [?]，一个整型的数组。之所以大小未知是因为，vector是一个可以动态调整大小的容器，当容器已满时，如果再放入元素则vector会悄悄扩大自己的容量。push_back是vector容器的一个类属成员函数，用来在容器尾端插入一个元素。main函数中第一个while循环做的事情就是不断向vector容器尾端插入整型数据，同时自动维护容器空间的大小。sort是STL中的标准算法，用来对容器中的元素进行排序。它需要两个参数用来决定容器中哪个范围内的元素可以用来排序。这里用到了vector的另两个类属成员函数。begin()用以指向vector的首端，而end()则指向vector的末端。这里有两个问题，begin()和end()的返回值是什么？这涉及到STL的另一个重要部件--迭代器（Iterator），不过这里并不需要对它做详细了解。你只需要把它当作是一个指针就可以了，一个指向整型数据的指针。相应的sort函数声明也可以看作是void sort(int* first, int* last)，尽管这实际上很不精确。另一个问题是和end()函数有关，尽管前面说它的返回值指向vector的末端，但这种说法不能算正确。事实上，它的返回值所指向的是vector中最末端元素的后面一个位置，即所谓pass-the-end value。这听起来有点费解，不过不必在意，这里只是稍带一提。总的来说，sort函数所做的事情是对那个准整型数组中的元素进行排序，一如第一个程序中的那个qsort，不过比起qsort来，sort似乎要简单了许多。程序的最后是输出部分，在这里vector完全可以以假乱真了，它所提供的对元素的访问方式简直和普通的C++内建数组一模一样。那个size函数用来返回vector中的元素个数，就相当于第一个程序中的变量n。这两行代码直观的不用我再多解释了。我想我的耐心讲解应该可以使你大致看懂上面的程序了，事实上STL的运用使程序的逻辑更加清晰，使代码更易于阅读。试问，有谁会不明白begin、end、size这样的字眼所表达的含义呢（除非他不懂英语）？试着运行一下，看看效果。再试着多输入几个数，看看是否会发生数组越界现象。实践证明，程序运行良好。是的，由于vector容器自行维护了自身的大小，C++程序员就不用操心动态内存分配了，指针的错误使用毕竟会带来很多麻烦，同时程序也会变得冗长无比。这正是前面第三种方案的缺点所在。再仔细审视一下你的第一个STL版的C++程序，回顾一下第一章所提到的那些有关STL的优点：易于使用，具有工业强度……，再比较一下第一版的程序，我想你应该有所体会了吧！####2.2.3 第三版：唯美主义的杰作事态的发展有时候总会趋向极端，这在那些唯美主义者当中犹是如此。首先声明，我并不是一个唯美主义者，提供第二版程序的改进版，完全是为了让你更深刻的感受到STL的魅力所在。在看完第三版之后，你会强烈感受到这一点。或许你也会变成一个唯美主义者了，至少在STL方面。这应该不是我的错，因为决定权在你手里。下面我们来看看这个绝版的C++程序。 // name:example2_3.cpp// alias:aesthetic version #include #include #include #include using namespace std; void main(void){ typedef vector int_vector; typedef istream_iterator istream_itr; typedef ostream_iterator ostream_itr; typedef back_insert_iterator&lt; int_vector &gt; back_ins_itr; // STL中的vector容器 int_vector num; // 从标准输入设备读入整数， // 直到输入的是非整型数据为止 copy(istream_itr(cin), istream_itr(), back_ins_itr(num)); // STL中的排序算法 sort(num.begin(), num.end()); // 将排序结果输出到标准输出设备 copy(num.begin(), num.end(), ostream_itr(cout, &quot;\n&quot;)); }1234567在这个程序里几乎每行代码都是和STL有关的（除了main和那对花括号，当然还有注释），并且它包含了STL中几乎所有的各大部件（容器container，迭代器iterator, 算法algorithm, 适配器adaptor），唯一的遗憾是少了函数对象（functor）的身影。还记得开头提到的一个典型系统所具有的基本特征吗？--输入+处理+输出。所有这些功能，在上面的程序里，仅仅是通过三行语句来实现的，其中每一行语句对应一种操作。对于数据的操作被高度的抽象化了，而算法和容器之间的组合，就像搭积木一样轻松自如，系统的耦合度被降到了极低点。这就是闪耀着泛型之光的STL的伟大力量。如此简洁，如此巧妙，如此神奇！就像魔术一般，以至于再一次让你摸不着头脑。怎么实现的？为什么在看第二版程序的时候如此清晰的你，又坠入了五里雾中（窃喜）。请留意此处的标题（唯美主义的杰作），在实际环境中，你未必要做到这样完美。毕竟美好愿望的破灭，在生活中时常会发生。过于理想化，并不是一件好事，至少我是这么认为的。正如前面提到的，这个程序只是为了展示STL的独特魅力，你不得不为它的出色表现所折服，也许只有深谙STL之道的人才会想出这样的玩意儿来。如果你只是一般性的使用STL，做到第二版这样的程度也就可以了。实在是因为这个程序太过"简单"，以至于我无法肯定，在你还没有完全掌握STL之前，通过我的讲解，是否能够领会这区区三行代码，我将尽我的最大努力。前面提到的迭代器可以对容器内的任意元素进行定位和访问。在STL里，这种特性被加以推广了。一个cin代表了来自输入设备的一段数据流，从概念上讲它对数据流的访问功能类似于一般意义上的迭代器，但是C++中的cin在很多地方操作起来并不像是一个迭代器，原因就在于其接口和迭代器的接口不一致（比如：不能对cin进行++运算，也不能对之进行取值运算--即*运算）。为了解决这个矛盾，就需要引入适配器的概念。istream_iterator便是一个适配器，它将cin进行包装，使之看起来像是一个普通的迭代器，这样我们就可以将之作为实参传给一些算法了（比如这里的copy算法）。因为算法只认得迭代器，而不会接受cin。对于上面程序中的第一个copy函数而言，其第一个参数展开后的形式是：istream_iterator(cin)，其第二个参数展开后的形式是：istream_iterator()（如果你对typedef的语法不清楚，可以参考有关的c++语言书籍）。其效果是产生两个迭代器的临时对象，前一个指向整型输入数据流的开始，后一个则指向"pass-the-end value"。这个函数的作用就是将整型输入数据流从头至尾逐一"拷贝"到vector这个准整型数组里，第一个迭代器从开始位置每次累进，最后到达第二个迭代器所指向的位置。或许你要问，如果那个copy函数的行为真如我所说的那样，为什么不写成如下这个样子呢？ copy(istream_iterator(cin), istream_iterator(), num.begin());`你确实可以这么做，但是有一个小小的麻烦。还记得第一版程序里的那个数组越界问题吗？如果你这么写的话，就会遇到类似的麻烦。原因在于copy函数在”拷贝”数据的时候，如果输入的数据个数超过了vector容器的范围时，数据将会拷贝到容器的外面。此时，容器不会自动增长容量，因为这只是简单地拷贝，并不是从末端插入。为了解决这个问题，另一个适配器back_insert_iterator登场了，它的作用就是引导copy算法每次在容器末端插入一个数据。程序中的那个back_ins_itr(num)展开后就是：back_insert_iterator(num)，其效果是生成一个这样的迭待器对象。终于将讲完了三分之一（真不容易！），好在第二句和前一版程序没有差别，这里就略过了。至于第三句，ostream_itr(cout, “\n”)展开后的形式是：ostream_iterator(cout, “\n”)，其效果是产生一个处理输出数据流的迭待器对象，其位置指向数据流的起始处，并且以”\n”作为分割符。第二个copy函数将会从头至尾将vector中的内容”拷贝”到输出设备，第一个参数所代表的迭代器将会从开始位置每次累进，最后到达第二个参数所代表的迭代器所指向的位置。这就是全部的内容。 ###2.3 历史的评价历史的车轮总是滚滚向前的，工业时代的文明较之史前时代，当然是先进并且发达的。回顾那两个时代的C++程序，你会真切的感受到这种差别。简洁易用，具有工业强度，较好的可移植性，高效率，加之第三个令人目眩的绝版程序所体现出来的高度抽象性，高度灵活性和组件化特性，使你对STL背后所蕴含的泛型化思想都有了些微的感受。真幸运，你可以横跨两个时代，有机会目睹这种”文明”的差异。同时，这也应该使你越加坚定信念，使自己顺应时代的潮流。]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>STL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[UVa--10082--WERTYU]]></title>
+    <url>%2F2018%2F01%2F03%2FUVa--10082--WERTYU%2F</url>
+    <content type="text"><![CDATA[题目这个题目运用到了常量数组，然后需要进行简单字符匹配输出，值得注意的是对于‘\’转义符的处理，‘\’两次才能表示‘\’转义符。代码如下：1234567891011121314151617#include&lt;stdio.h&gt;char c[] = "`1234567890-=QWERTYUIOP[]\\ASDFGHJKL;'ZXCVBNM,./";int main()&#123; char s; while((s=getchar())!=EOF) &#123; int i=1; while(c[i] &amp;&amp; c[i]!=s) i++; if(c[i]) putchar(c[i-1]); else putchar(s); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>编程题</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+        <tag>Uva</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[UVa--272--TEX Quotes]]></title>
+    <url>%2F2018%2F01%2F03%2FUVa--272--TEX%20Quotes%2F</url>
+    <content type="text"><![CDATA[题目题目的关键所在就是如何判断双引号是左双引号还是右双引号，我们易知引号是成对存在的，所以我们用一个标记变量就可以的判断了。其次便是输入问题，我们知道scanf输入遇到空格便会停下，所以我们会用到getchar函数代码如下： 123456789101112131415#include&lt;stdio.h&gt; int main() &#123; int s,n = 1; while((s = getchar()) != EOF) &#123; if(s == '"') &#123; printf("%s", n ? "``" : "''"); n = !n; &#125; else printf("%c", s); &#125; return 0; &#125;]]></content>
+      <categories>
+        <category>编程题</category>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+        <tag>Uva</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Codeforces--477Div.2--A]]></title>
+    <url>%2F2017%2F11%2F22%2FCodeforces--447Div.2--A%2F</url>
+    <content type="text"><![CDATA[题目 给出一串字符，题目要求输出有多少个QAQ，不限制中间穿插了多少个字符，不同的QAQ可以使用同一个Q或者A。由于数据量较少，我是暴力遍历出来的，贼菜代码如下： 12345678910111213141516171819202122232425262728#include&lt;cstdio&gt;#include&lt;cstring&gt;char a[105];int main()&#123; int count=0; scanf("%s",a); int len=strlen(a); for(int i=0;i&lt;len;i++) &#123; if(a[i]=='Q') &#123; for(int j=i+1;j&lt;len;j++) &#123; if(a[j]=='A') &#123; for(int k=j;k&lt;len;k++) &#123; if(a[k]=='Q') count++; &#125; &#125; &#125; &#125; &#125; printf("%d\n",count); return 0;&#125;]]></content>
+      <categories>
+        <category>编程题</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+        <tag>Codeforces</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ZOJ--3992--One-Dimensional Maze]]></title>
+    <url>%2F2017%2F11%2F22%2FZOJ--3992--One-Dimensional%20Maze%2F</url>
+    <content type="text"><![CDATA[题目题意：给出一串只有RL的字符串，给定起始位置，R表示向右，L表示向左，现在要求输出最少改变几个字符可以移动到字符第一个或者最后一个。例如：6 3LLRRLR起始位置是第三个字符R，只用改变第三个R就可以到达第一个字符L 这道题目通过模拟就可以做出来，就是将到达两边要改变的字符都求出来，输出最小的那个见代码： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include&lt;cstdio&gt;using namespace std;#define maxn 100005char a[maxn];int main()&#123; int T; scanf("%d",&amp;T); int n,m; while(T--) &#123; int count1=0,count2=1; //如果是去与起始字符相反的方向则需要算上起始位置的改变 scanf("%d%d",&amp;n,&amp;m); scanf("%s",a); if(a[m-1]=='R') &#123; for(int i=m;i&lt;n-1;i++) //从末尾向起始位置遍历 &#123; if(a[i]=='L') //遇见L就变为R，count1++ count1++; &#125; for(int i=1;i&lt;m-1;i++) //从开头到起始位置遍历 &#123; if(a[i]=='R') //遇见R变成L，count2++ &#123; count2++; //由于起始位置是R所以到左边需要改变自身，所以为count2 &#125; &#125; &#125; else //同理于起始位置为R &#123; for(int i=m;i&lt;n-1;i++) &#123; if(a[i]=='L') count2++; &#125; for(int i=1;i&lt;m-1;i++) &#123; if(a[i]=='R') count1++; &#125; &#125; if(count1&lt;count2) printf("%d\n",count1); else printf("%d\n",count2); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>编程题</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+        <tag>ZOJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HDU--4221--Greedy?]]></title>
+    <url>%2F2017%2F11%2F22%2FHDU--4221--Greedy_%2F</url>
+    <content type="text"><![CDATA[题目这个题目题意有点容易理解错，理解了后就比较简单了。 题目要求的是求出总罚值最小的情况下最大的罚值要让总罚值最小，将最小期限Di排序，然后将最大的罚值求出来就可以了。 12345678910111213141516171819202122232425262728293031323334353637#include&lt;cstdio&gt;#include&lt;algorithm&gt;using namespace std;struct Time //定义Di ， Ci 的结构体，方便排序操作&#123; int Ci; int Di;&#125;;bool cmp(Time a,Time b) //定义比较函数&#123; return a.Di&lt;b.Di;&#125;Time a[100005];int main()&#123; int T,ca=0; scanf("%d",&amp;T); while(T--) &#123; ca++; int n; long long sum=0,ans=0; scanf("%d",&amp;n); for(int i=0;i&lt;n;i++) &#123; scanf("%d%d",&amp;a[i].Ci,&amp;a[i].Di); &#125; sort(a,a+n,cmp); //快速排序 for(int i=0;i&lt;n;i++) &#123; ans+=a[i].Ci; if(ans-a[i].Di&gt;sum) sum=ans-a[i].Di; &#125; printf("Case %d: %lld\n",ca,sum); &#125;&#125; 题目还是比较简单的，运用的就只有对结构体进行排序知识点，不是很难。]]></content>
+      <categories>
+        <category>编程题</category>
+      </categories>
+      <tags>
+        <tag>贪心</tag>
+        <tag>Hdu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[表达式计算]]></title>
+    <url>%2F2017%2F10%2F31%2F%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97%2F</url>
+    <content type="text"><![CDATA[表达式计算对于我们人来说，喜欢通过中缀表达式来计算，而计算机则不一样，需要通过后缀表达式来计算，首先通过实例来介绍一下中缀表达式和后缀表达式例子中缀表达式：3（5+2）-3 6后缀表达式：3 5 2 + 3 6 - 那么转换规则是怎么样的呢？ 规则：从左到右遍历中缀表达式的每个数字和符号，若是数字就输出，即成为后缀表达式的一部分；若是符号，则判断其与栈顶符号的优先级，是右括号或优先级低于栈顶符号（乘除优先加减）则栈顶元素依次出栈并输出，并将当前符号进栈，一直到最终输出后缀表达式为止。 图解可以自行百度，这里就不多加赘述了 进行表达式计算算法的实现则需要两个栈。存储数字的栈，存储字符的栈。 通过规则将表达式中的数字和字符分别存入两个栈中，如果存储在字符栈中的运算符被输出，则数字栈顶两个数字进行被输出运算符的运算（栈顶第一个数对栈顶第二个数进行操作）并将结果存入数字栈中。直到字符遍历完成，且运算符栈为空。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;#include&lt;string.h&gt;#include&lt;stack&gt;using namespace std;stack&lt;char&gt; stack_ch;//符号栈stack&lt;int&gt; stack_num; //数值栈char str[1000]; //输入的中缀表达式char number[100]; //用来将字符串中的数字变成int型的数组void js1()//这个函数只接收+-号，+-号等级最低，运算符栈中除了括号外 都可以取出运算&#123; int num1,num2; while (stack_ch.top()!='(') //从运算符栈中取一个运算符 对数值栈顶和次顶元素进行运算 &#123; num1=stack_num.top();//取出一个数 stack_num.pop();//弹出这个数 num2=stack_num.top(); stack_num.pop(); switch (stack_ch.top()) &#123; case '+': num2+=num1; break; case '-': num2-=num1; break; case '*': num2*=num1; break; case '/': num2/=num1; break; &#125; stack_num.push(num2);//将计算结果入数值栈 stack_ch.pop();//删除已经用过的符号 &#125;&#125;void js2()//只接收 / *运算符&#123; int num1,num2; while (stack_ch.top()=='*' || stack_ch.top()=='/') //栈中只有优先级大于 &#123; num1=stack_num.top(); stack_num.pop(); num2=stack_num.top(); stack_num.pop(); switch (stack_ch.top()) &#123; case '*': num2*=num1; break; case '/': num2/=num1; break; &#125; stack_ch.pop(); stack_num.push(num2); &#125;&#125;int main()&#123; int i,k=0,s; char c[5]="."; stack_ch.push('('); gets(str); strcat(str,c);//将‘.’连接到表达式字符串中使其判断表达式字符串已读完 for (i=0;str[i];i++) &#123; if (str[i]&gt;='0'&amp;&amp;str[i]&lt;='9')//为数字 &#123; number[k++]=str[i]; continue; &#125; number[k]='\0'; //变成字符串\0结尾 if (number[0]!='\0') &#123; s=atoi(number);//取字符串中首个数字字符所表达的数 number[0]='\0'; stack_num.push(s); //将字符串转换成整型，放入数值栈中 &#125; k=0; switch(str[i])//‘+-(’这3个符号入js1函数，入js2函数 ，优先级不同要分开计算 &#123; case '+': js1(); stack_ch.push('+'); break; case '-': js1(); stack_ch.push('-'); break; case '*': js2(); stack_ch.push('*'); break; case '/': js2(); stack_ch.push('/'); break; case '(': stack_ch.push('('); break; case ')': js1(); stack_ch.pop(); break; case '.': &#123; js1(); stack_ch.pop(); &#125; &#125; &#125; printf("%d\n",stack_num.top()); return 0;&#125;]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>前缀表达式</tag>
+        <tag>后缀表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[POJ--3176--Cow Bowling]]></title>
+    <url>%2F2017%2F10%2F22%2FPOJ--3176--Cow%20Bowling%2F</url>
+    <content type="text"><![CDATA[题目 点开这里有详解 之前整理过就不整理了，哈哈哈嗝]]></content>
+      <categories>
+        <category>编程题</category>
+      </categories>
+      <tags>
+        <tag>Poj</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HDU--6063--RXD and math]]></title>
+    <url>%2F2017%2F10%2F19%2FHDU--6063--RXD%20and%20math%2F</url>
+    <content type="text"><![CDATA[题目题解：题目运用的是快速幂，主要是要找到规律，规律的出的是：输出n^k即可（可以自己带入数字尝试一下） 所以很题目很简单处理，套一个快速幂的模板就可以了 但是要注意的有两点：1.对数取模 （实在不行，把进行处理的数都取模吧…）2.注意数据范围（同上，直接都 long long吧…） 代码如下：1234567891011121314151617181920212223242526#include&lt;cstdio&gt;const int M=1e9+7;long long fun(long long a,long long b,int k)&#123; long long ans=1; while(b&gt;0) &#123; a=a%k; if(b&amp;1) ans=((ans%k)*(a%k))%k; b/=2; a=(a%k*a%k)%k; &#125; return ans%k;&#125;int main()&#123; long long n,k; int ca=0; while((scanf("%lld%lld",&amp;n,&amp;k)!=EOF)) &#123; ca++; printf("Case #%d: %lld\n",ca,fun(n,k,M)); &#125; return 0;&#125; 如果不了解快速幂可以点文章开头的链接。]]></content>
+      <categories>
+        <category>编程题</category>
+      </categories>
+      <tags>
+        <tag>Hdu</tag>
+        <tag>快速幂</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在ubuntu17.04下安装最新版QQ教程]]></title>
+    <url>%2F2017%2F10%2F15%2F%E5%9C%A8ubuntu17.04%E4%B8%8B%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ%E6%95%99%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[博客更新：2018年7月25日好久没有登陆csdn，今天发现这篇文章帮助了这么多人，百度云链接更新了同时给大家分享一个更为简单的安装wine QQ 的教程 ，也是几个月前摸索出来的，非常简单！见文章链接 Ubuntu18.04超级简单的安装wine QQ教程Ubuntu18.04安装WPS(亲测~)使用的方式是通过wine这一强大的工具,wine是什么就自行百度啦，我也是近期接触linux 具体教程：1.安装wine首先ctrl+alt+T打开终端进行如下三条指令 123sudo add-apt-repository ppa:wine/wine-buildssudo apt-get updatesudo apt-get install winehq-devel 2.下载安装包百度云链接：https://pan.baidu.com/s/1dE2sZNr 密码: evgf(大家看看文头的新方法嘻嘻) 3.解压安装下载完成之后，进入到下载目录，将其解压到我们的用户主home目录下（图片文件右键提取）,解压出来的是3个隐藏目录和说明文件其实这个时候就已经安装好了，这个时候只用按下super键（Win键）搜索qq，就会出现wineqq，然后可能会弹出更新安装，（我出现了）点安装就ok。最后就会弹出qq登录界面就可以登录啦完美解决～ 当然还有卸载qq的方法啦卸载qq的方法：1234567rm -rf ~/.winerm -rf ~/.local/share/applications/wine-QQ.desktoprm -rf ~/.local/share/icons/hicolor/256x256/apps/QQ.pngrm -rf ~/.fonts/simsun.ttc]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>wine qq</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[矩阵快速幂--斐波那契数列]]></title>
+    <url>%2F2017%2F10%2F10%2F%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82--%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%2F</url>
+    <content type="text"><![CDATA[求斐波那契数列有很多种方法，暴力，递归，矩阵快速幂等等但是前两者在所求项过大时会导致运行时间内存过大，矩阵快速幂恰恰解决了这两个弊端矩阵快速幂包含快速幂思想和些许线性代数知识来达到快速运算的目的首先我们来了解一下相关线性代数知识：矩阵A*矩阵B=矩阵C 由图中所表示的可以理解为 f（x+1）=f（x）+f（x-1）即斐波那契数列的通式若要求项数较大的数n斐波那契数，那么只用将矩阵A进行n-1次幂运算 算法实现包括包括： 构建表示矩阵的结构体，矩阵乘法的实现，矩阵快速幂 - 构建表示矩阵的结构体 12345678struct matrix&#123; long long mat[10][10]; matrix() &#123; memset(mat, 0 ,sizeof(mat)); &#125;&#125; 由于斐波那契数列中的数值会超出int的范围，所以此处用了 long long ，构造函数是将数据初始化为0 - 矩阵乘法的实现1234567891011matrix mul(matrix A,matrix B)&#123; matrix C; for(int i=1;i&lt;10;i++) for(int j=1;j&lt;10;j++) for(int k=1;k&lt;10;k++) &#123; C.mat[i][j]=A.mat[i][K]*B.mat[k][j]+C.mat[i][j] &#125; return C; &#125; 矩阵乘法很好实现，用三层循环就可以实现 - 矩阵快速幂1234567891011121314matrix quickmi（matrix A,long long n）&#123; matrix B; for(int i=1;i&lt;10;i++) B.mat[i][i]=1; while (n&gt;0) &#123; if(n&amp;1) B=mul(A,B); A=mul(A,A); n&gt;&gt;=1; &#125; return B;&#125; 矩阵快速幂和普通快速幂是一样的思想，只是将基数由实数变成矩阵进行快速运算 如果不是很了解快速幂，可以看看这个博客快速幂 注： 片段代码或者语言如有错误望谅解并请指出。]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>矩阵快速幂</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[快速幂]]></title>
+    <url>%2F2017%2F10%2F03%2F%E5%BF%AB%E9%80%9F%E5%B9%82%2F</url>
+    <content type="text"><![CDATA[快速幂是个好东西 ，有时候一些题目需要求高次幂（例如：2^100）的运算或者大量的递归运算（斐波那契数列）就基本和下面两个死敌说拜拜了Time limit exceeded←死敌Memory Limit Exceeded←死敌（还有WA）切入正题——-——-——-——-——-——-——-——-——-——-——-——-——-——-——-——-—— 首先我们先看看快速幂的优势在哪？ 例：2^254常规运算需要将2连乘254次（2 2 … 2 2）而254二进制表示为11111110（254=0 2^0 + 1 2^1 + 12^2 …+ 1 2^8 ）所以2^254=2^(0 2^0 + 1 2^1 + 12^2 …+ 1 2^8)=2^(2^1) 2^(2^2)… * 2^(2^8)此时运算只用进行7次 但是如何将十进制的幂次转换为二进制呢？那我们就需要运用到位运算中的：1.&amp; 按位与运算符2.&gt;&gt;右移运算符1.按位与运算符我们就简单的运用一下来判断末位是否为1，例如11111111&amp;1=1，11111110&amp;1=0而原因就是使位数为0的项给剔除掉 如例子中的2^254 是为了减少了首项0*2^0这一项的运算2.右移运算符刚刚通过按位与运算符判断了末位是否为1，但事实上我们要将所有数都进行判断，那么就要运用到右移运算符。例如11111110&gt;&gt;1则为01111111，11111110&gt;&gt;2则为00111111，高位补0，低位去除。所以我们就用到&gt;&gt;1来达到移位进行判断。 代码如下a为基数，b为次幂数1234567891011int FastPower(int a,int b)&#123; int ans=1,vis=a; while(b!=0) &#123; if(b&amp;1==1) ans=ans*vis; vis=vis*vis;//无论当前位是否为1，都需要进行，为后续进行储备 b&gt;&gt;=1; //b/=2; &#125; return ans;&#125; 正因为vis*vis，使得次幂会以2 4 8 16……（2^1 2^2 2^3 2^4……）上升对应着二进制数所对应的十进制数从而达到快速运算的成效。快速幂的基本思想就是这样啦 注： 片段代码或者语言如有错误望谅解并请指出。]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>快速幂</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Uva-1339 Ancient Cipher]]></title>
+    <url>%2F2017%2F10%2F02%2FUva-1339%20%20Ancient%20Cipher%2F</url>
+    <content type="text"><![CDATA[Uva-1339题目链接 题意对比两串字符串，如果一字符串内所有字母与另一字符串的字母是一一映射替换的，且相同字母替换的字母也相同，如果是就输出YES,否则输出NO 过程这个题目表面上是字符匹配的问题，其实只是排序问题，将字符串的相同的字母进行计数存入到数组中，只要保证相同的字母个数相同就可以判断：一字符串内所有字母与另一字符串的字母是一一映射替换的，且相同字母替换的字母也相同，这里就对字符的ASCLL数值进行操作，代码如下： 123456789101112131415161718192021222324252627282930313233343536373839#include&lt;cstdio&gt;#include&lt;cstring&gt;#include&lt;algorithm&gt;using namespace std;char str[105],str1[105];int main()&#123; int k,a[26],b[26],flag; while(gets(str)) &#123; flag=1; memset(a,0,sizeof(a)); memset(b,0,sizeof(b)); int len=strlen(str); for(int i=0;i&lt;len;i++) &#123; k=str[i]-'A'; a[k]++; &#125; gets(str1); for(int i=0;i&lt;len;i++) &#123; k=str1[i]-'A'; b[k]++; &#125; sort(a,a+26);//排序 sort(b,b+26); for(int i=0;i&lt;26;i++) &#123; if(a[i]!=b[i]) flag=0; &#125; if(flag) printf("YES\n"); else printf("NO\n"); &#125; return 0;&#125; 代码中使用了sort函数，这个函数可以进行快速排列，有关sort函数会单独写一篇博客后期补上链接 注： 片段代码或者语言如有错误望谅解并请指出。]]></content>
+      <categories>
+        <category>编程题</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+        <tag>Uva</tag>
       </tags>
   </entry>
   <entry>
