@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[最大连续子序列之和]]></title>
-    <url>%2F2019%2F04%2F02%2F%E6%9C%80%E5%A4%A7%E5%AD%90%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97%E4%B9%8B%E5%92%8C%2F</url>
-    <content type="text"><![CDATA[问题简介：求最大连续序列之和。例如：{-1，5，6，-10，15，-9，8}，最大连续子序列和为{5，6，-10，15}，和为16。代码： 123456789101112131415161718192021222324252627#include&lt;cstdio&gt;#include&lt;algorithm&gt;using namespace std;const int maxn=1000;int a[maxn]; //存入序列int b[maxn]; //存储状态 int main() &#123; int m; scanf("%d",&amp;m); for(int i=0;i&lt;m;i++) &#123; scanf("%d",&amp;a[i]); &#125; //录入样例&#123;-1，5，6，-10，15，-9，8&#125; b[0] = a[0]; int ans = b[0]; for(int i = 1;i&lt;m ; i++) &#123; b[i]=max(a[i],b[i-1]+a[i]); //讲解见a if(ans&lt;b[i]) ans=b[i]; //ans储存最大序列之和 &#125; printf("max %d\n" , ans); for(int i = 0;i&lt;m;i++) //展现状态b[i]每个位置状态 printf("b[%d]=%d\n",i,b[i]); return 0; &#125; a状态转移方程 b[i]=max(a[i],b[i-1]+a[i])b[i]每个状态为当前序号之前的最大子序列之和，max（）函数将进行选择：1.删除前一状态 a[i] 例如：b[1]=max(a[1],a[1]+b[0]);2.保留前一个状态 b[i-1]+a[i] 例如：b[2]=max(a[2],a[2]+b[1]); 最后用ans将最大的那个状态保存即求出了最大子序列之和]]></content>
-      <categories>
-        <category>ACM</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[HDU1323]]></title>
     <url>%2F2018%2F09%2F06%2FHDU1232%2F</url>
     <content type="text"><![CDATA[畅通工程Time Limit: 4000/2000 MS (Java/Others)Memory Limit: 65536/32768 K (Java/Others) Problem Description：某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通过道路可达即可）。问最少还需要建设多少条道路？ Input：测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是城镇数目N ( &lt; 1000 )和道路数目M；随后的M行对应M条道路，每行给出一对正整数，分别是该条道路直接连通的两个城镇的编号。为简单起见，城镇从1到N编号。注意:两个城市之间可以有多条道路相通,也就是说 3 3 1 2 1 2 2 1 这种输入也是合法的当N为0时，输入结束，该用例不被处理。 Output：对每个测试用例，在1行里输出最少还需要建设的道路数目。 Sample Input4 2 1 3 4 3 3 3 1 2 1 3 2 3 5 2 1 2 3 5 999 0 0 Sample Output1 0 2 998]]></content>
@@ -43,6 +32,17 @@
       </categories>
       <tags>
         <tag>hi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[最大连续子序列之和]]></title>
+    <url>%2F2017%2F09%2F27%2F%E6%9C%80%E5%A4%A7%E5%AD%90%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97%E4%B9%8B%E5%92%8C%2F</url>
+    <content type="text"><![CDATA[问题简介：求最大连续序列之和。例如：{-1，5，6，-10，15，-9，8}，最大连续子序列和为{5，6，-10，15}，和为16。代码： 123456789101112131415161718192021222324252627#include&lt;cstdio&gt;#include&lt;algorithm&gt;using namespace std;const int maxn=1000;int a[maxn]; //存入序列int b[maxn]; //存储状态 int main() &#123; int m; scanf("%d",&amp;m); for(int i=0;i&lt;m;i++) &#123; scanf("%d",&amp;a[i]); &#125; //录入样例&#123;-1，5，6，-10，15，-9，8&#125; b[0] = a[0]; int ans = b[0]; for(int i = 1;i&lt;m ; i++) &#123; b[i]=max(a[i],b[i-1]+a[i]); //讲解见a if(ans&lt;b[i]) ans=b[i]; //ans储存最大序列之和 &#125; printf("max %d\n" , ans); for(int i = 0;i&lt;m;i++) //展现状态b[i]每个位置状态 printf("b[%d]=%d\n",i,b[i]); return 0; &#125; a状态转移方程 b[i]=max(a[i],b[i-1]+a[i]) b[i]每个状态为当前序号之前的最大子序列之和，max（）函数将进行选择：1.删除前一状态 a[i] 例如：b[1]=max(a[1],a[1]+b[0]);2.保留前一个状态 b[i-1]+a[i] 例如：b[2]=max(a[2],a[2]+b[1]); 最后用ans将最大的那个状态保存即求出了最大子序列之和]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
       </tags>
   </entry>
 </search>
