@@ -731,6 +731,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Codeforces--477Div.2--B]]></title>
+    <url>%2F2017%2F10%2F27%2FCodeforces--477Div.2--B%2F</url>
+    <content type="text"><![CDATA[题目 这个题目是个思维题，同时包含着快速幂运算，规律找出来后用个快速幂的板子很好AC 题意：题目给出m x n的网格，要求每行每列相乘都是等于1或者-1可以很快得出每个格子只能填-1或者1（题目中要求是整数），那么我们也可以知道的是，每一行每一列的乘积应该是取决于最后一个填入网格的数字，假设一列中有n个数字，那么前n-1个数字是随意填1或者-1的，第n个数字就必须为一个定值。初步可以得出的结论是：方法的种类有2^（m-1）* （n-1）种。 但题目的坑点不在此！ 我们必须注意的是当m+n为奇数，k=-1时必然导致有一行或者一列出现两个-1，所以这种情况是不存在的，此时应该输出0。 AC代码： 12345678910111213141516171819202122232425262728293031#include&lt;cstdio&gt;typedef long long LL;const int M=1000000007;LL quickmi(LL a,LL b)&#123; LL ans =1,vis=a ; while(b) &#123; if(b&amp;1) ans=(vis%M*ans%M)%M; \\一开始没注意取模，干脆...我都取了模 vis=((vis%M)*(vis%M))%M; b&gt;&gt;=1; &#125; return ans;&#125;int main()&#123; LL m,n,k; scanf("%I64d%I64d%I64d",&amp;m,&amp;n,&amp;k); if(k==-1&amp;&amp;((m+n)%2)==1) &#123; printf("0\n"); &#125; else &#123; LL anser=quickmi(2,n-1); //值得注意的是，m，n的范围最大到10^18 anser=quickmi(anser,m-1); //所以相乘会爆掉long long 所以进行了两次操作 printf("%I64d",anser); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>Codeforces</category>
+      </categories>
+      <tags>
+        <tag>思维题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[POJ--3176--Cow Bowling]]></title>
     <url>%2F2017%2F10%2F22%2FPOJ--3176--Cow%20Bowling%2F</url>
     <content type="text"><![CDATA[题目 点开这里有详解 之前整理过就不整理了，哈哈哈嗝]]></content>
@@ -789,6 +800,28 @@
       </categories>
       <tags>
         <tag>矩阵快速幂</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Codeforces--839A--Arya and Bran]]></title>
+    <url>%2F2017%2F10%2F07%2FCodeforces--839A--Arya%20and%20Bran%2F</url>
+    <content type="text"><![CDATA[题目Bran and his older sister Arya are from the same house. Bran like candies so much, so Arya is going to give him some Candies. At first, Arya and Bran have 0 Candies. There are n days, at the i-th day, Arya finds ai candies in a box, that is given by the Many-Faced God. Every day she can give Bran at most 8 of her candies. If she don’t give him the candies at the same day, they are saved for her and she can give them to him later. Your task is to find the minimum number of days Arya needs to give Bran k candies before the end of the n-th day. Formally, you need to output the minimum day index to the end of which k candies will be given out (the days are indexed from 1 to n). Print -1 if she can’t give him k candies during n given days. InputThe first line contains two integers n and k (1 ≤ n ≤ 100, 1 ≤ k ≤ 10000). The second line contains n integers a1, a2, a3, …, an (1 ≤ ai ≤ 100). OutputIf it is impossible for Arya to give Bran k candies within n days, print -1. Otherwise print a single integer — the minimum number of days Arya needs to give Bran k candies before the end of the n-th day. ExampleInput2 31 2Output2Input3 1710 10 10Output3Input1 910Output-1NoteIn the first sample, Arya can give Bran 3 candies in 2 days. In the second sample, Arya can give Bran 17 candies in 3 days, because she can give him at most 8 candies per day. In the third sample, Arya can’t give Bran 9 candies, because she can give him at most 8 candies per day and she must give him the candies within 1 day. 这道题目需要注意思路：首先是要判断当天的糖果是不是&gt;8的，大于8就减8，并将多于糖果留给下一天，小于就减本身数量。最后通过判断是否能在规定的天数里面完成。见代码： 1234567891011121314151617181920212223242526272829303132#include&lt;cstdio&gt;int a[105];int main()&#123; int n,k,i,cnt=0,num=0; scanf("%d%d",&amp;n,&amp;k); &#123; for(i=0;i&lt;n;i++) scanf("%d",&amp;a[i]); for(i=0;i&lt;n;i++) &#123; cnt++; num=num+a[i]; if(num&gt;8) &#123; k=k-8; num=num-8; &#125; else &#123; k=k-num; num=0; &#125; if(k&lt;=0) break; &#125; if(i==n) cnt=-1; printf("%d\n",cnt); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>Codeforces</category>
+      </categories>
+      <tags>
+        <tag>思维题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2019/04/02/Gym--100952B--New Job]]></title>
+    <url>%2F2017%2F10%2F06%2FGym--100952B--New%20Job%2F</url>
+    <content type="text"><![CDATA[题目This is the first day for you at your new job and your boss asks you to copy some files from one computer to other computers in an informatics laboratory. He wants you to finish this task as fast as possible. You can copy the files from one computer to another using only one Ethernet cable. Bear in mind that any File-copying process takes one hour, and you can do more than one copying process at a time as long as you have enough cables. But you can connect any computer to one computer only at the same time. At the beginning, the files are on one computer (other than the computers you want to copy them to) and you want to copy files to all computers using a limited number of cables. InputFirst line of the input file contains an integer T (1 ≤ T ≤ 100) which denotes number of test cases. Each line in the next T lines represents one test case and contains two integers N, M. N is the number of computers you want to copy files to them (1 ≤ N ≤ 1,000,000,000). While M is the number of cables you can use in the copying process (1 ≤ M ≤ 1,000,000,000). OutputFor each test case, print one line contains one integer referring to the minimum hours you need to finish copying process to all computers. ExampleInput310 107 25 3Output443NoteIn the first test case there are 10 computer and 10 cables. The answer is 4 because in the first hour you can copy files only to 1 computer, while in the second hour you can copy files to 2 computers. In the third hour you can copy files to 4 computers and you need the fourth hour to copy files to the remaining 3 computers. 这个题就是数字每次按2^0,2^1,2^2…将电脑数量相减这到题不要想复杂了，就用一个if else判断，将最大能相减的数字范围作为判断条件将电脑数减为0即可 123456789101112131415161718192021222324252627#include&lt;cstdio&gt;int main()&#123; int T,k,N,M,count; scanf("%d",&amp;T); while(T--) &#123; count=0; k=1; scanf("%d%d",&amp;N,&amp;M); while(N&gt;0) &#123; if(k&lt;M) &#123; N=N-k; k*=2; &#125; else &#123; N=N-M; &#125; count++; &#125; printf("%d\n",count); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>Codeforces</category>
+      </categories>
+      <tags>
+        <tag>思维题</tag>
       </tags>
   </entry>
   <entry>
