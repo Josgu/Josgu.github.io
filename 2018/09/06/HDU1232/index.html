@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="并查集,HDU," />
+  <meta name="keywords" content="HDU,并查集," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="#畅通工程 Time Limit: 4000/2000 MS (Java/Others)Memory Limit: 65536/32768 K (Java/Others) ##Problem Description： 某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通">
-<meta name="keywords" content="并查集,HDU">
+<meta name="description" content="畅通工程Time Limit: 4000/2000 MS (Java/Others)Memory Limit: 65536/32768 K (Java/Others) Problem Description：某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通过道路可达">
+<meta name="keywords" content="HDU,并查集">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU1323">
 <meta property="og:url" content="http://blog.josgu.com/2018/09/06/HDU1232/index.html">
 <meta property="og:site_name" content="Jos&#39;s blogs">
-<meta property="og:description" content="#畅通工程 Time Limit: 4000/2000 MS (Java/Others)Memory Limit: 65536/32768 K (Java/Others) ##Problem Description： 某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通">
+<meta property="og:description" content="畅通工程Time Limit: 4000/2000 MS (Java/Others)Memory Limit: 65536/32768 K (Java/Others) Problem Description：某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通过道路可达">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-06T20:00:16.000Z">
+<meta property="og:updated_time" content="2019-04-02T00:26:17.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU1323">
-<meta name="twitter:description" content="#畅通工程 Time Limit: 4000/2000 MS (Java/Others)Memory Limit: 65536/32768 K (Java/Others) ##Problem Description： 某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通">
+<meta name="twitter:description" content="畅通工程Time Limit: 4000/2000 MS (Java/Others)Memory Limit: 65536/32768 K (Java/Others) Problem Description：某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通过道路可达">
 
 
 
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  330
+                  328
                 </span>
               
 
@@ -432,21 +432,16 @@
       
 
       
-        <p>#畅通工程</p>
-<p>Time Limit: 4000/2000 MS (Java/Others)<br>Memory Limit: 65536/32768 K (Java/Others)</p>
-<p>##Problem Description：</p>
-<p>某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通过道路可达即可）。问最少还需要建设多少条道路？ </p>
-<p>##Input：</p>
-<p>测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是城镇数目N ( &lt; 1000 )和道路数目M；随后的M行对应M条道路，每行给出一对正整数，分别是该条道路直接连通的两个城镇的编号。为简单起见，城镇从1到N编号。<br>注意:两个城市之间可以有多条道路相通,也就是说</p>
+        <h1 id="畅通工程"><a href="#畅通工程" class="headerlink" title="畅通工程"></a>畅通工程</h1><p>Time Limit: 4000/2000 MS (Java/Others)<br>Memory Limit: 65536/32768 K (Java/Others)</p>
+<h2 id="Problem-Description："><a href="#Problem-Description：" class="headerlink" title="Problem Description："></a>Problem Description：</h2><p>某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通过道路可达即可）。问最少还需要建设多少条道路？ </p>
+<h2 id="Input："><a href="#Input：" class="headerlink" title="Input："></a>Input：</h2><p>测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是城镇数目N ( &lt; 1000 )和道路数目M；随后的M行对应M条道路，每行给出一对正整数，分别是该条道路直接连通的两个城镇的编号。为简单起见，城镇从1到N编号。<br>注意:两个城市之间可以有多条道路相通,也就是说</p>
 <pre><code>3 3
 1 2
 1 2
 2 1
 </code></pre><p>这种输入也是合法的<br>当N为0时，输入结束，该用例不被处理。 </p>
-<p>##Output：</p>
-<p>对每个测试用例，在1行里输出最少还需要建设的道路数目。 </p>
-<p>##Sample Input</p>
-<pre><code>4 2
+<h2 id="Output："><a href="#Output：" class="headerlink" title="Output："></a>Output：</h2><p>对每个测试用例，在1行里输出最少还需要建设的道路数目。 </p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><pre><code>4 2
 1 3
 4 3
 3 3
@@ -458,8 +453,7 @@
 3 5
 999 0
 0
-</code></pre><p>##Sample Output</p>
-<pre><code>1
+</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><pre><code>1
 0
 2
 998
@@ -480,9 +474,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/并查集/" rel="tag"># 并查集</a>
-          
             <a href="/tags/HDU/" rel="tag"># HDU</a>
+          
+            <a href="/tags/并查集/" rel="tag"># 并查集</a>
           
         </div>
       
@@ -557,8 +551,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -633,6 +636,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#畅通工程"><span class="nav-number">1.</span> <span class="nav-text">畅通工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-Description："><span class="nav-number">1.1.</span> <span class="nav-text">Problem Description：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input："><span class="nav-number">1.2.</span> <span class="nav-text">Input：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output："><span class="nav-number">1.3.</span> <span class="nav-text">Output：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Input"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Output"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Output</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -666,7 +685,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共792字</span>
+  <span class="post-count">博客全站共790字</span>
 </div>
 
         
