@@ -34,11 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Linux每天记day7:touch命令]]></title>
-    <url>%2F2019%2F04%2F02%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day7_touch%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[touchtouch命令将每个文件的访问时间和修改时间改为当前时间,不存在的文件参数创建为空，除非有-c或-h选项 语法: touch [OPTION]... FILE... 选项: -a, 只更改访问时间 -c, 不创建任何文件 -d, --date=字符串 使用指定字符串表示时间而非当前时间 -h,会影响符号链接本身，而非符号链接所指示的目的地(当系统支持更改符号链接的所有者时，此选项才有用) -m,只更改修改时间 -r, 使用指定文件的时间属性而非当前时间 -t 使用[[CC]YY]MMDDhhmm[.ss] 格式的时间而非当前时间 --time=WORD 使用WORD 指定的时间：access、atime、use 都等于-a选项的效果，而modify、mtime 等于-m 选项的效果 操作:]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[Linux每天记day17:chgrp命令]]></title>
     <url>%2F2019%2F04%2F01%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day14_chgrp%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[chgrpchgrp(Change group) 用来将每个指定文件的所属组设置为指定值。如果使用 –reference，则将每个文件的所属组设置为与指定参考文件相同。语法: chgrp [OPTION]... GROUP FILE... or:chgrp [OPTION]... --reference=RFILE FILE... 选项: -c --changes 类似于 --verbose,但只在更改时才会显示结果 -f 去除大部分的错误信息 -R 递归处理所有文件及其子目录 操作:]]></content>
@@ -160,7 +155,7 @@
     <url>%2F2019%2F03%2F27%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day11_head%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[headhead (head) 用来显示档案的开头至标准输出中。如果指定了多于一个文件，在每一段输出前会给出文件名作为文件头。如果不指定文件，或者文件为”-“，则从标准输入读取数据。语法: head [OPTION]... [FILE]... 选项: -c, --bytes=[-]K 显示每个文件的前K 字节内容；如果附加&quot;-&quot;参数，则除了每个文件的最后K字节数据外 显示剩余全部内容 -n, --lines=[-]K 显示每个文件的前K 行内容；如果附加&quot;-&quot;参数，则除了每个文件的最后K行外 显示剩余全部内容 -q, --quiet, --silent 不显示包含给定文件名的文件头 -v, --verbose 总是显示包含给定文件名的文件头 操作:]]></content>
       <categories>
-        <category>LInux指令</category>
+        <category>Linux指令</category>
       </categories>
       <tags>
         <tag>LInux文本内容查看</tag>
@@ -219,7 +214,7 @@
     <url>%2F2019%2F03%2F25%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day11_more%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[moremore (more) 该命令一次显示一屏文本，满屏后停下来，并且在屏幕的底部出现一个提示信息，给出至今己显示的该文件的百分比,方便逐页阅读(file perusal filter for crt viewing) 。more名单中内置了若干快捷键，按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示，而且还有搜寻字串的功能（与 vi 相似），使用中按h可以查看说明文件 。语法: more [options] &lt;file&gt;... 选项: -num 一次显示的行数 -d 提示使用者，在画面下方显示 [Press space to continue, &apos;q&apos; to quit.] 如果按错键，则会显示 [Press &apos;h&apos; for instructions.] 而不是 &apos;哔&apos; 声 -l 取消遇见特殊字元 ^L（送纸字元）时会暂停的功能 忽略Ctrl+l（换页）字符 -f 计算行数时，以实际上的行数，而非自动换行过后的行数（有些单行字数太长的会被扩展为两行或两行以上） -p 清屏显示 -s 当遇到有连续两行以上的空白行，就代换为一行的空白行 +/ 在每个档案显示前搜寻该字串（pattern），然后从该字串之后开始显示 +num 从第 num 行开始显示 操作:]]></content>
       <categories>
-        <category>LInux指令</category>
+        <category>Linux指令</category>
       </categories>
       <tags>
         <tag>Linux文本内容查看</tag>
@@ -293,7 +288,7 @@
     <url>%2F2019%2F03%2F23%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day9_tail%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[tailtail (tail) 用来显示档案的结尾(默认为10行)至标准输出中。若指定了多于一个文件，程序会在每段输出的开始添加相应文件名作为头。如果不指定文件或文件为”-“ ，则从标准输入读取数据。 语法:\ tail [OPTION]... [FILE]... 选项: -c, --bytes=K 输出最后K字节；另外，使用-c +K 从每个文件的第K 字节输出 -f,即时输出文件变化后追加的数据。 -n,输出最后K行；另外，使用-n +K 从每个文件的第K行输出 -s, 与-f合用,表示在每次反复的间隔休眠N秒 操作:]]></content>
       <categories>
-        <category>LInux指令</category>
+        <category>Linux指令</category>
       </categories>
       <tags>
         <tag>Linux文本内容查看</tag>
@@ -317,7 +312,7 @@
     <url>%2F2019%2F03%2F22%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day8_cat_tac%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[cat(tac反向操作)cat (concatenate)命令将[文件]或标准输入组合输出到标准输出，如果没有指定文件，或者文件为”-“，则从标准输入读取。语法: cat [OPTION]... [FILE]... 选项: -A, --show-all 等于-vET -b, --number-nonblank 对非空输出行编号 -e,等于-vE -E, --show-ends 在每行结束处显示&quot;$&quot; -n, --number 对所有行编号，包括空行 -s, --squeeze-blank 压缩多行空行为一空行 -t ,与-vT 等价 -T, --show-tabs 将跳格(TAB)字符显示为^I -v, --show-nonprinting 使用^ 和M- 引用，除了LFD和 TAB 之外 操作:]]></content>
       <categories>
-        <category>LInux指令</category>
+        <category>Linux指令</category>
       </categories>
       <tags>
         <tag>Linux文本内容查看</tag>
@@ -338,17 +333,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[LeetCode每天刷day8:Container With Most Water]]></title>
-    <url>%2F2019%2F03%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day8_Container%20With%20Most%20Water%2F</url>
-    <content type="text"><![CDATA[题目链接:Container With Most Water C++双索引12345678910111213141516171819202122class Solution &#123;public: int maxArea(vector&lt;int&gt;&amp; height) &#123; int i = 0; int j = height.size()-1; int maxArea = -1; while(i!=j)&#123; if(height[i] &gt; height[j]) &#123; if(maxArea &lt; height[j]*(j - i)) maxArea = height[j]*(j - i); j--; &#125; else&#123; if(maxArea &lt; height[i]*(j - i)) maxArea = height[i]*(j - i); i++; &#125; &#125; return maxArea; &#125;&#125;;]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[LeetCode每天刷day8:Palindrome Number]]></title>
     <url>%2F2019%2F03%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day8_Palindrome%20Number%2F</url>
     <content type="text"><![CDATA[题目链接:Palindrome NumberC++: 12345678910111213141516171819202122232425262728293031323334353637class Solution &#123;public: bool isPalindrome(int x) &#123; if(x &lt; 0 || (x%10==0 &amp;&amp; x!=0)) return false; if(x&gt;=0 &amp;&amp; x &lt; 10) return true; long m = 0 ,n = x; while(n)&#123; m = m * 10 + n % 10; n /= 10; &#125; if(m == x) return true; else return false; &#125;&#125;;//不解leetcode上为什么下面跑的没有上面快?class Solution &#123;public: bool isPalindrome(int x) &#123; if(x &lt; 0 || (x % 10 ==0 &amp;&amp; x != 0)) return false; if(x&gt;=0 &amp;&amp; x &lt; 10) return true; int m = 0; while(x &gt; m)&#123; m = m * 10 + x % 10; x /= 10; &#125; if (m == x || m / 10 == x) return true; else return false; &#125;&#125;;]]></content>
@@ -357,6 +341,17 @@
       </categories>
       <tags>
         <tag>回文数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day8:Container With Most Water]]></title>
+    <url>%2F2019%2F03%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day8_Container%20With%20Most%20Water%2F</url>
+    <content type="text"><![CDATA[题目链接:Container With Most Water C++双索引12345678910111213141516171819202122class Solution &#123;public: int maxArea(vector&lt;int&gt;&amp; height) &#123; int i = 0; int j = height.size()-1; int maxArea = -1; while(i!=j)&#123; if(height[i] &gt; height[j]) &#123; if(maxArea &lt; height[j]*(j - i)) maxArea = height[j]*(j - i); j--; &#125; else&#123; if(maxArea &lt; height[i]*(j - i)) maxArea = height[i]*(j - i); i++; &#125; &#125; return maxArea; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -456,7 +451,7 @@
     <url>%2F2019%2F03%2F18%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day4_mkdir%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[mkdir (Make Directory ): 若指定目录不存在则创建目录。在创建目录时，要求创建目录的用户具有写权限，并应保证新建的目录没有重名。 语法： mkdir [OPTIONS] [FILE] 选项： -m,设置权限模式(类似chmod)，而不是rwxrwxrwx 减umask -p, 需要时创建目标目录的上层目录，但即使这些目录已存在也不当作错误处理 -v, 每次创建新目录都显示信息 操作：]]></content>
       <categories>
-        <category>LInux指令</category>
+        <category>Linux指令</category>
       </categories>
       <tags>
         <tag>Linux文件和目录管理</tag>
@@ -603,6 +598,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Linux每天记day7:touch命令]]></title>
+    <url>%2F2019%2F03%2F11%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day7_touch%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[touchtouch命令将每个文件的访问时间和修改时间改为当前时间,不存在的文件参数创建为空，除非有-c或-h选项 语法: touch [OPTION]... FILE... 选项: -a, 只更改访问时间 -c, 不创建任何文件 -d, --date=字符串 使用指定字符串表示时间而非当前时间 -h,会影响符号链接本身，而非符号链接所指示的目的地(当系统支持更改符号链接的所有者时，此选项才有用) -m,只更改修改时间 -r, 使用指定文件的时间属性而非当前时间 -t 使用[[CC]YY]MMDDhhmm[.ss] 格式的时间而非当前时间 --time=WORD 使用WORD 指定的时间：access、atime、use 都等于-a选项的效果，而modify、mtime 等于-m 选项的效果 操作:]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux文件和目录管理</tag>
+        <tag>touch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[数据结构与算法:时间复杂度和空间复杂度]]></title>
     <url>%2F2019%2F03%2F11%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95_%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%92%8C%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%2F</url>
     <content type="text"><![CDATA[时间复杂度和空间复杂度简单分析算法效率的度量方法：1、事后统计法：主要是通过设计好的测试程序和数据，利用计算机计时器对不同算法编制的程序进行测试比较。2、事前分析估算方法：在编写程序前，根据统计方法对算法进行估算。 高级语言程序在计算机上运行时间取决因素： 1、算法的方案2、编译器产生的代码的质量3、问题输入的规模3、机器指令的的速度 1、3为当前需要优化的点 例子：计算1~n的和算法一：1234int sum = 0,n = 100;//执行了1次for(int i = 1; i &lt;= n; i++)&#123; //执行了n+1次 sum += i; //执行了n次&#125; 算法二：12int sum = 0,n = 100;//执行了1次sum = (1 + n) * n / 2;//执行了1次 上面两个算法就是1和n的区别不是2n + 2 和 2的区别，研究算法复杂度侧重是研究算法随着输入规模增大扩大增长量的一个抽象，而不是定位要执行多少次，有一种极限的思想。 辅助理解：算法A需要执行3n+3次操作，算法B需要执行4n+1次操作，算法A和B哪一个更快|n|算法A|算法A（抽象为3n）|算法B|算法B（抽象为4n）||–|–|–|–|–||1| 6|3| 5 |4||2| 9|6| 9 |8||10| 33|30| 41 |40||100| 303|300| 401 |400||1000| 3003|3000| 4001 |4000| 由图可以看出 当n=1时 算法B比算法A更好当n&gt;=2时 算法A开始比算法B要好同时我们也发现：抽象的规律和原本算法一致，所以可以忽略常数如果算法C执行3n^ 2+3n+3次,算法D执行3n+3次，算法E执行3n^ 2次，通过极限抽象可以得出算法C为3n^ 2,算法D为3n，算法E为3n^ 2 时间复杂度简单理解：执行次数=时间一般用大O记法进行记录时间复杂度 分析算法时间复杂度方法： - 可以忽略所以加法常数用常数1来表示 - 然后保留最高项 - 如果最高项存在且不为1，则去除这个项相乘的常数例如：上面算法CDE 已经完成前两步，所以我们可以得出算法CDE分别为：O(n^ 2)，O(n)，O(n^2)。 常用时间复杂度耗时：常数阶&lt;线性阶&lt;平方阶&lt;对数阶&lt;nlogn阶&lt;立方阶&lt;指数阶； 最坏情况与平均情况平均运行时间是期望的运行时间，最坏运行时间是一种保证 空间复杂度简单理解：就是关于n的语句所占的存储空间 一般来说，时间和空间是可以相互转换的。]]></content>
@@ -705,6 +712,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Codeforces--477Div.2--B]]></title>
+    <url>%2F2017%2F11%2F27%2FCodeforces--477Div.2--B%2F</url>
+    <content type="text"><![CDATA[题目 这个题目是个思维题，同时包含着快速幂运算，规律找出来后用个快速幂的板子很好AC 题意：题目给出m x n的网格，要求每行每列相乘都是等于1或者-1可以很快得出每个格子只能填-1或者1（题目中要求是整数），那么我们也可以知道的是，每一行每一列的乘积应该是取决于最后一个填入网格的数字，假设一列中有n个数字，那么前n-1个数字是随意填1或者-1的，第n个数字就必须为一个定值。初步可以得出的结论是：方法的种类有2^（m-1）* （n-1）种。 但题目的坑点不在此！ 我们必须注意的是当m+n为奇数，k=-1时必然导致有一行或者一列出现两个-1，所以这种情况是不存在的，此时应该输出0。 AC代码： 12345678910111213141516171819202122232425262728293031#include&lt;cstdio&gt;typedef long long LL;const int M=1000000007;LL quickmi(LL a,LL b)&#123; LL ans =1,vis=a ; while(b) &#123; if(b&amp;1) ans=(vis%M*ans%M)%M; \\一开始没注意取模，干脆...我都取了模 vis=((vis%M)*(vis%M))%M; b&gt;&gt;=1; &#125; return ans;&#125;int main()&#123; LL m,n,k; scanf("%I64d%I64d%I64d",&amp;m,&amp;n,&amp;k); if(k==-1&amp;&amp;((m+n)%2)==1) &#123; printf("0\n"); &#125; else &#123; LL anser=quickmi(2,n-1); //值得注意的是，m，n的范围最大到10^18 anser=quickmi(anser,m-1); //所以相乘会爆掉long long 所以进行了两次操作 printf("%I64d",anser); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>Codeforces</category>
+      </categories>
+      <tags>
+        <tag>思维题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Codeforces--477Div.2--A]]></title>
     <url>%2F2017%2F11%2F22%2FCodeforces--447Div.2--A%2F</url>
     <content type="text"><![CDATA[题目 给出一串字符，题目要求输出有多少个QAQ，不限制中间穿插了多少个字符，不同的QAQ可以使用同一个Q或者A。由于数据量较少，我是暴力遍历出来的，贼菜代码如下： 12345678910111213141516171819202122232425262728#include&lt;cstdio&gt;#include&lt;cstring&gt;char a[105];int main()&#123; int count=0; scanf("%s",a); int len=strlen(a); for(int i=0;i&lt;len;i++) &#123; if(a[i]=='Q') &#123; for(int j=i+1;j&lt;len;j++) &#123; if(a[j]=='A') &#123; for(int k=j;k&lt;len;k++) &#123; if(a[k]=='Q') count++; &#125; &#125; &#125; &#125; &#125; printf("%d\n",count); return 0;&#125;]]></content>
@@ -714,6 +732,17 @@
       <tags>
         <tag>字符串</tag>
         <tag>Codeforces</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[POJ--3176--Cow Bowling]]></title>
+    <url>%2F2017%2F11%2F22%2FPOJ--3176--Cow%20Bowling%2F</url>
+    <content type="text"><![CDATA[题目 点开这里有详解 之前整理过就不整理了，哈哈哈嗝]]></content>
+      <categories>
+        <category>编程题</category>
+      </categories>
+      <tags>
+        <tag>Poj</tag>
       </tags>
   </entry>
   <entry>
@@ -741,6 +770,40 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[HDU--6063--RXD and math]]></title>
+    <url>%2F2017%2F11%2F19%2FHDU--6063--RXD%20and%20math%2F</url>
+    <content type="text"><![CDATA[题目题解：题目运用的是快速幂，主要是要找到规律，规律的出的是：输出n^k即可（可以自己带入数字尝试一下） 所以很题目很简单处理，套一个快速幂的模板就可以了 但是要注意的有两点：1.对数取模 （实在不行，把进行处理的数都取模吧…）2.注意数据范围（同上，直接都 long long吧…） 代码如下：1234567891011121314151617181920212223242526#include&lt;cstdio&gt;const int M=1e9+7;long long fun(long long a,long long b,int k)&#123; long long ans=1; while(b&gt;0) &#123; a=a%k; if(b&amp;1) ans=((ans%k)*(a%k))%k; b/=2; a=(a%k*a%k)%k; &#125; return ans%k;&#125;int main()&#123; long long n,k; int ca=0; while((scanf("%lld%lld",&amp;n,&amp;k)!=EOF)) &#123; ca++; printf("Case #%d: %lld\n",ca,fun(n,k,M)); &#125; return 0;&#125; 如果不了解快速幂可以点文章开头的链接。]]></content>
+      <categories>
+        <category>编程题</category>
+      </categories>
+      <tags>
+        <tag>Hdu</tag>
+        <tag>快速幂</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Codeforces--839A--Arya and Bran]]></title>
+    <url>%2F2017%2F11%2F07%2FCodeforces--839A--Arya%20and%20Bran%2F</url>
+    <content type="text"><![CDATA[题目Bran and his older sister Arya are from the same house. Bran like candies so much, so Arya is going to give him some Candies. At first, Arya and Bran have 0 Candies. There are n days, at the i-th day, Arya finds ai candies in a box, that is given by the Many-Faced God. Every day she can give Bran at most 8 of her candies. If she don’t give him the candies at the same day, they are saved for her and she can give them to him later. Your task is to find the minimum number of days Arya needs to give Bran k candies before the end of the n-th day. Formally, you need to output the minimum day index to the end of which k candies will be given out (the days are indexed from 1 to n). Print -1 if she can’t give him k candies during n given days. InputThe first line contains two integers n and k (1 ≤ n ≤ 100, 1 ≤ k ≤ 10000). The second line contains n integers a1, a2, a3, …, an (1 ≤ ai ≤ 100). OutputIf it is impossible for Arya to give Bran k candies within n days, print -1. Otherwise print a single integer — the minimum number of days Arya needs to give Bran k candies before the end of the n-th day. ExampleInput2 31 2Output2Input3 1710 10 10Output3Input1 910Output-1NoteIn the first sample, Arya can give Bran 3 candies in 2 days. In the second sample, Arya can give Bran 17 candies in 3 days, because she can give him at most 8 candies per day. In the third sample, Arya can’t give Bran 9 candies, because she can give him at most 8 candies per day and she must give him the candies within 1 day. 这道题目需要注意思路：首先是要判断当天的糖果是不是&gt;8的，大于8就减8，并将多于糖果留给下一天，小于就减本身数量。最后通过判断是否能在规定的天数里面完成。见代码： 1234567891011121314151617181920212223242526272829303132#include&lt;cstdio&gt;int a[105];int main()&#123; int n,k,i,cnt=0,num=0; scanf("%d%d",&amp;n,&amp;k); &#123; for(i=0;i&lt;n;i++) scanf("%d",&amp;a[i]); for(i=0;i&lt;n;i++) &#123; cnt++; num=num+a[i]; if(num&gt;8) &#123; k=k-8; num=num-8; &#125; else &#123; k=k-num; num=0; &#125; if(k&lt;=0) break; &#125; if(i==n) cnt=-1; printf("%d\n",cnt); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>Codeforces</category>
+      </categories>
+      <tags>
+        <tag>思维题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2019/04/02/Gym--100952B--New Job]]></title>
+    <url>%2F2017%2F11%2F06%2FGym--100952B--New%20Job%2F</url>
+    <content type="text"><![CDATA[题目This is the first day for you at your new job and your boss asks you to copy some files from one computer to other computers in an informatics laboratory. He wants you to finish this task as fast as possible. You can copy the files from one computer to another using only one Ethernet cable. Bear in mind that any File-copying process takes one hour, and you can do more than one copying process at a time as long as you have enough cables. But you can connect any computer to one computer only at the same time. At the beginning, the files are on one computer (other than the computers you want to copy them to) and you want to copy files to all computers using a limited number of cables. InputFirst line of the input file contains an integer T (1 ≤ T ≤ 100) which denotes number of test cases. Each line in the next T lines represents one test case and contains two integers N, M. N is the number of computers you want to copy files to them (1 ≤ N ≤ 1,000,000,000). While M is the number of cables you can use in the copying process (1 ≤ M ≤ 1,000,000,000). OutputFor each test case, print one line contains one integer referring to the minimum hours you need to finish copying process to all computers. ExampleInput310 107 25 3Output443NoteIn the first test case there are 10 computer and 10 cables. The answer is 4 because in the first hour you can copy files only to 1 computer, while in the second hour you can copy files to 2 computers. In the third hour you can copy files to 4 computers and you need the fourth hour to copy files to the remaining 3 computers. 这个题就是数字每次按2^0,2^1,2^2…将电脑数量相减这到题不要想复杂了，就用一个if else判断，将最大能相减的数字范围作为判断条件将电脑数减为0即可 123456789101112131415161718192021222324252627#include&lt;cstdio&gt;int main()&#123; int T,k,N,M,count; scanf("%d",&amp;T); while(T--) &#123; count=0; k=1; scanf("%d%d",&amp;N,&amp;M); while(N&gt;0) &#123; if(k&lt;M) &#123; N=N-k; k*=2; &#125; else &#123; N=N-M; &#125; count++; &#125; printf("%d\n",count); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>Codeforces</category>
+      </categories>
+      <tags>
+        <tag>思维题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[表达式计算]]></title>
     <url>%2F2017%2F10%2F31%2F%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97%2F</url>
     <content type="text"><![CDATA[表达式计算对于我们人来说，喜欢通过中缀表达式来计算，而计算机则不一样，需要通过后缀表达式来计算，首先通过实例来介绍一下中缀表达式和后缀表达式例子中缀表达式：3（5+2）-3 6后缀表达式：3 5 2 + 3 6 - 那么转换规则是怎么样的呢？ 规则：从左到右遍历中缀表达式的每个数字和符号，若是数字就输出，即成为后缀表达式的一部分；若是符号，则判断其与栈顶符号的优先级，是右括号或优先级低于栈顶符号（乘除优先加减）则栈顶元素依次出栈并输出，并将当前符号进栈，一直到最终输出后缀表达式为止。 图解可以自行百度，这里就不多加赘述了 进行表达式计算算法的实现则需要两个栈。存储数字的栈，存储字符的栈。 通过规则将表达式中的数字和字符分别存入两个栈中，如果存储在字符栈中的运算符被输出，则数字栈顶两个数字进行被输出运算符的运算（栈顶第一个数对栈顶第二个数进行操作）并将结果存入数字栈中。直到字符遍历完成，且运算符栈为空。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;#include&lt;string.h&gt;#include&lt;stack&gt;using namespace std;stack&lt;char&gt; stack_ch;//符号栈stack&lt;int&gt; stack_num; //数值栈char str[1000]; //输入的中缀表达式char number[100]; //用来将字符串中的数字变成int型的数组void js1()//这个函数只接收+-号，+-号等级最低，运算符栈中除了括号外 都可以取出运算&#123; int num1,num2; while (stack_ch.top()!='(') //从运算符栈中取一个运算符 对数值栈顶和次顶元素进行运算 &#123; num1=stack_num.top();//取出一个数 stack_num.pop();//弹出这个数 num2=stack_num.top(); stack_num.pop(); switch (stack_ch.top()) &#123; case '+': num2+=num1; break; case '-': num2-=num1; break; case '*': num2*=num1; break; case '/': num2/=num1; break; &#125; stack_num.push(num2);//将计算结果入数值栈 stack_ch.pop();//删除已经用过的符号 &#125;&#125;void js2()//只接收 / *运算符&#123; int num1,num2; while (stack_ch.top()=='*' || stack_ch.top()=='/') //栈中只有优先级大于 &#123; num1=stack_num.top(); stack_num.pop(); num2=stack_num.top(); stack_num.pop(); switch (stack_ch.top()) &#123; case '*': num2*=num1; break; case '/': num2/=num1; break; &#125; stack_ch.pop(); stack_num.push(num2); &#125;&#125;int main()&#123; int i,k=0,s; char c[5]="."; stack_ch.push('('); gets(str); strcat(str,c);//将‘.’连接到表达式字符串中使其判断表达式字符串已读完 for (i=0;str[i];i++) &#123; if (str[i]&gt;='0'&amp;&amp;str[i]&lt;='9')//为数字 &#123; number[k++]=str[i]; continue; &#125; number[k]='\0'; //变成字符串\0结尾 if (number[0]!='\0') &#123; s=atoi(number);//取字符串中首个数字字符所表达的数 number[0]='\0'; stack_num.push(s); //将字符串转换成整型，放入数值栈中 &#125; k=0; switch(str[i])//‘+-(’这3个符号入js1函数，入js2函数 ，优先级不同要分开计算 &#123; case '+': js1(); stack_ch.push('+'); break; case '-': js1(); stack_ch.push('-'); break; case '*': js2(); stack_ch.push('*'); break; case '/': js2(); stack_ch.push('/'); break; case '(': stack_ch.push('('); break; case ')': js1(); stack_ch.pop(); break; case '.': &#123; js1(); stack_ch.pop(); &#125; &#125; &#125; printf("%d\n",stack_num.top()); return 0;&#125;]]></content>
@@ -750,40 +813,6 @@
       <tags>
         <tag>前缀表达式</tag>
         <tag>后缀表达式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Codeforces--477Div.2--B]]></title>
-    <url>%2F2017%2F10%2F27%2FCodeforces--477Div.2--B%2F</url>
-    <content type="text"><![CDATA[题目 这个题目是个思维题，同时包含着快速幂运算，规律找出来后用个快速幂的板子很好AC 题意：题目给出m x n的网格，要求每行每列相乘都是等于1或者-1可以很快得出每个格子只能填-1或者1（题目中要求是整数），那么我们也可以知道的是，每一行每一列的乘积应该是取决于最后一个填入网格的数字，假设一列中有n个数字，那么前n-1个数字是随意填1或者-1的，第n个数字就必须为一个定值。初步可以得出的结论是：方法的种类有2^（m-1）* （n-1）种。 但题目的坑点不在此！ 我们必须注意的是当m+n为奇数，k=-1时必然导致有一行或者一列出现两个-1，所以这种情况是不存在的，此时应该输出0。 AC代码： 12345678910111213141516171819202122232425262728293031#include&lt;cstdio&gt;typedef long long LL;const int M=1000000007;LL quickmi(LL a,LL b)&#123; LL ans =1,vis=a ; while(b) &#123; if(b&amp;1) ans=(vis%M*ans%M)%M; \\一开始没注意取模，干脆...我都取了模 vis=((vis%M)*(vis%M))%M; b&gt;&gt;=1; &#125; return ans;&#125;int main()&#123; LL m,n,k; scanf("%I64d%I64d%I64d",&amp;m,&amp;n,&amp;k); if(k==-1&amp;&amp;((m+n)%2)==1) &#123; printf("0\n"); &#125; else &#123; LL anser=quickmi(2,n-1); //值得注意的是，m，n的范围最大到10^18 anser=quickmi(anser,m-1); //所以相乘会爆掉long long 所以进行了两次操作 printf("%I64d",anser); &#125; return 0;&#125;]]></content>
-      <categories>
-        <category>Codeforces</category>
-      </categories>
-      <tags>
-        <tag>思维题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[POJ--3176--Cow Bowling]]></title>
-    <url>%2F2017%2F10%2F22%2FPOJ--3176--Cow%20Bowling%2F</url>
-    <content type="text"><![CDATA[题目 点开这里有详解 之前整理过就不整理了，哈哈哈嗝]]></content>
-      <categories>
-        <category>编程题</category>
-      </categories>
-      <tags>
-        <tag>Poj</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[HDU--6063--RXD and math]]></title>
-    <url>%2F2017%2F10%2F19%2FHDU--6063--RXD%20and%20math%2F</url>
-    <content type="text"><![CDATA[题目题解：题目运用的是快速幂，主要是要找到规律，规律的出的是：输出n^k即可（可以自己带入数字尝试一下） 所以很题目很简单处理，套一个快速幂的模板就可以了 但是要注意的有两点：1.对数取模 （实在不行，把进行处理的数都取模吧…）2.注意数据范围（同上，直接都 long long吧…） 代码如下：1234567891011121314151617181920212223242526#include&lt;cstdio&gt;const int M=1e9+7;long long fun(long long a,long long b,int k)&#123; long long ans=1; while(b&gt;0) &#123; a=a%k; if(b&amp;1) ans=((ans%k)*(a%k))%k; b/=2; a=(a%k*a%k)%k; &#125; return ans%k;&#125;int main()&#123; long long n,k; int ca=0; while((scanf("%lld%lld",&amp;n,&amp;k)!=EOF)) &#123; ca++; printf("Case #%d: %lld\n",ca,fun(n,k,M)); &#125; return 0;&#125; 如果不了解快速幂可以点文章开头的链接。]]></content>
-      <categories>
-        <category>编程题</category>
-      </categories>
-      <tags>
-        <tag>Hdu</tag>
-        <tag>快速幂</tag>
       </tags>
   </entry>
   <entry>
@@ -822,28 +851,6 @@
       </categories>
       <tags>
         <tag>矩阵快速幂</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Codeforces--839A--Arya and Bran]]></title>
-    <url>%2F2017%2F10%2F07%2FCodeforces--839A--Arya%20and%20Bran%2F</url>
-    <content type="text"><![CDATA[题目Bran and his older sister Arya are from the same house. Bran like candies so much, so Arya is going to give him some Candies. At first, Arya and Bran have 0 Candies. There are n days, at the i-th day, Arya finds ai candies in a box, that is given by the Many-Faced God. Every day she can give Bran at most 8 of her candies. If she don’t give him the candies at the same day, they are saved for her and she can give them to him later. Your task is to find the minimum number of days Arya needs to give Bran k candies before the end of the n-th day. Formally, you need to output the minimum day index to the end of which k candies will be given out (the days are indexed from 1 to n). Print -1 if she can’t give him k candies during n given days. InputThe first line contains two integers n and k (1 ≤ n ≤ 100, 1 ≤ k ≤ 10000). The second line contains n integers a1, a2, a3, …, an (1 ≤ ai ≤ 100). OutputIf it is impossible for Arya to give Bran k candies within n days, print -1. Otherwise print a single integer — the minimum number of days Arya needs to give Bran k candies before the end of the n-th day. ExampleInput2 31 2Output2Input3 1710 10 10Output3Input1 910Output-1NoteIn the first sample, Arya can give Bran 3 candies in 2 days. In the second sample, Arya can give Bran 17 candies in 3 days, because she can give him at most 8 candies per day. In the third sample, Arya can’t give Bran 9 candies, because she can give him at most 8 candies per day and she must give him the candies within 1 day. 这道题目需要注意思路：首先是要判断当天的糖果是不是&gt;8的，大于8就减8，并将多于糖果留给下一天，小于就减本身数量。最后通过判断是否能在规定的天数里面完成。见代码： 1234567891011121314151617181920212223242526272829303132#include&lt;cstdio&gt;int a[105];int main()&#123; int n,k,i,cnt=0,num=0; scanf("%d%d",&amp;n,&amp;k); &#123; for(i=0;i&lt;n;i++) scanf("%d",&amp;a[i]); for(i=0;i&lt;n;i++) &#123; cnt++; num=num+a[i]; if(num&gt;8) &#123; k=k-8; num=num-8; &#125; else &#123; k=k-num; num=0; &#125; if(k&lt;=0) break; &#125; if(i==n) cnt=-1; printf("%d\n",cnt); &#125; return 0;&#125;]]></content>
-      <categories>
-        <category>Codeforces</category>
-      </categories>
-      <tags>
-        <tag>思维题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2019/04/02/Gym--100952B--New Job]]></title>
-    <url>%2F2017%2F10%2F06%2FGym--100952B--New%20Job%2F</url>
-    <content type="text"><![CDATA[题目This is the first day for you at your new job and your boss asks you to copy some files from one computer to other computers in an informatics laboratory. He wants you to finish this task as fast as possible. You can copy the files from one computer to another using only one Ethernet cable. Bear in mind that any File-copying process takes one hour, and you can do more than one copying process at a time as long as you have enough cables. But you can connect any computer to one computer only at the same time. At the beginning, the files are on one computer (other than the computers you want to copy them to) and you want to copy files to all computers using a limited number of cables. InputFirst line of the input file contains an integer T (1 ≤ T ≤ 100) which denotes number of test cases. Each line in the next T lines represents one test case and contains two integers N, M. N is the number of computers you want to copy files to them (1 ≤ N ≤ 1,000,000,000). While M is the number of cables you can use in the copying process (1 ≤ M ≤ 1,000,000,000). OutputFor each test case, print one line contains one integer referring to the minimum hours you need to finish copying process to all computers. ExampleInput310 107 25 3Output443NoteIn the first test case there are 10 computer and 10 cables. The answer is 4 because in the first hour you can copy files only to 1 computer, while in the second hour you can copy files to 2 computers. In the third hour you can copy files to 4 computers and you need the fourth hour to copy files to the remaining 3 computers. 这个题就是数字每次按2^0,2^1,2^2…将电脑数量相减这到题不要想复杂了，就用一个if else判断，将最大能相减的数字范围作为判断条件将电脑数减为0即可 123456789101112131415161718192021222324252627#include&lt;cstdio&gt;int main()&#123; int T,k,N,M,count; scanf("%d",&amp;T); while(T--) &#123; count=0; k=1; scanf("%d%d",&amp;N,&amp;M); while(N&gt;0) &#123; if(k&lt;M) &#123; N=N-k; k*=2; &#125; else &#123; N=N-M; &#125; count++; &#125; printf("%d\n",count); &#125; return 0;&#125;]]></content>
-      <categories>
-        <category>Codeforces</category>
-      </categories>
-      <tags>
-        <tag>思维题</tag>
       </tags>
   </entry>
   <entry>
