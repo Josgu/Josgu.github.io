@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux每天记day19:top命令]]></title>
+    <url>%2F2019%2F04%2F03%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day19_top%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[toptop命令是Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况，top是一个动态显示过程,即可以通过用户按键来不断刷新当前状态.如果在前台执行该命令,它将独占前台,直到用户终止该程序为止.比较准确的说,top命令提供了实时的对系统处理器的状态监视.它将显示系统中CPU最“敏感”的任务列表.该命令可以按CPU使用.内存使用和执行时间对任务进行排序；而且该命令的很多特性都可以通过交互式命令或者在个人定制文件中进行设定.语法: top [OPTION] 选项: -d 指定每两次屏幕信息刷新之间的时间间隔。当然用户可以使用s交互命令来改变之。 -p 通过指定监控进程ID来仅仅监控某个进程的状态。 -q 该选项将使top没有任何延迟的进行刷新。如果调用程序有超级用户权限，那么top将以尽可能高的优先级运行。 -S 指定累计模式 -s 使top命令在安全模式中运行。这将去除交互命令所带来的潜在危险。 -i 使top不显示任何闲置或者僵死进程。 -c 显示整个命令行而不只是显示命令名 操作: 字段讲解: 23:12:38 当前时间 up 15:17 系统运行时间，格式为时:分 1 user 当前登录用户数 load average: 0.55, 1.05, 1.47 系统负载. 即任务队列的平均长度。三个数值分别为 1分钟、5分钟、15分钟前到现在的平均值。 total 进程总数 running 正在运行的进程数 sleeping 睡眠的进程数 stopped 停止的进程数 zombie 僵尸进程数 Cpu(s): 0.4% us 用户空间占用CPU百分比 1.0% sy 内核空间占用CPU百分比 0.0% ni 用户进程空间内改变过优先级的进程占用CPU百分比 96.9% id 空闲CPU百分比 0.0% wa 等待输入输出的CPU时间百分比 0.0%hi：硬件CPU中断占用百分比 0.0%si：软中断占用百分比 0.0%st：虚拟机占用百分比 Mem: 8026648k total 物理内存总量 1127596k free 空闲内存总量 3333728k used 使用的物理内存总量 3565324k buffers 用作内核缓存的内存量 Swap: 2097148k total 交换区总量 2097148k free 空闲交换区总量 0 used 使用的交换区总量 3936728k cached 缓冲的交换区总量,内存中的内容被换出到交换区，而后又被换入到内存，但使用过的交换区尚 未被覆盖，该数值即为这些内容已存在于内存中的交换区的大小,相应的内存再次被换出时可不必再对交换区写入。 汇总: 序号 列名 含义 a PID 进程id b PPID 父进程id c RUSER Real user name d UID 进程所有者的用户id e USER 进程所有者的用户名 f GROUP 进程所有者的组名 g TTY 启动进程的终端名。不是从终端启动的进程则显示为 ? h PR 优先级 i NI nice值。负值表示高优先级，正值表示低优先级 j P 最后使用的CPU，仅在多CPU环境下有意义 k %CPU 上次更新到现在的CPU时间占用百分比 l TIME 进程使用的CPU时间总计，单位秒 m TIME+ 进程使用的CPU时间总计，单位1/100秒 n %MEM 进程使用的物理内存百分比 o VIRT 进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES p SWAP 进程使用的虚拟内存中，被换出的大小，单位kb。 q RES 进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA r CODE 可执行代码占用的物理内存大小，单位kb s DATA 可执行代码以外的部分(数据段+栈)占用的物理内存大小，单位kb t SHR 共享内存大小，单位kb u nFLT 页面错误次数 v nDRT 最后一次写入到现在，被修改过的页面数。 w S 进程状态(D=不可中断的睡眠状态,R=运行,S=睡眠,T=跟踪/停止,Z=僵尸进程) x COMMAND 命令名/命令行 y WCHAN 若该进程在睡眠，则显示睡眠中的系统函数名 z Flags 任务标志，参考 sched.h]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux性能监控优化</tag>
+        <tag>top</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day19:Reverse Nodes in k-Group]]></title>
+    <url>%2F2019%2F04%2F03%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day19_Reverse%20Nodes%20in%20k-Group%2F</url>
+    <content type="text"><![CDATA[题目链接:Reverse Nodes in k-GroupC++:分段反转链表123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* reverse(ListNode* head, int k) &#123; ListNode *f = head-&gt;next; ListNode *s = nullptr; ListNode *r = nullptr; int len = 0; while(f) &#123; len++; f = f-&gt;next; &#125; if(len &lt; k) return head; f = head-&gt;next; while(f &amp;&amp; k--) &#123; s = f-&gt;next; f-&gt;next = r; r = f; f = s; &#125; head-&gt;next = r; f = head; while(f-&gt;next) f = f-&gt;next; f-&gt;next = s; return head; &#125; ListNode* reverseKGroup(ListNode* head, int k) &#123; if(!head || k == 0 || k == 1)&#123; return head; &#125; ListNode* ret = new ListNode(0); ListNode* retHead = ret; ret-&gt;next = head; while(retHead)&#123; reverse(retHead, k); for(int i = 0; i &lt; k; i++)&#123; retHead = retHead-&gt;next; if(retHead == nullptr) break; &#125; &#125; return ret-&gt;next; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux每天记day18:chown命令]]></title>
     <url>%2F2019%2F04%2F02%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day18_chown%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[chownchown(Change owner) 用来改变某个文件或目录的所有者和所属的组，该命令可以向某个用户授权，使该用户变成指定文件的所有者或者改变文件所属的组。用户可以是用户或者是用户ID，用户组可以是组名或组ID。只有文件主和超级用户才可以便用该命令。 语法: chown [OPTION]... [OWNER][:[GROUP]] FILE... or: chown [OPTION]... --reference=RFILE FILE... 选项: -c --changes 类似于 --verbose,但只在更改时才会显示结果 -f 去除大部分的错误信息 -R 递归处理所有文件及其子目录 操作:]]></content>
@@ -657,7 +680,7 @@
   <entry>
     <title><![CDATA[Hello Everyone]]></title>
     <url>%2F2018%2F09%2F01%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Jos’s blog! This is my first post.]]></content>
+    <content type="text"><![CDATA[欢迎大家无意间访问我的小站(点我),blog建了很久了,但是一直没有更新,现在会每天更新一些博客,高产似母猪! 自己会时不时更新一下LeetCode上写的题目(哈哈哈没有解析)同时会记录一些学习的笔记和分享然后然后就没有了哈哈哈大家也可以访问我的CSDN博客(点我)为啥呢?因为是一样的哈哈哈 由于是建站第一篇post所以置顶晾着,自己时不时的修改一下~]]></content>
       <categories>
         <category>简记</category>
       </categories>
