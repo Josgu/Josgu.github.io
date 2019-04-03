@@ -60,6 +60,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -87,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT, ACM" />
+  <meta name="keywords" content="Josgu, NexT, 记录, Hexo, 学习, 博客, blog" />
 
 
 
@@ -437,11 +463,16 @@
       
         
           
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/merge-k-sorted-lists/" target="_blank" rel="noopener">题目链接:Merge k Sorted Lists</a><br>C++:<br><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     <span class="built_in">int</span> val;</span><br><span class="line"> *     ListNode *<span class="keyword">next</span>;</span><br><span class="line"> *     ListNode(<span class="built_in">int</span> x) : val(x), <span class="keyword">next</span>(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        ListNode* res = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode* head = res;</span><br><span class="line">        <span class="keyword">while</span>(l1!=<span class="literal">NULL</span> || l2!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(l1&amp;&amp;l2)&#123;</span><br><span class="line">                <span class="keyword">if</span>(l1-&gt;val &lt; l2-&gt;val)&#123;</span><br><span class="line">                    head-&gt;<span class="keyword">next</span> = l1;</span><br><span class="line">                    l1 = l1-&gt;<span class="keyword">next</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    head-&gt;<span class="keyword">next</span> = l2;</span><br><span class="line">                    l2 = l2-&gt;<span class="keyword">next</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                head = head-&gt;<span class="keyword">next</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(l1!=<span class="literal">NULL</span> &amp;&amp; l2==<span class="literal">NULL</span>)&#123;</span><br><span class="line">                head-&gt;<span class="keyword">next</span> = l1;</span><br><span class="line">                head = head-&gt;<span class="keyword">next</span>;</span><br><span class="line">                l1 = l1-&gt;<span class="keyword">next</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(l1==<span class="literal">NULL</span> &amp;&amp; l2!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">                head-&gt;<span class="keyword">next</span> = l2;</span><br><span class="line">                head = head-&gt;<span class="keyword">next</span>;</span><br><span class="line">                l2 = l2-&gt;<span class="keyword">next</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res-&gt;<span class="keyword">next</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) &#123;</span><br><span class="line">        <span class="keyword">if</span>(lists.<span class="literal">empty</span>())&#123;</span><br><span class="line">            return <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(lists.size() == <span class="number">1</span>)&#123;</span><br><span class="line">            return lists[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(lists.size() == <span class="number">2</span>)&#123;</span><br><span class="line">            return mergeTwoLists(lists[<span class="number">0</span>], lists[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">int</span> <span class="built_in">mid</span> = lists.size()/<span class="number">2</span>;</span><br><span class="line">        vector&lt;ListNode*&gt; l1,l2;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">mid</span>; i++)</span><br><span class="line">            l1.push_back(lists[i]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="built_in">mid</span>; i &lt; lists.size(); i++)</span><br><span class="line">            l2.push_back(lists[i]);</span><br><span class="line">        ListNode *L1 = mergeKLists(l1);</span><br><span class="line">        ListNode *L2 = mergeKLists(l2);</span><br><span class="line">        return mergeTwoLists(L1, L2); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>合并排序,分治思想运用</p>
-
           
+题目链接:Merge k Sorted ListsC++:1234567891
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/01/LeetCode每天刷day14_Merge k Sorted Lists/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -623,10 +654,16 @@
       
         
           
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/swap-nodes-in-pairs" target="_blank" rel="noopener">题目链接:Swap Nodes in Pairs</a><br>C++:<br>绕<br><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * <span class="type">Definition</span> <span class="keyword">for</span> singly-linked <span class="built_in">list</span>.</span><br><span class="line"> * <span class="keyword">struct</span> <span class="type">ListNode</span> &#123;</span><br><span class="line"> *     <span class="built_in">int</span> <span class="keyword">val</span>;</span><br><span class="line"> *     <span class="type">ListNode</span> *next;</span><br><span class="line"> *     <span class="type">ListNode</span>(<span class="built_in">int</span> x) : <span class="keyword">val</span>(x), next(<span class="type">NULL</span>) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line"><span class="keyword">class</span> <span class="type">Solution</span> &#123;</span><br><span class="line">public:</span><br><span class="line">    <span class="type">ListNode</span>* swapPairs(<span class="type">ListNode</span>* head) &#123;</span><br><span class="line">        <span class="type">ListNode</span> *p, *q;</span><br><span class="line">        <span class="type">ListNode</span> *ret = <span class="keyword">new</span> <span class="type">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        ret-&gt;next = head;</span><br><span class="line">        q = ret;</span><br><span class="line">        <span class="keyword">while</span>(head != nullptr &amp;&amp; head-&gt;next != nullptr)&#123;</span><br><span class="line">            p = head-&gt;next;</span><br><span class="line">            head-&gt;next = p-&gt;next;</span><br><span class="line">            p-&gt;next = head;</span><br><span class="line">            q-&gt;next = p;</span><br><span class="line">            q = head;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        return ret-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
           
+题目链接:Swap Nodes in PairsC++:绕1234567891
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/01/LeetCode每天刷day14_Swap Nodes in Pairs/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -808,19 +845,16 @@
       
         
           
-            <hr>
-<h4 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h4><p>chmod(Change mode) 用来将每个文件的模式更改为指定值。<br>语法:</p>
-<pre><code>chmod [OPTION]... MODE[,MODE]... FILE...
- or:  chmod [OPTION]... OCTAL-MODE FILE...
- or:  chmod [OPTION]... --reference=RFILE FILE...
-</code></pre><p>选项:</p>
-<pre><code>-c, --changes          类似 --verbose，但只在有更改时才显示结果
--f, --silent, --quiet  去除大部份的错误信息
--v, --verbose          为处理的所有文件显示诊断信息
--R, --recursive        以递归方式更改所有的文件及子目录
-</code></pre><p>操作:<br><img src="https://img-blog.csdnimg.cn/2019033022170818.png" alt="在这里插入图片描述"></p>
-
           
+chmodchmod(Change mode) 用来将每个文件的模式更改为指定
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/30/Linux每天记day13_chmod命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1002,11 +1036,17 @@
       
         
           
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/generate-parentheses" target="_blank" rel="noopener">题目链接:Generate Parentheses</a></p>
-<p>C++:<br>递归<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line">vector&lt;<span class="keyword">string</span>&gt; res;   </span><br><span class="line">public:</span><br><span class="line">    <span class="keyword">void</span> <span class="keyword">generate</span>(<span class="keyword">string</span> str, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(left &lt;= <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;right;i++) </span><br><span class="line">                str<span class="variable">.push_back</span>(')');</span><br><span class="line">            res<span class="variable">.push_back</span>(str);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(left &lt; right) </span><br><span class="line">                <span class="keyword">generate</span>(str+')', left, right-<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">generate</span>(str+'(', left-<span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;<span class="keyword">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="keyword">generate</span>(<span class="string">""</span>, n, n);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
           
+题目链接:Generate Parentheses
+C++:递归1234567
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/30/LeetCode每天刷day13_Generate Parentheses/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1188,28 +1228,16 @@
       
         
           
-            <hr>
-<h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p> find(find) 命令用来在指定目录下查找文件。任何位于参数之前的字符串都将被视为欲查找的目录名。如果使用该命令时，不设置任何参数，则find命令将在当前目录下查找子目录与文件。并且将查找到的子目录和文件全部进行显示。<br>语法:</p>
-<pre><code>find [-H] [-L] [-P] [-Olevel] [-D debugopts] [path...] [expression]
-</code></pre><p>选项:</p>
-<pre><code>&apos;-H&apos;表示只跟随命令行中指定的符号连接，
-&apos;-L&apos;表示跟随所有的符号连接，
-&apos;-P&apos;是默认的选项，表示不跟随符号连接。
--D debugoptions. 打印诊断信息
--Olevel  Enables  query  optimisation.   允许查询优化
--mount, -xdev : 只检查和指定目录在同一个文件系统下的文件，避免列出其它文件系统中的文件
--amin n : 在过去 n 分钟内被读取过
--anewer file : 比文件 file 更晚被读取过的文件
--atime n : 在过去n天内被读取过的文件
--cmin n : 在过去 n 分钟内被修改过
--cnewer file :比文件 file 更新的文件
--ctime n : 在过去n天内被修改过的文件
--empty : 空的文件-gid n or -group name : gid 是 n 或是 group 名称是 name
--ipath p, -path p : 路径名称符合 p 的文件，ipath 会忽略大小写
--name name, -iname name : 文件名称符合 name 的文件。iname 会忽略大小写
--size n : 文件大小 是 n 单位，b 代表 512 位元组的区块，c 表示字元数，k 表示 kilo bytes，w 是二个位元组。-type c : 文件类型是 c 的文件。
-</code></pre>
           
+find find(find) 命令用来在指定目录下查找文件。任何位于参数之前
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/29/Linux每天记day12_find命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1341,7 +1369,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                ---华丽的分割线---
+                -------华--丽--的--分--割--线-------
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -1971,6 +1999,9 @@
   
 
   
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
 
   
 

@@ -60,6 +60,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -87,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT, ACM" />
+  <meta name="keywords" content="Josgu, NexT, 记录, Hexo, 学习, 博客, blog" />
 
 
 
@@ -437,11 +463,17 @@
       
         
           
-            <hr>
-<p>   <a href="https://leetcode-cn.com/problems/roman-to-integer" target="_blank" rel="noopener">题目链接:Roman to Integer</a></p>
-<p>C++:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; m&#123;&#123;<span class="string">'I'</span>, <span class="number">1</span>&#125;, &#123;<span class="string">'V'</span>, <span class="number">5</span>&#125;, &#123;<span class="string">'X'</span>, <span class="number">10</span>&#125;, &#123;<span class="string">'L'</span>, <span class="number">50</span>&#125;, </span><br><span class="line">        						   &#123;<span class="string">'C'</span>, <span class="number">100</span>&#125;, &#123;<span class="string">'D'</span>, <span class="number">500</span>&#125;, &#123;<span class="string">'M'</span>, <span class="number">1000</span>&#125;&#125;;</span><br><span class="line">        <span class="keyword">int</span> lens = s.size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lens; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> val = m[s[i]];</span><br><span class="line">            <span class="keyword">if</span> (i == lens - <span class="number">1</span> || m[s[i+<span class="number">1</span>]] &lt;= m[s[i]]) </span><br><span class="line">                res += val;</span><br><span class="line">            <span class="keyword">else</span> res -= val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
           
+   题目链接:Roman to Integer
+C++:1234567891
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/24/LeetCode每天刷day10;Roman to Integer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -623,19 +655,16 @@
       
         
           
-            <hr>
-<h4 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h4><p>tail (tail) 用来显示档案的结尾(默认为10行)至标准输出中。若指定了多于一个文件，程序会在每段输出的开始添加相应文件名作为头。如果不指定文件或文件为”-“ ，则从标准输入读取数据。</p>
-<p>语法:\</p>
-<pre><code>tail [OPTION]... [FILE]...
-</code></pre><p>选项:</p>
-<pre><code>-c, --bytes=K        输出最后K字节；另外，使用-c +K 从每个文件的第K 字节输出
--f,即时输出文件变化后追加的数据。 
--n,输出最后K行；另外，使用-n +K 从每个文件的第K行输出 
--s, 与-f合用,表示在每次反复的间隔休眠N秒
-</code></pre><p>操作:</p>
-<p><img src="https://img-blog.csdnimg.cn/20190323232713639.png" alt="在这里插入图片描述"></p>
-
           
+tailtail (tail) 用来显示档案的结尾(默认为10行)至标准输出中
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/23/Linux每天记day9_tail命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -817,11 +846,17 @@
       
         
           
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/integer-to-roman/" target="_blank" rel="noopener">题目链接:Integer to Roman</a></p>
-<p>C++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">intToRoman</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> values[]=&#123;<span class="number">1000</span>,<span class="number">900</span>,<span class="number">500</span>,<span class="number">400</span>,<span class="number">100</span>,<span class="number">90</span>,<span class="number">50</span>,<span class="number">40</span>,<span class="number">10</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="built_in">string</span> reps[]=&#123;<span class="string">"M"</span>,<span class="string">"CM"</span>,<span class="string">"D"</span>,<span class="string">"CD"</span>,<span class="string">"C"</span>,<span class="string">"XC"</span>,<span class="string">"L"</span>,<span class="string">"XL"</span>,<span class="string">"X"</span>,<span class="string">"IX"</span>,<span class="string">"V"</span>,<span class="string">"IV"</span>,<span class="string">"I"</span>&#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">string</span> ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">13</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(num&gt;=values[i])&#123;</span><br><span class="line">                num -= values[i];</span><br><span class="line">                ret += reps[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
           
+题目链接:Integer to Roman
+C++12345678910111
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/23/LeetCode每天刷day9_Integer to Roman/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1003,22 +1038,16 @@
       
         
           
-            <hr>
-<h4 id="cat-tac反向操作"><a href="#cat-tac反向操作" class="headerlink" title="cat(tac反向操作)"></a>cat(tac反向操作)</h4><p>cat (concatenate)命令将[文件]或标准输入组合输出到标准输出，如果没有指定文件，或者文件为”-“，则从标准输入读取。<br>语法:</p>
-<pre><code>cat [OPTION]... [FILE]...
-</code></pre><p>选项:</p>
-<pre><code>-A, --show-all           等于-vET
--b, --number-nonblank    对非空输出行编号
--e,等于-vE
--E, --show-ends 在每行结束处显示&quot;$&quot;
--n, --number 对所有行编号，包括空行
--s, --squeeze-blank 压缩多行空行为一空行
--t ,与-vT 等价
--T, --show-tabs          将跳格(TAB)字符显示为^I
--v, --show-nonprinting   使用^ 和M- 引用，除了LFD和 TAB 之外
-</code></pre><p>操作:<br><img src="https://img-blog.csdnimg.cn/20190322161016170.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190322161034355.png" alt="在这里插入图片描述"></p>
-
           
+cat(tac反向操作)cat (concatenate)命令将[文件]或标准
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/22/Linux每天记day8_cat_tac命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1200,19 +1229,19 @@
       
         
           
-            <hr>
-<h4 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h4><p>语法:</p>
-<pre><code>rm [OPTION]... [FILE]...
-</code></pre><p>选项:</p>
-<pre><code>-f, –force强制删除。忽略不存在的文件，不提示确认
--i,在删除前需要确认
--r, -R, --recursive 递归删除目录及其内容
--v, –verbose 详细显示进行的步骤
--d,删除空的目录
-</code></pre><p>操作:</p>
-<p><img src="https://img-blog.csdnimg.cn/20190322153122752.png" alt="在这里插入图片描述"></p>
-
           
+rm语法:
+rm [OPTION]... [FILE]...
+选项:
+-f, 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/22/Linux每天记day8_rm命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1344,7 +1373,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                ---华丽的分割线---
+                -------华--丽--的--分--割--线-------
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -1974,6 +2003,9 @@
   
 
   
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
 
   
 

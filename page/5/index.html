@@ -60,6 +60,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -87,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT, ACM" />
+  <meta name="keywords" content="Josgu, NexT, 记录, Hexo, 学习, 博客, blog" />
 
 
 
@@ -437,11 +463,16 @@
       
         
           
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/3sum-closest/" target="_blank" rel="noopener">题目链接:3Sum Closest</a><br>C++:<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">int</span> threeSumClosest(vector&lt;<span class="built_in">int</span>&gt;&amp; nums, <span class="built_in">int</span> <span class="keyword">target</span>) &#123;</span><br><span class="line">        <span class="built_in">int</span> len = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(len &lt; <span class="number">3</span>) </span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(len == <span class="number">3</span>) </span><br><span class="line">            <span class="keyword">return</span> nums[<span class="number">0</span>] + nums[<span class="number">1</span>] + nums[<span class="number">2</span>];</span><br><span class="line">        sort(nums.begin(), nums.<span class="keyword">end</span>());</span><br><span class="line">        <span class="built_in">int</span> sum3 = <span class="number">0</span>, min3 = nums[<span class="number">0</span>] + nums[<span class="number">1</span>] + nums[<span class="number">2</span>];</span><br><span class="line">        for(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i <span class="comment">!= 0 &amp;&amp; nums[i] == nums[i-1])</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="built_in">int</span> j = i + <span class="number">1</span>;</span><br><span class="line">            <span class="built_in">int</span> k = len - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(j &lt; k)&#123;</span><br><span class="line">                //cout&lt;&lt;i&lt;&lt;<span class="string">" "</span>&lt;&lt;j&lt;&lt;<span class="string">" "</span>&lt;&lt;k&lt;&lt;endl;</span><br><span class="line">                sum3 = nums[i] + nums[j] + nums[k];</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">abs</span>(<span class="keyword">target</span> - sum3) &lt; <span class="built_in">abs</span>(<span class="keyword">target</span> - min3))&#123;</span><br><span class="line">                    min3 = sum3;</span><br><span class="line">                    <span class="keyword">while</span>(j &lt; k -<span class="number">1</span> &amp;&amp; nums[j] == nums[j+<span class="number">1</span>])</span><br><span class="line">                        j++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">target</span> &gt; sum3)</span><br><span class="line">                    j++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">target</span> &lt; sum3)</span><br><span class="line">                    k--;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">target</span>;</span><br><span class="line">                <span class="keyword">while</span>(k &gt; j + <span class="number">1</span> &amp;&amp; nums[k] == nums[k-<span class="number">1</span>])</span><br><span class="line">                    k--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>任然运用的是双指针，其中蕴含着分而治之的思想．</p>
-
           
+题目链接:3Sum ClosestC++:123456789101112131
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/25/LeetCode每天刷day11_3Sum Closest/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -623,12 +654,18 @@
       
         
           
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/3sum/" target="_blank" rel="noopener">题目链接:3Sum</a></p>
-<p>C++</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; threeSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        sort(nums.begin(),nums.end());</span><br><span class="line">        <span class="keyword">int</span> len = nums.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; nums[i] == nums[i<span class="number">-1</span>]) </span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">int</span> j = (i+<span class="number">1</span> &lt; len) ? i+<span class="number">1</span> : len<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">int</span> k = len<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(j &lt; k)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[j] + nums[k] == -(nums[i]))&#123;</span><br><span class="line">                    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp = &#123;nums[i],nums[j],nums[k]&#125;;</span><br><span class="line">                    ans.push_back(tmp);</span><br><span class="line">                    j++;</span><br><span class="line">                    <span class="keyword">while</span>(j &lt; len<span class="number">-1</span> &amp;&amp; nums[j] == nums[j<span class="number">-1</span>]) </span><br><span class="line">                        j++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(nums[j] + nums[k] &lt; -(nums[i]))&#123;</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    k--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
           
+题目链接:3Sum
+C++
+1234567891011121314151617
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/25/LeetCode每天刷day11_3Sum/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -810,14 +847,16 @@
       
         
           
-            <hr>
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>简单理解：对函数自身反复调用<br>当问题是重复的子问题，递归可以很好的实现<br>简例：斐波那契数列的迭代实现<br>F(0)=0，F(1)=1<br>斐波那契数列F(n)=F(n-1)+F(n-2) (n&gt;1)<br>遍历：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">	int fib[<span class="number">40</span>];</span><br><span class="line">	fib[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	fib[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	for(int i=<span class="number">2</span>; i &lt; <span class="number">40</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		a[i] = a[i<span class="number">-1</span>] + a[i<span class="number">-2</span>];</span><br><span class="line">		printf(<span class="string">"%d<span class="subst">\n</span>"</span> , a[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	return <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>递归：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Fib</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>( n &lt; <span class="number">2</span>)</span><br><span class="line">		<span class="keyword">return</span> i == <span class="number">0</span> ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> Fib(i<span class="number">-1</span>) + Fib(i<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>简例：汉诺塔问题<br>三个柱子，A、B、C</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">int</span> n , <span class="keyword">char</span> A, <span class="keyword">char</span> B , <span class="keyword">char</span> C)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>（n == <span class="number">1</span>)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c-----&gt;%c"</span> , A , B);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		move (n<span class="number">-1</span>,A , B , C);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c-----&gt;%c"</span> , A , C);</span><br><span class="line">		move (n<span class="number">-1</span>, B, A, C);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
           
+递归简单理解：对函数自身反复调用当问题是重复的子问题，递归可以很好的实现简例：
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/25/数据结构与算法_递归/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -999,33 +1038,16 @@
       
         
           
-            <hr>
-<h4 id="nl"><a href="#nl" class="headerlink" title="nl"></a>nl</h4><p>nl (Number of Lines) 将指定的文件添加行号标注后写到标准输出。如果不指定文件或指定文件为”-“ ，程序将从标准输入读取数据。<br>语法:</p>
-<pre><code>nl [OPTION]... [FILE]...
-</code></pre><p>选项:</p>
-<pre><code>-b, --body-numbering=样式    使用指定样式编号文件的正文行目   
--d, --section-delimiter=CC    使用指定的CC 分割逻辑页数    
--f, --footer-numbering=样式    使用指定样式编号文件的页脚行目    
--h, --header-numbering=样式    使用指定样式编号文件的页眉行目
--i, --page-increment=数值    设置每一行遍历后的自动递增值
--l, --join-blank-lines=数值    设置数值为多少的若干空行被视作一行
--n, --number-format= 格式    根据指定格式插入行号
--p, 在逻辑页数切换时不将行号值复位
--s, --number-separator=字符串    可能的话在行号后添加字符串   
--v, --starting-line-number=数字    每个逻辑页上的第一行的行号
--w, --number-width= 数字    为行号使用指定的栏数
-      a    对所有行编号 
-      t    对非空行编号
-      n    不编行号
-      pBRE    只对符合正则表达式BRE 的行编号
-
-    FORMAT 是下列之一: 
-      ln    左对齐，空格不用0 填充
-      rn    右对齐，空格不用0 填充
-      rz    右对齐，空格用0 填充
-</code></pre><p>操作:<br><img src="https://img-blog.csdnimg.cn/20190324211009479.png" alt="在这里插入图片描述"></p>
-
           
+nlnl (Number of Lines) 将指定的文件添加行号标注后写到标
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/24/Linux每天记day10_nl命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1185,11 +1207,17 @@
       
         
           
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/longest-common-prefix" target="_blank" rel="noopener">题目链接:Longest Common Prefix</a><br>C++</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">string</span> longestCommonPrefix(vector&lt;<span class="keyword">string</span>&gt;&amp; strs) &#123;</span><br><span class="line">        <span class="keyword">int</span> lens = strs.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">if</span>(lens==<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">string</span> ans=strs[<span class="number">0</span>];</span><br><span class="line">        <span class="built_in">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;lens;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> j=<span class="number">0</span>,len=<span class="built_in">min</span>(ans.<span class="built_in">size</span>(),strs[i].<span class="built_in">size</span>());</span><br><span class="line">            <span class="built_in">while</span>(j&lt;len &amp;&amp; ans[j]==strs[i][j])</span><br><span class="line">                j++;</span><br><span class="line">            ans.erase(ans.<span class="built_in">begin</span>()+j,ans.<span class="built_in">end</span>());</span><br><span class="line">            <span class="built_in">if</span>(ans==<span class="string">""</span>)</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
           
+题目链接:Longest Common PrefixC++
+123456789
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/24/LeetCode每天刷day10_Longest Common Prefix/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1321,7 +1349,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                ---华丽的分割线---
+                -------华--丽--的--分--割--线-------
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -1951,6 +1979,9 @@
   
 
   
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
 
   
 

@@ -60,6 +60,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -87,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT, ACM" />
+  <meta name="keywords" content="Josgu, NexT, 记录, Hexo, 学习, 博客, blog" />
 
 
 
@@ -437,19 +463,16 @@
       
         
           
-            <hr>
-<h4 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h4><p>chown(Change owner) 用来改变某个文件或目录的所有者和所属的组，该命令可以向某个用户授权，使该用户变成指定文件的所有者或者改变文件所属的组。用户可以是用户或者是用户ID，用户组可以是组名或组ID。只有文件主和超级用户才可以便用该命令。</p>
-<p>语法:</p>
-<pre><code>chown [OPTION]... [OWNER][:[GROUP]] FILE...
-or:  chown [OPTION]... --reference=RFILE FILE...
-</code></pre><p>选项:</p>
-<pre><code>-c --changes 类似于 --verbose,但只在更改时才会显示结果
--f 去除大部分的错误信息
--R 递归处理所有文件及其子目录
-</code></pre><p>操作:</p>
-<p><img src="https://img-blog.csdnimg.cn/2019040220270350.png" alt="在这里插入图片描述"></p>
-
           
+chownchown(Change owner) 用来改变某个文件或目录的所有
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/02/Linux每天记day18_chown命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -631,10 +654,16 @@ or:  chown [OPTION]... --reference=RFILE FILE...
       
         
           
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="noopener">题目链接:Remove Duplicates from Sorted Array</a><br>C++:<br>双指针<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lens = nums.size();</span><br><span class="line">        <span class="keyword">if</span>(lens == <span class="number">0</span> || lens == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> lens;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> itr1 = nums.begin(), itr2 = nums.begin() + <span class="number">1</span>; itr2 != nums.end(); itr2++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(*itr1 != *itr2)&#123;</span><br><span class="line">                *(itr1 + <span class="number">1</span>) = *itr2;</span><br><span class="line">                itr1++;</span><br><span class="line">                ret++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
           
+题目链接:Remove Duplicates from Sorted Arra
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/02/LeetCode每天刷day18_Remove Duplicates from Sorted Array/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -816,10 +845,17 @@ or:  chown [OPTION]... --reference=RFILE FILE...
       
         
           
-            <p><center>今天将csdn上的博客全部搬到这里啦~<center></center></center></p>
-<p><center>以后两边都更新,请大家多多指教哈哈!<center></center></center></p>
+          今天将csdn上的博客全部搬到这里啦~
+以后两边都更新,请大家多多指教哈哈!
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/02/今天盘活个人博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -979,22 +1015,16 @@ or:  chown [OPTION]... --reference=RFILE FILE...
       
         
           
-            <hr>
-<h4 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h4><p>touch命令将每个文件的访问时间和修改时间改为当前时间,不存在的文件参数创建为空，除非有-c或-h选项</p>
-<p>语法:</p>
-<pre><code>touch [OPTION]... FILE...
-</code></pre><p>选项:</p>
-<pre><code>-a, 只更改访问时间
--c, 不创建任何文件
--d, --date=字符串    使用指定字符串表示时间而非当前时间
--h,会影响符号链接本身，而非符号链接所指示的目的地(当系统支持更改符号链接的所有者时，此选项才有用)
--m,只更改修改时间
--r, 使用指定文件的时间属性而非当前时间
--t 使用[[CC]YY]MMDDhhmm[.ss] 格式的时间而非当前时间
---time=WORD        使用WORD 指定的时间：access、atime、use 都等于-a选项的效果，而modify、mtime 等于-m 选项的效果
-</code></pre><p>操作:<br><img src="https://img-blog.csdnimg.cn/20190321152634744.png" alt="在这里插入图片描述"></p>
-
           
+touchtouch命令将每个文件的访问时间和修改时间改为当前时间,不存在的文
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/02/Linux每天记day7_touch命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1176,17 +1206,16 @@ or:  chown [OPTION]... --reference=RFILE FILE...
       
         
           
-            <hr>
-<h4 id="chgrp"><a href="#chgrp" class="headerlink" title="chgrp"></a>chgrp</h4><p>chgrp(Change group) 用来将每个指定文件的所属组设置为指定值。如果使用 –reference，则将每个文件的所属组设置为与指定参考文件相同。<br>语法:</p>
-<pre><code>chgrp [OPTION]... GROUP FILE...
-or:chgrp [OPTION]... --reference=RFILE FILE...
-</code></pre><p>选项:</p>
-<pre><code>-c --changes  类似于 --verbose,但只在更改时才会显示结果
--f  去除大部分的错误信息
--R 递归处理所有文件及其子目录
-</code></pre><p>操作:<br><img src="https://img-blog.csdnimg.cn/20190401200623913.png" alt="在这里插入图片描述"></p>
-
           
+chgrpchgrp(Change group) 用来将每个指定文件的所属组设
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/01/Linux每天记day14_chgrp命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1318,7 +1347,7 @@ or:chgrp [OPTION]... --reference=RFILE FILE...
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                ---华丽的分割线---
+                -------华--丽--的--分--割--线-------
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -1948,6 +1977,9 @@ or:chgrp [OPTION]... --reference=RFILE FILE...
   
 
   
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
 
   
 

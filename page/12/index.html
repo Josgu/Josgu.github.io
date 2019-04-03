@@ -60,6 +60,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -87,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT, ACM" />
+  <meta name="keywords" content="Josgu, NexT, 记录, Hexo, 学习, 博客, blog" />
 
 
 
@@ -437,33 +463,15 @@
       
         
           
-            <h1 id="畅通工程"><a href="#畅通工程" class="headerlink" title="畅通工程"></a>畅通工程</h1><p>Time Limit: 4000/2000 MS (Java/Others)<br>Memory Limit: 65536/32768 K (Java/Others)</p>
-<h2 id="Problem-Description："><a href="#Problem-Description：" class="headerlink" title="Problem Description："></a>Problem Description：</h2><p>某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通过道路可达即可）。问最少还需要建设多少条道路？ </p>
-<h2 id="Input："><a href="#Input：" class="headerlink" title="Input："></a>Input：</h2><p>测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是城镇数目N ( &lt; 1000 )和道路数目M；随后的M行对应M条道路，每行给出一对正整数，分别是该条道路直接连通的两个城镇的编号。为简单起见，城镇从1到N编号。<br>注意:两个城市之间可以有多条道路相通,也就是说</p>
-<pre><code>3 3
-1 2
-1 2
-2 1
-</code></pre><p>这种输入也是合法的<br>当N为0时，输入结束，该用例不被处理。 </p>
-<h2 id="Output："><a href="#Output：" class="headerlink" title="Output："></a>Output：</h2><p>对每个测试用例，在1行里输出最少还需要建设的道路数目。 </p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><pre><code>4 2
-1 3
-4 3
-3 3
-1 2
-1 3
-2 3
-5 2
-1 2
-3 5
-999 0
-0
-</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><pre><code>1
-0
-2
-998
-</code></pre>
-          
+          畅通工程Time Limit: 4000/2000 MS (Java/Other
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/06/HDU1232/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -645,37 +653,15 @@
       
         
           
-            <h1 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h1><p>并查集（Union-find Sets）是一种非常巧妙而且实用的数据结构，主要用于处理一些不想交的集合合并问题。具体包含了两个函数：Union()用来合并和Find()用来查找 以及一个整型数组用来记录每个点的前导点是什么。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre><code>int pre[1050]//记录第i个节点的父亲节点
-
-int Find(int root)//查找根节点
-{
-    int son,temp;
-    son=root;
-    while(root != pre[root]){//寻找父亲节点
-    root = pre[root];
-    }
-    while(son != root){//路径压缩
-        temp=pre[son];
-        pre[son]=root;
-        son=temp;
-    }
-    return son;
-}
-
-void Union(int root1,int root2){//判断是否连通，不连通就合并
-    int x,y;
-    x=Find(root1);
-    y=Find(root2);
-    if(x!=y)//如果不连通，就把它们所在的连通分支合并
-        pre[x] = y;
-}
-</code></pre><h2 id="算法详解"><a href="#算法详解" class="headerlink" title="算法详解"></a>算法详解</h2><p>pre[]数组最开始初始化为为pre[i]=i，即表明这pre[i]的父亲节点是i，Union()函数则是将两个节点进行联通，其中Union中用到了Find()函数是找自己的父亲节点判断是否联通，如果不连通就进行pre[x]=y操作，表示为将x节点的父亲节点设置为y。其中Find()函数通过递归判断本节点的上一节点的父亲节点是不是本身，直到找到一个节点的父亲节点是本身的节点作为父亲节点。</p>
-<p>在Find()函数中有一个路径压缩算法，是由于Union()函数只是为了连接，所以谁作为父亲节点是随机的，因此最后的树状结构可能很复杂，查找的效率就很低，那么就需要进行路径压缩，让所有的父子节点关系都变成两级结构。</p>
-<p>经典例题传送门：</p>
-<p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1232" target="_blank" rel="noopener">HDU 1232畅通工程</a></p>
-
-          
+          并查集并查集（Union-find Sets）是一种非常巧妙而且实用的数据结构，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/06/并查集/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -857,9 +843,15 @@ void Union(int root1,int root2){//判断是否连通，不连通就合并
       
         
           
-            <p>Welcome to <a href="https://blog.josgu.com/">Jos’s blog</a>! This is my first post.</p>
-
-          
+          Welcome to Jos’s blog! This is my first 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/01/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1041,47 +1033,16 @@ void Union(int root1,int root2){//判断是否连通，不连通就合并
       
         
           
-            <hr>
-<p><strong>更新于2019年3月25日<br>更新内容:</strong><br> <strong>- 解决W2KSP4_EN.EXE文件和InstMsiW.exe文件下载慢的问题</strong><br> <strong>- 解决安装qq后第二次不知道怎么打开或者点击图标无效问题</strong><br> 解决方案见文末.</p>
-<h2 id="第一步打开-Ubuntu-Software，搜索wine"><a href="#第一步打开-Ubuntu-Software，搜索wine" class="headerlink" title="第一步打开 Ubuntu Software，搜索wine"></a>第一步打开 Ubuntu Software，搜索wine</h2><p><img src="https://img-blog.csdn.net/20180725200451876?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NDI4MTcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<p>##第二步下载wine和Winetricks，并打开Winetricks（如图）<br><img src="https://img-blog.csdn.net/20180725200638975?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NDI4MTcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>ps：有可能会跳出一些提示框，直接点ok</p>
-<p>##第三步选择安装一个windows应用，并选择qq安装<br><img src="https://img-blog.csdn.net/20180725200855170?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NDI4MTcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>ps：会下载安装包以及一些插件，可能不能一次成功，再进行一次相同的操作即可</p>
-<p>##第四步安装QQ<br><img src="https://img-blog.csdn.net/2018072520130316?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NDI4MTcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><img src="https://img-blog.csdn.net/20180725201333340?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NDI4MTcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>ps：这个Winetricks是可以对QQ进行配置的，也可以安装一些其他windows上的软件，大家可以自己探索！<br><a href="https://blog.csdn.net/qq_36428171/article/details/81209475" target="_blank" rel="noopener">本文为原创，转载请注明出处，谢谢！</a></p>
-<p><strong>问题解决:解决W2KSP4_EN.EXE文件和InstMsiW.exe文件下载慢的问题</strong><br>说明:有些同学会出现上述两个文件以几k每秒下载,下的非常慢(下的很快可以忽略哈哈),所以我将我自己可运行的文件上传到了网盘大家可以自行下载,大家自行将文件放到相应文件夹即可.<br><a href="https://pan.baidu.com/s/1KTpdw38cMzpJti642g448Q" target="_blank" rel="noopener">W2KSP4_EN.EXE文件 提取码: f2tv</a></p>
-<pre><code>cp W2KSP4_EN.EXE ~/.cache/winetricks/win2ksp4/     //如果win2ksp4文件夹不存在,请自行添加
-</code></pre><p><a href="https://pan.baidu.com/s/1T2f9054qxWHHwj7lQuLMZQ" target="_blank" rel="noopener">InstMsiW.exe 提取码: 41kq</a></p>
-<pre><code>cp InstMsiW.exe ~/.cache/winetricks/msls31/        //如果msls31文件夹不存在,请自行添加
-</code></pre><p><strong>问题解决:解决安装qq后第二次不知道怎么打开或者点击图标无效问题</strong><br>说明:在Ubuntu中桌面快捷方式是一个以.desktop结尾的文件,有些同学打不开的原因主要还是自动生成的腾讯QQ.desktop文件有问题,我们自己修改一下就可以了~</p>
-<p>文件位置:</p>
-<pre><code>~/.local/share/applications/wine/Programs/腾讯软件/QQ/
-</code></pre><p>上面是我的腾讯QQ.desktop文件路径,可能有差异,但是肯定是在 ~/.local/share/applications/wine/中<br>接下来便是修改腾讯QQ.desktop文件,大家可以用vim 或者 gedit(新手推荐)修改</p>
-<pre><code>[Desktop Entry]
-# 图标显示的名字
-Name=QQ 
-# 中文模式的名字
-Name[zh_CN]=QQ
-# 英文模式的名字
-Name[zh_EN]=QQ
-# 这是这个这个桌面文件运行的指令,其实大家在终端中运行下面这条指令,也是可以打开自己的qq的.
-Exec=wine ~/.wine/drive_c/Program\ Files\ \(x86\)//Tencent/QQ/Bin/QQ.exe/
-# 桌面图标
-Icon=QQ
-# 是否使用终端
-Terminal=false
-X-MultipleArgs=false
-# 启动器类型
-Type=Application
-# 采用的编码
-Encoding=UTF-8
-# 应用类型
-Categories=Application;Utility;Network;InstantMessaging;
-# 启动通知
-StartupNotify=false
-</code></pre><p>将上面代码复制修改腾讯QQ.desktop文件(中文已经做了注释,可直接复制使用),然后大家再点击qq的图标就可以打开QQ了(大家也可以通过这个方式来创建或者修改其他桌面文件)</p>
-<p>上述两个问题亲测有效,有问题评论交流~</p>
-
           
+更新于2019年3月25日更新内容: - 解决W2KSP4_EN.EXE文件和
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/25/ubuntu18.04超级简单的安装wine QQ教程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1263,95 +1224,17 @@ StartupNotify=false
       
         
           
-            <hr>
-<p>前言：在某文库上下载的文档，觉得讲的不错，做此分享。</p>
-<p>作为C++标准不可缺少的一部分，STL应该是渗透在C++程序的角角落落里的。STL不是实验室里的宠儿，也不是程序员桌上的摆设，她的激动人心并非昙花一现。本教程旨在传播和普及STL的基础知识，若能借此机会为STL的推广做些力所能及的事情，到也是件让人愉快的事情。 </p>
-<p>##1 初识STL：解答一些疑问</p>
-<p>###1.1 一个最关心的问题：什么是STL<br>“什么是STL？”，假如你对STL还知之甚少，那么我想，你一定很想知道这个问题的答案，坦率地讲，要指望用短短数言将这个问题阐述清楚，也决非易事。因此，如果你在看完本节之后还是觉得似懂非懂，大可不必着急，在阅读了后续内容之后，相信你对STL的认识，将会愈加清晰、准确和完整。不过，上述这番话听起来是否有点像是在为自己糟糕的表达能力开脱罪责呢？:）<br>不知道你是否有过这样的经历。在你准备着手完成数据结构老师所布置的家庭作业时，或者在你为你所负责的某个软件项目中添加一项新功能时，你发现需要用到一个链表(List)或者是映射表（Map）之类的东西，但是手头并没有现成的代码。于是在你开始正式考虑程序功能之前，手工实现List或者Map是不可避免的。于是……，最终你顺利完成了任务。或许此时，作为一个具有较高素养的程序员的你还不肯罢休（或者是一个喜欢偷懒的优等生:），因为你会想到，如果以后还遇到这样的情况怎么办？没有必要再做一遍同样的事情吧！</p>
-<p>如果说上述这种情形每天都在发生，或许有点夸张。但是，如果说整个软件领域里，数十年来确实都在为了一个目标而奋斗–可复用性（reusability），这看起来似乎并不夸张。从最早的面向过程的函数库，到面向对象的程序设计思想，到各种组件技术（如：COM、EJB），到设计模式（design pattern）等等。而STL也在做着类似的事情，同时在它背后蕴涵着一种新的程序设计思想–泛型化设计（generic programming）。</p>
-<p>继续上面提到的那个例子，假如你把List或者map完好的保留了下来，正在暗自得意。且慢，如果下一回的List里放的不是浮点数而是整数呢？如果你所实现的Map在效率上总是令你不太满意并且有时还会出些bug呢？你该如何面对这些问题？使用STL是一个不错的选择，确实如此，STL可以漂亮地解决上面提到的这些问题，尽管你还可以寻求其他方法。</p>
-<p>说了半天，到底STL是什么东西呢？<br>STL（Standard Template Library），即标准模板库，是一个具有工业强度的，高效的C++程序库。它被容纳于C++标准程序库（C++ Standard Library）中，是ANSI/ISO C++标准中最新的也是极具革命性的一部分。该库包含了诸多在计算机科学领域里所常用的基本数据结构和基本算法。为广大C++程序员们提供了一个可扩展的应用框架，高度体现了软件的可复用性。这种现象有些类似于Microsoft Visual C++中的MFC（Microsoft Foundation Class Library），或者是Borland C++ Builder中的VCL(Visual Component Library)，对于此二者，大家一定不会陌生吧。</p>
-<p>从逻辑层次来看，在STL中体现了泛型化程序设计的思想（generic programming），引入了诸多新的名词，比如像需求（requirements），概念（concept），模型（model），容器（container），算法（algorithmn），迭代子（iterator）等。与OOP（object-oriented programming）中的多态（polymorphism）一样，泛型也是一种软件的复用技术。</p>
-<p>从实现层次看，整个STL是以一种类型参数化（type parameterized）的方式实现的，这种方式基于一个在早先C++标准中没有出现的语言特性–模板（template）。如果查阅任何一个版本的STL源代码，你就会发现，模板作为构成整个STL的基石是一件千真万确的事情。除此之外，还有许多C++的新特性为STL的实现提供了方便。</p>
-<p>不知你对这里一下子冒出这么多术语做何感想，希望不会另你不愉快。假如你对它们之中的大多数不甚了解，敬请放心，在后续内容中将会对这些名词逐一论述。正如开头所提到的。</p>
-<p>有趣的是，对于STL还有另外一种解释–STepanov &amp; Lee，前者是指Alexander Stepanov，STL的创始人；而后者是Meng Lee，她也是使STL得以推行的功臣，第一个STL成品就是他们合作完成的。这一提法源自1995年3月，Dr.Dobb’s Journal特约记者, 著名技术书籍作家Al Stevens对Alexander Stepanov的一篇专访。</p>
-<p>###1.2 追根溯源：STL的历史<br>在结识新朋友的时候，大多数人总是忍不住想了解对方的过去。本节将带您简单回顾一下STL的过去。</p>
-<p>被誉为STL之父的Alexander Stepanov，出生于苏联莫斯科，早在20世纪70年代后半期，他便已经开始考虑，在保证效率的前提下，将算法从诸多具体应用之中抽象出来的可能性，这便是后来泛型化思想的雏形。为了验证自己的思想，他和纽约州立大学教授Deepak Kapur，伦塞里尔技术学院教授David Musser共同开发了一种叫做Tecton的语言。尽管这次尝试最终没有取得实用性的成果，但却给了Stepanov很大的启示。</p>
-<p>在随后的几年中，他又和David Musser等人先后用Schema语言（一种Lisp语言的变种）和Ada语言建立了一些大型程序库。这其间，Alexander Stepanov开始意识到，在当时的面向对象程序设计思想中所存在的一些问题，比如抽象数据类型概念所存在的缺陷。Stepanov希望通过对软件领域中各组成部分的分类，逐渐形成一种软件设计的概念性框架。</p>
-<p>1987年左右，在贝尔实验室工作的Alexander Stepanov开始首次采用C++语言进行泛型软件库的研究。但遗憾的是，当时的C++语言还没有引入模板（template）的语法，现在我们可以清楚的看到，模板概念之于STL实现，是何等重要。是时使然，采用继承机制是别无选择的。尽管如此，Stepanov还是开发出了一个庞大的算法库。与此同时，在与Andrew Koenig（前ISO C++标准化委员会主席）和Bjarne Stroustrup（C++语言的创始人）等顶级大师们的共事过程中，Stepanov开始注意到C/C++语言在实现其泛型思想方面所具有的潜在优势。就拿C/C++中的指针而言，它的灵活与高效运用，使后来的STL在实现泛型化的同时更是保持了高效率。另外，在STL中占据极其重要地位的迭代子概念便是源自于C/C++中原生指针（ native pointer）的抽象。</p>
-<p>1988年，Alexander Stepanov开始进入惠普的Palo Alto实验室工作，在随后的4年中，他从事的是有关磁盘驱动器方面的工作。直到1992年，由于参加并主持了实验室主任Bill Worley所建立的一个有关算法的研究项目，才使他重新回到了泛型化算法的研究工作上来。项目自建立之后，参与者从最初的8人逐渐减少，最后只剩下两个人–Stepanove本人和Meng Lee。经过长时间的努力，最终，信念与汗水所换来的是一个包含有大量数据结构和算法部件的庞大运行库。这便是现在的STL的雏形（同时也是STL的一个实现版本–HP STL）。</p>
-<p>1993年，当时在贝尔实验室的Andrew Koenig看到了Stepanove的研究成果，很是兴奋。在他的鼓励与帮助下，Stepanove于是年9月的圣何塞为ANSI/ISO C++标准委员会做了一个相关演讲（题为”The Science of C++ Programming”），向委员们讲述了其观念。然后又于次年3月，在圣迭戈会议上，向委员会提交了一份建议书，以期使STL成为C++标准库的一部分。尽管这一建议十分庞大，以至于降低了被通过的可能性，但由于其所包含的新思想，投票结果以压倒多数的意见认为推迟对该建议的决定。</p>
-<p>随后，在众人的帮助之下，包括Bjarne Stroustrup在内，Stepanove又对STL进行了改进。同时加入了一个封装内存模式信息的抽象模块，也就是现在STL中的allocator，它使STL的大部分实现都可以独立于具体的内存模式，从而独立于具体平台。在同年夏季的滑铁卢会议上，委员们以80%赞成，20%反对，最终通过了提案，决定将STL正式纳入C++标准化进程之中，随后STL便被放进了会议的工作文件中。自此，STL终于成为了C++家族中的重要一员。</p>
-<p>此后，随着C++标准的不断改进，STL也在不断地作着相应的演化。直至1998年，ANSI/ISO C++标准正式定案，STL始终是C++标准中不可或缺的一大部件。</p>
-<p>###1.3 千丝万缕的联系<br>在你了解了STL的过去之后，一些名词开始不断在你的大脑中浮现，STL、C++、C++标准函数库、泛型程序设计、面向对象程序设计……，这些概念意味着什么？他们之间的关系又是什么？如果你想了解某些细节，这里也许有你希望得到的答案。</p>
-<p>####1.3.1 STL和C++<br>没有C++语言就没有STL，这么说毫不为过。一般而言，STL作为一个泛型化的数据结构和算法库，并不牵涉具体语言（当然，在C++里，它被称为STL）。也就是说，如果条件允许，用其他语言也可以实现之。这里所说的条件，主要是指类似于”模板”这样的语法机制。如果你没有略过前一节内容的话，应该可以看到，Alexander Stepanov在选择C++语言作为实现工具之前，早以采用过多种程序设计语言。但是，为什么最终还是C++幸运的承担了这个历史性任务呢？原因不仅在于前述那个条件，还在于C++在某些方面所表现出来的优越特性，比如：高效而灵活的指针。但是如果把C++作为一种OOP（Object-Oriented Programming，面向对象程序设计）语言来看待的话（事实上我们一般都是这么认为的，不是吗？），其功能强大的继承机制却没有给STL的实现帮上多大的忙。在STL的源代码里，并没有太多太复杂的继承关系。继承的思想，甚而面向对象的思想，还不足以实现类似STL这样的泛型库。C++只有在引入了”模板”之后，才直接导致了STL的诞生。这也正是为什么，用其他比C++更纯的面向对象语言无法实现泛型思想的一个重要原因。当然，事情总是在变化之中，像Java在这方面，就是一个很好的例子，jdk1.4中已经加入了泛型的特性。</p>
-<p>此外，STL对于C++的发展，尤其是模板机制，也起到了促进作用。比如：模板函数的偏特化（template function partial specialization），它被用于在特定应用场合，为一般模板函数提供一系列特殊化版本。这一特性是继STL被ANSI/ISO C++标准委员会通过之后，在Bjarne和Stepanov共同商讨之下并由Bjarne向委员会提出建议的，最终该项建议被通过。这使得STL中的一些算法在处理特殊情形时可以选择非一般化的方式，从而保证了执行的效率。</p>
-<p>####1.3.2 STL和C++标准函数库<br>STL是最新的C++标准函数库中的一个子集，这个庞大的子集占据了整个库的大约80%的分量。而作为在实现STL过程中扮演关键角色的模板则充斥了几乎整个C++标准函数库。在这里，我们有必要看一看C++标准函数库里包含了哪些内容，其中又有哪些是属于标准模板库（即STL）的。</p>
-<p>C++标准函数库为C++程序员们提供了一个可扩展的基础性框架。我们从中可以获得极大的便利，同时也可以通过继承现有类，自己编制符合接口规范的容器、算法、迭代子等方式对之进行扩展。它大致包含了如下几个组件：<br>C标准函数库，基本保持了与原有C语言程序库的良好兼容，尽管有些微变化。人们总会忍不住留恋过去的美好岁月，如果你曾经是一个C程序员，对这一点一定体会颇深。或许有一点会让你觉得奇怪，那就是在C++标准库中存在两套C的函数库，一套是带有.h扩展名的，比如stdio.h，而另一套则没有，比如cstdio。它们确实没有太大的不同。</p>
-<p>语言支持（language support）部分，包含了一些标准类型的定义以及其他特性的定义，这些内容，被用于标准库的其他地方或是具体的应用程序中。<br>诊断（diagnostics）部分，提供了用于程序诊断和报错的功能，包含了异常处理（exception handling），断言（assertions），错误代码（error number codes）三种方式。</p>
-<p>通用工具（general utilities）部分，这部分内容为C++标准库的其他部分提供支持，当然你也可以在自己的程序中调用相应功能。比如：动态内存管理工具，日期/时间处理工具。记住，这里的内容也已经被泛化了（即采用了模板机制）。<br>字符串（string）部分，用来代表和处理文本。它提供了足够丰富的功能。事实上，文本是一个string对象，它可以被看作是一个字符序列，字符类型可能是char，或者wchar_t等等。string可以被转换成char<em>类型，这样便可以和以前所写的C/C++代码和平共处了。因为那时侯除了char</em>，没有别的。</p>
-<p>国际化（internationalization）部分，作为OOP特性之一的封装机制在这里扮演着消除文化和地域差异的角色，采用locale和facet可以为程序提供众多国际化支持，包括对各种字符集的支持，日期和时间的表示，数值和货币的处理等等。毕竟，在中国和在美国，人们表示日期的习惯是不同的。</p>
-<p>容器（containers）部分，STL的一个重要组成部分，涵盖了许多数据结构，比如前面曾经提到的链表，还有：vector（类似于大小可动态增加的数组）、queue（队列）、stack（堆栈）……。string也可以看作是一个容器，适用于容器的方法同样也适用于string。现在你可以轻松的完成数据结构课程的家庭作业了。</p>
-<p>算法（algorithms）部分，STL的一个重要组成部分，包含了大约70个通用算法，用于操控各种容器，同时也可以操控内建数组。比如：find用于在容器中查找等于某个特定值的元素，for_each用于将某个函数应用到容器中的各个元素上，sort用于对容器中的元素排序。所有这些操作都是在保证执行效率的前提下进行的，所以，如果在你使用了这些算法之后程序变得效率底下，首先一定不要怀疑这些算法本身，仔细检查一下程序的其他地方。</p>
-<p>迭代器（iterators）部分，STL的一个重要组成部分，如果没有迭代器的撮合，容器和算法便无法结合的如此完美。事实上，每个容器都有自己的迭代器，只有容器自己才知道如何访问自己的元素。它有点像指针，算法通过迭代器来定位和操控容器中的元素。</p>
-<p>数值（numerics）部分，包含了一些数学运算功能，提供了复数运算的支持。<br>输入/输出（input/output）部分，就是经过模板化了的原有标准库中的iostream部分，它提供了对C++程序输入输出的基本支持。在功能上保持了与原有iostream的兼容，并且增加了异常处理的机制，并支持国际化（internationalization）。<br>总体上，在C++标准函数库中，STL主要包含了容器、算法、迭代器。string也可以算做是STL的一部分。</p>
-<p>####1.3.3 STL和GP，GP和OOP<br>正如前面所提到的，在STL的背后蕴含着泛型化程序设计（GP）的思想，在这种思想里，大部分基本算法被抽象，被泛化，独立于与之对应的数据结构，用于以相同或相近的方式处理各种不同情形。这一思想和面向对象的程序设计思想（OOP）不尽相同，因为，在OOP中更注重的是对数据的抽象，即所谓抽象数据类型（Abstract Data Type），而算法则通常被附属于数据类型之中。几乎所有的事情都可以被看作类或者对象（即类的实例），通常，我们所看到的算法被作为成员函数（member function）包含在类（class）中，类和类则构成了错综复杂的继承体系。</p>
-<p>尽管在象C++这样的程序设计语言中，你还可以用全局函数来表示算法，但是在类似于Java这样的纯面向对象的语言中，全局函数已经被”勒令禁止”了。因此，用Java来模拟GP思想是颇为困难的。如果你对前述的STL历史还有印象的话，应该记得Alexander Stepanove也曾用基于OOP的语言尝试过实现GP思想，但是效果并不好，包括没有引入模板之前的C++语言。站在巨人的肩膀上，我们可以得出这样的结论，在OOP中所体现的思想与GP的思想确实是相异的。C++并不是一种纯面向对象的程序设计语言，它的绝妙之处，就在于既满足了OOP，又成全了GP。对于后者，模板立下了汗马功劳。另外，需要指出的是，尽管GP和OOP有诸多不同，但这种不同还不至于到”水火不容”的地步。并且，在实际运用的时候，两者的结合使用往往可以使问题的解决更为有效。作为GP思想实例的STL本身便是一个很好的范例，如果没有继承，不知道STL会是什么样子，似乎没有人做过这样的试验。</p>
-<p>###1.4 STL的不同实现版本<br>相信你对STL的感性认识应该有所提高了，是该做一些实际的工作了，那么我们首先来了解一下STL的不同实现版本。ANSI/ISO C++文件中的STL是一个仅被描述在纸上的标准，对于诸多C++编译器而言，需要有各自实际的STL，它们或多或少的实现了标准中所描述的内容，这样才能够为我们所用。之所以有不同的实现版本，则存在诸多原因，有历史的原因，也有各自编译器生产厂商的原因。以下是几个常见的STL实现版本。</p>
-<p>####1.4.1 HP STL<br>HP STL是所有其它STL实现版本的根源。它是STL之父Alexander Stepanov在惠普的Palo Alto实验室工作时，和Meng Lee共同完成的，是第一个STL的实现版本（参见1.2节）。这个STL是开放源码的，所以它允许任何人免费使用、复制、修改、发布和销售该软件和相关文档，前提是必须在所有相关文件中加入HP STL的版本信息和授权信息。现在已经很少直接使用这个版本的STL了。</p>
-<p>####1.4.2 P.J. Plauger STL<br>P. J. Plauger STL属于个人作品，由P. J. Plauger本人实现，是HP STL的一个继承版本，因此在其所有头文件中都含有HP STL的相关声明，同时还有P. J. Plauger本人的版权声明。P. J. Plauger是标准C中stdio库的早期实现者，现在是C/C++ User’s Journal的主编，与Microsoft保持着良好的关系。P. J. Plauger STL便是被用于Microsoft的Visual C++中的。在Windows平台下的同类版本中，其性能不错，但是queue组件（队列，一种容器）的效率不理想，同时由于Visual C++对C++语言标准的支持不是很好（至少直到VC6.0为止，还是如此），因此一定程度上影响了P. J. Plauger STL的性能。此外，该版本的源代码可读性较差，你可以在VC的Include子目录下找到所有源文件（比如：C:\Program Files\Microsoft Visual Studio\VC98\Include）。因为不是开放源码的（open source），所以这些源代码是不能修改和销售的，目前P.J. Plauger STL由Dinkumware公司提供相关服务，详情请见<a href="http://www.dinkumware.com。据称Visual" target="_blank" rel="noopener">http://www.dinkumware.com。据称Visual</a> Studio.NET中的Visual C++.NET（即VC7.0），对C++标准的支持有所提高，并且多了以哈希表（hash table）为基础而实现的map容器，multimap容器和set容器。</p>
-<p>####1.4.3 Rouge Wave STL<br>Rouge Wave STL是由Rouge Wave公司实现的，也是HP STL的一个继承版本，除了HP STL的相关声明之外，还有Rouge Wave公司的版权声明。同时，它也不是开放源码的，因此无法修改和销售。该版本被Borland C++ Builder所采用，你可以在C++ Builder的Include子目录下找到所有头文件（比如：C:\Program Files\Borland\Cbuilder5\Include）。尽管Rouge Wave STL的性能不是很好，但由于C++ Builder对C++语言标准的支持还算不错，使其表现在一定程度上得以改善。此外，其源代码的可读性较好。可以从如下网站得到更详细的情况介绍：<a href="http://www.rougewave.com。遗憾的是该版本已有一段时间没有更新且不完全符合标准。因此在Borland" target="_blank" rel="noopener">http://www.rougewave.com。遗憾的是该版本已有一段时间没有更新且不完全符合标准。因此在Borland</a> C++ Builder 6.0中，它的地位被另一个STL的实现版本–STLport（见后）取代了。但是考虑到与以前版本的兼容，C++ Builder 6.0还是保留了Rouge Wave STL，只是如果你想查看它的源代码的话，需要在别的目录中才能找到（比如：C:\Program Files\Borland\Cbuilder6\Include\oldstl）。</p>
-<p>####1.4.4 STLport<br>STLport最初源于俄国人Boris Fomitchev的一个开发项目，主要用于将SGI STL的基本代码移植到其他诸如C++Builder或者是Visual C++这样的主流编译器上。因为SGI STL属于开放源码，所以STLport才有权这样做。目前STLport的最新版本是4.5。可以从如下网站得到更详细的情况介绍：<a href="http://www.stlport.org，可以免费下载其源代码。STLport已经被C/C++技术委员会接受成为工业标准，且在许多平台上都支持。根据测试STLport的效率比VC中的STL要快。比Rouge" target="_blank" rel="noopener">http://www.stlport.org，可以免费下载其源代码。STLport已经被C/C++技术委员会接受成为工业标准，且在许多平台上都支持。根据测试STLport的效率比VC中的STL要快。比Rouge</a> Wave STL更符合标准，也更容易移植。Borland C++ Builder已经在其6.0版中加入了对STLport的支持，它使用的STLport就是4.5版的，C++ Builder 6.0同时还提供了STLport的使用说明。你可以在C++ Builder的Include\Stlport子目录下找到所有头文件（比如：C:\Program Files\Borland\Cbuilder6\Include\Stlport）。</p>
-<p>####1.4.5 SGI STL<br>SGI STL是由Silicon Graphics Computer System, Inc公司实现的，其设计者和编写者包括Alexander Stepanov和Matt Austern，同样它也是HP STL的一个继承版本。它属于开放源码，因此你可以修改和销售它。SGI STL被GCC（linux下的C++编译器）所采用，你可以在GCC的Include子目录下找到所有头文件（比如：C:\cygnus\cygwin-b20\include\g++\include）。由于GCC对C++语言标准的支持很好，SGI STL在linux平台上的性能相当出色。此外，其源代码的可读性也很好。可以从如下网站得到更详细的情况介绍：<a href="http://www.sgi.com，可以免费下载其源代码。目前的最新版本是3.3。" target="_blank" rel="noopener">http://www.sgi.com，可以免费下载其源代码。目前的最新版本是3.3。</a></p>
-<p>##2 牛刀小试：且看一个简单例程</p>
-<p>###2.1 引子<br>如果你是一个纯粹的实用主义者，也许一开始就可以从这里开始看起，因为此处提供了一个示例程序，它可以带给你有关使用STL的最直接的感受。是的，与其纸上谈兵，不如单刀直入，实际操作一番。但是，需要提醒的是，假如你在兴致昂然地细细品味本章内容的时候，能够同时结合前面章节作为佐餐，那将是再好不过的。你会发现，前面所提到的有关STL的那些优点，在此处得到了确切的应证。本章的后半部分，将为你演示在一些主流C++编译器上，运行上述示例程序的具体操作方法，和需要注意的事项。</p>
-<p>###2.2 例程实作<br>非常遗憾，我不得不舍弃”Hello World”这个经典的范例，尽管它不只一次的被各种介绍计算机语言的教科书所引用，几乎成为了一个默认的“标准”。其原因在于它太过简单了，以至于不具备代表性，无法展现STL的巨大魅力。我选用了一个稍稍复杂一点的例子，它的大致功能是：从标准输入设备（一般是键盘）读入一些整型数据，然后对它们进行排序，最终将结果输出到标准输出设备（一般是显示器屏幕）。这是一种典型的处理方式，程序本身具备了一个系统所应该具有的几乎所有的基本特征：输入 + 处理 + 输出。你将会看到三个不同版本的程序。第一个是没有使用STL的普通C++程序，你将会看到完成这样看似简单的事情，需要花多大的力气，而且还未必没有一点问题（真是吃力不讨好）。第二个程序的主体部分使用了STL特性，此时在第一个程序中所遇到的问题就基本可以解决了。同时，你会发现采用了STL之后，程序变得简洁明快，清晰易读。第三个程序则将STL的功能发挥到了及至，你可以看到程序里几乎每一行代码都是和STL相关的。这样的机会并不总是随处可见的，它展现了STL中的几乎所有的基本组成部分，尽管这看起来似乎有点过分了。<br>有几点是需要说明的：<br>这个例程的目的，在于向你演示如何在C++程序中使用STL，同时希望通过实践，证明STL所带给你的确确实实的好处。程序中用到的一些STL基本组件，比如：vector（一种容器）、sort（一种排序算法），你只需要有一个大致的概念就可以了，这并不影响阅读代码和理解程序的含义。</p>
-<p>很多人对GUI（图形用户界面）的运行方式很感兴趣，这也难怪，漂亮的界面总是会令人赏心悦目的。但是很可惜，在这里没有加入这些功能。这很容易解释，对于所提供的这个简单示例程序而言，加入GUI特性，是有点本末倒置的。这将会使程序的代码量骤然间急剧膨胀，而真正可以说明问题的核心部分确被淹没在诸多无关紧要的代码中间（你需要花去极大的精力来处理键盘或者鼠标的消息响应这些繁琐而又较为规范的事情）。即使你有像Borland C++ Builder这样的基于IDE（集成化开发环境）的工具，界面的处理变得较为简单了（框架代码是自动生成的）。请注意，我们这里所谈及的是属于C++标准的一部分（STL的第一个字母说明了这一点），它不涉及具体的某个开发工具，它是几乎在任何C++编译器上都能编译通过的代码。毕竟，在Microsoft Visual C++和Borland C++ Builder里，有关GUI的处理代码是不一样的。如果你想了解这些GUI的细节，这里恐怕没有你希望得到的答案，你可以寻找其它相关书籍。</p>
-<p>####2.2.1 第一版：史前时代–转木取火<br>在STL还没有降生的”黑暗时代”，C++程序员要完成前面所提到的那些功能，需要做很多事情（不过这比起C程序来，似乎好一点），程序大致是如下这个样子的：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// name:example2_1.cpp</span></span><br><span class="line"><span class="comment">// alias:Rubish</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *arg1, <span class="keyword">const</span> <span class="keyword">void</span> *arg2)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> max_size = <span class="number">10</span>;		<span class="comment">// 数组允许元素的最大个数</span></span><br><span class="line">	<span class="keyword">int</span> num[max_size];			<span class="comment">// 整型数组</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 从标准输入设备读入整数，同时累计输入个数，</span></span><br><span class="line">	<span class="comment">// 直到输入的是非整型数据为止</span></span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">for</span> (n = <span class="number">0</span>; <span class="built_in">cin</span> &gt;&gt; num[n]; n ++);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// C标准库中的快速排序（quick-sort）函数</span></span><br><span class="line">	qsort(num, n, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), compare);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 将排序结果输出到标准输出设备</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; num[i] &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 比较两个数的大小，</span></span><br><span class="line"><span class="comment">// 如果*(int *)arg1比*(int *)arg2小，则返回-1</span></span><br><span class="line"><span class="comment">// 如果*(int *)arg1比*(int *)arg2大，则返回1</span></span><br><span class="line"><span class="comment">// 如果*(int *)arg1等于*(int *)arg2，则返回0</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *arg1, <span class="keyword">const</span> <span class="keyword">void</span> *arg2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span>	(*(<span class="keyword">int</span> *)arg1 &lt; *(<span class="keyword">int</span> *)arg2) ? <span class="number">-1</span> :</span><br><span class="line">			(*(<span class="keyword">int</span> *)arg1 &gt; *(<span class="keyword">int</span> *)arg2) ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">```   </span><br><span class="line">这是一个和STL没有丝毫关系的传统风格的C++程序。因为程序的注释已经很详尽了，所以不需要我再做更多的解释。总的说来，这个程序看起来并不十分复杂（本来就没有太多功能）。只是，那个compare函数，看起来有点费劲。指向它的函数指针被作为最后一个实参传入qsort函数，qsort是C程序库stdlib.h中的一个函数。以下是qsort的函数原型：</span><br></pre></td></tr></table></figure>
-<p>void qsort(void <em>base, size_t num, size_t width, int (__cdecl </em>compare )(const void <em>elem1, const void </em>elem2 ) );<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">看起来有点令人作呕，尤其是最后一个参数。大概的意思是，第一个参数指明了要排序的数组（比如：程序中的num），第二个参数给出了数组的大小（qsort没有足够的智力预知你传给它的数组的实际大小），第三个参数给出了数组中每个元素以字节为单位的大小。最后那个长长的家伙，给出了排序时比较元素的方式（还是因为qsort的智商问题）。</span><br><span class="line">以下是某次运行的结果： </span><br><span class="line">输入：<span class="number">0</span> <span class="number">9</span> <span class="number">2</span> <span class="number">1</span> <span class="number">5</span></span><br><span class="line">输出：<span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">5</span> <span class="number">9</span></span><br><span class="line">	 </span><br><span class="line">有一个问题，这个程序并不像看起来那么健壮（Robust）。如果我们输入的数字个数超过max_size所规定的上限，就会出现数组越界问题。如果你在Visual C++的IDE环境下以控制台方式运行这个程序时，会弹出非法内存访问的错误对话框。</span><br><span class="line">这个问题很严重，严重到足以使你开始重新审视这个程序的代码。为了弥补程序中的这一缺陷。我们不得不考虑采用如下三种方案中的一种：</span><br><span class="line">采用大容量的静态数组分配。 </span><br><span class="line">限定输入的数据个数。 </span><br><span class="line">采用动态内存分配。 </span><br><span class="line"></span><br><span class="line">第一种方案比较简单，你所做的只是将max_size改大一点，比如：<span class="number">1000</span>或者<span class="number">10000</span>。但是，严格讲这并不能最终解决问题，隐患仍然存在。假如有人足够耐心，还是可以使你的这个经过纠正后的程序崩溃的。此外，分配一个大数组，通常是在浪费空间，因为大多数情况下，数组中的一部分空间并没有被利用。</span><br><span class="line">再来看看第二种方案，通过在第一个for循环中加入一个限定条件，可以使问题得到解决。比如：for (int n = <span class="number">0</span>; cin &gt;&gt; num[n] &amp;&amp; n &lt; max_size; n ++); 但是这个方案同样不甚理想，尽管不会使程序崩溃，但失去了灵活性，你无法输入更多的数。</span><br><span class="line">看来只有选择第三种方案了。是的，你可以利用指针，以及动态内存分配妥善的解决上述问题，并且使程序具有良好的灵活性。这需要用到new，delete操作符，或者古老的malloc()，realloc()和free()函数。但是为此，你将牺牲程序的简洁性，使程序代码陡增，代码的处理逻辑也不再像原先看起来那么清晰了。一个compare函数或许就已经令你不耐烦了，更何况要实现这些复杂的处理机制呢？很难保证你不会在处理这个问题的时候出错，很多程序的bug往往就是这样产生的。同时，你还应该感谢stdlib.h，它为你提供了qsort函数，否则，你还需要自己实现排序算法。如果你用的是冒泡法排序，那效率就不会很理想。……，问题真是越来越让人头疼了！</span><br><span class="line">关于第一个程序的讨论就到此为止，如果你对第三种方案感兴趣的话，可以尝试着自己编写一个程序，作为思考题。这里就不准备再浪费笔墨去实现这样一个让人不甚愉快的程序了。</span><br><span class="line"></span><br><span class="line">####<span class="number">2.2</span><span class="number">.2</span> 第二版：工业时代--组件化大生产</span><br><span class="line">我们应该庆幸自己所生活的年代。工业时代，科技的发展所带来的巨大便利已经影响到了我们生活中的每个细节。如果你还在以原始人类的方式生活着，那我真该怀疑你是否属于某个生活在非洲或者南美丛林里的原始部落中的一员了，难道是玛雅文明又重现了？</span><br><span class="line"></span><br><span class="line">STL便是这个时代的产物，正如其他科技成果一样，C++程序员也应该努力使自己适应并充分利用这个<span class="string">"高科技成果"</span>。让我们重新审视第一版的那个破烂不堪的程序。试着使用一下STL，看看效果如何。</span><br></pre></td></tr></table></figure></p>
-<p>// name:example2_2.cpp<br>// alias:The first STL program</p>
-<p>#include <iostream></iostream></p>
-<p>#include <vector></vector></p>
-<p>#include <algorithm></algorithm></p>
-<p>using namespace std;</p>
-<p>void main(void)<br>{<br>    vector<int> num;        // STL中的vector容器<br>    int element;</int></p>
-<pre><code>// 从标准输入设备读入整数， 
-// 直到输入的是非整型数据为止
-while (cin &gt;&gt; element)
-    num.push_back(element);
-
-// STL中的排序算法
-sort(num.begin(), num.end());
-
-// 将排序结果输出到标准输出设备
-for (int i = 0; i &lt; num.size(); i ++)
-    cout &lt;&lt; num[i] &lt;&lt; &quot;\n&quot;;
-</code></pre><p>}<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">这个程序的主要部分改用了STL的部件，看起来要比第一个程序简洁一点，你已经找不到那个讨厌的compare函数了。它真的能很好的运行吗？你可以试试，因为程序的运行结果和前面的大致差不多，所以在此略去。我可以向你保证，这个程序是足够健壮的。不过，可能你还没有完全看明白程序的代码，所以我需要为你解释一下。毕竟，这个戏法变得太快了，较之第一个程序，一眨眼的功夫，那些老的C++程序员所熟悉的代码都不见了，取而代之的是一些新鲜玩意儿。</span><br><span class="line">程序的前三行是包含的头文件，它们提供了程序所要用到的所有C++特性（包括输入输出处理，STL中的容器和算法）。不必在意那个.h，并不是我的疏忽，程序保证可以编译通过，只要你的C++编译器支持标准C++规范的相关部分。你只需要把它们看作是一些普通的C++头文件就可以了。事实上，也正是如此，如果你对这个变化细节感兴趣的化，可以留意一下你身旁的佐餐。</span><br><span class="line"></span><br><span class="line">同样可以忽略第四行的存在。加入那个声明只是为了表明程序引用到了std这个标准名字空间（<span class="keyword">namespace</span>），因为STL中的那些玩意儿全都包含在那里面。只有通过这行声明，编译器才能允许你使用那些有趣的特性。</span><br><span class="line">程序中用到了<span class="keyword">vector</span>，它是STL中的一个标准容器，可以用来存放一些元素。你可以把<span class="keyword">vector</span>理解为<span class="keyword">int</span> [?]，一个整型的数组。之所以大小未知是因为，<span class="keyword">vector</span>是一个可以动态调整大小的容器，当容器已满时，如果再放入元素则<span class="keyword">vector</span>会悄悄扩大自己的容量。push_back是<span class="keyword">vector</span>容器的一个类属成员函数，用来在容器尾端插入一个元素。main函数中第一个<span class="keyword">while</span>循环做的事情就是不断向<span class="keyword">vector</span>容器尾端插入整型数据，同时自动维护容器空间的大小。</span><br><span class="line"></span><br><span class="line"><span class="keyword">sort</span>是STL中的标准算法，用来对容器中的元素进行排序。它需要两个参数用来决定容器中哪个范围内的元素可以用来排序。这里用到了<span class="keyword">vector</span>的另两个类属成员函数。begin()用以指向<span class="keyword">vector</span>的首端，而end()则指向<span class="keyword">vector</span>的末端。这里有两个问题，begin()和end()的返回值是什么？这涉及到STL的另一个重要部件--迭代器（Iterator），不过这里并不需要对它做详细了解。你只需要把它当作是一个指针就可以了，一个指向整型数据的指针。相应的<span class="keyword">sort</span>函数声明也可以看作是void <span class="keyword">sort</span>(<span class="keyword">int</span>* first, <span class="keyword">int</span>* last)，尽管这实际上很不精确。另一个问题是和end()函数有关，尽管前面说它的返回值指向<span class="keyword">vector</span>的末端，但这种说法不能算正确。事实上，它的返回值所指向的是<span class="keyword">vector</span>中最末端元素的后面一个位置，即所谓pass-the-end value。这听起来有点费解，不过不必在意，这里只是稍带一提。总的来说，<span class="keyword">sort</span>函数所做的事情是对那个准整型数组中的元素进行排序，一如第一个程序中的那个qsort，不过比起qsort来，<span class="keyword">sort</span>似乎要简单了许多。</span><br><span class="line"></span><br><span class="line">程序的最后是输出部分，在这里<span class="keyword">vector</span>完全可以以假乱真了，它所提供的对元素的访问方式简直和普通的C++内建数组一模一样。那个<span class="keyword">size</span>函数用来返回<span class="keyword">vector</span>中的元素个数，就相当于第一个程序中的变量n。这两行代码直观的不用我再多解释了。</span><br><span class="line">我想我的耐心讲解应该可以使你大致看懂上面的程序了，事实上STL的运用使程序的逻辑更加清晰，使代码更易于阅读。试问，有谁会不明白begin、end、<span class="keyword">size</span>这样的字眼所表达的含义呢（除非他不懂英语）？试着运行一下，看看效果。再试着多输入几个数，看看是否会发生数组越界现象。实践证明，程序运行良好。是的，由于<span class="keyword">vector</span>容器自行维护了自身的大小，C++程序员就不用操心动态内存分配了，指针的错误使用毕竟会带来很多麻烦，同时程序也会变得冗长无比。这正是前面第三种方案的缺点所在。</span><br><span class="line"></span><br><span class="line">再仔细审视一下你的第一个STL版的C++程序，回顾一下第一章所提到的那些有关STL的优点：易于使用，具有工业强度……，再比较一下第一版的程序，我想你应该有所体会了吧！</span><br><span class="line"></span><br><span class="line">####<span class="number">2.2</span><span class="number">.3</span> 第三版：唯美主义的杰作</span><br><span class="line">事态的发展有时候总会趋向极端，这在那些唯美主义者当中犹是如此。首先声明，我并不是一个唯美主义者，提供第二版程序的改进版，完全是为了让你更深刻的感受到STL的魅力所在。在看完第三版之后，你会强烈感受到这一点。或许你也会变成一个唯美主义者了，至少在STL方面。这应该不是我的错，因为决定权在你手里。下面我们来看看这个绝版的C++程序。</span><br></pre></td></tr></table></figure></p>
-<p>// name:example2_3.cpp<br>// alias:aesthetic version</p>
-<p>#include <iostream></iostream></p>
-<p>#include <vector></vector></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <iterator></iterator></p>
-<p>using namespace std;</p>
-<p>void main(void)<br>{<br>    typedef vector<int>                int_vector;<br>    typedef istream_iterator<int>                istream_itr;<br>    typedef ostream_iterator<int>                ostream_itr;<br>    typedef back_insert_iterator&lt; int_vector &gt;    back_ins_itr;</int></int></int></p>
-<pre><code>// STL中的vector容器
-int_vector num;
-
-// 从标准输入设备读入整数， 
-// 直到输入的是非整型数据为止
-copy(istream_itr(cin), istream_itr(), back_ins_itr(num));
-
-// STL中的排序算法
-sort(num.begin(), num.end());
-
-// 将排序结果输出到标准输出设备
-copy(num.begin(), num.end(), ostream_itr(cout, &quot;\n&quot;));
-</code></pre><p>}<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在这个程序里几乎每行代码都是和STL有关的（除了main和那对花括号，当然还有注释），并且它包含了STL中几乎所有的各大部件（容器container，迭代器iterator, 算法algorithm, 适配器adaptor），唯一的遗憾是少了函数对象（functor）的身影。</span><br><span class="line"></span><br><span class="line">还记得开头提到的一个典型系统所具有的基本特征吗？--输入+处理+输出。所有这些功能，在上面的程序里，仅仅是通过三行语句来实现的，其中每一行语句对应一种操作。对于数据的操作被高度的抽象化了，而算法和容器之间的组合，就像搭积木一样轻松自如，系统的耦合度被降到了极低点。这就是闪耀着泛型之光的STL的伟大力量。如此简洁，如此巧妙，如此神奇！就像魔术一般，以至于再一次让你摸不着头脑。怎么实现的？为什么在看第二版程序的时候如此清晰的你，又坠入了五里雾中（窃喜）。</span><br><span class="line"></span><br><span class="line">请留意此处的标题（唯美主义的杰作），在实际环境中，你未必要做到这样完美。毕竟美好愿望的破灭，在生活中时常会发生。过于理想化，并不是一件好事，至少我是这么认为的。正如前面提到的，这个程序只是为了展示STL的独特魅力，你不得不为它的出色表现所折服，也许只有深谙STL之道的人才会想出这样的玩意儿来。如果你只是一般性的使用STL，做到第二版这样的程度也就可以了。</span><br><span class="line">实在是因为这个程序太过<span class="string">"简单"</span>，以至于我无法肯定，在你还没有完全掌握STL之前，通过我的讲解，是否能够领会这区区三行代码，我将尽我的最大努力。</span><br><span class="line">前面提到的迭代器可以对容器内的任意元素进行定位和访问。在STL里，这种特性被加以推广了。一个<span class="built_in">cin</span>代表了来自输入设备的一段数据流，从概念上讲它对数据流的访问功能类似于一般意义上的迭代器，但是C++中的<span class="built_in">cin</span>在很多地方操作起来并不像是一个迭代器，原因就在于其接口和迭代器的接口不一致（比如：不能对<span class="built_in">cin</span>进行++运算，也不能对之进行取值运算--即*运算）。为了解决这个矛盾，就需要引入适配器的概念。istream_iterator便是一个适配器，它将<span class="built_in">cin</span>进行包装，使之看起来像是一个普通的迭代器，这样我们就可以将之作为实参传给一些算法了（比如这里的copy算法）。因为算法只认得迭代器，而不会接受<span class="built_in">cin</span>。对于上面程序中的第一个copy函数而言，其第一个参数展开后的形式是：istream_iterator(<span class="built_in">cin</span>)，其第二个参数展开后的形式是：istream_iterator()（如果你对<span class="keyword">typedef</span>的语法不清楚，可以参考有关的c++语言书籍）。其效果是产生两个迭代器的临时对象，前一个指向整型输入数据流的开始，后一个则指向<span class="string">"pass-the-end value"</span>。这个函数的作用就是将整型输入数据流从头至尾逐一<span class="string">"拷贝"</span>到<span class="built_in">vector</span>这个准整型数组里，第一个迭代器从开始位置每次累进，最后到达第二个迭代器所指向的位置。或许你要问，如果那个copy函数的行为真如我所说的那样，为什么不写成如下这个样子呢？</span><br></pre></td></tr></table></figure></p>
-<p>copy(istream_iterator<int>(cin), istream_iterator<int>(), num.begin());<br><code>`</code><br>你确实可以这么做，但是有一个小小的麻烦。还记得第一版程序里的那个数组越界问题吗？如果你这么写的话，就会遇到类似的麻烦。原因在于copy函数在”拷贝”数据的时候，如果输入的数据个数超过了vector容器的范围时，数据将会拷贝到容器的外面。此时，容器不会自动增长容量，因为这只是简单地拷贝，并不是从末端插入。为了解决这个问题，另一个适配器back_insert_iterator登场了，它的作用就是引导copy算法每次在容器末端插入一个数据。程序中的那个back_ins_itr(num)展开后就是：back_insert_iterator(num)，其效果是生成一个这样的迭待器对象。<br>终于将讲完了三分之一（真不容易！），好在第二句和前一版程序没有差别，这里就略过了。至于第三句，ostream_itr(cout, “\n”)展开后的形式是：ostream_iterator(cout, “\n”)，其效果是产生一个处理输出数据流的迭待器对象，其位置指向数据流的起始处，并且以”\n”作为分割符。第二个copy函数将会从头至尾将vector中的内容”拷贝”到输出设备，第一个参数所代表的迭代器将会从开始位置每次累进，最后到达第二个参数所代表的迭代器所指向的位置。<br>这就是全部的内容。</int></int></p>
-<p>###2.3 历史的评价<br>历史的车轮总是滚滚向前的，工业时代的文明较之史前时代，当然是先进并且发达的。回顾那两个时代的C++程序，你会真切的感受到这种差别。简洁易用，具有工业强度，较好的可移植性，高效率，加之第三个令人目眩的绝版程序所体现出来的高度抽象性，高度灵活性和组件化特性，使你对STL背后所蕴含的泛型化思想都有了些微的感受。<br>真幸运，你可以横跨两个时代，有机会目睹这种”文明”的差异。同时，这也应该使你越加坚定信念，使自己顺应时代的潮流。</p>
-
           
+前言：在某文库上下载的文档，觉得讲的不错，做此分享。
+作为C++标准不可缺少的
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/23/关于SLC/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1483,7 +1366,7 @@ copy(num.begin(), num.end(), ostream_itr(cout, &quot;\n&quot;));
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                ---华丽的分割线---
+                -------华--丽--的--分--割--线-------
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -2113,6 +1996,9 @@ copy(num.begin(), num.end(), ostream_itr(cout, &quot;\n&quot;));
   
 
   
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
 
   
 

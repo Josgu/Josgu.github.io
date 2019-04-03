@@ -60,6 +60,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -87,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT, ACM" />
+  <meta name="keywords" content="Josgu, NexT, 记录, Hexo, 学习, 博客, blog" />
 
 
 
@@ -437,17 +463,16 @@
       
         
           
-            <hr>
-<p>mkdir (Make Directory ): 若指定目录不存在则创建目录。在创建目录时，要求创建目录的用户具有写权限，并应保证新建的目录没有重名。</p>
-<p>语法：</p>
-<pre><code>mkdir [OPTIONS]  [FILE]
-</code></pre><p>选项：</p>
-<pre><code>-m,设置权限模式(类似chmod)，而不是rwxrwxrwx 减umask
--p, 需要时创建目标目录的上层目录，但即使这些目录已存在也不当作错误处理
--v, 每次创建新目录都显示信息
-</code></pre><p>操作：<br><img src="https://img-blog.csdnimg.cn/20190318194055275.png" alt="在这里插入图片描述"></p>
-
           
+mkdir (Make Directory ): 若指定目录不存在则创建目录。
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/Linux每天记day4_mkdir命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -629,11 +654,17 @@
       
         
           
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/median-of-two-sorted-arrays/" target="_blank" rel="noopener">题目链接：Median of Two Sorted Arrays</a></p>
-<p>C++：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len1 = nums1.size();</span><br><span class="line">        <span class="keyword">int</span> len2 = nums2.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="built_in">array</span> = merge(nums1, nums2, len1, len2);</span><br><span class="line">        <span class="keyword">return</span> ((<span class="built_in">array</span>[(len1+len2<span class="number">-1</span>)/<span class="number">2</span>]+<span class="built_in">array</span>[(len1+len2)/<span class="number">2</span>]))/<span class="number">2.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; merge(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; A, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; B, <span class="keyword">int</span> m, <span class="keyword">int</span> n)<span class="comment">//合并</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; m &amp;&amp; j &lt; n)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(A[i] &lt;= B[j])</span><br><span class="line">            &#123;</span><br><span class="line">                ret.push_back(A[i]);</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                ret.push_back(B[j]);</span><br><span class="line">                j ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i == m)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(j &lt; n)</span><br><span class="line">            &#123;</span><br><span class="line">                ret.push_back(B[j]);</span><br><span class="line">                j ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(j == n)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; m)</span><br><span class="line">            &#123;</span><br><span class="line">                ret.push_back(A[i]);</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
           
+题目链接：Median of Two Sorted Arrays
+C++：12
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/LeetCode每天刷day4_Median of Two Sorted Arrays/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -815,22 +846,18 @@
       
         
           
-            <hr>
-<h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p>ls (list) 列出目录内容以及目录详细信息</p>
-<p>语法：</p>
-<pre><code>ls [OPTIONS]  [FILE]
-</code></pre><p>选项：<br>选项较多，背记常用选项</p>
-<pre><code>-a 显示当前目录所有文件
--l 显示当前目录文件的详细信息
--t 以时间顺序排序
--h 以人性化方式显示
--n 用数字的 UID,GID 代替名称
--R 递归列出所有目录的文件
--d 以文件名显示当前目录
--S 以文件大小排序
-</code></pre><p>操作：<br><img src="https://img-blog.csdnimg.cn/20190317222633743.png" alt="在这里插入图片描述"></p>
-
           
+lsls (list) 列出目录内容以及目录详细信息
+语法：
+ls [OPTI
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/17/Linux每天记day3_ls命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1012,13 +1039,16 @@
       
         
           
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters" target="_blank" rel="noopener">题目链接：Longest Substring Without Repeating Characters</a></p>
-<p>C++：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lenS = s.size();</span><br><span class="line">        <span class="keyword">if</span> (lenS &lt;= <span class="number">1</span>) </span><br><span class="line">            <span class="keyword">return</span> lenS;</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="keyword">char</span>&gt; <span class="built_in">set</span>;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (r &lt; lenS) &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="built_in">set</span>.count(s[r])) &#123;</span><br><span class="line">                <span class="built_in">set</span>.erase(s[l]);</span><br><span class="line">                l++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">set</span>.insert(s[r]);</span><br><span class="line">            ans = max(ans, <span class="keyword">int</span>(<span class="built_in">set</span>.size()));</span><br><span class="line">            r++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>运用了尺取思想，动态扩大尺子的长度，如果没有重复元素就让尺子的右边右移，如果有重复元素，则将尺子的左边右移，用ans中记录set出现的最大size即为最大的非重复连续子串。</p>
-
           
+题目链接：Longest Substring Without Repeatin
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/17/LeetCode每天刷day3_Longest Substring Without Repeating Characters/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1200,12 +1230,18 @@
       
         
           
-            <hr>
-<p><a href="https://leetcode-cn.com/problems/add-two-numbers/" target="_blank" rel="noopener">题目链接：Add Two Numbers</a></p>
-<p>C++语言：</p>
-<figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        ListNode* resultHead = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode *result = resultHead;</span><br><span class="line">        <span class="keyword">int</span> sumTwo = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>; <span class="comment">//进位</span></span><br><span class="line">        <span class="keyword">while</span>(l1 || l2 || carry)&#123;</span><br><span class="line">            sumTwo = (l1 ? l1-&gt;val : <span class="number">0</span>) + (l2 ? l2-&gt;val : <span class="number">0</span>) + carry;</span><br><span class="line">            <span class="keyword">if</span>(sumTwo &gt;= <span class="number">10</span>)&#123;</span><br><span class="line">                sumTwo %= <span class="number">10</span>;</span><br><span class="line">                carry = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                carry = <span class="number">0</span>;</span><br><span class="line">            result-&gt;next = <span class="keyword">new</span> ListNode(sumTwo);</span><br><span class="line">            result = result-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(l1)</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(l2)</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resultHead-&gt;next; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
           
+题目链接：Add Two Numbers
+C++语言：
+12345678910
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/16/LeetCode每天刷day2_Add Two Numbers/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1337,7 +1373,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                ---华丽的分割线---
+                -------华--丽--的--分--割--线-------
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -1967,6 +2003,9 @@
   
 
   
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
 
   
 
