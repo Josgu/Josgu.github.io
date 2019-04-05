@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux每天记day21:vmstat命令]]></title>
+    <url>%2F2019%2F04%2F05%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day21_vmstat%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[vmstatvmstat(Virtual Meomory Statistics)用来显示虚拟内存的信息语法: vmstat [options] [delay [count]] 选项: -a：显示活跃和非活跃内存 -f：显示从系统启动至今的fork数量 。 -m：显示slabinfo -n：只在开始时显示一次各字段名称。 -s：显示内存相关统计信息及多种系统活动数量。 -d：显示磁盘相关统计信息。 -p：显示指定磁盘分区统计信息 -w: 按制表格式显示 -S：使用指定单位显示。参数有 k 、K 、m 、M ，分别代表1000、1024、1000000、1048576字节（byte）。默认单位为K（1024 bytes） 操作:]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux性能监控优化</tag>
+        <tag>vmstat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day21:Divide Two Integers]]></title>
+    <url>%2F2019%2F04%2F05%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day21_Divide%20Two%20Integers%2F</url>
+    <content type="text"><![CDATA[题目链接:Divide Two IntegersC++:利用位运算实现快速加减1234567891011121314151617181920212223242526272829class Solution &#123;public: int divide(int dividend, int divisor) &#123; long ret = 0; bool flag = false; if((divisor &lt; 0 &amp;&amp; dividend &gt; 0) || (divisor &gt; 0 &amp;&amp; dividend &lt; 0)) &#123; flag = true; &#125; long divisorTmp = fabs(divisor); long dividendTmp = fabs(dividend); if(divisorTmp &gt; dividendTmp) return 0; while(divisorTmp &lt;= dividendTmp)&#123; long cnt = 1, base = divisorTmp; while((base&lt;&lt;1) &lt; dividendTmp)&#123; cnt &lt;&lt;= 1; base &lt;&lt;= 1; &#125; ret += cnt; dividendTmp -= base; &#125; if(flag)&#123; ret = -ret; &#125; return (ret &gt; INT_MAX || ret &lt; INT_MIN) ? INT_MAX : ret; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>位运算</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day20:free命令]]></title>
+    <url>%2F2019%2F04%2F04%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day20_free%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[freefree命令可以显示Linux系统中空闲的、已用的物理内存及swap内存,及被内核使用的buffer。语法: free [OPTION] 选项: -b 以Byte为单位显示内存使用情况 -k 以KB为单位显示内存使用情况 -m 以MB为单位显示内存使用情况 -g 以GB为单位显示内存使用情况 -o 不显示缓冲区调节列 -s &lt;间隔秒数&gt; 持续观察内存使用状况 -t 显示内存总和列 操作: 字段讲解: total:总计物理内存的大小。 used:已使用多大。 free:可用有多少。 shared:多个进程共享的内存总额。 buff/cache:磁盘缓存的大小。 available:可利用的]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>Linux性能监控优化</tag>
+        <tag>free</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day20:Remove Element]]></title>
+    <url>%2F2019%2F04%2F04%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day20_Remove%20Element%2F</url>
+    <content type="text"><![CDATA[题目链接:Remove Element C++:1234567891011121314151617class Solution &#123;public: int removeElement(vector&lt;int&gt;&amp; nums, int val) &#123; auto lens = nums.size(); int ret = 0; if(lens == 0) return lens; for(auto f = nums.begin(), t = nums.begin(); t != nums.end(); t++)&#123; if(*t != val)&#123; *f = *t; ret++; f++; &#125; &#125; return ret; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux每天记day19:top命令]]></title>
     <url>%2F2019%2F04%2F03%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day19_top%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[toptop命令是Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况，top是一个动态显示过程,即可以通过用户按键来不断刷新当前状态.如果在前台执行该命令,它将独占前台,直到用户终止该程序为止.比较准确的说,top命令提供了实时的对系统处理器的状态监视.它将显示系统中CPU最“敏感”的任务列表.该命令可以按CPU使用.内存使用和执行时间对任务进行排序；而且该命令的很多特性都可以通过交互式命令或者在个人定制文件中进行设定.语法: top [OPTION] 选项: -d 指定每两次屏幕信息刷新之间的时间间隔。当然用户可以使用s交互命令来改变之。 -p 通过指定监控进程ID来仅仅监控某个进程的状态。 -q 该选项将使top没有任何延迟的进行刷新。如果调用程序有超级用户权限，那么top将以尽可能高的优先级运行。 -S 指定累计模式 -s 使top命令在安全模式中运行。这将去除交互命令所带来的潜在危险。 -i 使top不显示任何闲置或者僵死进程。 -c 显示整个命令行而不只是显示命令名 操作: 字段讲解: 23:12:38 当前时间 up 15:17 系统运行时间，格式为时:分 1 user 当前登录用户数 load average: 0.55, 1.05, 1.47 系统负载. 即任务队列的平均长度。三个数值分别为 1分钟、5分钟、15分钟前到现在的平均值。 total 进程总数 running 正在运行的进程数 sleeping 睡眠的进程数 stopped 停止的进程数 zombie 僵尸进程数 Cpu(s): 0.4% us 用户空间占用CPU百分比 1.0% sy 内核空间占用CPU百分比 0.0% ni 用户进程空间内改变过优先级的进程占用CPU百分比 96.9% id 空闲CPU百分比 0.0% wa 等待输入输出的CPU时间百分比 0.0%hi：硬件CPU中断占用百分比 0.0%si：软中断占用百分比 0.0%st：虚拟机占用百分比 Mem: 8026648k total 物理内存总量 1127596k free 空闲内存总量 3333728k used 使用的物理内存总量 3565324k buffers 用作内核缓存的内存量 Swap: 2097148k total 交换区总量 2097148k free 空闲交换区总量 0 used 使用的交换区总量 3936728k cached 缓冲的交换区总量,内存中的内容被换出到交换区，而后又被换入到内存，但使用过的交换区尚 未被覆盖，该数值即为这些内容已存在于内存中的交换区的大小,相应的内存再次被换出时可不必再对交换区写入。 汇总: 序号 列名 含义 a PID 进程id b PPID 父进程id c RUSER Real user name d UID 进程所有者的用户id e USER 进程所有者的用户名 f GROUP 进程所有者的组名 g TTY 启动进程的终端名。不是从终端启动的进程则显示为 ? h PR 优先级 i NI nice值。负值表示高优先级，正值表示低优先级 j P 最后使用的CPU，仅在多CPU环境下有意义 k %CPU 上次更新到现在的CPU时间占用百分比 l TIME 进程使用的CPU时间总计，单位秒 m TIME+ 进程使用的CPU时间总计，单位1/100秒 n %MEM 进程使用的物理内存百分比 o VIRT 进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES p SWAP 进程使用的虚拟内存中，被换出的大小，单位kb。 q RES 进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA r CODE 可执行代码占用的物理内存大小，单位kb s DATA 可执行代码以外的部分(数据段+栈)占用的物理内存大小，单位kb t SHR 共享内存大小，单位kb u nFLT 页面错误次数 v nDRT 最后一次写入到现在，被修改过的页面数。 w S 进程状态(D=不可中断的睡眠状态,R=运行,S=睡眠,T=跟踪/停止,Z=僵尸进程) x COMMAND 命令名/命令行 y WCHAN 若该进程在睡眠，则显示睡眠中的系统函数名 z Flags 任务标志，参考 sched.h]]></content>
