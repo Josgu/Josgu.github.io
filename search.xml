@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vim使用简记]]></title>
+    <url>%2F2019%2F04%2F06%2Fvim%E4%BD%BF%E7%94%A8%E7%AE%80%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[使用了一段时间的vim,还是一种初级阶段,只能日常使用做一些编辑,使用的很僵硬,写一些简记,做些记录,优雅使用vim 再码一遍重新学习加强一下 :) vim模式首先是三种模式: 命令模式 文本输入模式(就相当于记事本啦) 末行模式 三种模式的转换(很懒的随便画一下,凑合看一哈哈哈):设置显示模式 :set showmode关闭显示模式 :set noshowmode显示行号 :set nu隐藏行号 :set nonu vim光标移动光标移动命令：光标上下左右移动命令: ｋ (中指) / [Ctrl] + p 上 ｈ(食指) / [Backspace]左 ｌ (无名指) / [space] 右 ｊ (食指) / [Ctrl] + n 下 对于一个字： w/W 光标向右移动一个字到字首 b/B 光标向左移动一个字到字首 e/E 光标向右移动一个字到字尾 g+e/E 光标向左移动一个字到字尾 对于一行： 0 光标移动到一行行首 $ 光标移动到一行行尾 对于单句的移动： ) 光标移动至句尾 ( 光标移动至句首 对于单个段落： { 光标移动至段落头 } 光标移动至段落尾 对于一屏幕： H 光标移动到屏幕顶行 M 光标移动到屏幕中间行 L 光标移动屏幕３/4行(网上都说是最后一行，当时我自己按是３/４行(＝＠＿＿＠＝)) 对于整个文件 gg 光标移动到文件头 G 光标移动到文件尾 以上命令大多数支持 数字+命令,例如: nj 向上移动ｎ行 ne 向右移动ｎ个字到字尾 ．．． ．．． 以上命令凡是可以处理一个就可以处理多个 vim插入命令普通插入： a 光标后插入 i 光标前插入 o 当前行后开新一行插入 A 当前行尾插入 I 当前行首插入 O 当前行前开新一行插入 替换插入(建议通过尝试理解会更好理解)： r+替换字符 替换光标的字符 R+替换字符串 替换光标后的字符知道按ESC s 删除光标字符，并进入文本输入模式 S 删除光标所在行，并进入文本输入模式 cw 删除当前光标之后所在的一个字，并进入文本输入模式 C 删除当前光标之后所在的一个句子，并进入文本输入模式 以上命令凡是可以处理一个就可以处理多个 vim剪切/复制命令剪切命令:(更喜欢用剪切来说明这个命令，毕竟可粘贴的呀) x/X 剪切光标后/前一个字符 dd 剪切光标当前行 d^ 从光标剪切至行首 d$ 从光标剪切至行尾 dw 从光标剪切至字尾 dl 和x一样 复制命令: yy 复制光标当前行 y^ 从光标复制至行首 y$ 从光标复制至行尾 yw 从光标复制至字尾 yl 和x一样,但是是复制 粘贴命令 p 粘贴 以上命令凡是可以处理一个就可以处理多个 搜索/替换命令搜索命令：在末行模式中使用搜索命令 / + 搜索内容 从光标向文件尾搜索 ? + 搜索内容 从光标向文件头搜索 n 同向重复上一次搜索命令 N 反向重复上一次搜索命令 替换命令： :s/p1/p2/g 直接将光标当前行中所有p1用p2替代,将g换成c每次替换会询问 :n1,n2s/p1/p2/g 直接将光标n1到n2行中所有p1用p2替代,将g换成c每次替换会询问 :g/p1/s//p2/g 直接将文件中所有p1用p2替代,将g换成c每次替换会询问 vim末行模式 末行命令： :x 保存文件并退出 :w 保存文件 :q 退出文件 :q! 退出文件不保存 :!command 执行shell命令command :n1,n2 w!command 将文件中n1到n2行的内容作为command执行 :r!command 将command命令的输出结果放到光标当前行]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day22:Substring with Concatenation of All Words]]></title>
+    <url>%2F2019%2F04%2F06%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day22_Substring%20with%20Concatenation%20of%20All%20Words%2F</url>
+    <content type="text"><![CDATA[题目链接:Substring with Concatenation of All WordsC++:123456789101112131415161718192021222324252627282930313233class Solution &#123;public: vector&lt;int&gt; findSubstring(string s, vector&lt;string&gt;&amp; words) &#123; multiset&lt;string&gt; wordSet; vector&lt;int&gt; ret; int cnt = words.size(); if(cnt == 0 || s.size() == 0) return ret; int aWordLen = words[0].size(); for(auto itr : words)&#123; wordSet.insert(itr); &#125; int len = cnt * aWordLen; for(int i = 0; i &lt; s.size() - len + 1; i++)&#123; string tmp = s.substr(i, len); auto j = wordSet.begin(); while(j != wordSet.end())&#123; int flag = tmp.find(*j); while(flag % aWordLen != 0 &amp;&amp; flag != tmp.npos)&#123; flag = tmp.find(*j, flag + 1); &#125; if(flag != tmp.npos) tmp.erase(flag, aWordLen); else break; j++; &#125; if(tmp.empty()) ret.push_back(i); &#125; return ret; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+        <tag>哈希</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux每天记day21:vmstat命令]]></title>
     <url>%2F2019%2F04%2F05%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day21_vmstat%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[vmstatvmstat(Virtual Meomory Statistics)用来显示虚拟内存的信息语法: vmstat [options] [delay [count]] 选项: -a：显示活跃和非活跃内存 -f：显示从系统启动至今的fork数量 。 -m：显示slabinfo -n：只在开始时显示一次各字段名称。 -s：显示内存相关统计信息及多种系统活动数量。 -d：显示磁盘相关统计信息。 -p：显示指定磁盘分区统计信息 -w: 按制表格式显示 -S：使用指定单位显示。参数有 k 、K 、m 、M ，分别代表1000、1024、1000000、1048576字节（byte）。默认单位为K（1024 bytes） 操作:]]></content>
@@ -402,17 +425,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[LeetCode每天刷day8:Container With Most Water]]></title>
-    <url>%2F2019%2F03%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day8_Container%20With%20Most%20Water%2F</url>
-    <content type="text"><![CDATA[题目链接:Container With Most Water C++双索引12345678910111213141516171819202122class Solution &#123;public: int maxArea(vector&lt;int&gt;&amp; height) &#123; int i = 0; int j = height.size()-1; int maxArea = -1; while(i!=j)&#123; if(height[i] &gt; height[j]) &#123; if(maxArea &lt; height[j]*(j - i)) maxArea = height[j]*(j - i); j--; &#125; else&#123; if(maxArea &lt; height[i]*(j - i)) maxArea = height[i]*(j - i); i++; &#125; &#125; return maxArea; &#125;&#125;;]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[LeetCode每天刷day8:Palindrome Number]]></title>
     <url>%2F2019%2F03%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day8_Palindrome%20Number%2F</url>
     <content type="text"><![CDATA[题目链接:Palindrome NumberC++: 12345678910111213141516171819202122232425262728293031323334353637class Solution &#123;public: bool isPalindrome(int x) &#123; if(x &lt; 0 || (x%10==0 &amp;&amp; x!=0)) return false; if(x&gt;=0 &amp;&amp; x &lt; 10) return true; long m = 0 ,n = x; while(n)&#123; m = m * 10 + n % 10; n /= 10; &#125; if(m == x) return true; else return false; &#125;&#125;;//不解leetcode上为什么下面跑的没有上面快?class Solution &#123;public: bool isPalindrome(int x) &#123; if(x &lt; 0 || (x % 10 ==0 &amp;&amp; x != 0)) return false; if(x&gt;=0 &amp;&amp; x &lt; 10) return true; int m = 0; while(x &gt; m)&#123; m = m * 10 + x % 10; x /= 10; &#125; if (m == x || m / 10 == x) return true; else return false; &#125;&#125;;]]></content>
@@ -421,6 +433,17 @@
       </categories>
       <tags>
         <tag>回文数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day8:Container With Most Water]]></title>
+    <url>%2F2019%2F03%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day8_Container%20With%20Most%20Water%2F</url>
+    <content type="text"><![CDATA[题目链接:Container With Most Water C++双索引12345678910111213141516171819202122class Solution &#123;public: int maxArea(vector&lt;int&gt;&amp; height) &#123; int i = 0; int j = height.size()-1; int maxArea = -1; while(i!=j)&#123; if(height[i] &gt; height[j]) &#123; if(maxArea &lt; height[j]*(j - i)) maxArea = height[j]*(j - i); j--; &#125; else&#123; if(maxArea &lt; height[i]*(j - i)) maxArea = height[i]*(j - i); i++; &#125; &#125; return maxArea; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -788,8 +811,8 @@
         <category>编程题</category>
       </categories>
       <tags>
-        <tag>Codeforces</tag>
         <tag>思维题</tag>
+        <tag>Codeforces</tag>
       </tags>
   </entry>
   <entry>
@@ -800,8 +823,8 @@
         <category>编程题</category>
       </categories>
       <tags>
-        <tag>字符串</tag>
         <tag>Codeforces</tag>
+        <tag>字符串</tag>
       </tags>
   </entry>
   <entry>
@@ -835,8 +858,8 @@
         <category>编程题</category>
       </categories>
       <tags>
-        <tag>贪心</tag>
         <tag>Hdu</tag>
+        <tag>贪心</tag>
       </tags>
   </entry>
   <entry>
@@ -859,8 +882,8 @@
         <category>编程题</category>
       </categories>
       <tags>
-        <tag>Codeforces</tag>
         <tag>思维题</tag>
+        <tag>Codeforces</tag>
       </tags>
   </entry>
   <entry>
@@ -871,8 +894,8 @@
         <category>编程题</category>
       </categories>
       <tags>
-        <tag>Codeforces</tag>
         <tag>思维题</tag>
+        <tag>Codeforces</tag>
       </tags>
   </entry>
   <entry>
