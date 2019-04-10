@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode每天刷day26:Find First and Last Position of Element in Sorted Array]]></title>
+    <url>%2F2019%2F04%2F10%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day26_Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array%2F</url>
+    <content type="text"><![CDATA[题目链接:Find First and Last Position of Element in Sorted ArrayC++:二分查找,时间复杂度为O(log(n))1234567891011121314151617181920212223242526272829303132333435class Solution &#123;public: vector&lt;int&gt; searchRange(vector&lt;int&gt;&amp; nums, int target) &#123; vector&lt;int&gt; ret(2, -1); int len = nums.size(); if(len &lt;= 0) return ret; int l = 0; int r = len - 1; while(l &lt;= r)&#123; int mid = (r - l) / 2 + l; if(nums[mid] &lt; target)&#123; l = mid + 1; &#125; else&#123; r = mid - 1; &#125; &#125; if(l &gt;= len || nums[l] != target) return ret; ret[0] = l; r = len - 1; while(l &lt;= r)&#123; int mid = (r - l) / 2 + l; if(nums[mid] &gt; target)&#123; r = mid-1; &#125; else&#123; l = mid + 1; &#125; &#125; ret[1] = r; return ret; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>二分查找</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day25:du命令]]></title>
+    <url>%2F2019%2F04%2F09%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day25_du%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[dudu (Disk usage) 用来计算每个文件的磁盘用量，目录则取总用量。语法: du [OPTION]... [FILE]... du [OPTION]... --files0-from=F 选项: -a 显示指定目录所有目录以及文件所占的磁盘用量 -h 以可读性较好的方式显示文件大小 -s 只计算命令所指文件所占的总量 -S 计算命令所指文件所有子目录上的文件的大小 和 不包含子目录的占有量 操作:说明:可以发现 -s和-S 让Downloads/目录所占的磁盘空间是不一样的, -S让Downloads/目录计算的是当前目录下所有文件大小,未包含目录,会发现把所有的加起来,两者大小是一样的-a则不仅显示文件也显示目录,同时显示总和]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>du</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day25:Remove Duplicates from Sorted List II]]></title>
+    <url>%2F2019%2F04%2F09%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day25_Remove%20Duplicates%20from%20Sorted%20List%20II%2F</url>
+    <content type="text"><![CDATA[题目链接:Remove Duplicates from Sorted List IIC++:1234567891011121314151617181920212223242526272829/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* deleteDuplicates(ListNode* head) &#123; ListNode* ret = new ListNode(0); ret-&gt;next = head; head = ret; ListNode *l; ListNode *r; while(ret-&gt;next)&#123; l = ret-&gt;next; r = l; while(r-&gt;next &amp;&amp; r-&gt;next-&gt;val == l-&gt;val) r = r-&gt;next; if(l == r) ret = ret-&gt;next; else ret-&gt;next = r-&gt;next; &#125; return head-&gt;next; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day25:Search in Rotated Sorted Array]]></title>
+    <url>%2F2019%2F04%2F09%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day25_Search%20in%20Rotated%20Sorted%20Array%2F</url>
+    <content type="text"><![CDATA[题目链接:Search in Rotated Sorted ArrayC++: 1234567891011121314151617181920212223class Solution &#123;public: int search(vector&lt;int&gt;&amp; nums, int target) &#123; int l = 0; int r = nums.size() - 1; while(l &lt;= r)&#123; if(target == nums[l]) return l; if(target == nums[r]) return r; if(target &lt; nums[r])&#123; r--; continue; &#125; if(target &gt; nums[l])&#123; l++; continue; &#125; break; &#125; return -1; &#125;&#125;; 上面一开始写的,好像时间复杂度不是O(log n) 提交16ms 然后优化了一下emmm应该是优化了吧…1234567891011121314151617181920212223242526272829303132class Solution &#123;public: int search(vector&lt;int&gt;&amp; nums, int target) &#123; int len = nums.size(); int l = 0; int r = len - 1; while(l &lt;= r)&#123; if(target == nums[l]) return l; if(target == nums[r]) return r; if(target &lt; nums[r] || target &gt; nums[l])&#123; r--; if(target &lt; nums[l]) l = (l + r)/2; else if(l &gt; 0) l--; continue; &#125; if(target &gt; nums[l] || target &lt; nums[r])&#123; l++; if(target &gt; nums[r]) r = (l + r)/2; else if(r &lt; len -1) r++; continue; &#125; break; &#125; return -1; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>二分查找</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day24:df命令]]></title>
+    <url>%2F2019%2F04%2F08%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day24_df%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[dfdf (disk free) 其功能显示每个文件所在的文件系统的信息，默认是显示所有文件系统。语法:df [OPTION]… [FILE]选项: -a, --all 显示包括伪，重复，不可访问的文件系统 -B, --block-size=SIZE 缩小尺寸打印; -h, --human-readable 人性化显示 -H, --si print sizes in powers of 1000 (e.g., 1.1G) -i, --inodes 显示iNode信息而非块使用量 -k 即 --block-size=1K -l, --local 只显示本机上的文件系统 --no-sync 取得使用量数据前不进行同步动作(默认) -P, --portability use the POSIX output format --sync invoke sync before getting usage info --total elide all entries insignificant to available space, and produce a grand total -t, --type=TYPE 只显示 TYPE 类型信息 -T, --print-type 显示文件系统的类型 -x, --exclude-type=TYPE 不显示 TYPE 类型信息 操作:]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>df</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day24:Longest Valid Parentheses]]></title>
+    <url>%2F2019%2F04%2F08%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day24_Longest%20Valid%20Parentheses%2F</url>
+    <content type="text"><![CDATA[题目链接: Longest Valid ParenthesesC++: 1234567891011121314151617181920212223class Solution &#123;public: int longestValidParentheses(string s) &#123; stack&lt;int&gt; st; int lens = s.size(); int ret = 0; int start = 0; for(int i = 0; i &lt; lens; i++)&#123; if(s[i] == '(') st.push(i); else if(s[i] == ')')&#123; if(st.empty())&#123; start = i + 1; &#125; else&#123; st.pop(); ret = st.empty() ? max(ret , i - start + 1) : max(ret, i-st.top()); &#125; &#125; &#125; return ret; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day23:常用打包解压缩命令]]></title>
+    <url>%2F2019%2F04%2F07%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day23_%E5%B8%B8%E7%94%A8%E6%89%93%E5%8C%85%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[tar#打包 tar -cvf 打包文件.tar 被打包的文件 #解包 tar -xvf 打包文件.tar gzip可以通过tar 中的 -z选项调用gzip # 压缩文件 tar -zcvf 打包文件.tar.gz 被压缩的文件／路径... # 解压缩文件 tar -zxvf 打包文件.tar.gz # 解压缩到指定路径 tar -zxvf 打包文件.tar.gz -C 目标路径 bzip2可以通过tar 中的 -j选项调用gzip # 压缩文件 tar -jcvf 打包文件.tar.bz2 被压缩的文件／路径... # 解压缩文件 tar -jxvf 打包文件.tar.bz2]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day23:Next Permutation]]></title>
+    <url>%2F2019%2F04%2F07%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day23_Next%20Permutation%2F</url>
+    <content type="text"><![CDATA[题目链接:Next PermutationC++:边界判断要注意123456789101112131415161718192021222324252627282930313233class Solution &#123;public: void nextPermutation(vector&lt;int&gt;&amp; nums) &#123; int index = -1; int len = nums.size(); if(len == 0 || len == 1) return ; int tmp = nums[len - 1]; for(int i = len - 2; i &gt;= 0; i--)&#123; if(tmp &lt;= nums[i])&#123; tmp = nums[i]; &#125; else&#123; index = i; break; &#125; &#125; if(index == -1)&#123; sort(nums.begin(), nums.end()); return ; &#125; for(int i = index + 1; i &lt; len; i++)&#123; if(i + 1 == len || nums[i + 1] &lt;= nums[index])&#123; int via = nums[index]; nums[index] = nums[i]; nums[i] = via; sort(nums.begin() + index + 1, nums.end()); break; &#125; &#125; return ; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>排列组合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day22:shutdown命令]]></title>
+    <url>%2F2019%2F04%2F06%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day22_shutdown%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[showdownshutdown命令用来进行关机程序,并且关机前传送消息给所有使用者正在执行的程序语法:shutdown [OPTION] [message]选项: -t seconds : 设定在几秒钟之后进行关机程序。 -k : 并不会真的关机，只是将警告讯息传送给所有使用者。 -r : 关机后重新开机。 -h : 关机后停机。 -n : 不采用正常程序来关机，用强迫的方式杀掉所有执行中的程序后自行关机。 -c : 取消目前已经进行中的关机动作。 -f : 关机时，不做 fcsk 动作(检查 Linux 档系统)。 -F : 关机时，强迫进行 fsck 动作。 time : 设定关机的时间。 message : 传送给所有使用者的警告讯息。 操作:]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+      <tags>
+        <tag>shutdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vim使用简记]]></title>
     <url>%2F2019%2F04%2F06%2Fvim%E4%BD%BF%E7%94%A8%E7%AE%80%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[使用了一段时间的vim,还是一种初级阶段,只能日常使用做一些编辑,使用的很僵硬,写一些简记,做些记录,优雅使用vim 再码一遍重新学习加强一下 :) vim模式首先是三种模式: 命令模式 文本输入模式(就相当于记事本啦) 末行模式 三种模式的转换(很懒的随便画一下,凑合看一哈哈哈):设置显示模式 :set showmode关闭显示模式 :set noshowmode显示行号 :set nu隐藏行号 :set nonu vim光标移动光标移动命令：光标上下左右移动命令: ｋ (中指) / [Ctrl] + p 上 ｈ(食指) / [Backspace]左 ｌ (无名指) / [space] 右 ｊ (食指) / [Ctrl] + n 下 对于一个字： w/W 光标向右移动一个字到字首 b/B 光标向左移动一个字到字首 e/E 光标向右移动一个字到字尾 g+e/E 光标向左移动一个字到字尾 对于一行： 0 光标移动到一行行首 $ 光标移动到一行行尾 对于单句的移动： ) 光标移动至句尾 ( 光标移动至句首 对于单个段落： { 光标移动至段落头 } 光标移动至段落尾 对于一屏幕： H 光标移动到屏幕顶行 M 光标移动到屏幕中间行 L 光标移动屏幕３/4行(网上都说是最后一行，当时我自己按是３/４行(＝＠＿＿＠＝)) 对于整个文件 gg 光标移动到文件头 G 光标移动到文件尾 以上命令大多数支持 数字+命令,例如: nj 向上移动ｎ行 ne 向右移动ｎ个字到字尾 ．．． ．．． 以上命令凡是可以处理一个就可以处理多个 vim插入命令普通插入： a 光标后插入 i 光标前插入 o 当前行后开新一行插入 A 当前行尾插入 I 当前行首插入 O 当前行前开新一行插入 替换插入(建议通过尝试理解会更好理解)： r+替换字符 替换光标的字符 R+替换字符串 替换光标后的字符知道按ESC s 删除光标字符，并进入文本输入模式 S 删除光标所在行，并进入文本输入模式 cw 删除当前光标之后所在的一个字，并进入文本输入模式 C 删除当前光标之后所在的一个句子，并进入文本输入模式 以上命令凡是可以处理一个就可以处理多个 vim剪切/复制命令剪切命令:(更喜欢用剪切来说明这个命令，毕竟可粘贴的呀) x/X 剪切光标后/前一个字符 dd 剪切光标当前行 d^ 从光标剪切至行首 d$ 从光标剪切至行尾 dw 从光标剪切至字尾 dl 和x一样 复制命令: yy 复制光标当前行 y^ 从光标复制至行首 y$ 从光标复制至行尾 yw 从光标复制至字尾 yl 和x一样,但是是复制 粘贴命令 p 粘贴 以上命令凡是可以处理一个就可以处理多个 搜索/替换命令搜索命令：在末行模式中使用搜索命令 / + 搜索内容 从光标向文件尾搜索 ? + 搜索内容 从光标向文件头搜索 n 同向重复上一次搜索命令 N 反向重复上一次搜索命令 替换命令： :s/p1/p2/g 直接将光标当前行中所有p1用p2替代,将g换成c每次替换会询问 :n1,n2s/p1/p2/g 直接将光标n1到n2行中所有p1用p2替代,将g换成c每次替换会询问 :g/p1/s//p2/g 直接将文件中所有p1用p2替代,将g换成c每次替换会询问 vim末行模式 末行命令： :x 保存文件并退出 :w 保存文件 :q 退出文件 :q! 退出文件不保存 :!command 执行shell命令command :n1,n2 w!command 将文件中n1到n2行的内容作为command执行 :r!command 将command命令的输出结果放到光标当前行]]></content>
