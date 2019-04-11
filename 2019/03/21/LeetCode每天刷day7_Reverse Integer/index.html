@@ -131,18 +131,18 @@
 
 
 
-<meta name="description" content="题目链接:Reverse IntegerC++12345678910111213141516171819class Solution &amp;#123;public:    int reverse(int x) &amp;#123;        long long ret = 0;        int carry = 10;        while(x)&amp;#123;            ret = r">
+<meta name="description" content="题目:给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。 题目链接:Reverse IntegerC++12345678910111213141516171819class Solution &amp;#123;public:    int reverse(int x) &amp;#123;        long long ret = 0;        int carry = 10;">
 <meta name="keywords" content="数字反转">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode每天刷day7:Reverse Integer">
 <meta property="og:url" content="http://blog.josgu.com/2019/03/21/LeetCode每天刷day7_Reverse Integer/index.html">
 <meta property="og:site_name" content="Jos&#39;s blogs">
-<meta property="og:description" content="题目链接:Reverse IntegerC++12345678910111213141516171819class Solution &amp;#123;public:    int reverse(int x) &amp;#123;        long long ret = 0;        int carry = 10;        while(x)&amp;#123;            ret = r">
+<meta property="og:description" content="题目:给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。 题目链接:Reverse IntegerC++12345678910111213141516171819class Solution &amp;#123;public:    int reverse(int x) &amp;#123;        long long ret = 0;        int carry = 10;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T05:42:56.731Z">
+<meta property="og:updated_time" content="2019-04-11T01:44:11.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode每天刷day7:Reverse Integer">
-<meta name="twitter:description" content="题目链接:Reverse IntegerC++12345678910111213141516171819class Solution &amp;#123;public:    int reverse(int x) &amp;#123;        long long ret = 0;        int carry = 10;        while(x)&amp;#123;            ret = r">
+<meta name="twitter:description" content="题目:给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。 题目链接:Reverse IntegerC++12345678910111213141516171819class Solution &amp;#123;public:    int reverse(int x) &amp;#123;        long long ret = 0;        int carry = 10;">
 
 
 
@@ -435,7 +435,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  54
+                  87
                 </span>
               
 
@@ -461,6 +461,7 @@
 
       
         <hr>
+<p>题目:<br>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>
 <p><a href="https://leetcode-cn.com/problems/reverse-integer/" target="_blank" rel="noopener">题目链接:Reverse Integer</a><br>C++<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">while</span>(x)&#123;</span><br><span class="line">            ret = ret + x%<span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span>(x)&#123;</span><br><span class="line">                ret *= carry;</span><br><span class="line">                <span class="keyword">if</span>(ret &gt; <span class="number">2147483647</span> || ret &lt; <span class="number">-2147483648</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
@@ -630,7 +631,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                -------华--丽--的--分--割--线-------
+                ----华--丽--的--分--割--线----
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -676,7 +677,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共40.3k字</span>
+  <span class="post-count">博客全站共43.2k字</span>
 </div>
 
         

@@ -131,18 +131,18 @@
 
 
 
-<meta name="description" content="题目链接:Valid ParenthesesC++:123456789101112131415161718192021222324class Solution &amp;#123;public:    bool isValid(string s) &amp;#123;        stack&amp;lt;char&amp;gt; st;        int lens = s.size();        for(int">
+<meta name="description" content="题目:给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。 有效字符串需满足： 左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串。 题目链接:Valid ParenthesesC++:123456789101112131415161718192021222324class Solution &amp;#123;pub">
 <meta name="keywords" content="字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode每天刷day14:Valid Parentheses">
 <meta property="og:url" content="http://blog.josgu.com/2019/03/28/LeetCode每天刷day12_Valid Parentheses/index.html">
 <meta property="og:site_name" content="Jos&#39;s blogs">
-<meta property="og:description" content="题目链接:Valid ParenthesesC++:123456789101112131415161718192021222324class Solution &amp;#123;public:    bool isValid(string s) &amp;#123;        stack&amp;lt;char&amp;gt; st;        int lens = s.size();        for(int">
+<meta property="og:description" content="题目:给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。 有效字符串需满足： 左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串。 题目链接:Valid ParenthesesC++:123456789101112131415161718192021222324class Solution &amp;#123;pub">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T05:10:42.698Z">
+<meta property="og:updated_time" content="2019-04-11T01:32:11.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode每天刷day14:Valid Parentheses">
-<meta name="twitter:description" content="题目链接:Valid ParenthesesC++:123456789101112131415161718192021222324class Solution &amp;#123;public:    bool isValid(string s) &amp;#123;        stack&amp;lt;char&amp;gt; st;        int lens = s.size();        for(int">
+<meta name="twitter:description" content="题目:给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。 有效字符串需满足： 左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串。 题目链接:Valid ParenthesesC++:123456789101112131415161718192021222324class Solution &amp;#123;pub">
 
 
 
@@ -435,7 +435,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  92
+                  167
                 </span>
               
 
@@ -461,6 +461,9 @@
 
       
         <hr>
+<p>题目:<br>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
+<p>有效字符串需满足：</p>
+<p>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串。</p>
 <p><a href="https://leetcode-cn.com/problems/valid-parentheses" target="_blank" rel="noopener">题目链接:Valid Parentheses</a><br>C++:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line">        <span class="keyword">int</span> lens = s.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lens; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == <span class="string">')'</span> || s[i] == <span class="string">']'</span> || s[i] == <span class="string">'&#125;'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(st.size() == <span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(st.top() == <span class="string">'('</span> &amp;&amp; s[i] != <span class="string">')'</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(st.top() == <span class="string">'['</span> &amp;&amp; s[i] != <span class="string">']'</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(st.top() == <span class="string">'&#123;'</span> &amp;&amp; s[i] != <span class="string">'&#125;'</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                st.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                st.push(s[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> st.size() == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
@@ -630,7 +633,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                -------华--丽--的--分--割--线-------
+                ----华--丽--的--分--割--线----
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -676,7 +679,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共40.3k字</span>
+  <span class="post-count">博客全站共43.2k字</span>
 </div>
 
         

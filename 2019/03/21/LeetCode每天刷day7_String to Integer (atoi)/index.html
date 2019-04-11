@@ -131,18 +131,18 @@
 
 
 
-<meta name="description" content="题目链接:String to Integer (atoi)C++:12345678910111213141516171819202122232425262728class Solution &amp;#123;public:    int myAtoi(string str) &amp;#123;        long ret = 0;        int plmi = 1;        int lens">
+<meta name="description" content="题目:请你来实现一个 atoi 函数，使其能将字符串转换成整数。 首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。 当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成整数。 该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符">
 <meta name="keywords" content="字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode每天刷day7:String to Integer (atoi)">
 <meta property="og:url" content="http://blog.josgu.com/2019/03/21/LeetCode每天刷day7_String to Integer (atoi)/index.html">
 <meta property="og:site_name" content="Jos&#39;s blogs">
-<meta property="og:description" content="题目链接:String to Integer (atoi)C++:12345678910111213141516171819202122232425262728class Solution &amp;#123;public:    int myAtoi(string str) &amp;#123;        long ret = 0;        int plmi = 1;        int lens">
+<meta property="og:description" content="题目:请你来实现一个 atoi 函数，使其能将字符串转换成整数。 首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。 当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成整数。 该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T05:42:03.457Z">
+<meta property="og:updated_time" content="2019-04-11T01:43:32.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode每天刷day7:String to Integer (atoi)">
-<meta name="twitter:description" content="题目链接:String to Integer (atoi)C++:12345678910111213141516171819202122232425262728class Solution &amp;#123;public:    int myAtoi(string str) &amp;#123;        long ret = 0;        int plmi = 1;        int lens">
+<meta name="twitter:description" content="题目:请你来实现一个 atoi 函数，使其能将字符串转换成整数。 首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。 当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成整数。 该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符">
 
 
 
@@ -435,7 +435,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  129
+                  458
                 </span>
               
 
@@ -461,6 +461,14 @@
 
       
         <hr>
+<p>题目:<br>请你来实现一个 atoi 函数，使其能将字符串转换成整数。</p>
+<p>首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。</p>
+<p>当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成整数。</p>
+<p>该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符可以被忽略，它们对于函数不应该造成影响。</p>
+<p>注意：假如该字符串中的第一个非空格字符不是一个有效整数字符、字符串为空或字符串仅包含空白字符时，则你的函数不需要进行转换。</p>
+<p>在任何情况下，若函数不能进行有效的转换时，请返回 0。</p>
+<p>说明：</p>
+<p>假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−231,  231 − 1]。如果数值超过这个范围，qing返回  INT_MAX (231 − 1) 或 INT_MIN (−231) 。</p>
 <p><a href="https://leetcode-cn.com/problems/string-to-integer-atoi" target="_blank" rel="noopener">题目链接:String to Integer (atoi)</a><br>C++:<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> myAtoi(string <span class="keyword">str</span>) &#123;</span><br><span class="line">        <span class="keyword">long</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> plmi = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> lens = <span class="keyword">str</span>.size();</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> i;</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; lens;)&#123;</span><br><span class="line">            i = <span class="keyword">str</span>.find_first_not_of(<span class="string">' '</span>);</span><br><span class="line">            <span class="keyword">if</span>(i != string::npos)&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">str</span>[i] == <span class="string">'+'</span> || <span class="keyword">str</span>[i] == <span class="string">'-'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    plmi = (<span class="keyword">str</span>[i++] == <span class="string">'+'</span>) ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">while</span>(<span class="keyword">str</span>[i] &gt;= <span class="string">'0'</span> &amp;&amp; <span class="keyword">str</span>[i] &lt;= <span class="string">'9'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    ret = ret*<span class="number">10</span> + (<span class="keyword">str</span>[i++] - <span class="string">'0'</span>);</span><br><span class="line">                    <span class="keyword">if</span>(plmi*ret &gt;= INT_MAX || plmi*ret &lt;= INT_MIN)</span><br><span class="line">                        <span class="keyword">return</span> plmi*ret &gt;= INT_MAX ? INT_MAX : INT_MIN;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> plmi*ret;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>string类中自带函数find_not_first_of()等查找函数若未找到相应元素返回string::npos</p>
 
@@ -631,7 +639,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                -------华--丽--的--分--割--线-------
+                ----华--丽--的--分--割--线----
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -677,7 +685,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共40.3k字</span>
+  <span class="post-count">博客全站共43.2k字</span>
 </div>
 
         

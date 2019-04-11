@@ -131,18 +131,18 @@
 
 
 
-<meta name="description" content="题目链接:Generate Parentheses C++:递归1234567891011121314151617181920212223class Solution &amp;#123;vector&amp;lt;string&amp;gt; res;   public:    void generate(string str, int left, int right)    &amp;#123;        if(lef">
+<meta name="description" content="题目:给出 n 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且有效的括号组合。 题目链接:Generate Parentheses C++:递归1234567891011121314151617181920212223class Solution &amp;#123;vector&amp;lt;string&amp;gt; res;   public:    void generate(string">
 <meta name="keywords" content="字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode每天刷day16:Generate Parentheses">
 <meta property="og:url" content="http://blog.josgu.com/2019/03/30/LeetCode每天刷day13_Generate Parentheses/index.html">
 <meta property="og:site_name" content="Jos&#39;s blogs">
-<meta property="og:description" content="题目链接:Generate Parentheses C++:递归1234567891011121314151617181920212223class Solution &amp;#123;vector&amp;lt;string&amp;gt; res;   public:    void generate(string str, int left, int right)    &amp;#123;        if(lef">
+<meta property="og:description" content="题目:给出 n 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且有效的括号组合。 题目链接:Generate Parentheses C++:递归1234567891011121314151617181920212223class Solution &amp;#123;vector&amp;lt;string&amp;gt; res;   public:    void generate(string">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T05:09:34.419Z">
+<meta property="og:updated_time" content="2019-04-11T01:30:42.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode每天刷day16:Generate Parentheses">
-<meta name="twitter:description" content="题目链接:Generate Parentheses C++:递归1234567891011121314151617181920212223class Solution &amp;#123;vector&amp;lt;string&amp;gt; res;   public:    void generate(string str, int left, int right)    &amp;#123;        if(lef">
+<meta name="twitter:description" content="题目:给出 n 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且有效的括号组合。 题目链接:Generate Parentheses C++:递归1234567891011121314151617181920212223class Solution &amp;#123;vector&amp;lt;string&amp;gt; res;   public:    void generate(string">
 
 
 
@@ -435,7 +435,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  79
+                  121
                 </span>
               
 
@@ -461,6 +461,7 @@
 
       
         <hr>
+<p>题目:<br>给出 n 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且有效的括号组合。</p>
 <p><a href="https://leetcode-cn.com/problems/generate-parentheses" target="_blank" rel="noopener">题目链接:Generate Parentheses</a></p>
 <p>C++:<br>递归<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line">vector&lt;<span class="keyword">string</span>&gt; res;   </span><br><span class="line">public:</span><br><span class="line">    <span class="keyword">void</span> <span class="keyword">generate</span>(<span class="keyword">string</span> str, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(left &lt;= <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;right;i++) </span><br><span class="line">                str<span class="variable">.push_back</span>(')');</span><br><span class="line">            res<span class="variable">.push_back</span>(str);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(left &lt; right) </span><br><span class="line">                <span class="keyword">generate</span>(str+')', left, right-<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">generate</span>(str+'(', left-<span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;<span class="keyword">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="keyword">generate</span>(<span class="string">""</span>, n, n);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
@@ -631,7 +632,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                -------华--丽--的--分--割--线-------
+                ----华--丽--的--分--割--线----
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -677,7 +678,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共40.3k字</span>
+  <span class="post-count">博客全站共43.2k字</span>
 </div>
 
         

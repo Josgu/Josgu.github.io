@@ -131,18 +131,18 @@
 
 
 
-<meta name="description" content="题目链接:Divide Two IntegersC++:利用位运算实现快速加减1234567891011121314151617181920212223242526272829class Solution &amp;#123;public:    int divide(int dividend, int divisor) &amp;#123;        long ret = 0;        bool f">
+<meta name="description" content="题目:给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。 返回被除数 dividend 除以除数 divisor 得到的商。 题目链接:Divide Two IntegersC++:利用位运算实现快速加减1234567891011121314151617181920212223242526272829class Solution">
 <meta name="keywords" content="位运算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode每天刷day21:Divide Two Integers">
 <meta property="og:url" content="http://blog.josgu.com/2019/04/05/LeetCode每天刷day21_Divide Two Integers/index.html">
 <meta property="og:site_name" content="Jos&#39;s blogs">
-<meta property="og:description" content="题目链接:Divide Two IntegersC++:利用位运算实现快速加减1234567891011121314151617181920212223242526272829class Solution &amp;#123;public:    int divide(int dividend, int divisor) &amp;#123;        long ret = 0;        bool f">
+<meta property="og:description" content="题目:给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。 返回被除数 dividend 除以除数 divisor 得到的商。 题目链接:Divide Two IntegersC++:利用位运算实现快速加减1234567891011121314151617181920212223242526272829class Solution">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-05T15:54:58.375Z">
+<meta property="og:updated_time" content="2019-04-11T01:25:10.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode每天刷day21:Divide Two Integers">
-<meta name="twitter:description" content="题目链接:Divide Two IntegersC++:利用位运算实现快速加减1234567891011121314151617181920212223242526272829class Solution &amp;#123;public:    int divide(int dividend, int divisor) &amp;#123;        long ret = 0;        bool f">
+<meta name="twitter:description" content="题目:给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。 返回被除数 dividend 除以除数 divisor 得到的商。 题目链接:Divide Two IntegersC++:利用位运算实现快速加减1234567891011121314151617181920212223242526272829class Solution">
 
 
 
@@ -435,7 +435,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  119
+                  169
                 </span>
               
 
@@ -461,6 +461,8 @@
 
       
         <hr>
+<p>题目:<br>给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。</p>
+<p>返回被除数 dividend 除以除数 divisor 得到的商。</p>
 <p><a href="https://leetcode-cn.com/problems/divide-two-integers/" target="_blank" rel="noopener">题目链接:Divide Two Integers</a><br>C++:<br>利用位运算实现快速加减<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"><span class="symbol">public:</span></span><br><span class="line">    int <span class="keyword">divide(int </span><span class="keyword">dividend, </span>int <span class="keyword">divisor) </span>&#123;</span><br><span class="line"></span><br><span class="line">        long ret = <span class="number">0</span><span class="comment">;</span></span><br><span class="line">        <span class="keyword">bool </span>flag = false<span class="comment">;</span></span><br><span class="line">        if((<span class="keyword">divisor </span>&lt; <span class="number">0</span> &amp;&amp; <span class="keyword">dividend </span>&gt; <span class="number">0</span>) <span class="title">||</span> (<span class="keyword">divisor </span>&gt; <span class="number">0</span> &amp;&amp; <span class="keyword">dividend </span>&lt; <span class="number">0</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            flag = true<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        long <span class="keyword">divisorTmp </span>= fabs(<span class="keyword">divisor);</span></span><br><span class="line"><span class="keyword"> </span>       long <span class="keyword">dividendTmp </span>= fabs(<span class="keyword">dividend);</span></span><br><span class="line"><span class="keyword"> </span>       if(<span class="keyword">divisorTmp </span>&gt; <span class="keyword">dividendTmp)</span></span><br><span class="line"><span class="keyword"> </span>           return <span class="number">0</span><span class="comment">;</span></span><br><span class="line">        while(<span class="keyword">divisorTmp </span>&lt;= <span class="keyword">dividendTmp)&#123;</span></span><br><span class="line"><span class="keyword"> </span>           long cnt = <span class="number">1</span>, <span class="keyword">base </span>= <span class="keyword">divisorTmp;</span></span><br><span class="line"><span class="keyword"> </span>           while((<span class="keyword">base&lt;&lt;1) </span>&lt; <span class="keyword">dividendTmp)&#123;</span></span><br><span class="line"><span class="keyword"> </span>               cnt &lt;&lt;= <span class="number">1</span><span class="comment">;</span></span><br><span class="line">                <span class="keyword">base </span>&lt;&lt;= <span class="number">1</span><span class="comment">;</span></span><br><span class="line">            &#125;</span><br><span class="line">            ret += cnt<span class="comment">;</span></span><br><span class="line">            <span class="keyword">dividendTmp </span>-= <span class="keyword">base;</span></span><br><span class="line"><span class="keyword"> </span>       &#125;</span><br><span class="line">        if(flag)&#123;</span><br><span class="line">            ret = -ret<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        return (ret &gt; INT_MAX <span class="title">||</span> ret &lt; INT_MIN) ? INT_MAX : ret<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
 
       
@@ -630,7 +632,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                -------华--丽--的--分--割--线-------
+                ----华--丽--的--分--割--线----
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -676,7 +678,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共40.3k字</span>
+  <span class="post-count">博客全站共43.2k字</span>
 </div>
 
         

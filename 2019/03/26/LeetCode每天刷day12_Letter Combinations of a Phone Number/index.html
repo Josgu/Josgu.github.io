@@ -131,18 +131,20 @@
 
 
 
-<meta name="description" content="题目链接:Letter Combinations of a Phone NumberC++:12345678910111213141516171819202122232425262728class Solution &amp;#123;public:    vector&amp;lt;string&amp;gt; letterCombinations(string digits) &amp;#123;       unorde">
+<meta name="description" content="题目:给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。 题目链接:Letter Combinations of a Phone NumberC++:12345678910111213141516171819202122232425262728class Solution &amp;#123;public:    ve">
 <meta name="keywords" content="字符串,哈希">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode每天刷day12:Letter Combinations of a Phone Number">
 <meta property="og:url" content="http://blog.josgu.com/2019/03/26/LeetCode每天刷day12_Letter Combinations of a Phone Number/index.html">
 <meta property="og:site_name" content="Jos&#39;s blogs">
-<meta property="og:description" content="题目链接:Letter Combinations of a Phone NumberC++:12345678910111213141516171819202122232425262728class Solution &amp;#123;public:    vector&amp;lt;string&amp;gt; letterCombinations(string digits) &amp;#123;       unorde">
+<meta property="og:description" content="题目:给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。 题目链接:Letter Combinations of a Phone NumberC++:12345678910111213141516171819202122232425262728class Solution &amp;#123;public:    ve">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T05:20:33.711Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190411093453266.png">
+<meta property="og:updated_time" content="2019-04-11T01:35:31.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode每天刷day12:Letter Combinations of a Phone Number">
-<meta name="twitter:description" content="题目链接:Letter Combinations of a Phone NumberC++:12345678910111213141516171819202122232425262728class Solution &amp;#123;public:    vector&amp;lt;string&amp;gt; letterCombinations(string digits) &amp;#123;       unorde">
+<meta name="twitter:description" content="题目:给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。 题目链接:Letter Combinations of a Phone NumberC++:12345678910111213141516171819202122232425262728class Solution &amp;#123;public:    ve">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190411093453266.png">
 
 
 
@@ -435,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  148
+                  207
                 </span>
               
 
@@ -461,6 +463,7 @@
 
       
         <hr>
+<p>题目:<br>给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。<br>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。<br><img src="https://img-blog.csdnimg.cn/20190411093453266.png" alt="在这里插入图片描述"></p>
 <p><a href="https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/" target="_blank" rel="noopener">题目链接:Letter Combinations of a Phone Number</a><br>C++:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; letterCombinations(<span class="built_in">string</span> digits) &#123;</span><br><span class="line">       <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="built_in">string</span>&gt; table&#123;</span><br><span class="line">            &#123;<span class="string">'2'</span>, <span class="string">"abc"</span>&#125;,&#123;<span class="string">'3'</span>,<span class="string">"def"</span>&#125;, &#123;<span class="string">'4'</span>,<span class="string">"ghi"</span>&#125;,</span><br><span class="line">            &#123;<span class="string">'5'</span>,<span class="string">"jkl"</span>&#125;,&#123;<span class="string">'6'</span>,<span class="string">"mno"</span>&#125;, &#123;<span class="string">'7'</span>,<span class="string">"pqrs"</span>&#125;,</span><br><span class="line">            &#123;<span class="string">'8'</span>,<span class="string">"tuv"</span>&#125;,&#123;<span class="string">'9'</span>,<span class="string">"wxyz"</span>&#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line">        <span class="keyword">if</span>(digits == <span class="string">""</span>)</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        fun(res, <span class="string">""</span>, digits, table, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp;res, <span class="built_in">string</span> str, <span class="built_in">string</span> &amp;digits, <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="built_in">string</span>&gt; &amp;m, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(str.size() == digits.size())&#123;</span><br><span class="line">            res.push_back(str);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">string</span> tmp = m[digits[k]];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> w : tmp)&#123;</span><br><span class="line">            str += w;</span><br><span class="line">            fun(res, str, digits, m, k+<span class="number">1</span>);</span><br><span class="line">            str.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>排列组合,利用递归求解</p>
 
@@ -633,7 +636,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                -------华--丽--的--分--割--线-------
+                ----华--丽--的--分--割--线----
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -679,7 +682,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共40.3k字</span>
+  <span class="post-count">博客全站共43.2k字</span>
 </div>
 
         

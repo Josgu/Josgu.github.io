@@ -131,18 +131,18 @@
 
 
 
-<meta name="description" content="题目链接:Palindrome NumberC++: 12345678910111213141516171819202122232425262728293031323334353637class Solution &amp;#123;public:    bool isPalindrome(int x) &amp;#123;        if(x &amp;lt; 0 || (x%10==0 &amp;amp;&amp;amp; x">
+<meta name="description" content="题目:判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。 题目链接:Palindrome NumberC++: 12345678910111213141516171819202122232425262728293031323334353637class Solution &amp;#123;public:    bool isPalindrome(int x) &amp;#">
 <meta name="keywords" content="回文数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode每天刷day8:Palindrome Number">
 <meta property="og:url" content="http://blog.josgu.com/2019/03/22/LeetCode每天刷day8_Palindrome Number/index.html">
 <meta property="og:site_name" content="Jos&#39;s blogs">
-<meta property="og:description" content="题目链接:Palindrome NumberC++: 12345678910111213141516171819202122232425262728293031323334353637class Solution &amp;#123;public:    bool isPalindrome(int x) &amp;#123;        if(x &amp;lt; 0 || (x%10==0 &amp;amp;&amp;amp; x">
+<meta property="og:description" content="题目:判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。 题目链接:Palindrome NumberC++: 12345678910111213141516171819202122232425262728293031323334353637class Solution &amp;#123;public:    bool isPalindrome(int x) &amp;#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T05:31:58.820Z">
+<meta property="og:updated_time" content="2019-04-11T01:40:57.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode每天刷day8:Palindrome Number">
-<meta name="twitter:description" content="题目链接:Palindrome NumberC++: 12345678910111213141516171819202122232425262728293031323334353637class Solution &amp;#123;public:    bool isPalindrome(int x) &amp;#123;        if(x &amp;lt; 0 || (x%10==0 &amp;amp;&amp;amp; x">
+<meta name="twitter:description" content="题目:判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。 题目链接:Palindrome NumberC++: 12345678910111213141516171819202122232425262728293031323334353637class Solution &amp;#123;public:    bool isPalindrome(int x) &amp;#">
 
 
 
@@ -435,7 +435,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  143
+                  183
                 </span>
               
 
@@ -461,9 +461,9 @@
 
       
         <hr>
+<p>题目:<br>判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
 <p><a href="https://leetcode-cn.com/problems/palindrome-number" target="_blank" rel="noopener">题目链接:Palindrome Number</a><br>C++:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span> || (x%<span class="number">10</span>==<span class="number">0</span> &amp;&amp; x!=<span class="number">0</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(x&gt;=<span class="number">0</span> &amp;&amp; x &lt; <span class="number">10</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">long</span> m = <span class="number">0</span> ,n = x;</span><br><span class="line">        <span class="keyword">while</span>(n)&#123;</span><br><span class="line">            m = m * <span class="number">10</span> + n % <span class="number">10</span>;</span><br><span class="line">            n /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(m == x)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//不解leetcode上为什么下面跑的没有上面快?</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span> || (x % <span class="number">10</span> ==<span class="number">0</span> &amp;&amp; x != <span class="number">0</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(x&gt;=<span class="number">0</span> &amp;&amp; x &lt; <span class="number">10</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x &gt; m)&#123;</span><br><span class="line">            m = m * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (m == x || m / <span class="number">10</span> == x)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
       
     </div>
 	<div>
@@ -631,7 +631,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                -------华--丽--的--分--割--线-------
+                ----华--丽--的--分--割--线----
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -677,7 +677,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共40.3k字</span>
+  <span class="post-count">博客全站共43.2k字</span>
 </div>
 
         

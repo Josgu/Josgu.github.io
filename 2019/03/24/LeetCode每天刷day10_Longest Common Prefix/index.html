@@ -131,17 +131,17 @@
 
 
 
-<meta name="description" content="题目链接:Longest Common PrefixC++ 12345678910111213141516171819class Solution &amp;#123;public:    string longestCommonPrefix(vector&amp;lt;string&amp;gt;&amp;amp; strs) &amp;#123;        int lens = strs.size();        if(l">
+<meta name="description" content="题目:编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 “”。 题目链接:Longest Common PrefixC++ 12345678910111213141516171819class Solution &amp;#123;public:    string longestCommonPrefix(vector&amp;lt;string&amp;gt;&amp;amp; strs) &amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode每天刷day10:Longest Common Prefix">
 <meta property="og:url" content="http://blog.josgu.com/2019/03/24/LeetCode每天刷day10_Longest Common Prefix/index.html">
 <meta property="og:site_name" content="Jos&#39;s blogs">
-<meta property="og:description" content="题目链接:Longest Common PrefixC++ 12345678910111213141516171819class Solution &amp;#123;public:    string longestCommonPrefix(vector&amp;lt;string&amp;gt;&amp;amp; strs) &amp;#123;        int lens = strs.size();        if(l">
+<meta property="og:description" content="题目:编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 “”。 题目链接:Longest Common PrefixC++ 12345678910111213141516171819class Solution &amp;#123;public:    string longestCommonPrefix(vector&amp;lt;string&amp;gt;&amp;amp; strs) &amp;#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T05:34:33.967Z">
+<meta property="og:updated_time" content="2019-04-11T01:38:30.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode每天刷day10:Longest Common Prefix">
-<meta name="twitter:description" content="题目链接:Longest Common PrefixC++ 12345678910111213141516171819class Solution &amp;#123;public:    string longestCommonPrefix(vector&amp;lt;string&amp;gt;&amp;amp; strs) &amp;#123;        int lens = strs.size();        if(l">
+<meta name="twitter:description" content="题目:编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 “”。 题目链接:Longest Common PrefixC++ 12345678910111213141516171819class Solution &amp;#123;public:    string longestCommonPrefix(vector&amp;lt;string&amp;gt;&amp;amp; strs) &amp;#">
 
 
 
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  78
+                  117
                 </span>
               
 
@@ -438,9 +438,9 @@
 
       
         <hr>
+<p>题目:<br>编写一个函数来查找字符串数组中的最长公共前缀。<br>如果不存在公共前缀，返回空字符串 “”。</p>
 <p><a href="https://leetcode-cn.com/problems/longest-common-prefix" target="_blank" rel="noopener">题目链接:Longest Common Prefix</a><br>C++</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">string</span> longestCommonPrefix(vector&lt;<span class="keyword">string</span>&gt;&amp; strs) &#123;</span><br><span class="line">        <span class="keyword">int</span> lens = strs.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">if</span>(lens==<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">string</span> ans=strs[<span class="number">0</span>];</span><br><span class="line">        <span class="built_in">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;lens;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> j=<span class="number">0</span>,len=<span class="built_in">min</span>(ans.<span class="built_in">size</span>(),strs[i].<span class="built_in">size</span>());</span><br><span class="line">            <span class="built_in">while</span>(j&lt;len &amp;&amp; ans[j]==strs[i][j])</span><br><span class="line">                j++;</span><br><span class="line">            ans.erase(ans.<span class="built_in">begin</span>()+j,ans.<span class="built_in">end</span>());</span><br><span class="line">            <span class="built_in">if</span>(ans==<span class="string">""</span>)</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
       
     </div>
 	<div>
@@ -602,7 +602,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-globe"></i>
-                -------华--丽--的--分--割--线-------
+                ----华--丽--的--分--割--线----
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -648,7 +648,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共40.3k字</span>
+  <span class="post-count">博客全站共43.2k字</span>
 </div>
 
         
