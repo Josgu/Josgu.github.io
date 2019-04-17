@@ -1,6 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode每天刷day32: 2019 力扣杯 从始点到终点的所有路径]]></title>
+    <url>%2F2019%2F04%2F17%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day32_2019%20%E5%8A%9B%E6%89%A3%E6%9D%AF%20%E4%BB%8E%E5%A7%8B%E7%82%B9%E5%88%B0%E7%BB%88%E7%82%B9%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84%2F</url>
+    <content type="text"><![CDATA[题目:给定有向图的边 edges，以及该图的始点 source 和目标终点 destination，确定从始点 source 出发的所有路径是否最终结束于目标终点 destination，即： 从始点 source 到目标终点 destination 存在至少一条路径 如果存在从始点 source 到没有出边的节点的路径，则该节点就是路径终点。 从始点source到目标终点 destination 可能路径数是有限数字 当从始点 source 出发的所有路径都可以到达目标终点 destination 时返回 true，否则返回 false。题目链接:从始点到终点的所有路径C++: 12345678910111213141516171819202122232425262728293031323334353637class Solution &#123;public: bool leadsToDestination(int n, vector&lt;vector&lt;int&gt;&gt;&amp; edges, int source, int destination) &#123; vector&lt;vector&lt;int&gt;&gt; graph(n); bool vis[n]; memset(vis, 0, sizeof(vis)); for(int i = 0; i &lt; edges.size(); i++)&#123; graph[edges[i][0]].push_back(edges[i][1]); &#125; if(graph[destination].size() != 0) return false; if(n == 1) return true; vis[source] = true; if(!dfs(graph, vis, source, destination)) return false; return true; &#125; bool dfs(vector&lt;vector&lt;int&gt;&gt; &amp;graph, bool *vis, int last, int destination)&#123; if(graph[last].size() == 0) return false; for(int i = 0; i &lt; graph[last].size(); i++)&#123; if(vis[graph[last][i]]) return false; else&#123; if(graph[last][i] == destination)&#123; continue; &#125; vis[graph[last][i]] = true; if(!dfs(graph, vis, graph[last][i], destination)) return false; vis[graph[last][i]] = false; &#125; &#125; return true; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>dfs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day31: 2019 力扣杯 最小化舍入误差以满足目标]]></title>
+    <url>%2F2019%2F04%2F16%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day31_2019%20%E5%8A%9B%E6%89%A3%E6%9D%AF%20%E6%9C%80%E5%B0%8F%E5%8C%96%E8%88%8D%E5%85%A5%E8%AF%AF%E5%B7%AE%E4%BB%A5%E6%BB%A1%E8%B6%B3%E7%9B%AE%E6%A0%87%2F</url>
+    <content type="text"><![CDATA[题目:给定一系列价格 [p1,p2…,pn] 和一个目标 target，将每个价格 pi 舍入为 Roundi(pi) 以使得舍入数组 [Round1(p1),Round2(p2)…,Roundn(pn)] 之和达到给定的目标值 target。每次舍入操作 Roundi(pi) 可以是向下舍 Floor(pi) 也可以是向上入 Ceil(pi)。 如果舍入数组之和无论如何都无法达到目标值 target，就返回 -1。否则，以保留到小数点后三位的字符串格式返回最小的舍入误差，其定义为 Σ |Roundi(pi) - (pi)|（ i 从 1 到 n ）。 1 &lt;= prices.length &lt;= 500 表示价格的每个字符串 prices[i] 都代表一个介于 0 和 1000 之间的实数，并且正好有 3 个小数位。 target 介于 0 和 1000000 之间。 题目链接:最小化舍入误差以满足目标C++:保留小数返回double类型把我搞懵了, 题目的target没有说是什么类型小声bb123456789101112131415161718192021222324252627282930313233343536class Solution &#123;public: static bool cmp(double a, double b)&#123; return a &gt; b; &#125; string minimizeError(vector&lt;string&gt;&amp; prices, int target) &#123; int lens = prices.size(); vector&lt;double&gt; tmp; int minn = 0; int maxn = 0; for(int i = 0; i &lt; lens; i++)&#123; minn += floor(stod(prices[i])); maxn += ceil(stod(prices[i])); tmp.push_back((double)(stod(prices[i]) - floor(stod(prices[i])))); &#125; sort(tmp.begin(), tmp.end(), cmp); if(target &lt; minn || target &gt; maxn) return "-1"; else&#123; auto itr = tmp.begin(); while(target != minn)&#123; minn++; *itr = (1 - *itr); *itr++; &#125; &#125; double via = 0.0; for(int t = 0; t &lt; tmp.size(); t++)&#123; via += tmp[t]; &#125; via = floor(via * 1000.0 + 0.5) /1000.0; string ret = to_string(via); ret = ret.substr(0,ret.size() - 3); return ret; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day28:查看修改文件编码命令]]></title>
+    <url>%2F2019%2F04%2F15%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day28_%E6%9F%A5%E7%9C%8B%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E7%BC%96%E7%A0%81%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[今天从从Windows上拷贝了一个C++源文件,结果出现了中文乱码,在网上看了些查看修改文件编码的命令,以作记录 查看文件编码1.命令file file filename 2.通过vim末行模式输入: :set fileencoding 3.命令行工具enca 没有安装先安装 : sudo apt nstall enca enca [-L LANGUAGE] [OPTION]... [FILE]... enconv [-L LANGUAGE] [OPTION]... [FILE]... 文件编码转换1.通过vim末行模式输入: :set fileencoding=utf-8 2.enconv/enca 转换文件编码，比如要将一个GBK编码的文件转换成UTF-8编码，操作如下 enconv -L zh_CN -x UTF-8 filename enca -L zh_CN -x UTF-8 filename 文件名编码转换使用convmv命令 没有安装先安装convmv sudo apt install convmv convmv -f encoding -t encoding filename //未转换,仅仅可以看到对比 convmv -f encoding -t encoding --notest filename //转换]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day30: 2019 力扣杯 校园自行车分配]]></title>
+    <url>%2F2019%2F04%2F15%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day30_%202019%20%E5%8A%9B%E6%89%A3%E6%9D%AF%20%E6%A0%A1%E5%9B%AD%E8%87%AA%E8%A1%8C%E8%BD%A6%E5%88%86%E9%85%8D%2F</url>
+    <content type="text"><![CDATA[题目:在由 2D 网格表示的校园里有 n 位工人（worker）和 m 辆自行车（bike），n &lt;= m。所有工人和自行车的位置都用网格上的 2D 坐标表示。我们需要为每位工人分配一辆自行车。在所有可用的自行车和工人中，我们选取彼此之间曼哈顿距离最短的工人自行车对 (worker, bike) ，并将其中的自行车分配給工人。如果有多个 (worker, bike) 对之间的曼哈顿距离相同，那么我们选择工人索引最小的那对。类似地，如果有多种不同的分配方法，则选择自行车索引最小的一对。不断重复这一过程，直到所有工人都分配到自行车为止。给定两点 p1 和 p2 之间的曼哈顿距离为 Manhattan(p1, p2) = |p1.x - p2.x| + |p1.y - p2.y|。返回长度为 n 的向量 ans，其中 a[i] 是第 i 位工人分配到的自行车的索引（从 0 开始）。 题目链接:校园自行车分配C++: 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051class Solution &#123;public: struct node&#123; int id_worker; int id_bike; int dis; &#125;; static bool cmp(const node &amp;a, const node &amp;b)&#123; if(a.dis == b.dis)&#123; if(a.id_worker == b.id_worker)&#123; return a.id_bike &lt; b.id_bike; &#125; else return a.id_worker &lt; b.id_worker; &#125; else return a.dis &lt; b.dis; &#125; vector&lt;int&gt; assignBikes(vector&lt;vector&lt;int&gt;&gt;&amp; workers, vector&lt;vector&lt;int&gt;&gt;&amp; bikes) &#123; int n = workers.size(); int m = bikes.size(); bool visw[n]; bool visb[m]; vector&lt;int&gt; ret(n); vector&lt;node&gt; tmp; memset(visw, 0, sizeof(visw)); memset(visb, 0, sizeof(visb)); node via; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; m; j++)&#123; via.id_worker = i; via.id_bike = j; via.dis = abs(workers[i][0] - bikes[j][0]) + abs(workers[i][1] - bikes[j][1]); tmp.push_back(via); &#125; &#125; sort(tmp.begin(), tmp.end(), cmp); int cnt = 0; for(int i = 0; i &lt; tmp.size(); i++)&#123; if(!visw[tmp[i].id_worker]&amp;&amp;!visb[tmp[i].id_bike])&#123; ret[tmp[i].id_worker] = tmp[i].id_bike; visw[tmp[i].id_worker] = true; visb[tmp[i].id_bike] = true; cnt++; &#125; if(cnt == n) break; &#125; return ret; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>贪心</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day30: 2019 力扣杯 易混淆数]]></title>
+    <url>%2F2019%2F04%2F15%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day30_%202019%20%E5%8A%9B%E6%89%A3%E6%9D%AF%20%E6%98%93%E6%B7%B7%E6%B7%86%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[题目:给定一个数字 N，当它满足以下条件的时候返回 true：把原数字旋转180°以后得到新的数字。如 0, 1, 6, 8, 9 旋转 180° 以后，得到了新的数字 0, 1, 9, 8, 6 。2, 3, 4, 5, 7 旋转 180° 后,得到的不是数字。易混淆数字 (confusing number) 就是一个数字旋转180°以后，得到和原来不同的数字，且新数字的每一位都是有效的。 题目链接:易混淆数C++: 123456789101112131415161718192021222324252627class Solution &#123;public: bool confusingNumber(int N) &#123; long cnt = 10; int N_f = 0; map&lt;int,int&gt; m&#123; &#123;0, 0&#125;,&#123;1, 1&#125;,&#123;6, 9&#125;, &#123;8, 8&#125;,&#123;9, 6&#125; &#125;; int temp = 0; int via = N; while(via)&#123; temp = via%10; via /= 10; if(m.count(temp))&#123; N_f = cnt * N_f + m[temp]; &#125; else return false; &#125; if(N == N_f) return false; else return true; &#125;&#125;; :( 没参加,补一下题]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day29:Multiply Strings]]></title>
+    <url>%2F2019%2F04%2F13%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day29_Multiply%20Strings%2F</url>
+    <content type="text"><![CDATA[题目:给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。 num1 和 num2 的长度小于110。num1 和 num2 只包含数字 0-9。num1 和 num2 均不以零开头，除非是数字 0 本身。不能使用任何标准库的大数类型（比如 BigInteger）或直接将输入转换为整数来处理。 题目链接:Multiply Strings C++: 1234567891011121314151617181920212223242526class Solution &#123;public:string multiply(string num1, string num2) &#123; if (num1[0] == '0' || num2[0] == '0') return "0"; int len1 = num1.size(), len2 = num2.size(); int num[len1 + len2] = &#123;0&#125;; for (int i = num1.size() - 1; i &gt;= 0; i--) for (int j = num2.size() - 1; j &gt;= 0; j--) num[i + j + 1] += (num1[i] - '0') * (num2[j] - '0'); int carry = 0; for (int i = len1 + len2 - 1; i &gt;= 0; i--) &#123; num[i] += carry; carry = num[i] / 10; num[i] %= 10; &#125; string ans; int idx = 0; while (idx &lt; len1 + len2 &amp;&amp; num[idx] == 0) idx++; for (; idx &lt; len1 + len2; idx++) ans += num[idx] + '0'; return ans; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day27:iostat命令]]></title>
+    <url>%2F2019%2F04%2F12%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day27_iostat%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[iostatiostat(I/O statistics)方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等IO设备的活动情况, 负载信息。语法: iostat [OPTION] 选项: -c 显示CPU使用情况 -d 显示磁盘使用情况 -k 以 KB 为单位显示 -m 以 M 为单位显示 -N 显示磁盘阵列(LVM) 信息 -n 显示NFS 使用情况 -p[磁盘] 显示磁盘和分区的情况 -t 显示终端和CPU的信息 -x 显示详细信息 -V 显示版本信息]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day28:Count and Say]]></title>
+    <url>%2F2019%2F04%2F12%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day28_Count%20and%20Say%2F</url>
+    <content type="text"><![CDATA[题目:报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下： 1. 1 2. 11 3. 21 4. 1211 5. 111221 1 被读作 “one 1” (“一个一”) , 即 11。11 被读作 “two 1s” (“两个一”）, 即 21。21 被读作 “one 2”, “one 1” （”一个二” , “一个一”) , 即 1211。 给定一个正整数 n（1 ≤ n ≤ 30），输出报数序列的第 n 项。 注意：整数顺序将表示为一个字符串。 题目链接:Count and Say C++: 123456789101112131415161718192021222324252627282930313233343536class Solution &#123;public: string countAndSay(int n) &#123; if (n == 0) return ""; else if (n == 1) return "1"; else if (n == 2) return "11"; else if (n == 3) return "21"; else if (n == 4) return "1211"; string str = countAndSay(n - 1); string res; char temp = 0; int count = 0; for (char i : str)&#123; if (i != temp) &#123; if (temp != 0) &#123; res += to_string(count) + temp; &#125; temp = i; count = 0; &#125; count++; &#125; if (temp != 0) &#123; res += to_string(count) + temp; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>递归</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux每天记day26:cal命令]]></title>
+    <url>%2F2019%2F04%2F11%2FLinux%E6%AF%8F%E5%A4%A9%E8%AE%B0day26_%20cal%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[calcal 用于查看日历等时间信息，如只有一个参数，则表示年份(1-9999)，如有两个参数，则表示月份和年份语法: cal [general options] [-jy] [[month] year] cal [general options] [-j] [-m month] [year] ncal -C [general options] [-jy] [[month] year] ncal -C [general options] [-j] [-m month] [year] ncal [general options] [-bhJjpwySM] [-H yyyy-mm-dd] [-s country_code] [[month] year] ncal [general options] [-bhJeoSM] [year] 选项: -y 显示一年 -j 按天数显示 操作:]]></content>
+      <categories>
+        <category>Linux指令</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day27:valid sudoku]]></title>
+    <url>%2F2019%2F04%2F11%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day27_valid%20sudoku%2F</url>
+    <content type="text"><![CDATA[题目:判断一个 9x9 的数独是否有效。只需要根据以下规则，验证已经填入的数字是否有效即可。 数字 1-9 在每一行只能出现一次。数字 1-9 在每一列只能出现一次。数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。 上图是一个部分填充的有效的数独。 数独部分空格内已填入了数字，空白格用 ‘.’ 表示。题目链接:valid sudokuC++: 1234567891011121314151617181920212223class Solution &#123;public: bool isValidSudoku(vector&lt;vector&lt;char&gt;&gt;&amp; board) &#123; for(int i = 0; i &lt; 9; i++)&#123; for(int j =0; j &lt; 9; j++)&#123; if(board[i][j] == '.') continue; for(int k = 8; k &gt; j; k--) if(board[i][j] == board[i][k]) return false; for(int k = 8; k &gt; i; k--) if(board[i][j] == board[k][j]) return false; for(int k = i + 1; k % 3 != 0; k ++)&#123; for(int h = j / 3 * 3;h &lt; j / 3 * 3 + 3; h ++ ) if(board[i][j] == board[k][h]) return false; &#125; &#125; &#125; return true; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day27:Search Insert Position]]></title>
+    <url>%2F2019%2F04%2F11%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day27_Search%20Insert%20Position%2F</url>
+    <content type="text"><![CDATA[题目:给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。 你可以假设数组中无重复元素。题目链接:Search Insert PositionC++:二分查找123456789101112131415161718192021class Solution &#123;public: int searchInsert(vector&lt;int&gt;&amp; nums, int target) &#123; int len = nums.size(); if(len == 0) return 0; int l = 0; int r = len -1; int mid = 0; while(l &lt;= r)&#123; mid = (l + r) / 2; if(nums[mid] == target) return mid; if(nums[mid] &lt; target) l = mid +1; else r = mid - 1; &#125; return l; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>二分查找</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode每天刷day26:Find First and Last Position of Element in Sorted Array]]></title>
     <url>%2F2019%2F04%2F10%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day26_Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array%2F</url>
     <content type="text"><![CDATA[题目:给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。 你的算法时间复杂度必须是 O(log n) 级别。 如果数组中不存在目标值，返回 [-1, -1]。题目链接:Find First and Last Position of Element in Sorted ArrayC++:二分查找,时间复杂度为O(log(n))1234567891011121314151617181920212223242526272829303132333435class Solution &#123;public: vector&lt;int&gt; searchRange(vector&lt;int&gt;&amp; nums, int target) &#123; vector&lt;int&gt; ret(2, -1); int len = nums.size(); if(len &lt;= 0) return ret; int l = 0; int r = len - 1; while(l &lt;= r)&#123; int mid = (r - l) / 2 + l; if(nums[mid] &lt; target)&#123; l = mid + 1; &#125; else&#123; r = mid - 1; &#125; &#125; if(l &gt;= len || nums[l] != target) return ret; ret[0] = l; r = len - 1; while(l &lt;= r)&#123; int mid = (r - l) / 2 + l; if(nums[mid] &gt; target)&#123; r = mid-1; &#125; else&#123; l = mid + 1; &#125; &#125; ret[1] = r; return ret; &#125;&#125;;]]></content>
@@ -286,8 +389,8 @@
         <category>Linux指令</category>
       </categories>
       <tags>
-        <tag>Linux文件查找</tag>
         <tag>find</tag>
+        <tag>Linux文件查找</tag>
       </tags>
   </entry>
   <entry>
