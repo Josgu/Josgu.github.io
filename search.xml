@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode每天刷day33:Combination Sum]]></title>
+    <url>%2F2019%2F04%2F18%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day33_Combination%20Sum%2F</url>
+    <content type="text"><![CDATA[题目:给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。 candidates 中的数字可以无限制重复被选取。 说明： 所有数字（包括 target）都是正整数。 解集不能包含重复的组合。 题目链接:Combination SumC++:index 可以保证结果不是重复的1234567891011121314151617181920212223242526272829303132333435class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; ret; void dfs(vector&lt;int&gt;&amp; candidates, vector&lt;int&gt;&amp; sub, int target, int index) &#123; int sum = 0; for(int i=0;i&lt;sub.size();i++) sum += sub[i]; if(sum==target) &#123; ret.push_back(sub); return; &#125; else if(sum&gt;target) return; else &#123; for(int i=index;i&lt;candidates.size();i++) &#123; sub.push_back(candidates[i]); dfs(candidates, sub, target, i); sub.pop_back(); &#125; &#125; return; &#125; vector&lt;vector&lt;int&gt;&gt; combinationSum(vector&lt;int&gt;&amp; candidates, int target) &#123; int len = candidates.size(); if(len == 0) return ret; vector&lt;int&gt; sub; dfs(candidates, sub, target, 0); return ret; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>dfs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode每天刷day32: 2019 力扣杯 从始点到终点的所有路径]]></title>
     <url>%2F2019%2F04%2F17%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day32_2019%20%E5%8A%9B%E6%89%A3%E6%9D%AF%20%E4%BB%8E%E5%A7%8B%E7%82%B9%E5%88%B0%E7%BB%88%E7%82%B9%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84%2F</url>
     <content type="text"><![CDATA[题目:给定有向图的边 edges，以及该图的始点 source 和目标终点 destination，确定从始点 source 出发的所有路径是否最终结束于目标终点 destination，即： 从始点 source 到目标终点 destination 存在至少一条路径 如果存在从始点 source 到没有出边的节点的路径，则该节点就是路径终点。 从始点source到目标终点 destination 可能路径数是有限数字 当从始点 source 出发的所有路径都可以到达目标终点 destination 时返回 true，否则返回 false。题目链接:从始点到终点的所有路径C++: 12345678910111213141516171819202122232425262728293031323334353637class Solution &#123;public: bool leadsToDestination(int n, vector&lt;vector&lt;int&gt;&gt;&amp; edges, int source, int destination) &#123; vector&lt;vector&lt;int&gt;&gt; graph(n); bool vis[n]; memset(vis, 0, sizeof(vis)); for(int i = 0; i &lt; edges.size(); i++)&#123; graph[edges[i][0]].push_back(edges[i][1]); &#125; if(graph[destination].size() != 0) return false; if(n == 1) return true; vis[source] = true; if(!dfs(graph, vis, source, destination)) return false; return true; &#125; bool dfs(vector&lt;vector&lt;int&gt;&gt; &amp;graph, bool *vis, int last, int destination)&#123; if(graph[last].size() == 0) return false; for(int i = 0; i &lt; graph[last].size(); i++)&#123; if(vis[graph[last][i]]) return false; else&#123; if(graph[last][i] == destination)&#123; continue; &#125; vis[graph[last][i]] = true; if(!dfs(graph, vis, graph[last][i], destination)) return false; vis[graph[last][i]] = false; &#125; &#125; return true; &#125;&#125;;]]></content>
