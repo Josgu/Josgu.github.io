@@ -1,6 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode每天刷day37:2019 力扣杯 有效子数组的数目]]></title>
+    <url>%2F2019%2F04%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day37_2019%20%E5%8A%9B%E6%89%A3%E6%9D%AF%20%E6%9C%89%E6%95%88%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%95%B0%E7%9B%AE%2F</url>
+    <content type="text"><![CDATA[题目:给定一个整数数组 A，返回满足下面条件的 非空、连续 子数组的数目：子数组中，最左侧的元素不大于其他元素。 提示： 1 &lt;= A.length &lt;= 50000 0 &lt;= A[i] &lt;= 100000 题目链接:有效子数组的数目C++: 12345678910111213141516class Solution &#123;public: int validSubarrays(vector&lt;int&gt;&amp; nums) &#123; int lens = nums.size(); int cnt = 0; for(int i = 0; i &lt; lens; i++)&#123; for(int j = i; j &lt; lens; j++)&#123; if(nums[j] &gt;= nums[i]) cnt++; else break; &#125; &#125; return cnt; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day37:2019 力扣杯 最长重复子串]]></title>
+    <url>%2F2019%2F04%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day37_2019%20%E5%8A%9B%E6%89%A3%E6%9D%AF%20%E6%9C%80%E9%95%BF%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2%2F</url>
+    <content type="text"><![CDATA[题目:给定字符串 S，找出最长重复子串的长度。如果不存在重复子串就返回 0。提示： 字符串 S 仅包含从 &apos;a&apos; 到 &apos;z&apos; 的小写英文字母。 1 &lt;= S.length &lt;= 1500 题目链接:最长重复子串C++: 123456789101112131415161718192021class Solution &#123;public: int longestRepeatingSubstring(string S) &#123; int lens = S.size(); string maxsubstr; for (int i = 0; i &lt; lens; i++) for (int j = 0; j &lt; i; j++)&#123; string tmp; int k = j; int m = i; while (S[m] == S[k] &amp;&amp; i&lt;lens &amp;&amp; k&lt;lens)&#123; m++; k++; &#125; tmp = S.substr(j, k - j); if (tmp.size()&gt;maxsubstr.size()) maxsubstr = tmp; &#125; return maxsubstr.size(); &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day37:2019 力扣杯 按字典序排列最小的等效字符串]]></title>
+    <url>%2F2019%2F04%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day37_2019%20%E5%8A%9B%E6%89%A3%E6%9D%AF%20%E6%8C%89%E5%AD%97%E5%85%B8%E5%BA%8F%E6%8E%92%E5%88%97%E6%9C%80%E5%B0%8F%E7%9A%84%E7%AD%89%E6%95%88%E5%AD%97%E7%AC%A6%E4%B8%B2%2F</url>
+    <content type="text"><![CDATA[题目: 给出长度相同的两个字符串：A 和 B，其中 A[i] 和 B[i] 是一组等价字符。举个例子，如果 A = “abc” 且 B = “cde”，那么就有 ‘a’ == ‘c’, ‘b’ == ‘d’, ‘c’ == ‘e’。 等价字符遵循任何等价关系的一般规则： 自反性：’a’ == ‘a’ 对称性：’a’ == ‘b’ 则必定有 ‘b’ == ‘a’ 传递性：’a’ == ‘b’ 且 ‘b’ == ‘c’ 就表明 ‘a’ == ‘c’ 例如，A 和 B 的等价信息和之前的例子一样，那么 S = “eed”, “acd” 或 “aab”，这三个字符串都是等价的，而 “aab” 是 S 的按字典序最小的等价字符串 利用 A 和 B 的等价信息，找出并返回 S 的按字典序排列最小的等价字符串。 提示： 字符串 A，B 和 S 仅有从 &apos;a&apos; 到 &apos;z&apos; 的小写英文字母组成。 字符串 A，B 和 S 的长度在 1 到 1000 之间。 字符串 A 和 B 长度相同。 题目链接:按字典序排列最小的等效字符串C++: 123456789101112131415161718192021222324class Solution &#123;public: string smallestEquivalentString(string A, string B, string S) &#123; map&lt;char,char&gt; mp; int lens = A.size(); for(int i = 0; i &lt; lens; i++)&#123; while(mp.count(A[i]) != 0) A[i] = mp[A[i]]; while(mp.count(B[i]) != 0) B[i] = mp[B[i]]; if(A[i] &lt; B[i])&#123; mp.insert(pair&lt;char, char&gt;(B[i], A[i])); &#125; else if(A[i] &gt; B[i])&#123; mp.insert(pair&lt;char, char&gt;(A[i], B[i])); &#125; &#125; for(int i = 0; i &lt; S.size(); i++)&#123; while(mp.count(S[i])) S[i] = mp[S[i]]; &#125; return S; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day37_2019 力扣杯 有序数组中的缺失元素]]></title>
+    <url>%2F2019%2F04%2F22%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day37_2019%20%E5%8A%9B%E6%89%A3%E6%9D%AF%20%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E7%BC%BA%E5%A4%B1%E5%85%83%E7%B4%A0%2F</url>
+    <content type="text"><![CDATA[题目:给出一个有序数组 A，数组中的每个数字都是 独一无二的，找出从数组最左边开始的第 K 个缺失数字。 提示： 1 &lt;= A.length &lt;= 50000 1 &lt;= A[i] &lt;= 1e7 1 &lt;= K &lt;= 1e8 题目链接:有序数组中的缺失元素C++: 12345678910111213141516171819202122232425262728class Solution &#123;public: int missingElement(vector&lt;int&gt;&amp; nums, int k) &#123; int lens = nums.size(); if(lens == 1) return nums[0] + k; int tmp = nums[0]; int cnt = 0; int ret; for(int i = 1; i &lt; lens; i++)&#123; if(nums[i] -1 != tmp)&#123; cnt = cnt + nums[i] - tmp - 1; tmp = nums[i]; &#125; else&#123; tmp = nums[i]; &#125; if(cnt &gt;= k)&#123; ret = tmp - cnt + k - 1; break; &#125; if(i == lens - 1)&#123; ret = tmp + k - cnt; &#125; &#125; return ret; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day36:周赛133两地调度]]></title>
+    <url>%2F2019%2F04%2F21%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day36_%E5%91%A8%E8%B5%9B133%E4%B8%A4%E5%9C%B0%E8%B0%83%E5%BA%A6%2F</url>
+    <content type="text"><![CDATA[题目:公司计划面试 2N 人。第 i 人飞往 A 市的费用为 costs[i][0]，飞往 B 市的费用为 costs[i][1]。返回将每个人都飞到某座城市的最低费用，要求每个城市都有 N 人抵达。 题目链接:两地调度C++:自己写的垃圾代码, 对比比人写的, 感觉自己C++的运用也太垃圾了…1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950class Solution &#123;public: struct node &#123; int valA; int valB; &#125;; static bool cmp(node a, node b)&#123; if(abs(a.valA - a.valB) == abs(b.valA - b.valB)) return a.valA &gt; b.valA; else return abs(a.valA - a.valB) &gt; abs(b.valA - b.valB); &#125; int twoCitySchedCost(vector&lt;vector&lt;int&gt;&gt;&amp; costs) &#123; int ret = 0; int N = costs.size() / 2; vector&lt;node&gt; list; for(int i = 0; i &lt; 2 * N; i++)&#123; node tmp; tmp.valA = costs[i][0]; tmp.valB = costs[i][1]; list.push_back(tmp); &#125; sort(list.begin(), list.end(), cmp); int cntA = N; int cntB = N; for(int i = 0; i &lt; list.size(); i++)&#123; if((cntA &amp;&amp; list[i].valA &lt;= list[i].valB))&#123; ret+= list[i].valA; cntA--; continue; &#125; if((cntB &amp;&amp; list[i].valB &lt;= list[i].valA))&#123; ret+= list[i].valB; cntB--; continue; &#125; while(cntA == 0 &amp;&amp; cntB)&#123; ret+= list[i].valB; cntB--; i++; &#125; while(cntB == 0 &amp;&amp; cntA)&#123; ret+= list[i].valA; cntA--; i++; &#125; &#125; return ret; &#125;&#125;; 贴一个别人的简洁代码, 自己好菜…还是要多读书多看报 123456789101112131415class Solution &#123;public: int twoCitySchedCost(vector&lt;vector&lt;int&gt;&gt;&amp; costs) &#123; sort(costs.begin(),costs.end(),[](vector&lt;int&gt;&amp; a,vector&lt;int&gt;&amp; b)&#123; return a[0]-a[1]&lt;b[0]-b[1]; &#125;); int N=costs.size()/2; int r=0; for(int i=0;i&lt;N;i++) r+=costs[i][0]; for(int j=N;j&lt;2*N;j++) r+=costs[j][1]; return r; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day36:周赛133两个非重叠子数组的最大和]]></title>
+    <url>%2F2019%2F04%2F21%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day36_%E5%91%A8%E8%B5%9B133%E4%B8%A4%E4%B8%AA%E9%9D%9E%E9%87%8D%E5%8F%A0%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C%2F</url>
+    <content type="text"><![CDATA[题目:给出非负整数数组 A ，返回两个非重叠（连续）子数组中元素的最大和，子数组的长度分别为 L 和 M。（这里需要澄清的是，长为 L 的子数组可以出现在长为 M 的子数组之前或之后。） 从形式上看，返回最大的 V，而 V = (A[i] + A[i+1] + … + A[i+L-1]) + (A[j] + A[j+1] + … + A[j+M-1]) 并满足下列条件之一： 0 &lt;= i &lt; i + L - 1 &lt; j &lt; j + M - 1 &lt; A.length, 或 0 &lt;= j &lt; j + M - 1 &lt; i &lt; i + L - 1 &lt; A.length. 题目链接:两个非重叠子数组的最大和C++:自己纯暴力写的:1234567891011121314151617181920212223242526272829303132333435363738class Solution &#123;public: int maxSumTwoNoOverlap(vector&lt;int&gt;&amp; A, int L, int M) &#123; int ret = 0; int tmp; for(int i =0; i &lt;= A.size() - L - M; i++)&#123; tmp = 0; for(int k = i; k &lt; i + L; k++) tmp+=A[k]; int tmp2 = tmp; for(int j = i + L; j &lt;= A.size() - M; j++)&#123; for(int z = j; z &lt; j + M; z++)&#123; tmp2 += A[z]; &#125; if(tmp2 &gt; ret)&#123; ret = tmp2; &#125; tmp2 = tmp; &#125; &#125; for(int i =0; i &lt;= A.size() - L - M; i++)&#123; tmp = 0; for(int k = i; k &lt; i + M; k++) tmp+=A[k]; int tmp2 = tmp; for(int j = i + M; j &lt;= A.size() - L; j++)&#123; for(int z = j; z &lt; j + L; z++)&#123; tmp2 += A[z]; &#125; if(tmp2 &gt; ret)&#123; ret = tmp2; &#125; tmp2 = tmp; &#125; &#125; return ret; &#125;&#125;; 方法二:通过数组记录前n项连续子数组和进行求区间和1234567891011121314151617class Solution &#123;public: int maxSumTwoNoOverlap(vector&lt;int&gt;&amp; A, int L, int M) &#123; int N=A.size(); vector&lt;int&gt; sums(N+1,0); for(int i=0;i&lt;N;i++) sums[i+1]=A[i]+sums[i]; int r=-1; for(int i=0;i+L&lt;=N;i++)&#123; for(int j=i+L;j+M&lt;=N;j++)&#123; r=max(r,sums[i+L]-sums[i]+sums[j+M]-sums[j]); &#125; for(int j=0;j+M&lt;=i;j++) r=max(r,sums[i+L]-sums[i]+sums[j+M]-sums[j]); &#125; return r; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day36:周赛133距离顺序排列矩阵单元格]]></title>
+    <url>%2F2019%2F04%2F21%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day36_%E5%91%A8%E8%B5%9B133%E8%B7%9D%E7%A6%BB%E9%A1%BA%E5%BA%8F%E6%8E%92%E5%88%97%E7%9F%A9%E9%98%B5%E5%8D%95%E5%85%83%E6%A0%BC%2F</url>
+    <content type="text"><![CDATA[题目:给出 R 行 C 列的矩阵，其中的单元格的整数坐标为 (r, c)，满足 0 &lt;= r &lt; R 且 0 &lt;= c &lt; C。另外，我们在该矩阵中给出了一个坐标为 (r0, c0) 的单元格。返回矩阵中的所有单元格的坐标，并按到 (r0, c0) 的距离从最小到最大的顺序排，其中，两单元格(r1, c1) 和 (r2, c2) 之间的距离是曼哈顿距离，|r1 - r2| + |c1 - c2|。（你可以按任何满足此条件的顺序返回答案。） 提示： 1 &lt;= R &lt;= 100 1 &lt;= C &lt;= 100 0 &lt;= r0 &lt; R 0 &lt;= c0 &lt; C 题目链接:距离顺序排列矩阵单元格C++: 1234567891011121314151617181920212223242526272829303132class Solution &#123;public: struct node&#123; int x; int y; int dis; &#125;; static bool cmp(node a, node b)&#123; return a.dis &lt; b.dis; &#125; vector&lt;vector&lt;int&gt;&gt; allCellsDistOrder(int R, int C, int r0, int c0) &#123; vector&lt;node&gt; list; vector&lt;vector&lt;int&gt;&gt; ret; for(int i = 0; i &lt; R; i++)&#123; for(int j = 0; j &lt; C; j++)&#123; node tmp; tmp.x = i; tmp.y = j; tmp.dis = abs(i - r0) + abs(j - c0); list.push_back(tmp); &#125; &#125; sort(list.begin(), list.end(), cmp); for(int i =0; i &lt; list.size(); i++)&#123; vector&lt;int&gt; temp; temp.push_back(list[i].x); temp.push_back(list[i].y); ret.push_back(temp); &#125; return ret; &#125;&#125;; 别人的简洁代码: 12345678910111213class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; allCellsDistOrder(int R, int C, int r0, int c0) &#123; vector&lt;vector&lt;int&gt;&gt; res; for(int i=0;i&lt;R;i++) for(int j=0;j&lt;C;j++) res.push_back(vector&lt;int&gt;&#123;i,j&#125;); sort(res.begin(),res.end(),[r0,c0](vector&lt;int&gt;&amp;a,vector&lt;int&gt;&amp; b)&#123; return abs(a[0]-r0)+abs(a[1]-c0)&lt;abs(b[0]-r0)+abs(b[1]-c0); &#125;); return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day35:Longest Continuous Increasing Subsequence]]></title>
+    <url>%2F2019%2F04%2F20%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day35_Longest%20Continuous%20Increasing%20Subsequence%2F</url>
+    <content type="text"><![CDATA[题目:给定一个未经排序的整数数组，找到最长且连续的的递增序列。 题目链接:Longest Continuous Increasing SubsequenceC++: 1234567891011121314151617181920class Solution &#123;public: int findLengthOfLCIS(vector&lt;int&gt;&amp; nums) &#123; if(nums.size() == 0 || nums.size() == 1) return nums.size(); int res = 0; int cnt = 1; for(auto itr1 = nums.begin(), itr2 = nums.begin() + 1; itr2 != nums.end();itr2++)&#123; if(*itr1 &lt; *itr2 &amp;&amp; itr2 != nums.end())&#123; cnt++; &#125; else cnt = 1; if(res &lt; cnt) res = cnt; itr1 = itr2; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day35:Max Area of Island]]></title>
+    <url>%2F2019%2F04%2F20%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day35_Max%20Area%20of%20Island%2F</url>
+    <content type="text"><![CDATA[题目:给定一个包含了一些 0 和 1的非空二维数组 grid , 一个 岛屿 是由四个方向 (水平或垂直) 的 1 (代表土地) 构成的组合。你可以假设二维矩阵的四个边缘都被水包围着。 找到给定的二维数组中最大的岛屿面积。(如果没有岛屿，则返回面积为0。) 题目链接:Max Area of IslandC++: 123456789101112131415161718192021222324252627282930class Solution &#123;public: int maxAreaOfIsland(vector&lt;vector&lt;int&gt;&gt;&amp; g) &#123; int areas = 0, maxAreas = 0; for (int i = 0; i &lt; g.size(); i++) &#123; for (int j = 0; j &lt; g[0].size(); j++) &#123; if (g[i][j] == 1) &#123; areas = dfs(g, i, j); if (areas &gt; maxAreas) maxAreas = areas; &#125; &#125; &#125; return maxAreas; &#125; int dfs(vector&lt;vector&lt;int&gt; &gt; &amp;g, int x, int y) &#123; if (x &gt;= g.size() || y &gt;= g[0].size() || x &lt; 0 || y &lt; 0 || g[x][y] != 1) return 0; else &#123; g[x][y] = -1; return dfs(g, x - 1, y) + dfs(g, x + 1, y) + dfs(g, x, y + 1) + dfs(g, x, y - 1) + 1; &#125; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>dfs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode每天刷day34:Reverse Words in a String]]></title>
+    <url>%2F2019%2F04%2F19%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day34_Reverse%20Words%20in%20a%20String%2F</url>
+    <content type="text"><![CDATA[题目:给定一个字符串，逐个翻转字符串中的每个单词 题目链接:Reverse Words in a StringC++: 1234567891011121314151617181920212223242526272829303132class Solution &#123;public: string reverseWords(string s) &#123; int lens = s.size(); if(lens == 0) return s; stack&lt;string&gt; tmp; bool flag = false; string substr = ""; string res = ""; for(int i = 0; i &lt; lens; i++)&#123; if(s[i] != ' ')&#123; substr = substr + s[i]; flag = true; &#125; if(flag &amp;&amp; (s[i] == ' ' || i == lens - 1))&#123; tmp.push(substr); substr = ""; flag = false; &#125; &#125; if(!tmp.empty())&#123; res = res + tmp.top(); tmp.pop(); &#125; while(!tmp.empty())&#123; res = res + " " + tmp.top(); tmp.pop(); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>栈</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode每天刷day33:Combination Sum]]></title>
     <url>%2F2019%2F04%2F18%2FLeetCode%E6%AF%8F%E5%A4%A9%E5%88%B7day33_Combination%20Sum%2F</url>
     <content type="text"><![CDATA[题目:给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。 candidates 中的数字可以无限制重复被选取。 说明： 所有数字（包括 target）都是正整数。 解集不能包含重复的组合。 题目链接:Combination SumC++:index 可以保证结果不是重复的1234567891011121314151617181920212223242526272829303132333435class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; ret; void dfs(vector&lt;int&gt;&amp; candidates, vector&lt;int&gt;&amp; sub, int target, int index) &#123; int sum = 0; for(int i=0;i&lt;sub.size();i++) sum += sub[i]; if(sum==target) &#123; ret.push_back(sub); return; &#125; else if(sum&gt;target) return; else &#123; for(int i=index;i&lt;candidates.size();i++) &#123; sub.push_back(candidates[i]); dfs(candidates, sub, target, i); sub.pop_back(); &#125; &#125; return; &#125; vector&lt;vector&lt;int&gt;&gt; combinationSum(vector&lt;int&gt;&amp; candidates, int target) &#123; int len = candidates.size(); if(len == 0) return ret; vector&lt;int&gt; sub; dfs(candidates, sub, target, 0); return ret; &#125;&#125;;]]></content>
